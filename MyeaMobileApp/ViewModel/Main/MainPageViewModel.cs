@@ -14,6 +14,12 @@ namespace MyeaMobileApp.ViewModel.Main
         }
 
         [RelayCommand]
+        public async Task NavigateToAboutUsPage()
+        {
+            await Shell.Current.GoToAsync("///AboutUsPage");
+        }            
+        
+        [RelayCommand]
         public async Task NavigateToLoginPage()
         {
             await Shell.Current.GoToAsync("///LoginPage");

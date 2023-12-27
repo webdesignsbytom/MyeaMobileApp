@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using MyeaMobileApp.Model;
+using MyeaMobileApp.View.About;
 using MyeaMobileApp.View.Account.Profile;
 using MyeaMobileApp.View.Lottery.LotteryMain;
 using MyeaMobileApp.View.Main;
@@ -8,6 +9,7 @@ using MyeaMobileApp.View.SocialMedia;
 using MyeaMobileApp.View.Users.Login;
 using MyeaMobileApp.View.Users.LoginOrRegister;
 using MyeaMobileApp.View.Users.Register;
+using MyeaMobileApp.ViewModel.About;
 using MyeaMobileApp.ViewModel.Account.Profile;
 using MyeaMobileApp.ViewModel.Lottery.LotteryMain;
 using MyeaMobileApp.ViewModel.Main;
@@ -48,6 +50,8 @@ namespace MyeaMobileApp
             builder.Services.AddSingleton<SocialMediaMainPageViewModel>();
             builder.Services.AddSingleton<LoginOrRegisterPage>();
             builder.Services.AddSingleton<LoginOrRegisterPageViewModel>();
+            builder.Services.AddSingleton<AboutUsPage>();
+            builder.Services.AddSingleton<AboutUsPageViewModel>();
             builder.Services.AddSingleton<UserModel>();
 
 

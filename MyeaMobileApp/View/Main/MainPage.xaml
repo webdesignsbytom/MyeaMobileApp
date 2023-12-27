@@ -39,6 +39,11 @@
         </HorizontalStackLayout>
 
             <Button
+                Text="About"
+                Style="{StaticResource ButtonStyle}"
+                Command="{Binding NavigateToAboutUsPageCommand}"/>                
+        
+            <Button
                 Text="Games"
                 Style="{StaticResource ButtonStyle}"
                 Command="{Binding NavigateToNewReelPageCommand}"/>              

@@ -12,6 +12,7 @@
     xmlns:lottery="clr-namespace:MyeaMobileApp.View.Lottery.LotteryMain"
     xmlns:logreg="clr-namespace:MyeaMobileApp.View.Users.LoginOrRegister"
     xmlns:media="clr-namespace:MyeaMobileApp.View.SocialMedia"
+    xmlns:about="clr-namespace:MyeaMobileApp.View.About"
     Shell.FlyoutBehavior="Disabled"
     Shell.NavBarIsVisible="False"
     Title="MyeaMobileApp">
@@ -54,7 +55,12 @@
     <ShellContent
         Title="Media"
         ContentTemplate="{DataTemplate media:SocialMediaMainPage}"
-        Route="SocialMediaMainPage" />    
+        Route="SocialMediaMainPage" />      
+    
+    <ShellContent
+        Title="About Us"
+        ContentTemplate="{DataTemplate about:AboutUsPage}"
+        Route="AboutUsPage" />    
    
 
 </Shell>
