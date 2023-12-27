@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyeaMobileApp.View.Users.LoginOrRegister.LoginOrRegisterPage"
+             Title="LoginOrRegisterPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="EntryStyle" TargetType="Entry">
+                <Setter Property="Margin" Value="0,10"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="BackgroundColor" Value="#EEEEEE"/>
+                <Setter Property="TextColor" Value="DarkBlue"/>
+                <Setter Property="FontSize" Value="Medium"/>
+            </Style>
+
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="Margin" Value="0,20,0,10"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="BackgroundColor" Value="#4CAF50"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="Gray"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="Margin" Value="0,20,0,10"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <StackLayout Padding="30" VerticalOptions="CenterAndExpand">
+        <Entry Placeholder="Username" Style="{StaticResource EntryStyle}" Text="Username" />
+        <Entry Placeholder="Password" Style="{StaticResource EntryStyle}" Text="Password" IsPassword="True" />
+        <Button Text="Login" Style="{StaticResource ButtonStyle}"  />
+
+        <Label Text="Don't have an account yet?" Style="{StaticResource LabelStyle}" />
+        <Button Text="Register" Style="{StaticResource ButtonStyle}"  />
+    </StackLayout>
+
+</ContentPage>

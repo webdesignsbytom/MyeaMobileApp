@@ -10,6 +10,7 @@
     xmlns:news="clr-namespace:MyeaMobileApp.View.News"
     xmlns:profile="clr-namespace:MyeaMobileApp.View.Account.Profile"
     xmlns:lottery="clr-namespace:MyeaMobileApp.View.Lottery.LotteryMain"
+    xmlns:logreg="clr-namespace:MyeaMobileApp.View.Users.LoginOrRegister"
     xmlns:media="clr-namespace:MyeaMobileApp.View.SocialMedia"
     Shell.FlyoutBehavior="Disabled"
     Shell.NavBarIsVisible="False"
@@ -28,8 +29,13 @@
     <ShellContent
         Title="Register"
         ContentTemplate="{DataTemplate register:RegisterPage}"
-        Route="RegisterPage" />    
-    
+        Route="RegisterPage" />
+
+    <ShellContent
+        Title="Login or Signup"
+        ContentTemplate="{DataTemplate logreg:LoginOrRegisterPage}"
+        Route="LoginOrRegisterPage" />
+
     <ShellContent
         Title="News Reel"
         ContentTemplate="{DataTemplate news:NewsReelPage}"
@@ -48,6 +54,7 @@
     <ShellContent
         Title="Media"
         ContentTemplate="{DataTemplate media:SocialMediaMainPage}"
-        Route="SocialMediaMainPage" />
+        Route="SocialMediaMainPage" />    
+   
 
 </Shell>

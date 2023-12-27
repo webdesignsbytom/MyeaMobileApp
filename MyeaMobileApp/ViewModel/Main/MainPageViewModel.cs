@@ -1,10 +1,18 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using MyeaMobileApp.Model;
+using System.Diagnostics;
 
 namespace MyeaMobileApp.ViewModel.Main
 {
     public partial class MainPageViewModel : ObservableObject
     {
+        public UserModel User { get; set; }
+        public MainPageViewModel(UserModel userModel)
+        {
+            User = userModel;
+        }
+
         [RelayCommand]
         public async Task NavigateToLoginPage()
         {
@@ -27,6 +35,21 @@ namespace MyeaMobileApp.ViewModel.Main
         public async Task NavigateToLotteryPage()
         {
             await Shell.Current.GoToAsync("///LotteryMainPage");
+        }        
+        
+        [RelayCommand]
+        public async Task NavigateToUsersAccount()
+        {
+            if (User.UserIsLoggedIn)
+            {
+                Debug.WriteLine($"Logged in as {User.Username}");
+                await Shell.Current.GoToAsync("///ProfilePage");
+            }
+            else
+            {
+                Debug.WriteLine($"Not logged in");
+                await Shell.Current.GoToAsync("///LoginOrRegisterPage");
+            }
         }
 
     }

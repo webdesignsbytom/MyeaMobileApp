@@ -4,11 +4,14 @@
              Background="Green"
              x:Class="MyeaMobileApp.View.Main.MainPage">
 
-    <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
-           
+
+        <HorizontalStackLayout HorizontalOptions="End">
+            <ImageButton Source="user_icon.png" HeightRequest="30" HorizontalOptions="End" Command="{Binding NavigateToUsersAccountCommand}"/>
+        </HorizontalStackLayout>
+        
 
             <Button
                 Text="Login"
@@ -27,6 +30,5 @@
                 Command="{Binding NavigateToLotteryPageCommand}"/>
             
         </VerticalStackLayout>
-    </ScrollView>
 
 </ContentPage>
