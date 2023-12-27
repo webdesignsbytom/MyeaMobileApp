@@ -5,12 +5,43 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MyeaMobileApp"
     xmlns:main="clr-namespace:MyeaMobileApp.View.Main"
+    xmlns:login="clr-namespace:MyeaMobileApp.View.Users.Login"
+    xmlns:register="clr-namespace:MyeaMobileApp.View.Users.Register"
+    xmlns:news="clr-namespace:MyeaMobileApp.View.News"
+    xmlns:profile="clr-namespace:MyeaMobileApp.View.Account.Profile"
+    xmlns:lottery="clr-namespace:MyeaMobileApp.View.Lottery.LotteryMain"
     Shell.FlyoutBehavior="Disabled"
+    Shell.NavBarIsVisible="False"
     Title="MyeaMobileApp">
 
     <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate main:MainPage}"
-        Route="MainPage" />
+        Route="MainPage" />    
+    
+    <ShellContent
+        Title="Login"
+        ContentTemplate="{DataTemplate login:LoginPage}"
+        Route="LoginPage" />       
+    
+    <ShellContent
+        Title="Register"
+        ContentTemplate="{DataTemplate register:RegisterPage}"
+        Route="RegisterPage" />    
+    
+    <ShellContent
+        Title="News Reel"
+        ContentTemplate="{DataTemplate news:NewsReelPage}"
+        Route="NewsReelPage" />    
+    
+    <ShellContent
+        Title="Profile"
+        ContentTemplate="{DataTemplate profile:ProfilePage}"
+        Route="ProfilePage" />    
+    
+    <ShellContent
+        Title="Lottery"
+        ContentTemplate="{DataTemplate lottery:LotteryMainPage}"
+        Route="LotteryMainPage" />
 
 </Shell>

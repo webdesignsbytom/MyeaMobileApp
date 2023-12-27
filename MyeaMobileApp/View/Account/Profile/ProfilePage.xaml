@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyeaMobileApp.View.Account.Profile.ProfilePage"
+             Title="ProfilePage">
+    <ScrollView>
+        <StackLayout Padding="30" VerticalOptions="StartAndExpand">
+            <Label Text="First Name:" FontAttributes="Bold"/>
+            <Label Text="TOm" Margin="0,0,0,10"/>
+
+            <Label Text="Last Name:" FontAttributes="Bold"/>
+            <Label Text="b" Margin="0,0,0,10"/>
+
+            <Label Text="Age:" FontAttributes="Bold"/>
+            <Label Text="22" Margin="0,0,0,10"/>
+
+            <Label Text="Gender:" FontAttributes="Bold"/>
+            <Label Text="male" Margin="0,0,0,10"/>
+
+            <Label Text="Country:" FontAttributes="Bold"/>
+            <Label Text="England" Margin="0,0,0,10"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

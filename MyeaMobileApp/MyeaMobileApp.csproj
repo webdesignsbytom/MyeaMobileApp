@@ -21,7 +21,7 @@
 		<Nullable>enable</Nullable>
 
 		<!-- Display name -->
-		<ApplicationTitle>MyeaMobileApp</ApplicationTitle>
+		<ApplicationTitle>myecoapp</ApplicationTitle>
 
 		<!-- App Identifier -->
 		<ApplicationId>com.companyname.myeamobileapp</ApplicationId>
@@ -47,7 +47,6 @@
 
 		<!-- Images -->
 		<MauiImage Include="Resources\Images\*" />
-		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
 
 		<!-- Custom Fonts -->
 		<MauiFont Include="Resources\Fonts\*" />
@@ -57,10 +56,65 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\Logos\myea_logo_jpg.jpg" />
+	  <None Remove="Resources\Images\Logos\myea_logo_svg.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiAsset Include="Resources\Images\Logos\myea_logo_jpg.jpg">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiAsset>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiImage Include="Resources\Images\Logos\myea_logo_svg.svg">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	</ItemGroup>
+
+	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Model\" />
+	  <Folder Include="ViewModel\Account\Badges\" />
+	  <Folder Include="ViewModel\Goals\" />
+	  <Folder Include="ViewModel\Games\" />
+	  <Folder Include="ViewModel\Lottery\LiveDraw\" />
+	  <Folder Include="ViewModel\Lottery\LotteryTerms\" />
+	  <Folder Include="ViewModel\Lottery\OwnedTickets\" />
+	  <Folder Include="ViewModel\Lottery\PuchaseTickets\" />
+	  <Folder Include="ViewModel\Lottery\Rules\" />
+	  <Folder Include="View\Account\Badges\" />
+	  <Folder Include="View\Games\" />
+	  <Folder Include="View\Goals\" />
+	  <Folder Include="View\Lottery\LiveDraw\" />
+	  <Folder Include="View\Lottery\LotteryTerms\" />
+	  <Folder Include="View\Lottery\Rules\" />
+	  <Folder Include="View\Lottery\OwnedTickets\" />
+	  <Folder Include="View\Lottery\PuchaseTickets\" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="View\Account\Profile\ProfilePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Lottery\LotteryMain\LotteryMainPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\News\NewsReelPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Users\Login\LoginPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Users\Register\RegisterPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

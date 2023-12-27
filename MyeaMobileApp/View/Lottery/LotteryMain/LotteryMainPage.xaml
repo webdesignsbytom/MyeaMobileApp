@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyeaMobileApp.View.Lottery.LotteryMain.LotteryMainPage"
+             Title="LotteryMainPage">
+    <VerticalStackLayout>
+        <Label 
+            Text="Current Prize"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+        
+        <Label 
+            Text="Next draw"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />        
+        
+        <Label 
+            Text="Next draw"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />        
+        
+        <Label 
+            Text="Buy tickets"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />       
+        
+        <Label 
+            Text="Your tickets"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />  
+        
+        <Label 
+            Text="Basic rules"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>
