@@ -36,7 +36,7 @@
         <Button Text="Login" Style="{StaticResource ButtonStyle}"  />
 
         <Label Text="Don't have an account yet?" Style="{StaticResource LabelStyle}" />
-        <Button Text="Register" Style="{StaticResource ButtonStyle}"  />
+        <Button Text="Register" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToRegisterPageCommand}"  />
     </StackLayout>
 
 </ContentPage>

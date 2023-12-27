@@ -31,7 +31,11 @@
         <Entry Placeholder="Password" Style="{StaticResource EntryStyle}" Text="Password" IsPassword="True" />
 
         <Button Text="Login" Style="{StaticResource ButtonStyle}"  />
-                
+
+        <Label Text="Not A member? Register now!" />
+
+        <Button Text="Login" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToRegisterPageCommand}" />
+
     </StackLayout>
     
 </ContentPage>
