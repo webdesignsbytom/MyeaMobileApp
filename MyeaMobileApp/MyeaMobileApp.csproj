@@ -56,23 +56,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\Logos\myea_logo_jpg.jpg" />
-	  <None Remove="Resources\Images\Logos\myea_logo_svg.svg" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiAsset Include="Resources\Images\Logos\myea_logo_jpg.jpg">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </MauiAsset>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiImage Include="Resources\Images\Logos\myea_logo_svg.svg">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </MauiImage>
-	</ItemGroup>
-
-	<ItemGroup>
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
@@ -81,6 +64,7 @@
 
 	<ItemGroup>
 	  <Folder Include="Model\" />
+	  <Folder Include="Resources\Images\Logos\" />
 	  <Folder Include="ViewModel\Account\Badges\" />
 	  <Folder Include="ViewModel\Goals\" />
 	  <Folder Include="ViewModel\Games\" />
@@ -107,6 +91,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\News\NewsReelPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\SocialMedia\SocialMediaMainPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\Users\Login\LoginPage.xaml">

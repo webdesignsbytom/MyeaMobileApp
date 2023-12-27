@@ -8,12 +8,7 @@
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
-            
-            <Image
-                Source="myea_logo_svg.png"
-                HeightRequest="185"
-                Aspect="AspectFit"
-                SemanticProperties.Description="Logo" />
+           
 
             <Button
                 Text="Login"
