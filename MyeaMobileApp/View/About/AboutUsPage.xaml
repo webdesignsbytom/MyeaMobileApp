@@ -2,11 +2,80 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyeaMobileApp.View.About.AboutUsPage"
-             Title="AboutUsPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="About"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+             Title="About Us">
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="10">
+            <!-- Title -->
+            <Label Text="About MyEcoApp"
+                   FontSize="36"
+                   FontAttributes="Bold"
+                   TextColor="#17aa1f"
+                   HorizontalOptions="Center" />
+
+            <!-- Introduction Section -->
+            <Label Text="Welcome to MyEcoApp, where we're pioneering a new wave of ecological activism, powered by the digital age. At the heart of our mission lies a simple yet profound belief: technology, when harnessed correctly, can become a formidable ally in our fight for a sustainable future. We're not just an online platform; we are a community, a movement, a rallying cry for all who envision a greener, more responsible world."
+                   TextColor="#333333"
+                   Margin="0,30,0,0"
+                   FontSize="Medium"/>
+
+            <!-- Our Journey Section -->
+            <Label Text="Our Journey"
+                   FontSize="Medium"
+                   FontAttributes="Bold"
+                   Margin="0,30,0,0"
+                   TextColor="#17aa1f" />
+            <Label Text="Our story began with a realization — the traditional approaches to environmental activism were no longer enough. In a world dominated by digital interaction, we saw an untapped potential: what if the vast online traffic could be directed towards making a real, tangible impact on the environment? This question marked the birth of MyEcoApp."
+                   TextColor="#333333"
+                   FontSize="Medium"/>
+            <Label Text="We set out to create a platform that combines the allure of the digital world with the pressing need for ecological action. Our website, MyEcoApp.org, and our various apps aren't just tools; they are gateways to making a difference. They are where fun meets philanthropy, where every click, every game played, and every product purchased becomes a step towards a healthier planet."
+                   TextColor="#333333"
+                   FontSize="Medium"/>
+
+            <!-- Our Philosophy Section -->
+            <Label Text="Our Philosophy"
+                   FontSize="Medium"
+                   FontAttributes="Bold"
+                   Margin="0,30,0,0"
+                   TextColor="#17aa1f" />
+            <Label Text="At MyEcoApp, we believe that responsibility for the planet is shared. Gone are the days when the blame was shifted onto individuals while larger entities remained unaccountable. We stand for collective action, free from the shackles of blame and shame. Our aim is to empower, not to accuse; to unite, not to divide."
+                   TextColor="#333333"
+                   FontSize="Medium"/>
+            <Label Text="We recognize the power of visibility in today's world. People want to be part of something larger than themselves, and they want their efforts to be recognized. That's why we've integrated social media and gaming elements into our platform. It's not just about supporting the environment; it's about being part of a community that celebrates each small victory on the path to sustainability."
+                   TextColor="#333333"
+                   FontSize="Medium"/>
+
+            <!-- Our Projects and Goals Section -->
+            <Label Text="Our Projects and Goals"
+                   FontSize="Medium"
+                   FontAttributes="Bold"
+                   Margin="0,30,0,0"
+                   TextColor="#17aa1f" />
+            <Label Text="Our projects are as diverse as they are impactful. From installing renewable energy sources in communities that need them most to creating urban green spaces that offer sanctuary for both wildlife and city dwellers, we are committed to tangible action. We're also tackling the global issue of ocean plastics, because we believe in protecting all corners of our planet."
+                   TextColor="#333333"
+                   FontSize="Medium"/>
+            <Label Text="Our goals are ambitious, but they are achievable. We aim to reduce CO2 emissions, not just by advocating for change, but by implementing solutions that make a real difference. We're not just about making a statement; we're about making a change."
+                   TextColor="#333333"
+                   FontSize="Medium"/>
+
+            <!-- MyEcoApp.shop Section -->
+            <Label Text="MyEcoShop: Ethical Consumerism"
+                   FontSize="Medium"
+                   FontAttributes="Bold"
+                   Margin="0,30,0,0"
+                   TextColor="#17aa1f" />
+            <Label Text="Our online store, MyEcoApp.shop, is more than a retail outlet; it's a manifestation of our belief in ethical consumerism. Each product we offer is selected for its minimal environmental impact. When you shop with us, you're not just buying a product; you're investing in the future of our planet."
+                   TextColor="#333333"
+                   FontSize="Medium"/>
+
+            <!-- Join Our Movement Section -->
+            <Label Text="Join Our Movement"
+                   FontSize="Medium"
+                   FontAttributes="Bold"
+                   Margin="0,30,0,0"
+                   TextColor="#17aa1f" />
+            <Label Text="MyEcoApp is more than just an organization; it's a testament to what can be achieved when technology and ecological consciousness come together. We invite you to join us in this groundbreaking journey. Visit MyEcoApp.org, engage with our content, and be a part of the change. Together, we can turn the tide towards a sustainable future, one click at a time."
+                   TextColor="#333333"
+                   FontSize="Medium"/>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

@@ -57,6 +57,7 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\Icons\User_Icon.png" />
+	  <None Remove="Resources\Images\Logos\logo_png.png" />
 	  <None Remove="Resources\Splash\splash_logo.svg" />
 	</ItemGroup>
 
@@ -71,7 +72,6 @@
 
 	<ItemGroup>
 	  <Folder Include="ViewModel\Account\Badges\" />
-	  <Folder Include="ViewModel\Goals\" />
 	  <Folder Include="ViewModel\Games\" />
 	  <Folder Include="ViewModel\Lottery\LiveDraw\" />
 	  <Folder Include="ViewModel\Lottery\LotteryTerms\" />
@@ -80,7 +80,6 @@
 	  <Folder Include="ViewModel\Lottery\Rules\" />
 	  <Folder Include="View\Account\Badges\" />
 	  <Folder Include="View\Games\" />
-	  <Folder Include="View\Goals\" />
 	  <Folder Include="View\Lottery\LiveDraw\" />
 	  <Folder Include="View\Lottery\LotteryTerms\" />
 	  <Folder Include="View\Lottery\Rules\" />
@@ -92,6 +91,9 @@
 	  <MauiImage Include="Resources\Images\Icons\user_icon.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Logos\logo_png.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -99,6 +101,12 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\Account\Profile\ProfilePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Funding\FundingPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Goals\GoalsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\Lottery\LotteryMain\LotteryMainPage.xaml">

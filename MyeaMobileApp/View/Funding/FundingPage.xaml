@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyeaMobileApp.View.Funding.FundingPage"
+             BackgroundColor="#F5F5F5"
+             Title="Funding">
+    
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="10">
+            <Label Text="Funding" FontSize="Large" FontAttributes="Bold" TextColor="#333333"/>
+
+            <!-- Introduction Section -->
+            <Label Text="This website, myecoapp is the start of a dream project our group had..." TextColor="#555555" />
+
+            <!-- Adverts Section -->
+            <Label Text="Adverts" FontSize="Medium" FontAttributes="Bold" TextColor="#333333"/>
+            <Label Text="Our main funding objective is revenue from adverts. We will somewhat shameless put adverts where ever we can..." TextColor="#555555" />
+
+            <!-- Media Content Section -->
+            <Label Text="Media content" FontSize="Medium" FontAttributes="Bold" TextColor="#333333"/>
+            <Label Text="Making media content for viewing across the large platforms of social medias and video streaming services..." TextColor="#555555" />
+
+            <!-- Shop Section -->
+            <Label Text="Shop" FontSize="Medium" FontAttributes="Bold" TextColor="#333333"/>
+            <Label Text="To make money without asking for it. We have opened a simple online store..." TextColor="#555555" />
+
+            <!-- Donations Section -->
+            <Label Text="Donations" FontSize="Medium" FontAttributes="Bold" TextColor="#333333"/>
+            <Label Text="We are hugely grateful to any and all of our donors..." TextColor="#555555" />
+
+            <!-- Fund Raising Section -->
+            <Label Text="Fund raising" FontSize="Medium" FontAttributes="Bold" TextColor="#333333"/>
+            <Label Text="We will be hosting many classic fund raising methods through our sites and social media..." TextColor="#555555" />
+
+            <!-- Games Section -->
+            <Label Text="Games" FontSize="Medium" FontAttributes="Bold" TextColor="#333333"/>
+            <Label Text="As part of our free online services and ad revenue goals. We are making 100s of reasons for you to visit us..." TextColor="#555555" />
+
+            <!-- Conclusion -->
+            <Label Text="Our charity wants to achieve a huge amount. Not only that we have goals we want to achieve for the business, the people who one day work here and the community as a whole..." TextColor="#555555" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

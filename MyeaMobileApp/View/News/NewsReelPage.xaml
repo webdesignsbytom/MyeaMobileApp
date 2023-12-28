@@ -3,10 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyeaMobileApp.View.News.NewsReelPage"
              Title="NewsReelPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="News"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <CollectionView ItemsSource="{Binding NewsStories}">
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <StackLayout Padding="10">
+                    <Label Text="{Binding Title}" 
+                           FontSize="Medium" 
+                           FontAttributes="Bold"/>
+                    <Label Text="{Binding Description}" 
+                           FontSize="Small"/>
+                    <!-- Add other bindings for Date, Image, etc. -->
+                </StackLayout>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
 </ContentPage>

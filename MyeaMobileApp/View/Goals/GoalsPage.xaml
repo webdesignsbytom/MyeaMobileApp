@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyeaMobileApp.View.Goals.GoalsPage"
+             Title="Goals">
+    
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="10">
+            <!-- Title -->
+            <Label Text="Our Goals at MyEcoApp"
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   TextColor="#17aa1f"
+                   HorizontalOptions="Center" />
+
+            <!-- Short Description -->
+            <Label Text="At MyEcoApp, we are dedicated to making a significant impact on the environment and society through our targeted and actionable goals. Each goal reflects our commitment to a sustainable future."
+                   TextColor="#333333"
+                   FontSize="Medium"/>
+
+            <!-- Goal 1 -->
+            <Label Text="1. Uniting for Change"
+                   FontSize="Medium"
+                   FontAttributes="Bold"
+                   TextColor="#17aa1f" />
+            <Label Text="Our first goal is to create a unified, global community that collaborates for environmental change. We believe that collective effort is key to addressing ecological challenges. By bringing together individuals, organizations, and experts from various fields, we aim to foster a collaborative environment where ideas and resources are shared for the greater good of the planet."
+                   TextColor="#333333"
+                   FontSize="Medium"/>
+
+            <!-- Goal 2 -->
+            <Label Text="2. Reducing CO2 Emissions"
+                   FontSize="Medium"
+                   FontAttributes="Bold"
+                   TextColor="#17aa1f" />
+            <Label Text="A significant focus of MyEcoApp is to reduce the world's carbon footprint. We are committed to funding and implementing projects that actively reduce CO2 emissions, such as renewable energy initiatives and promoting greener transportation options. Our aim is to not only offset carbon emissions but to also create a roadmap for sustainable living that can be adopted globally."
+                   TextColor="#333333"
+                   FontSize="Medium"/>
+
+            <!-- Goal 3 -->
+            <Label Text="3. Advancing Environmental Research"
+                   FontSize="Medium"
+                   FontAttributes="Bold"
+                   TextColor="#17aa1f" />
+            <Label Text="Our third goal encompasses funding and conducting research to mitigate environmental damage. We are dedicated to exploring innovative solutions to ecological problems, such as developing new methods for waste management, researching sustainable agricultural practices, and protecting biodiversity. By investing in scientific research, we aim to contribute valuable insights and practical solutions to global environmental challenges."
+                   TextColor="#333333"
+                   FontSize="Medium"/>
+
+            <!-- Goal 4 -->
+            <Label Text="4. Promoting Biodiversity and Green Spaces"
+                   FontSize="Medium"
+                   FontAttributes="Bold"
+                   TextColor="#17aa1f" />
+            <Label Text="This goal is centered on creating and safeguarding natural habitats, such as grasslands and insect-friendly environments. Our initiatives include urban greening projects, reforestation, and creating sanctuaries for wildlife. We believe that protecting and enhancing biodiversity is not only crucial for the environment but also for human well-being, as it contributes to cleaner air and a healthier ecosystem."
+                   TextColor="#333333"
+                   FontSize="Medium"/>
+
+            <!-- Goal 5 -->
+            <Label Text="5. Shaping Public Perception and Behavior"
+                   FontSize="Medium"
+                   FontAttributes="Bold"
+                   TextColor="#17aa1f" />
+            <Label Text="Our final goal is to influence hearts and minds towards environmental consciousness. Through education, awareness campaigns, and community engagement, we aim to foster a culture of sustainability and responsible living. We believe that lasting change begins with individual awareness and action. By inspiring and empowering people to make eco-friendly choices in their daily lives, we hope to catalyze a broader shift towards environmental stewardship."
+                   TextColor="#333333"
+                   FontSize="Medium"/>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

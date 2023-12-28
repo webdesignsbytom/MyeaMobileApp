@@ -41,6 +41,18 @@ namespace MyeaMobileApp.ViewModel.Main
         public async Task NavigateToLotteryPage()
         {
             await Shell.Current.GoToAsync("///LotteryMainPage");
+        }             
+        
+        [RelayCommand]
+        public async Task NavigateToFundingPage()
+        {
+            await Shell.Current.GoToAsync("///FundingPage");
+        }            
+        
+        [RelayCommand]
+        public async Task NavigateToGoalsPage()
+        {
+            await Shell.Current.GoToAsync("///GoalsPage");
         }        
         
         [RelayCommand]

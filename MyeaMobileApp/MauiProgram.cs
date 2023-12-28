@@ -2,6 +2,8 @@
 using MyeaMobileApp.Model;
 using MyeaMobileApp.View.About;
 using MyeaMobileApp.View.Account.Profile;
+using MyeaMobileApp.View.Funding;
+using MyeaMobileApp.View.Goals;
 using MyeaMobileApp.View.Lottery.LotteryMain;
 using MyeaMobileApp.View.Main;
 using MyeaMobileApp.View.News;
@@ -11,6 +13,8 @@ using MyeaMobileApp.View.Users.LoginOrRegister;
 using MyeaMobileApp.View.Users.Register;
 using MyeaMobileApp.ViewModel.About;
 using MyeaMobileApp.ViewModel.Account.Profile;
+using MyeaMobileApp.ViewModel.Funding;
+using MyeaMobileApp.ViewModel.Goals;
 using MyeaMobileApp.ViewModel.Lottery.LotteryMain;
 using MyeaMobileApp.ViewModel.Main;
 using MyeaMobileApp.ViewModel.News;
@@ -52,7 +56,12 @@ namespace MyeaMobileApp
             builder.Services.AddSingleton<LoginOrRegisterPageViewModel>();
             builder.Services.AddSingleton<AboutUsPage>();
             builder.Services.AddSingleton<AboutUsPageViewModel>();
+            builder.Services.AddSingleton<FundingPage>();
+            builder.Services.AddSingleton<FundingPageViewModel>();
+            builder.Services.AddSingleton<GoalsPage>();
+            builder.Services.AddSingleton<GoalsPageViewModel>();
             builder.Services.AddSingleton<UserModel>();
+            builder.Services.AddSingleton<NewsStoryModel>();
 
 
 #if DEBUG
