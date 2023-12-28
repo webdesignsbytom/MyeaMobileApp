@@ -71,14 +71,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="ViewModel\Account\Badges\" />
 	  <Folder Include="ViewModel\Games\" />
 	  <Folder Include="ViewModel\Lottery\LiveDraw\" />
 	  <Folder Include="ViewModel\Lottery\LotteryTerms\" />
 	  <Folder Include="ViewModel\Lottery\OwnedTickets\" />
 	  <Folder Include="ViewModel\Lottery\PuchaseTickets\" />
 	  <Folder Include="ViewModel\Lottery\Rules\" />
-	  <Folder Include="View\Account\Badges\" />
 	  <Folder Include="View\Games\" />
 	  <Folder Include="View\Lottery\LiveDraw\" />
 	  <Folder Include="View\Lottery\LotteryTerms\" />
@@ -98,6 +96,9 @@
 
 	<ItemGroup>
 	  <MauiXaml Update="View\About\AboutUsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Account\Badges\BadgesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\Account\Profile\ProfilePage.xaml">

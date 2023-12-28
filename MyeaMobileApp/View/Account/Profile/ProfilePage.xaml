@@ -3,10 +3,26 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyeaMobileApp.View.Account.Profile.ProfilePage"
              Title="ProfilePage">
-    <ScrollView>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#4CAF50"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="Margin" Value="0,20,0,0"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="CornerRadius" Value="10"/>
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <VerticalStackLayout>
         <StackLayout Padding="30" VerticalOptions="StartAndExpand">
             <Label Text="First Name:" FontAttributes="Bold"/>
-            <Label Text="TOm" Margin="0,0,0,10"/>
+            <Label Text="T0m" Margin="0,0,0,10"/>
 
             <Label Text="Last Name:" FontAttributes="Bold"/>
             <Label Text="b" Margin="0,0,0,10"/>
@@ -20,5 +36,8 @@
             <Label Text="Country:" FontAttributes="Bold"/>
             <Label Text="England" Margin="0,0,0,10"/>
         </StackLayout>
-    </ScrollView>
+
+        <Button Text="Badges" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToBadgesPageCommand}" />
+
+    </VerticalStackLayout>
 </ContentPage>

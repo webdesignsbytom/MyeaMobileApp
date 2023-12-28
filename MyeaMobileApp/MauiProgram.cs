@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using MyeaMobileApp.Model;
 using MyeaMobileApp.View.About;
+using MyeaMobileApp.View.Account.Badges;
 using MyeaMobileApp.View.Account.Profile;
 using MyeaMobileApp.View.Funding;
 using MyeaMobileApp.View.Goals;
@@ -12,6 +13,7 @@ using MyeaMobileApp.View.Users.Login;
 using MyeaMobileApp.View.Users.LoginOrRegister;
 using MyeaMobileApp.View.Users.Register;
 using MyeaMobileApp.ViewModel.About;
+using MyeaMobileApp.ViewModel.Account.Badges;
 using MyeaMobileApp.ViewModel.Account.Profile;
 using MyeaMobileApp.ViewModel.Funding;
 using MyeaMobileApp.ViewModel.Goals;
@@ -60,8 +62,11 @@ namespace MyeaMobileApp
             builder.Services.AddSingleton<FundingPageViewModel>();
             builder.Services.AddSingleton<GoalsPage>();
             builder.Services.AddSingleton<GoalsPageViewModel>();
+            builder.Services.AddSingleton<BadgesPage>();
+            builder.Services.AddSingleton<BadgesPageViewModel>();
             builder.Services.AddSingleton<UserModel>();
             builder.Services.AddSingleton<NewsStoryModel>();
+            builder.Services.AddSingleton<BadgeModel>();
 
 
 #if DEBUG
