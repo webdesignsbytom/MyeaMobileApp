@@ -10,24 +10,30 @@
                 <Setter Property="BackgroundColor" Value="#EEEEEE"/>
                 <Setter Property="TextColor" Value="DarkBlue"/>
             </Style>
-            <Style x:Key="LabelStyle" TargetType="Label">
-                <Setter Property="FontSize" Value="Large"/>
+            <Style x:Key="HeaderStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="32"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
                 <Setter Property="TextColor" Value="DarkBlue"/>
                 <Setter Property="HorizontalOptions" Value="Center"/>
-                <Setter Property="Margin" Value="0,20,0,20"/>
+                <Setter Property="Margin" Value="0,5,0,10"/>
+            </Style>            
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="DarkBlue"/>
+                <Setter Property="HorizontalOptions" Value="Start"/>
+                <Setter Property="Margin" Value="0,5,0,5"/>
             </Style>
             <Style x:Key="ButtonStyle" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="#4CAF50"/>
                 <Setter Property="TextColor" Value="White"/>
                 <Setter Property="CornerRadius" Value="5"/>
-                <Setter Property="Margin" Value="0,20,0,0"/>
+                <Setter Property="Margin" Value="0,5,0,0"/>
                 <Setter Property="HeightRequest" Value="50"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
                 <Setter Property="CornerRadius" Value="10"/>
             </Style>
             <Style x:Key="CheckBoxStyle" TargetType="CheckBox">
-                <Setter Property="Margin" Value="0,10,0,0"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
@@ -35,7 +41,7 @@
     <ScrollView>
         <StackLayout Padding="30" VerticalOptions="Start">
 
-            <Label Text="Register Now" Style="{StaticResource LabelStyle}" />
+            <Label Text="Register Now" Style="{StaticResource HeaderStyle}" />
 
             <!-- Email Field -->
             <Label Text="Email" Style="{StaticResource LabelStyle}" />
@@ -87,6 +93,10 @@
 
             <!-- Register Button -->
             <Button Text="{Binding SubmitBtn}" Style="{StaticResource ButtonStyle}" Command="{Binding RegisterNewUserCommand}" />
+
+
+            <!-- Home Button -->
+            <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
         </StackLayout>
     </ScrollView>
 

@@ -68,7 +68,7 @@ namespace MyeaMobileApp.ViewModel.Main
         }           
         
         [RelayCommand]
-        public async Task NavigateToMediaMainPageCommand()
+        public async Task NavigateToMediaMainPage()
         {
             await Shell.Current.GoToAsync("///MediaCampaignMainPage");
         }        

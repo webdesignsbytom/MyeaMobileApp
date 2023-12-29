@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using MyeaMobileApp.Model;
 using MyeaMobileApp.Services.User;
 
 namespace MyeaMobileApp.ViewModel.Users.Login
@@ -8,6 +9,9 @@ namespace MyeaMobileApp.ViewModel.Users.Login
     {
         // API service
         public UserApiService UserApiService { get; set; }
+        // User model
+        public UserModel User { get; set; }
+
 
         // Login properties
         [ObservableProperty]
@@ -22,9 +26,10 @@ namespace MyeaMobileApp.ViewModel.Users.Login
         public LoginPageViewModel() { }
 
         // Create instance of api services
-        public LoginPageViewModel(UserApiService userApiService)
+        public LoginPageViewModel(UserApiService userApiService, UserModel userModel)
         {
             UserApiService = userApiService;
+            User = userModel;
         }
 
         // Login API
@@ -40,6 +45,8 @@ namespace MyeaMobileApp.ViewModel.Users.Login
             SubmitBtn = "Success!";
             Email = "";
             Password = "";
+            User.UserIsLoggedIn = true;
+            User.Score++;
             await Shell.Current.GoToAsync("///ProfilePage");
         }
 
@@ -49,6 +56,13 @@ namespace MyeaMobileApp.ViewModel.Users.Login
         public async Task NavigateToRegisterPage()
         {
             await Shell.Current.GoToAsync("///RegisterPage");
+        }
+
+        // Navigate home
+        [RelayCommand]
+        public async Task NavigateToMainPage()
+        {
+            await Shell.Current.GoToAsync("///MainPage");
         }
     }
 

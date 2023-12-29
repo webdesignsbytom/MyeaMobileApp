@@ -26,7 +26,8 @@
                CornerRadius="50"
                HorizontalOptions="Center"
                VerticalOptions="Start"
-               Padding="0">
+               Padding="0"
+               Margin="0,10,0,5">
             <Image Source="user_icon.png"
                    Aspect="AspectFill"
                    HeightRequest="100"
@@ -47,7 +48,10 @@
             <Label Text="male" Margin="0,0,0,10"/>
 
             <Label Text="Country:" FontAttributes="Bold"/>
-            <Label Text="England" Margin="0,0,0,10"/>
+            <Label Text="England" Margin="0,0,0,10"/>            
+            
+            <Label Text="Score:" FontAttributes="Bold"/>
+            <Label Text="10" Margin="0,0,0,10"/>
         </StackLayout>
 
         <Button Text="Badges" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToBadgesPageCommand}" />

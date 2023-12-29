@@ -8,6 +8,7 @@
         public int Age { get; set; } = 22;
         public string Gender { get; set; } = "Male";
         public string Country { get; set; } = "United Kingdom";
+        public int Score { get; set; } = 10;
         public bool UserRegisteredForNewsletter { get; set; } = false;
         public bool UserAgreedToTermsAndConditions { get; set; } = true;
         public bool UserIsLoggedIn { get; set; } = false;

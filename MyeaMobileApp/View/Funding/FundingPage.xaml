@@ -2,8 +2,20 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyeaMobileApp.View.Funding.FundingPage"
-             BackgroundColor="#F5F5F5"
-             Title="Funding">
+             BackgroundColor="#F5F5F5">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#4CAF50"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="Margin" Value="0,20,0,0"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
     <ScrollView>
         <StackLayout Padding="20" Spacing="10">
@@ -47,6 +59,8 @@
             <!-- Conclusion -->
             <Label Text="Our charity is ambitious, seeking to create significant positive change in the world. We are committed to our goals, which extend beyond environmental action to include the wellbeing of our team and community. We strive to be a respected and effective organization, making a real difference." TextColor="#555555" />
 
+            <!-- Home Button -->
+            <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
         </StackLayout>
     </ScrollView>
 </ContentPage>

@@ -37,6 +37,9 @@
         <Label Text="Not A member? Register now!" />
         <Button Text="Register" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToRegisterPageCommand}" />
 
+
+        <!-- Home Button -->
+        <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
     </StackLayout>
     
 </ContentPage>

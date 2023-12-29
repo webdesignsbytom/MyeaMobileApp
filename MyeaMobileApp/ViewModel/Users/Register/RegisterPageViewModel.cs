@@ -69,5 +69,12 @@ namespace MyeaMobileApp.ViewModel.Users.Register
             Password = "";
             await Shell.Current.GoToAsync("///ProfilePage");
         }
+
+        // Navigate home
+        [RelayCommand]
+        public async Task NavigateToMainPage()
+        {
+            await Shell.Current.GoToAsync("///MainPage");
+        }
     }
 }

@@ -3,6 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyeaMobileApp.View.News.NewsReelPage"
              Title="NewsReelPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#4CAF50"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="Margin" Value="0,20,0,0"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
     <CollectionView ItemsSource="{Binding NewsStories}">
         <CollectionView.ItemTemplate>
             <DataTemplate>
@@ -32,4 +45,6 @@
             </DataTemplate>
         </CollectionView.ItemTemplate>
     </CollectionView>
+    
+
 </ContentPage>
