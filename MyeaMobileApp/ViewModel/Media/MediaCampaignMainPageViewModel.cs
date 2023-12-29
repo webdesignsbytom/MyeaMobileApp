@@ -1,8 +1,8 @@
 ﻿using CommunityToolkit.Mvvm.Input;
 
-namespace MyeaMobileApp.ViewModel.Goals
+namespace MyeaMobileApp.ViewModel.Media
 {
-    public partial class GoalsPageViewModel
+    public partial class MediaCampaignMainPageViewModel
     {
         // Navigate home
         [RelayCommand]

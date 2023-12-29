@@ -18,5 +18,12 @@ namespace MyeaMobileApp.ViewModel.About
         {
             await Shell.Current.GoToAsync("///NewsletterSignUpPage");
         }
+
+        // Navigate home
+        [RelayCommand]
+        public async Task NavigateToMainPage()
+        {
+            await Shell.Current.GoToAsync("///MainPage");
+        }
     }
 }

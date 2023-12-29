@@ -14,8 +14,8 @@
     xmlns:lotteryPurchase="clr-namespace:MyeaMobileApp.View.Lottery.PuchaseTickets"
     xmlns:lotteryOwned="clr-namespace:MyeaMobileApp.View.Lottery.OwnedTickets"
     xmlns:lotteryRules="clr-namespace:MyeaMobileApp.View.Lottery.Rules"
-    xmlns:media="clr-namespace:MyeaMobileApp.View.SocialMedia"
     xmlns:funding="clr-namespace:MyeaMobileApp.View.Funding"
+    xmlns:media="clr-namespace:MyeaMobileApp.View.Media"
     xmlns:about="clr-namespace:MyeaMobileApp.View.About"
     xmlns:goals="clr-namespace:MyeaMobileApp.View.Goals"
     xmlns:timeline="clr-namespace:MyeaMobileApp.View.Timeline"
@@ -65,9 +65,9 @@
 
     <ShellContent
         Title="Media"
-        ContentTemplate="{DataTemplate media:SocialMediaMainPage}"
-        Route="SocialMediaMainPage" />   
-    
+        ContentTemplate="{DataTemplate media:MediaCampaignMainPage}"
+        Route="MediaCampaignMainPage" />
+
     <ShellContent
         Title="Funding"
         ContentTemplate="{DataTemplate funding:FundingPage}"

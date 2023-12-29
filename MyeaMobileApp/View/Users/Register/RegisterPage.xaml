@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyeaMobileApp.View.Users.Register.RegisterPage"
-             Title="RegisterPage">
+             x:Class="MyeaMobileApp.View.Users.Register.RegisterPage">
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="EntryStyle" TargetType="Entry">
@@ -78,6 +77,12 @@
             <HorizontalStackLayout VerticalOptions="Center" Margin="0,0,0,10">
                 <CheckBox IsChecked="{Binding AgreeToTerms}" Style="{StaticResource CheckBoxStyle}" />
                 <Label VerticalOptions="Center" Padding="0,10,0,0" Text="I agree to the terms and conditions" />
+            </HorizontalStackLayout>            
+            
+            <!-- Newsletter Checkbox -->
+            <HorizontalStackLayout VerticalOptions="Center" Margin="0,0,0,10">
+                <CheckBox IsChecked="{Binding AgreeToNewsletter}" Style="{StaticResource CheckBoxStyle}" />
+                <Label VerticalOptions="Center" Padding="0,10,0,0" Text="Sign up to the newsletter - it makes us money" />
             </HorizontalStackLayout>
 
             <!-- Register Button -->

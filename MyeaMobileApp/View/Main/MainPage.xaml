@@ -128,7 +128,7 @@
                 Text="Media"
                 Grid.Column="1"
                 Style="{StaticResource ButtonStyle}"
-                Command="{Binding NavigateToNewReelPageCommand}"/>
+                Command="{Binding NavigateToMediaMainPageCommand}"/>
 
         </Grid>
 

@@ -29,7 +29,10 @@ namespace MyeaMobileApp.ViewModel.Users.Register
         public string? country; 
         
         [ObservableProperty]
-        public bool? agreeToTerms;
+        public bool? agreeToTerms;        
+        
+        [ObservableProperty]
+        public bool? agreeToNewsletter;
 
         [ObservableProperty]
         public string submitBtn = "Register";
@@ -56,10 +59,11 @@ namespace MyeaMobileApp.ViewModel.Users.Register
             }
 
             // Safely handle the nullable boolean
-            bool agreed = AgreeToTerms ?? false;
+            bool agreedTC = AgreeToTerms ?? false;            
+            bool agreedNews = AgreeToNewsletter ?? false;
 
             // Register to server
-            await UserApiService.RegisterNewUserApi(Email, Password, FirstName, LastName, Country, agreed);
+            await UserApiService.RegisterNewUserApi(Email, Password, FirstName, LastName, Country, agreedTC, agreedNews);
             SubmitBtn = "Success!";
             Email = "";
             Password = "";

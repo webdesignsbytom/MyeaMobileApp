@@ -65,6 +65,12 @@ namespace MyeaMobileApp.ViewModel.Main
         public async Task NavigateToGamesPage()
         {
             await Shell.Current.GoToAsync("///PetigotchiPage");
+        }           
+        
+        [RelayCommand]
+        public async Task NavigateToMediaMainPageCommand()
+        {
+            await Shell.Current.GoToAsync("///MediaCampaignMainPage");
         }        
         
         [RelayCommand]

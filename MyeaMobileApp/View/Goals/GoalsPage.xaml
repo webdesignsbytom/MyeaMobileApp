@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyeaMobileApp.View.Goals.GoalsPage"
-             Title="Goals">
+             x:Class="MyeaMobileApp.View.Goals.GoalsPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#4CAF50"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="Margin" Value="0,20,0,0"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="CornerRadius" Value="10"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
     
     <ScrollView>
         <StackLayout Padding="20" Spacing="10">
@@ -62,6 +75,9 @@
             <Label Text="Our final goal is to influence hearts and minds towards environmental consciousness. Through education, awareness campaigns, and community engagement, we aim to foster a culture of sustainability and responsible living. We believe that lasting change begins with individual awareness and action. By inspiring and empowering people to make eco-friendly choices in their daily lives, we hope to catalyze a broader shift towards environmental stewardship."
                    TextColor="#333333"
                    FontSize="Medium"/>
+
+            <!-- Home Button -->
+            <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
         </StackLayout>
     </ScrollView>
 </ContentPage>

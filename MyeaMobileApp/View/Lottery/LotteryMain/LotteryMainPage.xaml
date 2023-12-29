@@ -59,6 +59,9 @@
             Text="Win History"
             Style="{StaticResource ButtonStyle}"
             Command="{Binding NavigateToWinningNumbersHistoryPageCommand}"/>
+
+        <!-- Home Button -->
+        <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
         
     </VerticalStackLayout>
 </ContentPage>

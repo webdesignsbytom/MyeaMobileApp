@@ -44,7 +44,7 @@ namespace MyeaMobileApp.Services.User
             }
         }
 
-        public async Task RegisterNewUserApi(string Email, string Password, string FirstName, string LastName, string Country, bool AgreeToTerms)
+        public async Task RegisterNewUserApi(string Email, string Password, string FirstName, string LastName, string Country, bool AgreeToTerms, bool AgreedNews)
         {
             string email = Email;
             string password = Password;
@@ -52,6 +52,7 @@ namespace MyeaMobileApp.Services.User
             string lastName = LastName;
             string country = Country;
             bool agreeToTerms = AgreeToTerms;
+            bool agreedNews = AgreedNews;
 
             string ApiUrlPost = "https://myea-server.vercel.app/users/register";
             using var httpClient = new HttpClient();
@@ -63,7 +64,8 @@ namespace MyeaMobileApp.Services.User
                 firstName,
                 lastName,
                 country,
-                agreeToTerms
+                agreeToTerms,
+                agreedNews
             };
 
             try

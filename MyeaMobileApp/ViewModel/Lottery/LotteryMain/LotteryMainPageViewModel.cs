@@ -21,11 +21,12 @@ namespace MyeaMobileApp.ViewModel.Lottery.LotteryMain
         {
             await Shell.Current.GoToAsync("///LotteryRulesPage");
         }        
-        
+
+        // Navigate home
         [RelayCommand]
-        public async Task NavigateToWinningNumbersHistoryPage()
+        public async Task NavigateToMainPage()
         {
-            await Shell.Current.GoToAsync("///WinningNumbersHistoryPage");
+            await Shell.Current.GoToAsync("///MainPage");
         }
     }
 }
