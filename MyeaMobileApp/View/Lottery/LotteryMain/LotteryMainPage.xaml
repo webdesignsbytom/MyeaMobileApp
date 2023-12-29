@@ -1,37 +1,64 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyeaMobileApp.View.Lottery.LotteryMain.LotteryMainPage"
-             Title="LotteryMainPage">
-    <VerticalStackLayout>
+             x:Class="MyeaMobileApp.View.Lottery.LotteryMain.LotteryMainPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="EntryStyle" TargetType="Entry">
+                <Setter Property="Margin" Value="0,10,0,0"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="BackgroundColor" Value="#EEEEEE"/>
+                <Setter Property="TextColor" Value="DarkBlue"/>
+                <Setter Property="HeightRequest" Value="50"/>
+            </Style>
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#4CAF50"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="Margin" Value="0,20,0,0"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <VerticalStackLayout Padding="5">
         <Label 
             Text="Current Prize"
             VerticalOptions="Center" 
+            HorizontalOptions="Center" />        
+        
+        <Label 
+            Text="£100"
+            VerticalOptions="Center" 
             HorizontalOptions="Center" />
-        
+         
         <Label 
             Text="Next draw"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />        
         
-        <Label 
-            Text="Next draw"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />        
-        
-        <Label 
+        <Button
             Text="Buy tickets"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />       
+            Style="{StaticResource ButtonStyle}"
+            Command="{Binding NavigateToPuchaseTicketsPageCommand}"/>         
         
-        <Label 
+        <Button
             Text="Your tickets"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />  
+            Style="{StaticResource ButtonStyle}"
+            Command="{Binding NavigateToOwnedTicketsPageCommand}"/>        
         
-        <Label 
-            Text="Basic rules"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+        <Button
+            Text="Rules"
+            Style="{StaticResource ButtonStyle}"
+            Command="{Binding NavigateToLotteryRulesPageCommand}"/>        
+        
+        <Button
+            Text="Win History"
+            Style="{StaticResource ButtonStyle}"
+            Command="{Binding NavigateToWinningNumbersHistoryPageCommand}"/>
+        
     </VerticalStackLayout>
 </ContentPage>

@@ -26,15 +26,16 @@
     </ContentPage.Resources>
 
     <StackLayout Padding="30" VerticalOptions="Center">
-        <Entry Placeholder="Username" Style="{StaticResource EntryStyle}" Text="Username" />
+        <Label Text="Email:" />
+        <Entry Style="{StaticResource EntryStyle}" Text="{Binding Email}" />
 
-        <Entry Placeholder="Password" Style="{StaticResource EntryStyle}" Text="Password" IsPassword="True" />
+        <Label Text="Password" />
+        <Entry Style="{StaticResource EntryStyle}" Text="{Binding Password}" IsPassword="True" />
 
-        <Button Text="Login" Style="{StaticResource ButtonStyle}"  />
+        <Button Text="{Binding SubmitBtn}" Style="{StaticResource ButtonStyle}" Command="{Binding LoginToAccountCommand}"  />
 
         <Label Text="Not A member? Register now!" />
-
-        <Button Text="Login" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToRegisterPageCommand}" />
+        <Button Text="Register" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToRegisterPageCommand}" />
 
     </StackLayout>
     

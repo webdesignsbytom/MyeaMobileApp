@@ -71,18 +71,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="ViewModel\Games\" />
 	  <Folder Include="ViewModel\Lottery\LiveDraw\" />
 	  <Folder Include="ViewModel\Lottery\LotteryTerms\" />
-	  <Folder Include="ViewModel\Lottery\OwnedTickets\" />
-	  <Folder Include="ViewModel\Lottery\PuchaseTickets\" />
-	  <Folder Include="ViewModel\Lottery\Rules\" />
-	  <Folder Include="View\Games\" />
 	  <Folder Include="View\Lottery\LiveDraw\" />
 	  <Folder Include="View\Lottery\LotteryTerms\" />
-	  <Folder Include="View\Lottery\Rules\" />
-	  <Folder Include="View\Lottery\OwnedTickets\" />
-	  <Folder Include="View\Lottery\PuchaseTickets\" />
 	</ItemGroup>
 
 	<ItemGroup>
@@ -107,10 +99,25 @@
 	  <MauiXaml Update="View\Funding\FundingPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="View\Games\Petigotchi\PetigotchiPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\Goals\GoalsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="View\Lottery\History\WinningNumbersHistoryPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\Lottery\LotteryMain\LotteryMainPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Lottery\OwnedTickets\OwnedLotteryTicketsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Lottery\PuchaseTickets\PurchaseLotteryTicketsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Lottery\Rules\LotteryRulesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\News\NewsReelPage.xaml">
@@ -119,7 +126,7 @@
 	  <MauiXaml Update="View\SocialMedia\SocialMediaMainPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\Users\LoginOrRegister\LoginOrRegisterPage.xaml">
+	  <MauiXaml Update="View\Timeline\TimelinePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\Users\Login\LoginPage.xaml">

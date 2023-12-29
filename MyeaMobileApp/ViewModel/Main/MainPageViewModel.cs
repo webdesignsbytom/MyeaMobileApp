@@ -53,6 +53,18 @@ namespace MyeaMobileApp.ViewModel.Main
         public async Task NavigateToGoalsPage()
         {
             await Shell.Current.GoToAsync("///GoalsPage");
+        }         
+        
+        [RelayCommand]
+        public async Task NavigateToTimelinePage()
+        {
+            await Shell.Current.GoToAsync("///TimelinePage");
+        }           
+        
+        [RelayCommand]
+        public async Task NavigateToGamesPage()
+        {
+            await Shell.Current.GoToAsync("///PetigotchiPage");
         }        
         
         [RelayCommand]
@@ -66,7 +78,7 @@ namespace MyeaMobileApp.ViewModel.Main
             else
             {
                 Debug.WriteLine($"Not logged in");
-                await Shell.Current.GoToAsync("///LoginOrRegisterPage");
+                await Shell.Current.GoToAsync("///LoginPage");
             }
         }
 

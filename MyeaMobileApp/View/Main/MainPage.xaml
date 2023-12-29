@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              Background="White"
              x:Class="MyeaMobileApp.View.Main.MainPage">
-    
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="EntryStyle" TargetType="Entry">
@@ -26,10 +26,10 @@
     </ContentPage.Resources>
 
     <VerticalStackLayout
-        Padding="5">
-        
+        Padding="10,5">
+
         <HorizontalStackLayout HorizontalOptions="End">
-            
+
             <ImageButton 
                 Source="user_icon.png" 
                 HeightRequest="50"
@@ -41,54 +41,116 @@
         <VerticalStackLayout 
             HorizontalOptions="Center" 
             Spacing="10">
-            
+
             <Label
                 Text="Welcome to Myecoapp!"
+                HorizontalOptions="Center"
                 />
-            
+
             <Image
                 Source="logo_png.png"
                 HeightRequest="128"
                 WidthRequest="128"/>
-             
+
+            <Label
+                Margin="20,10"
+                Text="Modernising environmentalism and creating a donation free non-profit organization that works on repairing climate change"
+                />
+
         </VerticalStackLayout>
 
-    <VerticalStackLayout>
+        <!-- Sponsor Advert Frame -->
+        <Frame 
+            Margin="20"
+            Padding="10"
+            CornerRadius="10"
+            BorderColor="#CCCCCC"
+            BackgroundColor="#EEEEEE"
+            HorizontalOptions="FillAndExpand">
+            <Label Text="Sponsor" 
+                   HorizontalOptions="Center" 
+                   VerticalOptions="Center" 
+                   TextColor="#333333"/>
+        </Frame>
+
+        <Grid ColumnSpacing="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
             <Button
                 Text="About"
+                Grid.Column="0"
                 Style="{StaticResource ButtonStyle}"
-                Command="{Binding NavigateToAboutUsPageCommand}"/>                
-        
+                Command="{Binding NavigateToAboutUsPageCommand}"/>
+
             <Button
+                Grid.Column="1"
                 Text="Games"
                 Style="{StaticResource ButtonStyle}"
-                Command="{Binding NavigateToNewReelPageCommand}"/>              
-            
-            <Button
-                Text="Media"
-                Style="{StaticResource ButtonStyle}"
-                Command="{Binding NavigateToNewReelPageCommand}"/>              
-            
+                Command="{Binding NavigateToGamesPageCommand}"/>
+        </Grid>
+
+        <Grid ColumnSpacing="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
             <Button
                 Text="Goals"
+                Grid.Column="0"
                 Style="{StaticResource ButtonStyle}"
-                Command="{Binding NavigateToGoalsPageCommand}"/>                
-        
+                Command="{Binding NavigateToGoalsPageCommand}"/>
+
             <Button
                 Text="Funding"
+                Grid.Column="1"
                 Style="{StaticResource ButtonStyle}"
-                Command="{Binding NavigateToFundingPageCommand}"/>                
-            
+                Command="{Binding NavigateToFundingPageCommand}"/>
+
+        </Grid>        
+        
+        <Grid ColumnSpacing="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
             <Button
                 Text="News"
+                Grid.Column="0"
                 Style="{StaticResource ButtonStyle}"
-                Command="{Binding NavigateToNewReelPageCommand}"/>           
-            
+                Command="{Binding NavigateToNewReelPageCommand}"/>
+
+            <Button
+                Text="Media"
+                Grid.Column="1"
+                Style="{StaticResource ButtonStyle}"
+                Command="{Binding NavigateToNewReelPageCommand}"/>
+
+        </Grid>
+
+        <Grid ColumnSpacing="6">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
             <Button
                 Text="Lottery"
+                Grid.Column="0"
                 Style="{StaticResource ButtonStyle}"
-                Command="{Binding NavigateToLotteryPageCommand}"/>
+                Command="{Binding NavigateToLotteryPageCommand}"/>            
+            
+            <Button
+                Text="Timeline"
+                Grid.Column="1"
+                Style="{StaticResource ButtonStyle}"
+                Command="{Binding NavigateToTimelinePageCommand}"/>
 
-    </VerticalStackLayout>
+        </Grid>
+
     </VerticalStackLayout>
 </ContentPage>

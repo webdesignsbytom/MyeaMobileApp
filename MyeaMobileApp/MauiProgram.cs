@@ -1,28 +1,39 @@
 ﻿using Microsoft.Extensions.Logging;
 using MyeaMobileApp.Model;
+using MyeaMobileApp.Services.User;
 using MyeaMobileApp.View.About;
 using MyeaMobileApp.View.Account.Badges;
 using MyeaMobileApp.View.Account.Profile;
 using MyeaMobileApp.View.Funding;
+using MyeaMobileApp.View.Games.Petigotchi;
 using MyeaMobileApp.View.Goals;
+using MyeaMobileApp.View.Lottery.History;
 using MyeaMobileApp.View.Lottery.LotteryMain;
+using MyeaMobileApp.View.Lottery.OwnedTickets;
+using MyeaMobileApp.View.Lottery.PuchaseTickets;
+using MyeaMobileApp.View.Lottery.Rules;
 using MyeaMobileApp.View.Main;
 using MyeaMobileApp.View.News;
 using MyeaMobileApp.View.SocialMedia;
+using MyeaMobileApp.View.Timeline;
 using MyeaMobileApp.View.Users.Login;
-using MyeaMobileApp.View.Users.LoginOrRegister;
 using MyeaMobileApp.View.Users.Register;
 using MyeaMobileApp.ViewModel.About;
 using MyeaMobileApp.ViewModel.Account.Badges;
 using MyeaMobileApp.ViewModel.Account.Profile;
 using MyeaMobileApp.ViewModel.Funding;
+using MyeaMobileApp.ViewModel.Games.Petigotchi;
 using MyeaMobileApp.ViewModel.Goals;
+using MyeaMobileApp.ViewModel.Lottery.History;
 using MyeaMobileApp.ViewModel.Lottery.LotteryMain;
+using MyeaMobileApp.ViewModel.Lottery.OwnedTickets;
+using MyeaMobileApp.ViewModel.Lottery.PuchaseTickets;
+using MyeaMobileApp.ViewModel.Lottery.Rules;
 using MyeaMobileApp.ViewModel.Main;
 using MyeaMobileApp.ViewModel.News;
 using MyeaMobileApp.ViewModel.SocialMedia;
+using MyeaMobileApp.ViewModel.Timeline;
 using MyeaMobileApp.ViewModel.Users.Login;
-using MyeaMobileApp.ViewModel.Users.LoginOrRegister;
 using MyeaMobileApp.ViewModel.Users.Register;
 
 namespace MyeaMobileApp
@@ -52,10 +63,16 @@ namespace MyeaMobileApp
             builder.Services.AddSingleton<ProfilePageViewModel>();
             builder.Services.AddSingleton<LotteryMainPage>();
             builder.Services.AddSingleton<LotteryMainPageViewModel>();
+            builder.Services.AddSingleton<PurchaseLotteryTicketsPage>();
+            builder.Services.AddSingleton<PurchaseLotteryTicketsPageViewModel>();
+            builder.Services.AddSingleton<OwnedLotteryTicketsPage>();
+            builder.Services.AddSingleton<OwnedLotteryTicketsPageViewModel>();
+            builder.Services.AddSingleton<LotteryRulesPage>();
+            builder.Services.AddSingleton<LotteryRulesPageViewModel>();
+            builder.Services.AddSingleton<WinningNumbersHistoryPage>();
+            builder.Services.AddSingleton<WinningNumbersHistoryPageViewModel>();
             builder.Services.AddSingleton<SocialMediaMainPage>();
             builder.Services.AddSingleton<SocialMediaMainPageViewModel>();
-            builder.Services.AddSingleton<LoginOrRegisterPage>();
-            builder.Services.AddSingleton<LoginOrRegisterPageViewModel>();
             builder.Services.AddSingleton<AboutUsPage>();
             builder.Services.AddSingleton<AboutUsPageViewModel>();
             builder.Services.AddSingleton<FundingPage>();
@@ -64,9 +81,14 @@ namespace MyeaMobileApp
             builder.Services.AddSingleton<GoalsPageViewModel>();
             builder.Services.AddSingleton<BadgesPage>();
             builder.Services.AddSingleton<BadgesPageViewModel>();
+            builder.Services.AddSingleton<TimelinePage>();
+            builder.Services.AddSingleton<TimelinePageViewModel>();
+            builder.Services.AddSingleton<PetigotchiPage>();
+            builder.Services.AddSingleton<PetigotchiPageViewModel>();
             builder.Services.AddSingleton<UserModel>();
             builder.Services.AddSingleton<NewsStoryModel>();
             builder.Services.AddSingleton<BadgeModel>();
+            builder.Services.AddSingleton<UserApiService>();
 
 
 #if DEBUG

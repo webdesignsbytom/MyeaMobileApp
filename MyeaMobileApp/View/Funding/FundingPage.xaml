@@ -4,40 +4,49 @@
              x:Class="MyeaMobileApp.View.Funding.FundingPage"
              BackgroundColor="#F5F5F5"
              Title="Funding">
-    
+
     <ScrollView>
         <StackLayout Padding="20" Spacing="10">
-            <Label Text="Funding" FontSize="Large" FontAttributes="Bold" TextColor="#333333"/>
+            <!-- Title -->
+            <Label Text="Funding" FontSize="58" Margin="0,20,0,20" Padding="0,20" FontAttributes="Bold" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="#17aa1f"/>
 
             <!-- Introduction Section -->
-            <Label Text="This website, myecoapp is the start of a dream project our group had..." TextColor="#555555" />
+            <Label TextColor="#555555" Margin="0,0,0,10">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Myecoapp" FontAttributes="Bold"/>
+                        <Span Text=", is the start of a dream project our group had. That funding could one day alone be achieved just through traffic to our website. We are building many services and programmes that anyone can use for free, aiming to support environmental and social causes through every interaction on our platform."/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
 
             <!-- Adverts Section -->
-            <Label Text="Adverts" FontSize="Medium" FontAttributes="Bold" TextColor="#333333"/>
-            <Label Text="Our main funding objective is revenue from adverts. We will somewhat shameless put adverts where ever we can..." TextColor="#555555" />
+            <Label Text="Adverts" FontSize="Medium" FontAttributes="Bold" TextColor="#17aa1f"/>
+            <Label Text="Our main funding objective is revenue from adverts. We will somewhat shamelessly put adverts wherever we can, ensuring they are non-intrusive yet effective. Our approach balances the necessity of funding with the user experience, making sure that our mission is supported sustainably." TextColor="#555555"/>
 
             <!-- Media Content Section -->
-            <Label Text="Media content" FontSize="Medium" FontAttributes="Bold" TextColor="#333333"/>
-            <Label Text="Making media content for viewing across the large platforms of social medias and video streaming services..." TextColor="#555555" />
+            <Label Text="Media content" FontSize="Medium" FontAttributes="Bold" TextColor="#17aa1f"/>
+            <Label Text="We are actively creating media content for viewing across large platforms of social media and video streaming services. This initiative isn't just about creating awareness; it's also a strategic approach to generate income that can be used directly for our environmental goals." TextColor="#555555" />
 
             <!-- Shop Section -->
-            <Label Text="Shop" FontSize="Medium" FontAttributes="Bold" TextColor="#333333"/>
-            <Label Text="To make money without asking for it. We have opened a simple online store..." TextColor="#555555" />
+            <Label Text="Shop" FontSize="Medium" FontAttributes="Bold" TextColor="#17aa1f"/>
+            <Label Text="Our online store represents an innovative way to generate funds without direct donations. Here, we offer a range of eco-friendly products, ensuring that each purchase supports our cause. This venture allows us to sustain our projects and grow our impact." TextColor="#555555" />
 
             <!-- Donations Section -->
-            <Label Text="Donations" FontSize="Medium" FontAttributes="Bold" TextColor="#333333"/>
-            <Label Text="We are hugely grateful to any and all of our donors..." TextColor="#555555" />
+            <Label Text="Donations" FontSize="Medium" FontAttributes="Bold" TextColor="#17aa1f"/>
+            <Label Text="The generosity of our donors is the backbone of our efforts. Each contribution brings us closer to our goals, allowing us to scale our projects and make a greater impact. We value every donation, as it accelerates our mission and extends our reach." TextColor="#555555" />
 
             <!-- Fund Raising Section -->
-            <Label Text="Fund raising" FontSize="Medium" FontAttributes="Bold" TextColor="#333333"/>
-            <Label Text="We will be hosting many classic fund raising methods through our sites and social media..." TextColor="#555555" />
+            <Label Text="Fund raising" FontSize="Medium" FontAttributes="Bold" TextColor="#17aa1f"/>
+            <Label Text="We employ a variety of fundraising methods, from classic raffles and auctions to innovative online campaigns. Our fundraising initiatives are designed to be engaging, offering value and entertainment while supporting our cause. Each event helps us to fund our ongoing and future projects." TextColor="#555555" />
 
             <!-- Games Section -->
-            <Label Text="Games" FontSize="Medium" FontAttributes="Bold" TextColor="#333333"/>
-            <Label Text="As part of our free online services and ad revenue goals. We are making 100s of reasons for you to visit us..." TextColor="#555555" />
+            <Label Text="Games" FontSize="Medium" FontAttributes="Bold" TextColor="#17aa1f"/>
+            <Label Text="Incorporating gaming into our platform serves multiple purposes. It's a way to engage our audience, provide entertainment, and generate revenue. Our games range from simple puzzles to more complex simulations, all aligned with our mission of promoting environmental awareness." TextColor="#555555" />
 
             <!-- Conclusion -->
-            <Label Text="Our charity wants to achieve a huge amount. Not only that we have goals we want to achieve for the business, the people who one day work here and the community as a whole..." TextColor="#555555" />
+            <Label Text="Our charity is ambitious, seeking to create significant positive change in the world. We are committed to our goals, which extend beyond environmental action to include the wellbeing of our team and community. We strive to be a respected and effective organization, making a real difference." TextColor="#555555" />
+
         </StackLayout>
     </ScrollView>
 </ContentPage>
