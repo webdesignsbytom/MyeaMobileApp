@@ -57,6 +57,17 @@
                    TextColor="#333333"
                    FontSize="Medium"/>
 
+            <Label Text="See More"
+               TextColor="Blue"
+               FontSize="Large"
+               HorizontalOptions="Center"
+               VerticalOptions="Center">   
+                
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateToGoalsPageCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+
             <!-- MyEcoApp.shop Section -->
             <Label Text="MyEcoShop: Ethical Consumerism"
                    FontSize="Medium"
@@ -73,9 +84,21 @@
                    FontAttributes="Bold"
                    Margin="0,30,0,0"
                    TextColor="#17aa1f" />
-            <Label Text="MyEcoApp is more than just an organization; it's a testament to what can be achieved when technology and ecological consciousness come together. We invite you to join us in this groundbreaking journey. Visit MyEcoApp.org, engage with our content, and be a part of the change. Together, we can turn the tide towards a sustainable future, one click at a time."
+            <Label Text="MyEcoApp is more than just an organization; it's a testament to what can be achieved when technology and ecological consciousness come together. We invite you to join us in this groundbreaking journey. Visit MyEcoApp.org, engage with our content, and be a part of the change. Together, we can turn the tide towards a sustainable future, one click at a time. "
                    TextColor="#333333"
                    FontSize="Medium"/>
+
+            <Label Text="Signup to the newsletter"
+                   TextColor="Blue"
+                   FontSize="Large"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center">
+
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding SignUpToNewsLetterCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+            
         </StackLayout>
     </ScrollView>
 </ContentPage>

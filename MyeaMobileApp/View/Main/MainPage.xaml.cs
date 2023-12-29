@@ -10,6 +10,10 @@ namespace MyeaMobileApp.View.Main
             InitializeComponent();
             BindingContext = ViewModel = viewModel;
         }
+
+        public MainPage()
+        {
+        }
     }
 
 }

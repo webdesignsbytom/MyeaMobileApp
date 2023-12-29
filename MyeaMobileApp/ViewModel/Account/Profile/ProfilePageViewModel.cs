@@ -9,6 +9,12 @@ namespace MyeaMobileApp.ViewModel.Account.Profile
         public async Task NavigateToBadgesPage()
         {
             await Shell.Current.GoToAsync("///BadgesPage");
+        }        
+        
+        [RelayCommand]
+        public async Task NavigateToMainPage()
+        {
+            await Shell.Current.GoToAsync("///MainPage");
         }
     }
 }

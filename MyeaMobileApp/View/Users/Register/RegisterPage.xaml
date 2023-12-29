@@ -38,37 +38,51 @@
 
             <Label Text="Register Now" Style="{StaticResource LabelStyle}" />
 
-            <!-- Frame for First Name Entry -->
+            <!-- Email Field -->
+            <Label Text="Email" Style="{StaticResource LabelStyle}" />
             <Frame CornerRadius="10" Padding="0" HasShadow="False" Margin="0,0,0,10">
-                <Entry Placeholder="First Name" Style="{StaticResource EntryStyle}" Text="{Binding FirstName}" />
+                <Entry Style="{StaticResource EntryStyle}" Text="{Binding Email}" />
             </Frame>
 
-            <!-- Frame for Last Name Entry -->
+            <!-- Password Field -->
+            <Label Text="Password" Style="{StaticResource LabelStyle}" />
             <Frame CornerRadius="10" Padding="0" HasShadow="False" Margin="0,0,0,10">
-                <Entry Placeholder="Last Name" Style="{StaticResource EntryStyle}" Text="{Binding LastName}" />
+                <Entry Style="{StaticResource EntryStyle}" Text="{Binding Password}" IsPassword="True"/>
             </Frame>
 
-            <!-- Frame for Age Entry -->
+            <!-- Confirm Password Field -->
+            <Label Text="Confirm Password" Style="{StaticResource LabelStyle}" />
             <Frame CornerRadius="10" Padding="0" HasShadow="False" Margin="0,0,0,10">
-                <Entry Placeholder="Age" Style="{StaticResource EntryStyle}" Text="{Binding Age}" Keyboard="Numeric" />
+                <Entry Style="{StaticResource EntryStyle}" Text="{Binding ConfirmPassword}" IsPassword="True"/>
             </Frame>
 
-            <!-- Picker for Gender -->
-            <Picker Title="Gender" ItemsSource="{Binding Genders}" Style="{StaticResource EntryStyle}" SelectedItem="{Binding SelectedGender}" Margin="0,0,0,10" />
-
-            <!-- Frame for Country Entry -->
+            <!-- First Name Field -->
+            <Label Text="First Name" Style="{StaticResource LabelStyle}" />
             <Frame CornerRadius="10" Padding="0" HasShadow="False" Margin="0,0,0,10">
-                <Entry Placeholder="Country" Style="{StaticResource EntryStyle}" Text="{Binding Country}" />
+                <Entry Style="{StaticResource EntryStyle}" Text="{Binding FirstName}" />
             </Frame>
 
-            <!-- CheckBox for Terms and Conditions -->
+            <!-- Last Name Field -->
+            <Label Text="Last Name" Style="{StaticResource LabelStyle}" />
+            <Frame CornerRadius="10" Padding="0" HasShadow="False" Margin="0,0,0,10">
+                <Entry Style="{StaticResource EntryStyle}" Text="{Binding LastName}" />
+            </Frame>
+
+            <!-- Country Field -->
+            <Label Text="Country" Style="{StaticResource LabelStyle}" />
+            <Frame CornerRadius="10" Padding="0" HasShadow="False" Margin="0,0,0,10">
+                <Entry Style="{StaticResource EntryStyle}" Text="{Binding Country}" />
+            </Frame>
+
+            <!-- Terms and Conditions Checkbox -->
             <HorizontalStackLayout VerticalOptions="Center" Margin="0,0,0,10">
                 <CheckBox IsChecked="{Binding AgreeToTerms}" Style="{StaticResource CheckBoxStyle}" />
                 <Label VerticalOptions="Center" Padding="0,10,0,0" Text="I agree to the terms and conditions" />
             </HorizontalStackLayout>
 
             <!-- Register Button -->
-            <Button Text="Register" Style="{StaticResource ButtonStyle}" />
+            <Button Text="{Binding SubmitBtn}" Style="{StaticResource ButtonStyle}" Command="{Binding RegisterNewUserCommand}" />
         </StackLayout>
     </ScrollView>
+
 </ContentPage>

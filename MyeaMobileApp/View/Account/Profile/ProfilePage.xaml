@@ -19,7 +19,20 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     
-    <VerticalStackLayout>
+    <VerticalStackLayout Padding="5">
+
+        <!-- Circular Profile Image -->
+        <Frame WidthRequest="100" HeightRequest="100"
+               CornerRadius="50"
+               HorizontalOptions="Center"
+               VerticalOptions="Start"
+               Padding="0">
+            <Image Source="user_icon.png"
+                   Aspect="AspectFill"
+                   HeightRequest="100"
+                   WidthRequest="100"/>
+        </Frame>
+
         <StackLayout Padding="30" VerticalOptions="StartAndExpand">
             <Label Text="First Name:" FontAttributes="Bold"/>
             <Label Text="T0m" Margin="0,0,0,10"/>
@@ -38,6 +51,8 @@
         </StackLayout>
 
         <Button Text="Badges" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToBadgesPageCommand}" />
+        
+        <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
 
     </VerticalStackLayout>
 </ContentPage>

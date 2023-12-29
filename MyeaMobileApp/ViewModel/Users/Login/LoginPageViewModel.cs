@@ -1,7 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MyeaMobileApp.Services.User;
-using System.Diagnostics;
 
 namespace MyeaMobileApp.ViewModel.Users.Login
 {
@@ -12,16 +11,16 @@ namespace MyeaMobileApp.ViewModel.Users.Login
 
         // Login properties
         [ObservableProperty]
-        public string email;        
-        
+        public string? email;
+
         [ObservableProperty]
-        public string password;
+        public string? password;
 
         [ObservableProperty]
         public string submitBtn = "Login";
 
-        public LoginPageViewModel() { }      
-        
+        public LoginPageViewModel() { }
+
         // Create instance of api services
         public LoginPageViewModel(UserApiService userApiService)
         {
@@ -32,14 +31,18 @@ namespace MyeaMobileApp.ViewModel.Users.Login
         [RelayCommand]
         async Task LoginToAccount()
         {
-            Console.WriteLine($"EMAIL AND PASS {email} {password}");
-            Debug.WriteLine($"EMAIL AND PASS {email} {password}");
+            if (string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Password))
+            {
+                return;
+            }
 
-            await UserApiService.LogUserInApi(email, password);
+            await UserApiService.LogUserInApi(Email, Password);
             SubmitBtn = "Success!";
-            email = "";
-            password = "";
+            Email = "";
+            Password = "";
+            await Shell.Current.GoToAsync("///ProfilePage");
         }
+
 
         // Register if not a member
         [RelayCommand]
@@ -48,4 +51,5 @@ namespace MyeaMobileApp.ViewModel.Users.Login
             await Shell.Current.GoToAsync("///RegisterPage");
         }
     }
+
 }

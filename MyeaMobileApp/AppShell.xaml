@@ -20,6 +20,7 @@
     xmlns:goals="clr-namespace:MyeaMobileApp.View.Goals"
     xmlns:timeline="clr-namespace:MyeaMobileApp.View.Timeline"
     xmlns:petigotchi="clr-namespace:MyeaMobileApp.View.Games.Petigotchi"
+    xmlns:newsletterSignup="clr-namespace:MyeaMobileApp.View.Newsletter"
     Shell.FlyoutBehavior="Disabled"
     Shell.NavBarIsVisible="False"
     Title="MyeaMobileApp">
@@ -106,6 +107,14 @@
     <ShellContent
         Title="Rules"
         ContentTemplate="{DataTemplate lotteryRules:LotteryRulesPage}"
-        Route="LotteryRulesPage" />    
-   
+        Route="LotteryRulesPage" />     
+    
+    <!-- Newsletter -->
+    
+    <ShellContent
+        Title="Newsletter"
+        ContentTemplate="{DataTemplate newsletterSignup:NewsletterSignUpPage}"
+        Route="NewsletterSignUpPage" />   
+    
+
 </Shell>
