@@ -37,6 +37,7 @@ using MyeaMobileApp.ViewModel.Newsletter;
 using MyeaMobileApp.ViewModel.Timeline;
 using MyeaMobileApp.ViewModel.Users.Login;
 using MyeaMobileApp.ViewModel.Users.Register;
+using SkiaSharp.Views.Maui.Controls.Hosting;
 
 namespace MyeaMobileApp
 {
@@ -47,6 +48,7 @@ namespace MyeaMobileApp
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseSkiaSharp()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
@@ -92,6 +94,7 @@ namespace MyeaMobileApp
             builder.Services.AddSingleton<UserModel>();
             builder.Services.AddSingleton<NewsStoryModel>();
             builder.Services.AddSingleton<BadgeModel>();
+            builder.Services.AddSingleton<PetigotchiModel>();
             builder.Services.AddSingleton<UserApiService>();
 
 
