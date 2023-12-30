@@ -18,139 +18,146 @@
                 <Setter Property="BackgroundColor" Value="#4CAF50"/>
                 <Setter Property="TextColor" Value="White"/>
                 <Setter Property="CornerRadius" Value="5"/>
-                <Setter Property="Margin" Value="0,20,0,0"/>
+                <Setter Property="Margin" Value="0,5,0,0"/>
                 <Setter Property="HeightRequest" Value="50"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <VerticalStackLayout
-        Padding="10,5">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
-        <HorizontalStackLayout HorizontalOptions="End">
+        <!-- Main content in the first row -->
+        <VerticalStackLayout Grid.Row="0" Padding="5">
+            <!-- Add your main content elements here -->
+            <HorizontalStackLayout HorizontalOptions="End">
+                <ImageButton 
+                    Source="user_icon.png" 
+                    HeightRequest="50"
+                    WidthRequest="50"
+                    Command="{Binding NavigateToUsersAccountCommand}"/>
+            </HorizontalStackLayout>
 
-            <ImageButton 
-                Source="user_icon.png" 
-                HeightRequest="50"
-                WidthRequest="50"
-                Command="{Binding NavigateToUsersAccountCommand}"/>
+            <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
+                <Image
+                    Source="logo_png.png"
+                    HeightRequest="128"
+                    WidthRequest="128"/>
 
-        </HorizontalStackLayout>
+                <Label
+                    Margin="20,10"
+                    Text="Modernising environmentalism and creating a donation free non-profit organization that works on repairing climate change"
+                    />
+            </VerticalStackLayout>
 
-        <VerticalStackLayout 
-            HorizontalOptions="Center" 
-            Spacing="10">
-
-            <Label
-                Text="Welcome to Myecoapp!"
-                HorizontalOptions="Center"
-                />
-
-            <Image
-                Source="logo_png.png"
-                HeightRequest="128"
-                WidthRequest="128"/>
-
-            <Label
-                Margin="20,10"
-                Text="Modernising environmentalism and creating a donation free non-profit organization that works on repairing climate change"
-                />
-
+            <!-- Sponsor Advert Frame -->
+            <Frame 
+                Margin="0,10,0,0"
+                Padding="10"
+                CornerRadius="10"
+                BorderColor="#CCCCCC"
+                BackgroundColor="#B1E8A1"
+                HorizontalOptions="FillAndExpand">
+                
+                <Label Text="Sponsored by Cat App" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" 
+                       TextColor="#333333"/>
+            </Frame>
+            
+            <!-- Daily Event Frame -->
+            <Frame 
+                Margin="0,10"
+                Padding="10"
+                CornerRadius="10"
+                BorderColor="#CCCCCC"
+                BackgroundColor="#B1E8A1"
+                HorizontalOptions="FillAndExpand">
+                
+                <Label Text="Daily Events" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" 
+                       HeightRequest="100"
+                       TextColor="#333333"/>
+            </Frame>
         </VerticalStackLayout>
 
-        <!-- Sponsor Advert Frame -->
-        <Frame 
-            Margin="20"
-            Padding="10"
-            CornerRadius="10"
-            BorderColor="#CCCCCC"
-            BackgroundColor="#EEEEEE"
-            HorizontalOptions="FillAndExpand">
-            <Label Text="Sponsor" 
-                   HorizontalOptions="Center" 
-                   VerticalOptions="Center" 
-                   TextColor="#333333"/>
-        </Frame>
+        <!-- Buttons in the second row -->
+        <VerticalStackLayout Grid.Row="1" Margin="5,0,5,0">
+            <Grid ColumnSpacing="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-        <Grid ColumnSpacing="6">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+                <Button Text="About" Grid.Column="0" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToAboutUsPageCommand}"/>
+                <Button Text="Games" Grid.Column="1" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToGamesPageCommand}"/>
+            </Grid>
 
-            <Button
-                Text="About"
-                Grid.Column="0"
-                Style="{StaticResource ButtonStyle}"
-                Command="{Binding NavigateToAboutUsPageCommand}"/>
+            <Grid ColumnSpacing="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-            <Button
-                Grid.Column="1"
-                Text="Games"
-                Style="{StaticResource ButtonStyle}"
-                Command="{Binding NavigateToGamesPageCommand}"/>
-        </Grid>
+                <Button
+                    Text="Goals"
+                    Grid.Column="0"
+                    Style="{StaticResource ButtonStyle}"
+                    Command="{Binding NavigateToGoalsPageCommand}"/>
 
-        <Grid ColumnSpacing="6">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+                <Button
+                    Text="Funding"
+                    Grid.Column="1"
+                    Style="{StaticResource ButtonStyle}"
+                    Command="{Binding NavigateToFundingPageCommand}"/>
 
-            <Button
-                Text="Goals"
-                Grid.Column="0"
-                Style="{StaticResource ButtonStyle}"
-                Command="{Binding NavigateToGoalsPageCommand}"/>
+            </Grid>
 
-            <Button
-                Text="Funding"
-                Grid.Column="1"
-                Style="{StaticResource ButtonStyle}"
-                Command="{Binding NavigateToFundingPageCommand}"/>
+            <Grid ColumnSpacing="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-        </Grid>        
-        
-        <Grid ColumnSpacing="6">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+                <Button
+                    Text="News"
+                    Grid.Column="0"
+                    Style="{StaticResource ButtonStyle}"
+                    Command="{Binding NavigateToNewReelPageCommand}"/>
 
-            <Button
-                Text="News"
-                Grid.Column="0"
-                Style="{StaticResource ButtonStyle}"
-                Command="{Binding NavigateToNewReelPageCommand}"/>
+                <Button
+                    Text="Media"
+                    Grid.Column="1"
+                    Style="{StaticResource ButtonStyle}"
+                    Command="{Binding NavigateToMediaMainPageCommand}"/>
 
-            <Button
-                Text="Media"
-                Grid.Column="1"
-                Style="{StaticResource ButtonStyle}"
-                Command="{Binding NavigateToMediaMainPageCommand}"/>
+            </Grid>
 
-        </Grid>
+            <Grid ColumnSpacing="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-        <Grid ColumnSpacing="6">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="*" />
-            </Grid.ColumnDefinitions>
+                <Button
+                    Text="Lottery"
+                    Grid.Column="0"
+                    Style="{StaticResource ButtonStyle}"
+                    Command="{Binding NavigateToLotteryPageCommand}"/>
 
-            <Button
-                Text="Lottery"
-                Grid.Column="0"
-                Style="{StaticResource ButtonStyle}"
-                Command="{Binding NavigateToLotteryPageCommand}"/>            
-            
-            <Button
-                Text="Timeline"
-                Grid.Column="1"
-                Style="{StaticResource ButtonStyle}"
-                Command="{Binding NavigateToTimelinePageCommand}"/>
+                <Button
+                    Text="Timeline"
+                    Grid.Column="1"
+                    Style="{StaticResource ButtonStyle}"
+                    Command="{Binding NavigateToTimelinePageCommand}"/>
 
-        </Grid>
+            </Grid>
+        </VerticalStackLayout>
+    </Grid>
 
-    </VerticalStackLayout>
 </ContentPage>
