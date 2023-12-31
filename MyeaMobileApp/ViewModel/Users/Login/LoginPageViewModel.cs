@@ -1,18 +1,16 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MyeaMobileApp.Model;
-using MyeaMobileApp.Services.User;
-using System.Diagnostics;
+using MyeaMobileApp.Services.Auth;
 
 namespace MyeaMobileApp.ViewModel.Users.Login
 {
     public partial class LoginPageViewModel : ObservableObject
     {
         // API service
-        public UserApiService UserApiService { get; set; }
+        public LoginApi LoginApiService { get; set; }
         // User model
         public UserModel User { get; set; }
-
 
         // Login properties
         [ObservableProperty]
@@ -27,9 +25,9 @@ namespace MyeaMobileApp.ViewModel.Users.Login
         public LoginPageViewModel() { }
 
         // Create instance of api services
-        public LoginPageViewModel(UserApiService userApiService, UserModel userModel)
+        public LoginPageViewModel(LoginApi loginApiService, UserModel userModel)
         {
-            UserApiService = userApiService;
+            LoginApiService = loginApiService;
             User = userModel;
         }
 
@@ -42,7 +40,7 @@ namespace MyeaMobileApp.ViewModel.Users.Login
                 return;
             }
 
-            await UserApiService.LogUserInApi(Email, Password);
+            await LoginApiService.LogUserInApi(Email, Password);
 
             SubmitBtn = "Success!";
             Email = "";

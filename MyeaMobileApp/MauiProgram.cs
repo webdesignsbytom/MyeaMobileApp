@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using MyeaMobileApp.Model;
+using MyeaMobileApp.Services.Auth;
 using MyeaMobileApp.Services.User;
 using MyeaMobileApp.View.About;
 using MyeaMobileApp.View.Account.Badges;
@@ -60,7 +61,7 @@ namespace MyeaMobileApp
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
-
+            /* Pages and ViewModels */
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<MainPageViewModel>();
             builder.Services.AddSingleton<LoginPage>();
@@ -103,12 +104,15 @@ namespace MyeaMobileApp
             builder.Services.AddSingleton<MediaCampaignMainPageViewModel>();
             builder.Services.AddSingleton<ServicesPage>();
             builder.Services.AddSingleton<ServicesPageViewModel>();
+            /* Models */
             builder.Services.AddSingleton<UserModel>();
             builder.Services.AddSingleton<ProfileModel>();
             builder.Services.AddSingleton<NewsStoryModel>();
             builder.Services.AddSingleton<BadgeModel>();
             builder.Services.AddSingleton<PetigotchiModel>();
+            /* Api services */
             builder.Services.AddSingleton<UserApiService>();
+            builder.Services.AddSingleton<LoginApi>();
 
 
 #if DEBUG
