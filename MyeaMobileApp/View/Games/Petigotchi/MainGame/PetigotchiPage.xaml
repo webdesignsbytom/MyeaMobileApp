@@ -13,24 +13,29 @@
         </skia:SKCanvasView>
         
         <!-- Top level player stats -->
-        <HorizontalStackLayout HorizontalOptions="Start" VerticalOptions="Start" Margin="10,10,0,0">
+        <Grid VerticalOptions="Start" ColumnDefinitions="*,*,*" ColumnSpacing="10" Margin="10" BackgroundColor="AntiqueWhite">
 
+            <ImageButton Source="highscore_icon.png"
+                 WidthRequest="35"
+                 HeightRequest="35"
+                 Grid.Column="0"
+                 Command="{Binding NavigateToHighscoresPageCommand}"
+                 IsVisible="True"/>
+            
             <ImageButton Source="wdbt_white.png"
-                 WidthRequest="25"
-                 HeightRequest="25"
+                 WidthRequest="35"
+                 Grid.Column="1"        
+                 HeightRequest="35"
                  IsVisible="True"/>
 
-            <ImageButton Source="wdbt_white.png"
-                 WidthRequest="25"
-                 HeightRequest="25"
+            <ImageButton Source="settings_icon.png"
+                 WidthRequest="35"
+                 HeightRequest="35" 
+                 Grid.Column="2"       
+                 Command="{Binding OpenGameSettingsContainerCommand}"
                  IsVisible="True"/>
 
-            <ImageButton Source="wdbt_white.png"
-                 WidthRequest="25"
-                 HeightRequest="25"
-                 IsVisible="True"/>
-
-        </HorizontalStackLayout>
+        </Grid>
 
         <!-- Bottom level player buttons -->
         <Grid VerticalOptions="End" ColumnDefinitions="*,*,*" ColumnSpacing="10" Margin="10">

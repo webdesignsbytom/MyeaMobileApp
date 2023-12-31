@@ -57,6 +57,8 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\Images\Games\cat1.png" />
+	  <None Remove="Resources\Images\Games\highscore_icon.png" />
+	  <None Remove="Resources\Images\Games\settings_icon.png" />
 	  <None Remove="Resources\Images\Icons\User_Icon.png" />
 	  <None Remove="Resources\Images\Logos\logo_png.png" />
 	  <None Remove="Resources\Images\Logos\wdbt_white.png" />
@@ -86,6 +88,12 @@
 	  <EmbeddedResource Include="Resources\Images\Games\cat1.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </EmbeddedResource>
+	  <MauiImage Include="Resources\Images\Games\highscore_icon.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Games\settings_icon.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
 	</ItemGroup>
 
 	<ItemGroup>
@@ -107,6 +115,9 @@
 	  <MauiXaml Update="View\Account\Badges\BadgesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="View\Account\InviteFriends\InviteFriendsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\Account\Profile\ProfilePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -116,7 +127,7 @@
 	  <MauiXaml Update="View\Games\Petigotchi\Highscores\PetigotchiHighscoresPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="View\Games\Petigotchi\PetigotchiPage.xaml">
+	  <MauiXaml Update="View\Games\Petigotchi\MainGame\PetigotchiPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\Goals\GoalsPage.xaml">
@@ -144,6 +155,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\News\NewsReelPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Services\ServicesPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\Timeline\TimelinePage.xaml">

@@ -9,7 +9,6 @@
                 <Setter Property="BackgroundColor" Value="#4CAF50"/>
                 <Setter Property="TextColor" Value="White"/>
                 <Setter Property="CornerRadius" Value="5"/>
-                <Setter Property="Margin" Value="0,20,0,0"/>
                 <Setter Property="HeightRequest" Value="50"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>

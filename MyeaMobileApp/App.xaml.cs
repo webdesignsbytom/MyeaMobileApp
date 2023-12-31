@@ -8,30 +8,34 @@ namespace MyeaMobileApp
         public ProfileModel UserProfile { get; set; }
         public App(UserModel user, ProfileModel userProfile)
         {
-            InitializeComponent();
             User = user;
             UserProfile = userProfile;
             CheckUserLogin();
+            InitializeComponent();
             MainPage = new AppShell();
         }
 
         private async void CheckUserLogin()
         {
-            var userId = await SecureStorage.GetAsync("user_id") ?? string.Empty;
-            string userFirstName = await SecureStorage.GetAsync("user_firstName") ?? string.Empty;
+            var userToken = await SecureStorage.Default.GetAsync("user_token");
+            string userFirstName = await SecureStorage.Default.GetAsync("user_firstName") ?? string.Empty;
+            Console.WriteLine($"111111111111111111111111111111111111111111111111111111111111111 {userToken}");
+            Console.WriteLine($"X111111111111111111111111111111111111111111111111111111111111111 {userFirstName}");
 
-            if (!string.IsNullOrEmpty(userId))
+            if (!string.IsNullOrEmpty(userToken))
             {
+                Console.WriteLine("111111111111111111111111111111111111111111111111111111111111111");
                 User.UserIsLoggedIn = true;
                 UserProfile.FirstName = userFirstName;
-                // Get user by id from token
             }
-/*            else
+            else
             {
+                Console.WriteLine($"22222222222222222222222222222222222222222222 {userToken}");
+                Console.WriteLine($"X22222222222222222222222222222222222222222222 {userFirstName}");
+
                 // User is not logged in, show login page
-                Debug.WriteLine("NNNNNNNNNNNNNNNNNN");
                 Console.WriteLine("NNNNNNNNNNNNNNNNNNNNNN");
-            }*/
+            }
         }
     }
 }

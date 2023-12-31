@@ -56,6 +56,8 @@
         <Button Text="Badges" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToBadgesPageCommand}" />
         
         <Button Text="Logout" Style="{StaticResource ButtonStyle}" Command="{Binding LogoutUserCommand}" />
+
+        <Button Text="Invite Friends" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToInviteFriendsPageCommand}" />
         
         <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
 

@@ -10,6 +10,7 @@
     xmlns:news="clr-namespace:MyeaMobileApp.View.News"
     xmlns:profile="clr-namespace:MyeaMobileApp.View.Account.Profile"
     xmlns:badges="clr-namespace:MyeaMobileApp.View.Account.Badges"
+    xmlns:inviteFriends="clr-namespace:MyeaMobileApp.View.Account.InviteFriends"
     xmlns:lottery="clr-namespace:MyeaMobileApp.View.Lottery.LotteryMain"
     xmlns:lotteryPurchase="clr-namespace:MyeaMobileApp.View.Lottery.PuchaseTickets"
     xmlns:lotteryOwned="clr-namespace:MyeaMobileApp.View.Lottery.OwnedTickets"
@@ -22,6 +23,7 @@
     xmlns:petigotchi="clr-namespace:MyeaMobileApp.View.Games.Petigotchi"
     xmlns:petigotchiHighscores="clr-namespace:MyeaMobileApp.View.Games.Petigotchi.Highscores"
     xmlns:newsletterSignup="clr-namespace:MyeaMobileApp.View.Newsletter"
+    xmlns:services="clr-namespace:MyeaMobileApp.View.Services"
     Shell.FlyoutBehavior="Disabled"
     Shell.NavBarIsVisible="False"
     Title="MyeaMobileApp">
@@ -51,7 +53,12 @@
     <ShellContent
         Title="Badges"
         ContentTemplate="{DataTemplate badges:BadgesPage}"
-        Route="BadgesPage" />
+        Route="BadgesPage" />    
+    
+    <ShellContent
+        Title="Invite"
+        ContentTemplate="{DataTemplate inviteFriends:InviteFriendsPage}"
+        Route="InviteFriendsPage" />
 
     <!-- Main Content -->
     <ShellContent
@@ -82,7 +89,12 @@
     <ShellContent
         Title="Goals"
         ContentTemplate="{DataTemplate goals:GoalsPage}"
-        Route="GoalsPage" />
+        Route="GoalsPage" />    
+    
+    <ShellContent
+        Title="Services"
+        ContentTemplate="{DataTemplate services:ServicesPage}"
+        Route="ServicesPage" />
     
     <!-- Games -->
     <ShellContent
@@ -95,7 +107,6 @@
         ContentTemplate="{DataTemplate petigotchiHighscores:PetigotchiHighscoresPage}"
         Route="PetigotchiHighscoresPage" />      
     
-
 
     <!-- Lottery section -->
     <ShellContent
@@ -119,7 +130,6 @@
         Route="LotteryRulesPage" />     
     
     <!-- Newsletter -->
-    
     <ShellContent
         Title="Newsletter"
         ContentTemplate="{DataTemplate newsletterSignup:NewsletterSignUpPage}"

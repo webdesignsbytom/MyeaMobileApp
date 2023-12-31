@@ -47,14 +47,15 @@ namespace MyeaMobileApp.Services.User
 
                     User.Email = apiResponse.Data.ExistingUser.Email;
                     // Store token and other data in SecureStorage
-                    await SecureStorage.SetAsync("user_token", apiResponse.Data.Token);
-                    await SecureStorage.SetAsync("user_email", apiResponse.Data.ExistingUser.Email);
+                    await SecureStorage.Default.SetAsync("user_token", apiResponse.Data.Token);
+                    await SecureStorage.Default.SetAsync("user_email", apiResponse.Data.ExistingUser.Email);
 
                     if (apiResponse.Data.ExistingUser.Profile != null)
                     {
                         Console.WriteLine("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
                         string firstName = apiResponse.Data.ExistingUser.Profile.FirstName;
-                        await SecureStorage.SetAsync("user_firstName", firstName);
+                        UserProfile.FirstName = firstName;
+                        await SecureStorage.Default.SetAsync("user_firstName", firstName);
                     }
 
                     Console.WriteLine("User logged in successfully.");

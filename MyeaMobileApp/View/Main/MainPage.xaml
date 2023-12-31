@@ -19,7 +19,7 @@
                 <Setter Property="TextColor" Value="White"/>
                 <Setter Property="CornerRadius" Value="5"/>
                 <Setter Property="Margin" Value="0,5,0,0"/>
-                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="HeightRequest" Value="40"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
         </ResourceDictionary>
@@ -46,6 +46,7 @@
 
                 <Label
                     Margin="5,5"
+                    HorizontalOptions="Center"
                     Text="{Binding FirstName, StringFormat='Welcome {0}'}"
                     />
                 
@@ -119,6 +120,26 @@
 
                 <Button
                     Text="Funding"
+                    Grid.Column="1"
+                    Style="{StaticResource ButtonStyle}"
+                    Command="{Binding NavigateToFundingPageCommand}"/>
+
+            </Grid>            
+            
+            <Grid ColumnSpacing="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Button
+                    Text="Services"
+                    Grid.Column="0"
+                    Style="{StaticResource ButtonStyle}"
+                    Command="{Binding NavigateToServicesPageCommand}"/>
+
+                <Button
+                    Text="Blank"
                     Grid.Column="1"
                     Style="{StaticResource ButtonStyle}"
                     Command="{Binding NavigateToFundingPageCommand}"/>

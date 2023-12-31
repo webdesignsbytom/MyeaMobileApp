@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using MyeaMobileApp.Model;
 using Newtonsoft.Json.Bson;
 using SkiaSharp;
@@ -10,17 +11,15 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi
     public partial class PetigotchiPageViewModel : ObservableObject
     {
         public SKCanvas? gameCanvas;
-
+        
         public PetigotchiPageViewModel()
         {
-            Console.WriteLine("LOAD XXXXXXXXXXXXXXXXXXXXXXX");
-            Debug.WriteLine("LOAD XXXXXXXXXXXXXXXXXXXXXXX");
             CreateGameBitmapAnimations();
         }
 
         // Camvas
-        private float deviceCanvasWidth;
-        private float deviceCanvasHeight;
+        public float deviceCanvasWidth;
+        public float deviceCanvasHeight;
 
         // Game Images
         private SKBitmap PetBitmap;
@@ -30,16 +29,12 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi
         // Set canvas from codebehind
         public void SetCanvas(SKCanvas canvas)
         {
-            Debug.WriteLine("SSSSSSSSSSSSSSSSSSSSSSET");
-            Console.WriteLine("SSSSSSSSSSSSSSSSSSSSSSET");
             gameCanvas = canvas;
         }
 
 
         public void CreateGameBitmapAnimations()
         {
-            Debug.WriteLine("11111111111111111111111111111");
-            Console.WriteLine("11111111111111111111111111111");
             string imageSource = "MyeaMobileApp.Resources.Images.Games.";
 
             using var petCatBitmapStream = Assembly.GetExecutingAssembly().GetManifestResourceStream($"{imageSource}cat1.png");
@@ -49,14 +44,14 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi
 
         public void DrawStartingAnimation()
         {
-            Debug.WriteLine("22222222222222222222222222");
-            Console.WriteLine("2222222222222222222222222222");
+
             if (gameCanvas == null)
             {
                 throw new InvalidOperationException("gameCanvas must be set to an instance of an object");
             }
 
             var mat = SKMatrix.CreateScale(1.0f, 1.0f);
+
             deviceCanvasWidth = gameCanvas.DeviceClipBounds.Width;
             deviceCanvasHeight = gameCanvas.DeviceClipBounds.Height;
 
@@ -64,5 +59,21 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi
             var petPos = mat.Invert().MapPoint(PetigotchiModel.Xpos, PetigotchiModel.Ypos);
             gameCanvas.DrawBitmap(PetBitmap, new SKPoint(petPos.X, petPos.Y), new SKPaint());
         }
+
+        // Navigate to highscores
+        [RelayCommand]
+        public async Task NavigateToHighscoresPage()
+        {
+            await Shell.Current.GoToAsync("///PetigotchiHighscoresPage");
+        }
+
+        // Open Settings
+        [RelayCommand]
+        public async Task OpenGameSettingsContainer()
+        {
+            return;
+        }        
+        
+        
     }
 }

@@ -18,7 +18,13 @@ namespace MyeaMobileApp.ViewModel.Main
         {
             User = userModel;
             UserProfile = userProfile;
-            FirstName = UserProfile.FirstName;
+            LoadData();
+        }
+
+        public async Task LoadData()
+        {
+            string userFirstName = await SecureStorage.Default.GetAsync("user_firstName") ?? string.Empty;
+            FirstName = userFirstName;
         }
 
         [RelayCommand]
@@ -31,6 +37,12 @@ namespace MyeaMobileApp.ViewModel.Main
         public async Task NavigateToLoginPage()
         {
             await Shell.Current.GoToAsync("///LoginPage");
+        }           
+        
+        [RelayCommand]
+        public async Task NavigateToServicesPage()
+        {
+            await Shell.Current.GoToAsync("///ServicesPage");
         }        
         
         [RelayCommand]
