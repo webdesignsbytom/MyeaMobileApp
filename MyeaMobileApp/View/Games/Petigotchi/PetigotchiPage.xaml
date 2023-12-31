@@ -3,12 +3,65 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyeaMobileApp.View.Games.Petigotchi.PetigotchiPage"
              xmlns:skia="clr-namespace:SkiaSharp.Views.Maui.Controls;assembly=SkiaSharp.Views.Maui.Controls">
-    <VerticalStackLayout>
+    
+    <Grid RowDefinitions="*">
         <skia:SKCanvasView 
                 x:Name="canvasView" 
                 PaintSurface="OnPaintSurface"
                 EnableTouchEvents="True"
                 >
         </skia:SKCanvasView>
-    </VerticalStackLayout>
+        
+        <!-- Top level player stats -->
+        <HorizontalStackLayout HorizontalOptions="Start" VerticalOptions="Start" Margin="10,10,0,0">
+
+            <ImageButton Source="wdbt_white.png"
+                 WidthRequest="25"
+                 HeightRequest="25"
+                 IsVisible="True"/>
+
+            <ImageButton Source="wdbt_white.png"
+                 WidthRequest="25"
+                 HeightRequest="25"
+                 IsVisible="True"/>
+
+            <ImageButton Source="wdbt_white.png"
+                 WidthRequest="25"
+                 HeightRequest="25"
+                 IsVisible="True"/>
+
+        </HorizontalStackLayout>
+
+        <!-- Bottom level player buttons -->
+        <Grid VerticalOptions="End" ColumnDefinitions="*,*,*" ColumnSpacing="10" Margin="10">
+
+            <Button
+                Text="Left"
+                TextColor="White"
+                Grid.Column="0"
+                FontSize="22"
+                BackgroundColor="BlueViolet"
+                SemanticProperties.Hint="Go Left"
+                HeightRequest="75"/>
+
+            <Button
+                Text="Fire"
+                TextColor="White"
+                FontSize="22"
+                Grid.Column="1"
+                BackgroundColor="BlueViolet"
+                SemanticProperties.Hint="Fire Weapons"
+                HeightRequest="75" />
+
+            <Button
+                Text="Right"
+                TextColor="White"
+                FontSize="22"
+                Grid.Column="2"
+                BackgroundColor="BlueViolet"
+                SemanticProperties.Hint="Go Right"
+                HeightRequest="75" />
+
+        </Grid>
+    </Grid>
 </ContentPage>

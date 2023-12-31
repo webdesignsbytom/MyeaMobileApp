@@ -2,10 +2,60 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyeaMobileApp.View.Lottery.Rules.LotteryRulesPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="LotteryRulesPage"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <!-- Resources and styles -->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="RulesLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="TextColor" Value="DarkBlue"/>
+            </Style>
+            <Style x:Key="HeaderStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="32"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="DarkBlue"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="Margin" Value="0,20,0,10"/>
+            </Style>
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#4CAF50"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="Margin" Value="0,5,0,0"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <!-- Main layout -->
+    <Grid Padding="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <!-- Header -->
+        <VerticalStackLayout Grid.Row="0">
+            <Label Text="Lottery Rules:" Style="{StaticResource HeaderStyle}"/>
+        </VerticalStackLayout>
+
+        <!-- Rules content -->
+        <VerticalStackLayout Grid.Row="1">
+            <StackLayout Spacing="10">
+                <Label Text="Rules:" Style="{StaticResource RulesLabelStyle}" FontAttributes="Bold"/>
+                <Label Text="- Must be 16 or over" Style="{StaticResource RulesLabelStyle}"/>
+                <Label Text="- Must be a member of the app" Style="{StaticResource RulesLabelStyle}"/>
+                <Label Text="- Each ticket is 20p" Style="{StaticResource RulesLabelStyle}"/>
+                <Label Text="- A minimum of 6 tickets are sold" Style="{StaticResource RulesLabelStyle}"/>
+                <Label Text="- You can't be working for Myecoapp" Style="{StaticResource RulesLabelStyle}"/>
+                <Label Text="- Draws on Friday at 7pm" Style="{StaticResource RulesLabelStyle}"/>
+                <Label Text="- Winner notified by email after" Style="{StaticResource RulesLabelStyle}"/>
+            </StackLayout>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Grid.Row="2" Spacing="5">
+            <Button Text="Buy Tickets" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToPuchaseTicketsPageCommand}"/>
+            <Button Text="Back" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToLotteryMainCommand}"/>
+        </VerticalStackLayout>
+    </Grid>
 </ContentPage>

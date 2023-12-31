@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using MyeaMobileApp.Model;
 using System.Collections.ObjectModel;
 
@@ -57,6 +58,63 @@ namespace MyeaMobileApp.ViewModel.News
                 DatePublished = "2023-12-15",
                 Keywords = "Environment, Climate Change"
             });
+
+            NewsStories.Add(new NewsStoryModel
+            {
+                Title = "Revolutionary Green Energy Solutions",
+                Description = "Unveiling the latest advancements in sustainable energy.",
+                StoryId = "005",
+                ImageUrl = "https://example.com/image5.jpg",
+                DatePublished = "2023-12-20",
+                Keywords = "Green Energy, Sustainability"
+            });
+
+            NewsStories.Add(new NewsStoryModel
+            {
+                Title = "The Future of Artificial Intelligence",
+                Description = "Exploring how AI is transforming industries and daily life.",
+                StoryId = "006",
+                ImageUrl = "https://example.com/image6.jpg",
+                DatePublished = "2023-12-25",
+                Keywords = "AI, Technology"
+            });
+
+            NewsStories.Add(new NewsStoryModel
+            {
+                Title = "Conservation Efforts in the Amazon Rainforest",
+                Description = "A look at ongoing efforts to save one of Earth's most vital ecosystems.",
+                StoryId = "007",
+                ImageUrl = "https://example.com/image7.jpg",
+                DatePublished = "2023-12-30",
+                Keywords = "Conservation, Environment"
+            });
+
+            NewsStories.Add(new NewsStoryModel
+            {
+                Title = "Breakthroughs in Medical Research",
+                Description = "Recent discoveries that could change the face of healthcare.",
+                StoryId = "008",
+                ImageUrl = "https://example.com/image8.jpg",
+                DatePublished = "2024-01-04",
+                Keywords = "Healthcare, Medical Innovation"
+            });
+
+            NewsStories.Add(new NewsStoryModel
+            {
+                Title = "Exploring the Depths: Oceanography Advances",
+                Description = "New findings from the uncharted territories of our oceans.",
+                StoryId = "009",
+                ImageUrl = "https://example.com/image9.jpg",
+                DatePublished = "2024-01-09",
+                Keywords = "Oceanography, Exploration"
+            });
+        }
+
+        // Navigate home
+        [RelayCommand]
+        public async Task NavigateToMainPage()
+        {
+            await Shell.Current.GoToAsync("///MainPage");
         }
     }
 }

@@ -15,36 +15,52 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
-    <CollectionView ItemsSource="{Binding NewsStories}">
-        <CollectionView.ItemTemplate>
-            <DataTemplate>
-                <Frame CornerRadius="10"
-                       BorderColor="Gray"
-                       Padding="10"
-                       Margin="5"
-                       HasShadow="True">
-                    <StackLayout>
-                        <!-- Bind to the new properties in your model -->
-                        <Label Text="{Binding Title}" 
-                               FontSize="Medium" 
-                               FontAttributes="Bold"/>
-                        <Image Source="{Binding ImageUrl}" 
-                               Aspect="AspectFill"/>
-                        <Label Text="{Binding Description}" 
-                               FontSize="Small"/>
-                        <Label Text="{Binding DatePublished}"
-                               FontSize="Small"
-                               FontAttributes="Italic"/>
-                        <Label Text="{Binding Keywords}"
-                               FontSize="Small"
-                               FontAttributes="Italic"/>
-                        <!-- Add other bindings as needed -->
-                    </StackLayout>
-                </Frame>
-            </DataTemplate>
-        </CollectionView.ItemTemplate>
-    </CollectionView>
-    
 
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Semi-transparent green bar -->
+        <StackLayout BackgroundColor="#00000080" Padding="10" Grid.Row="0">
+            <Button Text="Back to Home" 
+                    Style="{StaticResource ButtonStyle}" 
+                    Command="{Binding NavigateToMainPageCommand}"/>
+        </StackLayout>
+
+        <!-- Scrollable content for news stories -->
+        <ScrollView Grid.Row="1">
+            <CollectionView ItemsSource="{Binding NewsStories}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="10"
+                               BorderColor="Gray"
+                               Padding="10"
+                               Margin="5"
+                               HasShadow="True">
+                            <StackLayout>
+                                <!-- Bind to the new properties in your model -->
+                                <Label Text="{Binding Title}" 
+                                       FontSize="Medium" 
+                                       FontAttributes="Bold"/>
+                                <Image Source="{Binding ImageUrl}" 
+                                       Aspect="AspectFill"/>
+                                <Label Text="{Binding Description}" 
+                                       FontSize="Small"/>
+                                <Label Text="{Binding DatePublished}"
+                                       FontSize="Small"
+                                       FontAttributes="Italic"/>
+                                <Label Text="{Binding Keywords}"
+                                       FontSize="Small"
+                                       FontAttributes="Italic"/>
+                                <!-- Add other bindings as needed -->
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+
+    </Grid>
 </ContentPage>

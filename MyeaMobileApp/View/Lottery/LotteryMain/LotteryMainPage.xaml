@@ -61,7 +61,7 @@
             Command="{Binding NavigateToWinningNumbersHistoryPageCommand}"/>
 
         <!-- Home Button -->
-        <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
+        <Button Text="Back" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
         
     </VerticalStackLayout>
 </ContentPage>

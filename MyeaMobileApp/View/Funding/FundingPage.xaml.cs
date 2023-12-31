@@ -1,9 +1,13 @@
+using MyeaMobileApp.ViewModel.Funding;
+
 namespace MyeaMobileApp.View.Funding;
 
 public partial class FundingPage : ContentPage
 {
-	public FundingPage()
+	public FundingPageViewModel ViewModel { get; set; }
+    public FundingPage(FundingPageViewModel viewModel)
 	{
 		InitializeComponent();
+		BindingContext = ViewModel = viewModel;
 	}
 }
