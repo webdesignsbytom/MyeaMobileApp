@@ -8,9 +8,17 @@ namespace MyeaMobileApp.ViewModel.Main
     public partial class MainPageViewModel : ObservableObject
     {
         public UserModel User { get; set; }
-        public MainPageViewModel(UserModel userModel)
+        public ProfileModel UserProfile { get; set; }
+
+        // Users name
+        [ObservableProperty]
+        public string? firstName;
+
+        public MainPageViewModel(UserModel userModel, ProfileModel userProfile)
         {
             User = userModel;
+            UserProfile = userProfile;
+            FirstName = UserProfile.FirstName;
         }
 
         [RelayCommand]
@@ -78,12 +86,10 @@ namespace MyeaMobileApp.ViewModel.Main
         {
             if (User.UserIsLoggedIn)
             {
-                Debug.WriteLine($"Logged in as {User.Username}");
                 await Shell.Current.GoToAsync("///ProfilePage");
             }
             else
             {
-                Debug.WriteLine($"Not logged in");
                 await Shell.Current.GoToAsync("///LoginPage");
             }
         }

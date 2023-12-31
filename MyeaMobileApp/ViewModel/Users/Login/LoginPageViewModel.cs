@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using MyeaMobileApp.Model;
 using MyeaMobileApp.Services.User;
+using System.Diagnostics;
 
 namespace MyeaMobileApp.ViewModel.Users.Login
 {
@@ -42,11 +43,11 @@ namespace MyeaMobileApp.ViewModel.Users.Login
             }
 
             await UserApiService.LogUserInApi(Email, Password);
+
             SubmitBtn = "Success!";
             Email = "";
             Password = "";
             User.UserIsLoggedIn = true;
-            User.Score++;
             await Shell.Current.GoToAsync("///ProfilePage");
         }
 

@@ -20,6 +20,7 @@
     xmlns:goals="clr-namespace:MyeaMobileApp.View.Goals"
     xmlns:timeline="clr-namespace:MyeaMobileApp.View.Timeline"
     xmlns:petigotchi="clr-namespace:MyeaMobileApp.View.Games.Petigotchi"
+    xmlns:petigotchiHighscores="clr-namespace:MyeaMobileApp.View.Games.Petigotchi.Highscores"
     xmlns:newsletterSignup="clr-namespace:MyeaMobileApp.View.Newsletter"
     Shell.FlyoutBehavior="Disabled"
     Shell.NavBarIsVisible="False"
@@ -76,17 +77,25 @@
     <ShellContent
         Title="Timeline"
         ContentTemplate="{DataTemplate timeline:TimelinePage}"
-        Route="TimelinePage" />       
-    
-    <ShellContent
-        Title="Petigotchi"
-        ContentTemplate="{DataTemplate petigotchi:PetigotchiPage}"
-        Route="PetigotchiPage" />      
+        Route="TimelinePage" />
     
     <ShellContent
         Title="Goals"
         ContentTemplate="{DataTemplate goals:GoalsPage}"
         Route="GoalsPage" />
+    
+    <!-- Games -->
+    <ShellContent
+        Title="Petigotchi"
+        ContentTemplate="{DataTemplate petigotchi:PetigotchiPage}"
+        Route="PetigotchiPage" />     
+    
+    <ShellContent
+        Title="Petigotchi Highscores"
+        ContentTemplate="{DataTemplate petigotchiHighscores:PetigotchiHighscoresPage}"
+        Route="PetigotchiHighscoresPage" />      
+    
+
 
     <!-- Lottery section -->
     <ShellContent

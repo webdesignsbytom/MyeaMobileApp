@@ -43,6 +43,12 @@
             </HorizontalStackLayout>
 
             <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
+
+                <Label
+                    Margin="5,5"
+                    Text="{Binding FirstName, StringFormat='Welcome {0}'}"
+                    />
+                
                 <Image
                     Source="logo_png.png"
                     HeightRequest="128"

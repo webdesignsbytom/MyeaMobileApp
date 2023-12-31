@@ -113,6 +113,9 @@
 	  <MauiXaml Update="View\Funding\FundingPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="View\Games\Petigotchi\Highscores\PetigotchiHighscoresPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\Games\Petigotchi\PetigotchiPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
