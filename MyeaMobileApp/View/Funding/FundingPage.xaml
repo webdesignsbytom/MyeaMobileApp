@@ -1,11 +1,20 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyeaMobileApp.View.Funding.FundingPage"
-             BackgroundColor="#F5F5F5">
+             xmlns:controls="clr-namespace:MyeaMobileApp.Controls.Sponsor"
+             x:Class="MyeaMobileApp.View.Funding.FundingPage">
 
     <ContentPage.Resources>
         <ResourceDictionary>
+            <Style x:Key="PageTitle" TargetType="Label">
+                <Setter Property="FontSize" Value="58"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="BackgroundColor" Value="#4CAF50"/>
+                <Setter Property="Margin" Value="0,0,0,0"/>
+                <Setter Property="Padding" Value="0,15,0,15"/>
+            </Style>
             <Style x:Key="ButtonStyle" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="#4CAF50"/>
                 <Setter Property="TextColor" Value="White"/>
@@ -14,53 +23,124 @@
                 <Setter Property="HeightRequest" Value="50"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
+            <Style x:Key="SectionLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="#17aa1f"/>
+                <Setter Property="Margin" Value="0,20,0,10"/>
+            </Style>
+            <Style x:Key="GeneralText" TargetType="Span">
+                <Setter Property="TextColor" Value="#555555"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontFamily" Value="OpenSansRegular"/>
+            </Style>
+            <Style x:Key="LinkButtonStyle" TargetType="Frame">
+                <Setter Property="Margin" Value="10,20,10,20"/>
+                <Setter Property="Padding" Value="10"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="BorderColor" Value="#fff"/>
+                <Setter Property="BackgroundColor" Value="#B1E8A1"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
 
     <ScrollView>
-        <StackLayout Padding="20" Spacing="10">
+        <VerticalStackLayout>
+
             <!-- Title -->
-            <Label Text="Funding" FontSize="58" Margin="0,20,0,20" Padding="0,20" FontAttributes="Bold" HorizontalTextAlignment="Center" TextColor="White" BackgroundColor="#17aa1f"/>
+            <VerticalStackLayout Padding="10">
+                <Label Text="Funding" Style="{StaticResource PageTitle}" />
+            </VerticalStackLayout>
 
-            <!-- Introduction Section -->
-            <Label TextColor="#555555" Margin="0,0,0,10">
-                <Label.FormattedText>
-                    <FormattedString>
-                        <Span Text="Myecoapp" FontAttributes="Bold"/>
-                        <Span Text=", is the start of a dream project our group had. That funding could one day alone be achieved just through traffic to our website. We are building many services and programmes that anyone can use for free, aiming to support environmental and social causes through every interaction on our platform."/>
-                    </FormattedString>
-                </Label.FormattedText>
-            </Label>
+            <VerticalStackLayout Padding="20" Spacing="0">
 
-            <!-- Adverts Section -->
-            <Label Text="Adverts" FontSize="Medium" FontAttributes="Bold" TextColor="#17aa1f"/>
-            <Label Text="Our main funding objective is revenue from adverts. We will somewhat shamelessly put adverts wherever we can, ensuring they are non-intrusive yet effective. Our approach balances the necessity of funding with the user experience, making sure that our mission is supported sustainably." TextColor="#555555"/>
+                <!-- Introduction Section -->
+                <Label Margin="0,0,0,10">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Myecoapp" FontAttributes="Bold" TextColor="#17aa1f" FontSize="18"/>
+                            <Span Text=" is the start of a dream project our group had. That funding could one day alone be achieved just through traffic to our website. We are building many services and programmes that anyone can use for free, aiming to support environmental and social causes through every interaction on our platform." Style="{StaticResource GeneralText}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
 
-            <!-- Media Content Section -->
-            <Label Text="Media content" FontSize="Medium" FontAttributes="Bold" TextColor="#17aa1f"/>
-            <Label Text="We are actively creating media content for viewing across large platforms of social media and video streaming services. This initiative isn't just about creating awareness; it's also a strategic approach to generate income that can be used directly for our environmental goals." TextColor="#555555" />
+                <!-- Adverts Section -->
+                <Label Text="Adverts" Style="{StaticResource SectionLabelStyle}"/>
+                <Label Text="Our main funding objective is revenue from adverts. We will somewhat shamelessly put adverts wherever we can, ensuring they are non-intrusive yet effective. Our approach balances the necessity of funding with the user experience, making sure that our mission is supported sustainably." Style="{StaticResource GeneralText}"/>
 
-            <!-- Shop Section -->
-            <Label Text="Shop" FontSize="Medium" FontAttributes="Bold" TextColor="#17aa1f"/>
-            <Label Text="Our online store represents an innovative way to generate funds without direct donations. Here, we offer a range of eco-friendly products, ensuring that each purchase supports our cause. This venture allows us to sustain our projects and grow our impact." TextColor="#555555" />
+                <controls:SponsorAdvertFrame SponsorName="Cat App" Margin="10,0" />
 
-            <!-- Donations Section -->
-            <Label Text="Donations" FontSize="Medium" FontAttributes="Bold" TextColor="#17aa1f"/>
-            <Label Text="The generosity of our donors is the backbone of our efforts. Each contribution brings us closer to our goals, allowing us to scale our projects and make a greater impact. We value every donation, as it accelerates our mission and extends our reach." TextColor="#555555" />
+                <!-- Media Content Section -->
+                <Label Text="Media content" Style="{StaticResource SectionLabelStyle}"/>
+                <Label Text="We are actively creating media content for viewing across large platforms of social media and video streaming services. This initiative isn't just about creating awareness; it's also a strategic approach to generate income that can be used directly for our environmental goals." Style="{StaticResource GeneralText}" />
 
-            <!-- Fund Raising Section -->
-            <Label Text="Fund raising" FontSize="Medium" FontAttributes="Bold" TextColor="#17aa1f"/>
-            <Label Text="We employ a variety of fundraising methods, from classic raffles and auctions to innovative online campaigns. Our fundraising initiatives are designed to be engaging, offering value and entertainment while supporting our cause. Each event helps us to fund our ongoing and future projects." TextColor="#555555" />
+                <!-- Shop Section -->
+                <Label Text="Shop" Style="{StaticResource SectionLabelStyle}" />
+                <Label Text="Our online store represents an innovative way to generate funds without direct donations. Here, we offer a range of eco-friendly products, ensuring that each purchase supports our cause. This venture allows us to sustain our projects and grow our impact." Style="{StaticResource GeneralText}" />
 
-            <!-- Games Section -->
-            <Label Text="Games" FontSize="Medium" FontAttributes="Bold" TextColor="#17aa1f"/>
-            <Label Text="Incorporating gaming into our platform serves multiple purposes. It's a way to engage our audience, provide entertainment, and generate revenue. Our games range from simple puzzles to more complex simulations, all aligned with our mission of promoting environmental awareness." TextColor="#555555" />
+                <Frame Style="{StaticResource LinkButtonStyle}" >
 
-            <!-- Conclusion -->
-            <Label Text="Our charity is ambitious, seeking to create significant positive change in the world. We are committed to our goals, which extend beyond environmental action to include the wellbeing of our team and community. We strive to be a respected and effective organization, making a real difference." TextColor="#555555" />
+                    <Label Text="Shop Now"
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" 
+                       TextColor="#333333">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavigateAwayToShopCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Frame>
 
-            <!-- Home Button -->
-            <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
-        </StackLayout>
+                <!-- Fund Raising Section -->
+                <Label Text="Fund raising" Style="{StaticResource SectionLabelStyle}"/>
+                <Label Text="We employ a variety of fundraising methods, from classic raffles and auctions to innovative online campaigns. Our fundraising initiatives are designed to be engaging, offering value and entertainment while supporting our cause. Each event helps us to fund our ongoing and future projects." Style="{StaticResource GeneralText}" />
+
+                <!-- Games Section -->
+                <Label Text="Games" Style="{StaticResource SectionLabelStyle}"/>
+                <Label Text="Incorporating gaming into our platform serves multiple purposes. It's a way to engage our audience, provide entertainment, and generate revenue. Our games range from simple puzzles to more complex simulations, all aligned with our mission of promoting environmental awareness." Style="{StaticResource GeneralText}" />
+
+                <!-- Lottery Section -->
+                <Label Text="Lottery" Style="{StaticResource SectionLabelStyle}"/>
+                <Label Text="Our lottery system is designed to be both affordable and fair, ensuring an equal chance for all participants. We prioritize transparency in our lottery mechanics, using a random drawing process that is auditable and compliant with best practices. By keeping the entry cost low, we make it accessible for a wider audience, thereby not only increasing participation but also reinforcing our commitment to community engagement. The proceeds from the lottery are reinvested into our platform, supporting our initiatives and enabling us to continuously offer value to our users." Style="{StaticResource GeneralText}" />
+
+                <!-- Lottery Button -->
+                <Frame Style="{StaticResource LinkButtonStyle}" >
+
+                    <Label Text="Lottery"
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" 
+                       TextColor="#333333">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavigateToLotteryMainCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Frame>
+
+                <!-- Donations Section -->
+                <Label Text="Donations" Style="{StaticResource SectionLabelStyle}" />
+                <Label Text="The generosity of our donors is the backbone of our efforts. Each contribution brings us closer to our goals, allowing us to scale our projects and make a greater impact. We value every donation, as it accelerates our mission and extends our reach." Style="{StaticResource GeneralText}" />
+
+                <!-- Donations Button -->
+                <Frame Style="{StaticResource LinkButtonStyle}" >
+
+                    <Label Text="Donate"
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" 
+                       TextColor="#333333">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavigateToDonationsPageCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Frame>
+
+                <!-- Conclusion -->
+                <Label Text="Thanks for reading.." Style="{StaticResource SectionLabelStyle}"/>
+                <Label Text="Our charity is ambitious, seeking to create significant positive change in the world. We are committed to our goals, which extend beyond environmental action to include the wellbeing of our team and community. We strive to be a respected and effective organization, making a real difference." Style="{StaticResource GeneralText}" />
+
+
+                <!-- Home Button -->
+                <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
+            </VerticalStackLayout>
+        </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

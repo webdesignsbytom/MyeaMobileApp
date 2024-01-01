@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyeaMobileApp.View.Account.EditProfile.EditProfilePage">
+    <!-- Resources and styles -->
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="HeaderStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="32"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="DarkBlue"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="Margin" Value="0,20,0,10"/>
+            </Style>
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#4CAF50"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="Margin" Value="0,5,0,0"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Margin" Value="0,10,0,0"/>
+            </Style>
+            <Style x:Key="EntryStyle" TargetType="Entry">
+                <Setter Property="Margin" Value="0,0,0,10"/>
+                <Setter Property="HeightRequest" Value="40"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
+            <!-- Username -->
+            <Label Text="Username" Style="{StaticResource LabelStyle}"/>
+            <Entry Text="{Binding UserProfile.Username}" Style="{StaticResource EntryStyle}"/>
+
+            <!-- First Name -->
+            <Label Text="First Name" Style="{StaticResource LabelStyle}"/>
+            <Entry Text="{Binding UserProfile.FirstName}" Style="{StaticResource EntryStyle}"/>
+
+            <!-- Last Name -->
+            <Label Text="Last Name" Style="{StaticResource LabelStyle}"/>
+            <Entry Text="{Binding UserProfile.LastName}" Style="{StaticResource EntryStyle}"/>
+
+            <!-- Bio -->
+            <Label Text="Bio" Style="{StaticResource LabelStyle}"/>
+            <Editor Text="{Binding UserProfile.Bio}" HeightRequest="100"/>
+
+            <Label Text="{Binding UserProfile.Bio}" Style="{StaticResource LabelStyle}"/>
+
+            <!-- Profile Image URL -->
+            <Label Text="Profile Image URL" Style="{StaticResource LabelStyle}"/>
+            <Entry Text="{Binding UserProfile.ProfileImageUrl}" Style="{StaticResource EntryStyle}"/>
+
+            <!-- City -->
+            <Label Text="City" Style="{StaticResource LabelStyle}"/>
+            <Entry Text="{Binding UserProfile.City}" Style="{StaticResource EntryStyle}"/>
+
+            <!-- Country -->
+            <Label Text="Country" Style="{StaticResource LabelStyle}"/>
+            <Entry Text="{Binding UserProfile.Country}" Style="{StaticResource EntryStyle}"/>
+
+            <!-- Gender -->
+            <Label Text="Gender" Style="{StaticResource LabelStyle}"/>
+            <Entry Text="{Binding UserProfile.Gender}" Style="{StaticResource EntryStyle}"/>
+
+            <!-- Score (Read-Only) -->
+            <Label Text="Score" Style="{StaticResource LabelStyle}"/>
+            <Entry Text="{Binding UserProfile.Score}" IsReadOnly="True" Style="{StaticResource EntryStyle}"/>
+
+            <!-- Private Profile -->
+            <Label Text="Is Private Profile" Style="{StaticResource LabelStyle}"/>
+            <CheckBox IsChecked="{Binding UserProfile.IsPrivateProfile}" />
+
+            <!-- Update Button -->
+            <Button Text="Update"
+                    Command="{Binding UpdateProfileCommand}"
+                    Style="{StaticResource ButtonStyle}"/>
+
+            <!-- Back to profile -->
+            <Button Text="Back" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToProfilePageCommand}"/>
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

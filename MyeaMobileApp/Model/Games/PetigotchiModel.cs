@@ -1,4 +1,4 @@
-﻿namespace MyeaMobileApp.Model
+﻿namespace MyeaMobileApp.Model.Games
 {
     public class PetigotchiModel
     {

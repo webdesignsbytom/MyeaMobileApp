@@ -54,6 +54,9 @@
                                        FontSize="Small"
                                        FontAttributes="Italic"/>
                                 <!-- Add other bindings as needed -->
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding OpenStoryCommand}" />
+                                </StackLayout.GestureRecognizers>
                             </StackLayout>
                         </Frame>
                     </DataTemplate>

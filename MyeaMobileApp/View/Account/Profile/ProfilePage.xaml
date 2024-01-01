@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:MyeaMobileApp.Converters"
              x:Class="MyeaMobileApp.View.Account.Profile.ProfilePage">
 
     <ContentPage.Resources>
         <ResourceDictionary>
+            <converters:ScoreToProgressConverter x:Key="ScoreToProgressConverter"/>
             <Style x:Key="ButtonStyle" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="#4CAF50"/>
                 <Setter Property="TextColor" Value="White"/>
                 <Setter Property="CornerRadius" Value="5"/>
-                <Setter Property="Margin" Value="0,20,0,0"/>
+                <Setter Property="Margin" Value="0,5,0,0"/>
                 <Setter Property="HeightRequest" Value="50"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
                 <Setter Property="CornerRadius" Value="10"/>
@@ -17,49 +19,112 @@
 
         </ResourceDictionary>
     </ContentPage.Resources>
-    
-    <VerticalStackLayout Padding="5">
 
-        <!-- Circular Profile Image -->
-        <Frame WidthRequest="100" HeightRequest="100"
-               CornerRadius="50"
+    <Grid Padding="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <VerticalStackLayout Grid.Row="0">
+            <!-- Circular Profile Image -->
+            <Frame WidthRequest="200" HeightRequest="200"
+               CornerRadius="100"
                HorizontalOptions="Center"
                VerticalOptions="Start"
                Padding="0"
                Margin="0,10,0,5">
-            <Image Source="user_icon.png"
+
+                <Image Source="user_icon.png"
                    Aspect="AspectFill"
-                   HeightRequest="100"
-                   WidthRequest="100"/>
-        </Frame>
+                   HeightRequest="150"
+                   WidthRequest="150"/>
+            </Frame>
 
-        <StackLayout Padding="30" VerticalOptions="StartAndExpand">
-            <Label Text="Email:" FontAttributes="Bold"/>
-            <Label Text="{Binding Email}" Margin="0,0,0,5"/>            
-            
-            <Label Text="First Name:" FontAttributes="Bold"/>
-            <Label Text="{Binding FirstName}" Margin="0,0,0,5"/>
+            <StackLayout Padding="30" VerticalOptions="StartAndExpand">
+                <Label Text="Email:" FontAttributes="Bold"/>
+                <Label Text="{Binding Email}" Margin="0,0,0,5"/>
 
-            <Label Text="Last Name:" FontAttributes="Bold"/>
-            <Label Text="{Binding LastName}" Margin="0,0,0,10"/>
+                <Grid ColumnSpacing="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
 
-            <Label Text="Gender:" FontAttributes="Bold"/>
-            <Label Text="male" Margin="0,0,0,10"/>
+                    <VerticalStackLayout Grid.Column="0">
+                        <Label Text="First Name:" FontAttributes="Bold"/>
+                        <Label Text="{Binding FirstName}" Margin="0,0,0,5"/>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Column="1">
+                        <Label Text="Last Name:" FontAttributes="Bold"/>
+                        <Label Text="{Binding LastName}" Margin="0,0,0,5"/>
+                    </VerticalStackLayout>
+                </Grid>
 
-            <Label Text="Country:" FontAttributes="Bold"/>
-            <Label Text="England" Margin="0,0,0,10"/>            
-            
-            <Label Text="Score:" FontAttributes="Bold"/>
-            <Label Text="{Binding Score}" Margin="0,0,0,10"/>
-        </StackLayout>
+                <Grid ColumnSpacing="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
 
-        <Button Text="Badges" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToBadgesPageCommand}" />
-        
-        <Button Text="Logout" Style="{StaticResource ButtonStyle}" Command="{Binding LogoutUserCommand}" />
+                    <VerticalStackLayout Grid.Column="0">
+                        <Label Text="Country:" FontAttributes="Bold"/>
+                        <Label Text="{Binding Country}" Margin="0,0,0,5"/>
+                    </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Column="1">
+                        <Label Text="Gender:" FontAttributes="Bold"/>
+                        <Label Text="{Binding Gender}" Margin="0,0,0,5"/>
+                    </VerticalStackLayout>
+                </Grid>
 
-        <Button Text="Invite Friends" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToInviteFriendsPageCommand}" />
-        
-        <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
+                <Label Text="Score:" FontAttributes="Bold"/>
+                <Label Text="{Binding Score}" Margin="0,0,0,5"/>
 
-    </VerticalStackLayout>
+                <!-- Score and XP Bar -->
+                <Label Text="Score:" FontAttributes="Bold"/>
+                <ProgressBar Progress="{Binding Score, Converter={StaticResource ScoreToProgressConverter}}" 
+             HeightRequest="20"
+             Margin="0,0,0,10"/>
+
+
+            </StackLayout>
+        </VerticalStackLayout>
+
+        <VerticalStackLayout VerticalOptions="End" Grid.Row="1">
+
+            <Grid ColumnSpacing="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <VerticalStackLayout Grid.Column="0">
+                    <Button Text="Badges" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToBadgesPageCommand}" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="1">
+                    <Button Text="Invite Friends" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToInviteFriendsPageCommand}" />
+
+                </VerticalStackLayout>
+            </Grid>
+
+            <Grid ColumnSpacing="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <VerticalStackLayout Grid.Column="0">
+                    <Button Text="Edit Profile" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToEditProfilePageCommand}" />
+                </VerticalStackLayout>
+                <VerticalStackLayout Grid.Column="1">
+                    <Button Text="Manage Settings" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToManageSettingsPageCommand}" />
+                </VerticalStackLayout>
+            </Grid>
+
+
+            <Button Text="Logout" Style="{StaticResource ButtonStyle}" Command="{Binding LogoutUserFromAppCommand}" />
+
+            <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
+        </VerticalStackLayout>
+    </Grid>
 </ContentPage>

@@ -1,12 +1,18 @@
 ﻿using Microsoft.Extensions.Logging;
 using MyeaMobileApp.Model;
+using MyeaMobileApp.Model.Games;
+using MyeaMobileApp.Model.Lottery;
 using MyeaMobileApp.Services.Auth;
 using MyeaMobileApp.Services.User;
 using MyeaMobileApp.View.About;
 using MyeaMobileApp.View.Account.Badges;
+using MyeaMobileApp.View.Account.EditProfile;
 using MyeaMobileApp.View.Account.InviteFriends;
 using MyeaMobileApp.View.Account.Profile;
+using MyeaMobileApp.View.Apps;
+using MyeaMobileApp.View.Donations;
 using MyeaMobileApp.View.Funding;
+using MyeaMobileApp.View.Games.O2tapper.MainGame;
 using MyeaMobileApp.View.Games.Petigotchi;
 using MyeaMobileApp.View.Games.Petigotchi.Highscores;
 using MyeaMobileApp.View.Goals;
@@ -25,9 +31,13 @@ using MyeaMobileApp.View.Users.Login;
 using MyeaMobileApp.View.Users.Register;
 using MyeaMobileApp.ViewModel.About;
 using MyeaMobileApp.ViewModel.Account.Badges;
+using MyeaMobileApp.ViewModel.Account.EditProfile;
 using MyeaMobileApp.ViewModel.Account.InviteFriends;
 using MyeaMobileApp.ViewModel.Account.Profile;
+using MyeaMobileApp.ViewModel.Apps;
+using MyeaMobileApp.ViewModel.Donations;
 using MyeaMobileApp.ViewModel.Funding;
+using MyeaMobileApp.ViewModel.Games.O2tapper.MainGame;
 using MyeaMobileApp.ViewModel.Games.Petigotchi;
 using MyeaMobileApp.ViewModel.Games.Petigotchi.Highscores;
 using MyeaMobileApp.ViewModel.Goals;
@@ -60,20 +70,26 @@ namespace MyeaMobileApp
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                    fonts.AddFont("SegoeIcons.ttf", "Segoe Fluent Icons");
+                    fonts.AddFont("Seven-Segment.ttf", "Seven Segment");
                 });
             /* Pages and ViewModels */
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<MainPageViewModel>();
+            /* User */
             builder.Services.AddSingleton<LoginPage>();
             builder.Services.AddSingleton<LoginPageViewModel>();
             builder.Services.AddSingleton<RegisterPage>();
             builder.Services.AddSingleton<RegisterPageViewModel>();
-            builder.Services.AddSingleton<NewsReelPage>();
-            builder.Services.AddSingleton<NewsReelPageViewModel>();
             builder.Services.AddSingleton<ProfilePage>();
             builder.Services.AddSingleton<ProfilePageViewModel>();
             builder.Services.AddSingleton<InviteFriendsPage>();
             builder.Services.AddSingleton<InviteFriendsPageViewModel>();
+            builder.Services.AddSingleton<EditProfilePage>();
+            builder.Services.AddSingleton<EditProfilePageViewModel>();
+            /* General */
+            builder.Services.AddSingleton<NewsReelPage>();
+            builder.Services.AddSingleton<NewsReelPageViewModel>();
             builder.Services.AddSingleton<LotteryMainPage>();
             builder.Services.AddSingleton<LotteryMainPageViewModel>();
             builder.Services.AddSingleton<PurchaseLotteryTicketsPage>();
@@ -88,31 +104,43 @@ namespace MyeaMobileApp
             builder.Services.AddSingleton<AboutUsPageViewModel>();
             builder.Services.AddSingleton<FundingPage>();
             builder.Services.AddSingleton<FundingPageViewModel>();
+            builder.Services.AddSingleton<DonationsPage>();
+            builder.Services.AddSingleton<DonationsPageViewModel>();
             builder.Services.AddSingleton<GoalsPage>();
             builder.Services.AddSingleton<GoalsPageViewModel>();
             builder.Services.AddSingleton<BadgesPage>();
             builder.Services.AddSingleton<BadgesPageViewModel>();
             builder.Services.AddSingleton<TimelinePage>();
             builder.Services.AddSingleton<TimelinePageViewModel>();
-            builder.Services.AddSingleton<PetigotchiPage>();
-            builder.Services.AddSingleton<PetigotchiPageViewModel>();
-            builder.Services.AddSingleton<PetigotchiHighscoresPage>();
-            builder.Services.AddSingleton<PetigotchiHighscoresPageViewModel>();
             builder.Services.AddSingleton<NewsletterSignUpPage>();
             builder.Services.AddSingleton<NewsletterSignUpPageViewModel>();
             builder.Services.AddSingleton<MediaCampaignMainPage>();
             builder.Services.AddSingleton<MediaCampaignMainPageViewModel>();
             builder.Services.AddSingleton<ServicesPage>();
             builder.Services.AddSingleton<ServicesPageViewModel>();
+            builder.Services.AddSingleton<AppsMainPage>();
+            builder.Services.AddSingleton<AppsMainPageViewModel>();
+            /* Games */
+            /* Petigotchi */
+            builder.Services.AddSingleton<PetigotchiPage>();
+            builder.Services.AddSingleton<PetigotchiPageViewModel>();
+            builder.Services.AddSingleton<PetigotchiHighscoresPage>();
+            builder.Services.AddSingleton<PetigotchiHighscoresPageViewModel>();
+            /* O2 Tapper */
+            builder.Services.AddSingleton<O2tapperMainPage>();
+            builder.Services.AddSingleton<O2tapperMainPageViewModel>();
             /* Models */
             builder.Services.AddSingleton<UserModel>();
             builder.Services.AddSingleton<ProfileModel>();
             builder.Services.AddSingleton<NewsStoryModel>();
             builder.Services.AddSingleton<BadgeModel>();
+            builder.Services.AddSingleton<LotteryTicketModel>();
             builder.Services.AddSingleton<PetigotchiModel>();
+            builder.Services.AddSingleton<O2tapperModel>();
             /* Api services */
             builder.Services.AddSingleton<UserApiService>();
             builder.Services.AddSingleton<LoginApi>();
+            builder.Services.AddSingleton<NewsletterApiService>();
 
 
 #if DEBUG

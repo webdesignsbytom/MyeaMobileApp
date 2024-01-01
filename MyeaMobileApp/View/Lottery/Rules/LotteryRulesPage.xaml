@@ -46,6 +46,7 @@
                 <Label Text="- Must be 16 or over" Style="{StaticResource RulesLabelStyle}"/>
                 <Label Text="- Must be a member of the app" Style="{StaticResource RulesLabelStyle}"/>
                 <Label Text="- Each ticket is 20p" Style="{StaticResource RulesLabelStyle}"/>
+                <Label Text="- For each ticket sold 15% is added to the prize fund" Style="{StaticResource RulesLabelStyle}"/>
                 <Label Text="- A minimum of 6 tickets are sold" Style="{StaticResource RulesLabelStyle}"/>
                 <Label Text="- You can't be working for Myecoapp" Style="{StaticResource RulesLabelStyle}"/>
                 <Label Text="- Draws on Friday at 7pm" Style="{StaticResource RulesLabelStyle}"/>

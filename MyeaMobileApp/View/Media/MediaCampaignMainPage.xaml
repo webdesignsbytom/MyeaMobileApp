@@ -16,7 +16,7 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     
-    <VerticalStackLayout>
+    <VerticalStackLayout Padding="5">
         <Label 
             Text="MediaCampaignMainPage"
             VerticalOptions="Center" 

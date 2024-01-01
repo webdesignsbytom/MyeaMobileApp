@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MyeaMobileApp.Model;
+using System.Diagnostics;
 
 namespace MyeaMobileApp.ViewModel.Account.Profile
 {
@@ -29,17 +30,50 @@ namespace MyeaMobileApp.ViewModel.Account.Profile
             UserProfile = profileModel;
 
             Email = User.Email;
-/*            FirstName = UserProfile.FirstName;
+            FirstName = UserProfile.FirstName;
             LastName = UserProfile.LastName;
-            Score = UserProfile.Score;*/
+            Score = UserProfile.Score;
         }
 
         [RelayCommand]
-        public void LogoutUserCommand()
+        public async Task LogoutUserFromApp()
         {
-            User.LogoutUserFromApp();
-        }         
+            bool answer = await App.Current.MainPage.DisplayAlert("Warning!", "Are you sure you wish to logout?", "Yes", "No");
+            Debug.WriteLine("Answer: " + answer);
+
+            if (answer) 
+            { 
+                User.LogoutUserFromApp();
+                await Shell.Current.GoToAsync("///MainPage");           
+            }
+        }
+
+        [RelayCommand]
+        public async Task NavigateToManageSettingsPage()
+        {
+            if (!User.UserIsLoggedIn)
+            {
+                await Shell.Current.GoToAsync("///LoginPage");
+            }
+            else
+            {
+                await Shell.Current.GoToAsync("///ManageAccountPage");
+            }
+        }        
         
+        [RelayCommand]
+        public async Task NavigateToEditProfilePage()
+        {
+            if (!User.UserIsLoggedIn)
+            {
+                await Shell.Current.GoToAsync("///LoginPage");
+            }
+            else
+            {
+                await Shell.Current.GoToAsync("///EditProfilePage");
+            }
+        }
+
         [RelayCommand]
         public async Task NavigateToBadgesPage()
         {

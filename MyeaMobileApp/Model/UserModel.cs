@@ -2,19 +2,19 @@
 {
     public class UserModel
     {
-        public string UserId { get; set; } = "1234";
-        public string Role { get; set; }
-        public string Email { get; set; } = "tom@x.com";
+        public string UserId { get; set; } = "tempId";
+        public string Role { get; set; } = "USER";
+        public string Email { get; set; } = "user@mail.com";
         public DateTime DateOfBirth { get; set; }
         public bool UserRegisteredForNewsletter { get; set; } = false;
         public bool UserAgreedToTermsAndConditions { get; set; } = true;
-        public bool UserIsLoggedIn { get; set; } = false;
         public bool HasLivePetigotchi { get; set; }
         public DateTime LastLoggedIn { get; set; }
         public bool IsEmailVerified { get; set; }
         public bool IsActive { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
+        public bool UserIsLoggedIn { get; set; } = false;
 
         // Logout 
         public void LogoutUserFromApp()
@@ -23,7 +23,9 @@
             UserIsLoggedIn = false;
 
             // Clear user data from secure storage
-            SecureStorage.Remove("user_id");
+            SecureStorage.Default.Remove("user_token");
+            SecureStorage.Default.Remove("user_email");
+            SecureStorage.Default.Remove("user_firstName");
         }
     }
 }

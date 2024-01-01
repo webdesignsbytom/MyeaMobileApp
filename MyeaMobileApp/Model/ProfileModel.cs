@@ -7,7 +7,7 @@
         public string Username { get; set; } = "Dennis";
         public string FirstName { get; set; } = "Dennis";
         public string LastName { get; set; } = "Dennis";
-        public string Bio { get; set; } = "Dennis";
+        public string Bio { get; set; } = "BIOBIOBIOBIOI";
         public string ProfileImageUrl { get; set; } = "Dennis";
         public string City { get; set; } = "Paris";
         public string Country { get; set; } = "United Kingdom";

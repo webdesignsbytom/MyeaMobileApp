@@ -5,6 +5,15 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
+            <Style x:Key="PageTitle" TargetType="Label">
+                <Setter Property="FontSize" Value="58"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="BackgroundColor" Value="#4CAF50"/>
+                <Setter Property="Margin" Value="0,0,0,0"/>
+                <Setter Property="Padding" Value="0,15,0,15"/>
+            </Style>
             <Style x:Key="ButtonStyle" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="#4CAF50"/>
                 <Setter Property="TextColor" Value="White"/>
@@ -13,16 +22,106 @@
                 <Setter Property="HeightRequest" Value="50"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
+            <Style x:Key="SectionLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="#17aa1f"/>
+                <Setter Property="Margin" Value="0,20,0,10"/>
+            </Style>
+            <Style x:Key="GeneralText" TargetType="Span">
+                <Setter Property="TextColor" Value="#555555"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontFamily" Value="OpenSansRegular"/>
+            </Style>
+            <Style x:Key="LinkButtonStyle" TargetType="Frame">
+                <Setter Property="Margin" Value="10,20,10,20"/>
+                <Setter Property="Padding" Value="10"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="BorderColor" Value="#fff"/>
+                <Setter Property="BackgroundColor" Value="#B1E8A1"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
-    <VerticalStackLayout>
-        <Label 
-            Text="Services"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
 
-        <!-- Home Button -->
-        <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout>
+
+            <!-- Title -->
+            <VerticalStackLayout Padding="10">
+                <Label Text="Services" Style="{StaticResource PageTitle}" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Padding="20" Spacing="0">
+
+                <!-- Introduction Section -->
+                <Label Margin="0,0,0,10">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Services" FontAttributes="Bold" TextColor="#17aa1f" FontSize="18"/>
+                            <Span Text=" are something we offer to help us help the planet. Simplily by using our services and helping us spread the word we can benifit. We are continuously updating and creating new services for you to use." Style="{StaticResource GeneralText}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <!-- Apps -->
+                <Label Text="App Making" Style="{StaticResource SectionLabelStyle}" />
+                <Label Text="Our team specializes in creating user-friendly and functional apps. We focus on simplicity and efficiency, offering free access while generating revenue through advertising and innovative online earning methods." Style="{StaticResource TextStyle}" />
+
+                <!-- Web -->
+                <Label Text="Web Services" Style="{StaticResource SectionLabelStyle}" />
+                <Label Text="We provide a variety of web services, from website design to hosting solutions. Our websites are designed to be engaging and interactive, featuring content that drives traffic and profits through online advertising." Style="{StaticResource TextStyle}" />
+
+                <!-- Media Button -->
+                <Frame Style="{StaticResource LinkButtonStyle}" >
+
+                    <Label Text="Our Apps"
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" 
+                       TextColor="#333333">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavigateToAppsPageCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Frame>
+
+                <Label Text="Content Creation" Style="{StaticResource SectionLabelStyle}" />
+                <Label Text="Our content creation services range from blog posts to video production. We create high-quality, engaging content that not only serves our users but also supports our revenue generation strategies through ads and sponsorships." Style="{StaticResource TextStyle}" />
+
+                <!-- Media Button -->
+                <Frame Style="{StaticResource LinkButtonStyle}" >
+
+                    <Label Text="Check us out"
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" 
+                       TextColor="#333333">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavigateToMediaPageCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Frame>
+
+                <!-- Games -->
+                <Label Text="Games" Style="{StaticResource SectionLabelStyle}" />
+                <Label Text="We develop fun and engaging games accessible to everyone. Our games are free to play, with revenue being generated through in-game advertising and optional purchases, ensuring a steady stream of passive income." Style="{StaticResource TextStyle}" />
+
+                <!-- Games Button -->
+                <Frame Style="{StaticResource LinkButtonStyle}" >
+
+                    <Label Text="Play some games!"
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" 
+                       TextColor="#333333">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding NavigateToGamesPageCommand}"/>
+                        </Label.GestureRecognizers>
+                    </Label>
+                </Frame>
+
+                <!-- Home Button -->
+                <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
+                
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

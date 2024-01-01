@@ -5,6 +5,15 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
+            <Style x:Key="PageTitle" TargetType="Label">
+                <Setter Property="FontSize" Value="58"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="BackgroundColor" Value="#4CAF50"/>
+                <Setter Property="Margin" Value="0,0,0,0"/>
+                <Setter Property="Padding" Value="0,15,0,15"/>
+            </Style>
             <Style x:Key="ButtonStyle" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="#4CAF50"/>
                 <Setter Property="TextColor" Value="White"/>
@@ -12,72 +21,74 @@
                 <Setter Property="Margin" Value="0,20,0,0"/>
                 <Setter Property="HeightRequest" Value="50"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Style x:Key="SectionLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="#17aa1f"/>
+                <Setter Property="Margin" Value="0,20,0,10"/>
+            </Style>
+            <Style x:Key="GeneralText" TargetType="Span">
+                <Setter Property="TextColor" Value="#555555"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontFamily" Value="OpenSansRegular"/>
+            </Style>
+            <Style x:Key="LinkButtonStyle" TargetType="Frame">
+                <Setter Property="Margin" Value="10,20,10,20"/>
+                <Setter Property="Padding" Value="10"/>
                 <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="BorderColor" Value="#fff"/>
+                <Setter Property="BackgroundColor" Value="#B1E8A1"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
+
     <ScrollView>
-        <StackLayout Padding="20" Spacing="10">
+        <VerticalStackLayout>
+            
             <!-- Title -->
-            <Label Text="Our Goals at MyEcoApp"
-                   FontSize="Large"
-                   FontAttributes="Bold"
-                   TextColor="#17aa1f"
-                   HorizontalOptions="Center" />
+            <VerticalStackLayout Padding="10">
+                <Label Text="Goals" Style="{StaticResource PageTitle}" />
+            </VerticalStackLayout>
 
-            <!-- Short Description -->
-            <Label Text="At MyEcoApp, we are dedicated to making a significant impact on the environment and society through our targeted and actionable goals. Each goal reflects our commitment to a sustainable future."
-                   TextColor="#333333"
-                   FontSize="Medium"/>
+            <VerticalStackLayout Padding="20" Spacing="0">
 
-            <!-- Goal 1 -->
-            <Label Text="1. Uniting for Change"
-                   FontSize="Medium"
-                   FontAttributes="Bold"
-                   TextColor="#17aa1f" />
-            <Label Text="Our first goal is to create a unified, global community that collaborates for environmental change. We believe that collective effort is key to addressing ecological challenges. By bringing together individuals, organizations, and experts from various fields, we aim to foster a collaborative environment where ideas and resources are shared for the greater good of the planet."
-                   TextColor="#333333"
-                   FontSize="Medium"/>
+                <!-- Introduction Section -->
+                <Label Margin="0,0,0,10">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Myecoapp" FontAttributes="Bold" TextColor="#17aa1f" FontSize="18"/>
+                            <Span Text=" has a bunch of great goals! We are dedicated to making a significant impact on the environment and society through our targeted and actionable goals. Each goal reflects our commitment to a sustainable future." Style="{StaticResource GeneralText}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
 
-            <!-- Goal 2 -->
-            <Label Text="2. Reducing CO2 Emissions"
-                   FontSize="Medium"
-                   FontAttributes="Bold"
-                   TextColor="#17aa1f" />
-            <Label Text="A significant focus of MyEcoApp is to reduce the world's carbon footprint. We are committed to funding and implementing projects that actively reduce CO2 emissions, such as renewable energy initiatives and promoting greener transportation options. Our aim is to not only offset carbon emissions but to also create a roadmap for sustainable living that can be adopted globally."
-                   TextColor="#333333"
-                   FontSize="Medium"/>
+                <!-- Goal 1 -->
+                <Label Text="1. Uniting for Change" Style="{StaticResource SectionLabelStyle}"/>
+                <Label Text="Our first goal is to create a unified, global community that collaborates for environmental change. We believe that collective effort is key to addressing ecological challenges. By bringing together individuals, organizations, and experts from various fields, we aim to foster a collaborative environment where ideas and resources are shared for the greater good of the planet." Style="{StaticResource GeneralText}"/>                
+                
+                <!-- Goal 2 -->
+                <Label Text="2. Reducing CO2 Emissions" Style="{StaticResource SectionLabelStyle}"/>
+                <Label Text="A significant focus of MyEcoApp is to reduce the world's carbon footprint. We are committed to funding and implementing projects that actively reduce CO2 emissions, such as renewable energy initiatives and promoting greener transportation options. Our aim is to not only offset carbon emissions but to also create a roadmap for sustainable living that can be adopted globally." Style="{StaticResource GeneralText}"/>                
+                
+                <!-- Goal 3 -->
+                <Label Text="3. Advancing Environmental Research" Style="{StaticResource SectionLabelStyle}"/>
+                <Label Text="Our third goal encompasses funding and conducting research to mitigate environmental damage. We are dedicated to exploring innovative solutions to ecological problems, such as developing new methods for waste management, researching sustainable agricultural practices, and protecting biodiversity. By investing in scientific research, we aim to contribute valuable insights and practical solutions to global environmental challenges." Style="{StaticResource GeneralText}"/>                
+                <!-- Goal 4 -->
+                <Label Text="4. Promoting Biodiversity and Green Spaces" Style="{StaticResource SectionLabelStyle}"/>
+                <Label Text="This goal is centered on creating and safeguarding natural habitats, such as grasslands and insect-friendly environments. Our initiatives include urban greening projects, reforestation, and creating sanctuaries for wildlife. We believe that protecting and enhancing biodiversity is not only crucial for the environment but also for human well-being, as it contributes to cleaner air and a healthier ecosystem." Style="{StaticResource GeneralText}"/>                
+                
+                <!-- Goal 5 -->
+                <Label Text="5. Shaping Public Perception and Behavior" Style="{StaticResource SectionLabelStyle}"/>
+                <Label Text="Our final goal is to influence hearts and minds towards environmental consciousness. Through education, awareness campaigns, and community engagement, we aim to foster a culture of sustainability and responsible living. We believe that lasting change begins with individual awareness and action. By inspiring and empowering people to make eco-friendly choices in their daily lives, we hope to catalyze a broader shift towards environmental stewardship." Style="{StaticResource GeneralText}"/>
 
-            <!-- Goal 3 -->
-            <Label Text="3. Advancing Environmental Research"
-                   FontSize="Medium"
-                   FontAttributes="Bold"
-                   TextColor="#17aa1f" />
-            <Label Text="Our third goal encompasses funding and conducting research to mitigate environmental damage. We are dedicated to exploring innovative solutions to ecological problems, such as developing new methods for waste management, researching sustainable agricultural practices, and protecting biodiversity. By investing in scientific research, we aim to contribute valuable insights and practical solutions to global environmental challenges."
-                   TextColor="#333333"
-                   FontSize="Medium"/>
 
-            <!-- Goal 4 -->
-            <Label Text="4. Promoting Biodiversity and Green Spaces"
-                   FontSize="Medium"
-                   FontAttributes="Bold"
-                   TextColor="#17aa1f" />
-            <Label Text="This goal is centered on creating and safeguarding natural habitats, such as grasslands and insect-friendly environments. Our initiatives include urban greening projects, reforestation, and creating sanctuaries for wildlife. We believe that protecting and enhancing biodiversity is not only crucial for the environment but also for human well-being, as it contributes to cleaner air and a healthier ecosystem."
-                   TextColor="#333333"
-                   FontSize="Medium"/>
-
-            <!-- Goal 5 -->
-            <Label Text="5. Shaping Public Perception and Behavior"
-                   FontSize="Medium"
-                   FontAttributes="Bold"
-                   TextColor="#17aa1f" />
-            <Label Text="Our final goal is to influence hearts and minds towards environmental consciousness. Through education, awareness campaigns, and community engagement, we aim to foster a culture of sustainability and responsible living. We believe that lasting change begins with individual awareness and action. By inspiring and empowering people to make eco-friendly choices in their daily lives, we hope to catalyze a broader shift towards environmental stewardship."
-                   TextColor="#333333"
-                   FontSize="Medium"/>
-
-            <!-- Home Button -->
-            <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
-        </StackLayout>
+                <!-- Home Button -->
+                <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
+                
+            </VerticalStackLayout>
+            
+        </VerticalStackLayout>
     </ScrollView>
 </ContentPage>

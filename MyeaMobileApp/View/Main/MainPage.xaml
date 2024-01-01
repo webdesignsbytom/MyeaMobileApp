@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             Background="White"
+             xmlns:sponsor="clr-namespace:MyeaMobileApp.Controls.Sponsor"
+             xmlns:controls="clr-namespace:MyeaMobileApp.Controls.Daily"
              x:Class="MyeaMobileApp.View.Main.MainPage">
 
     <ContentPage.Resources>
@@ -21,11 +22,25 @@
                 <Setter Property="Margin" Value="0,5,0,0"/>
                 <Setter Property="HeightRequest" Value="40"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Shadow">
+                    <Setter.Value>
+                        <Shadow Brush="#99000000" 
+                                Radius="4" 
+                                Offset="3,3"
+                                Opacity="0.8"/>
+                    </Setter.Value>
+                </Setter>
             </Style>
+            <!-- Gradient Brush Definition -->
+            <LinearGradientBrush x:Key="WhiteToGreenGradient"
+                             StartPoint="0,0" EndPoint="0,1">
+                <GradientStop Color="White" Offset="0.0"/>
+                <GradientStop Color="Green" Offset="1.0"/>
+            </LinearGradientBrush>
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid>
+    <Grid Background="{StaticResource WhiteToGreenGradient}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="Auto" />
@@ -49,7 +64,7 @@
                     HorizontalOptions="Center"
                     Text="{Binding FirstName, StringFormat='Welcome {0}'}"
                     />
-                
+
                 <Image
                     Source="logo_png.png"
                     HeightRequest="128"
@@ -59,43 +74,18 @@
                     Margin="20,10"
                     Text="Modernising environmentalism and creating a donation free non-profit organization that works on repairing climate change"
                     />
-                
+
             </VerticalStackLayout>
 
             <!-- Sponsor Advert Frame -->
-            <Frame 
-                Margin="0,10,0,0"
-                Padding="10"
-                CornerRadius="10"
-                BorderColor="#CCCCCC"
-                BackgroundColor="#B1E8A1"
-                HorizontalOptions="FillAndExpand">
-                
-                <Label Text="Sponsored by Cat App" 
-                       HorizontalOptions="Center" 
-                       VerticalOptions="Center" 
-                       TextColor="#333333"/>
-            </Frame>
-            
-            <!-- Daily Event Frame -->
-            <Frame 
-                Margin="0,10"
-                Padding="10"
-                CornerRadius="10"
-                BorderColor="#CCCCCC"
-                BackgroundColor="#B1E8A1"
-                HorizontalOptions="FillAndExpand">
-                
-                <Label Text="Daily Events" 
-                       HorizontalOptions="Center" 
-                       VerticalOptions="Center" 
-                       HeightRequest="100"
-                       TextColor="#333333"/>
-            </Frame>
-        </VerticalStackLayout>
+            <sponsor:SponsorAdvertFrame SponsorName="Cat App" />
 
+            <!-- Daily Event Frame -->
+            <controls:DailyEventFrame />
+
+        </VerticalStackLayout>
         <!-- Buttons in the second row -->
-        <VerticalStackLayout Grid.Row="1" Margin="5,0,5,0">
+        <VerticalStackLayout Grid.Row="1" Margin="5,0,5,5">
             <Grid ColumnSpacing="6">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -139,10 +129,10 @@
                     Command="{Binding NavigateToServicesPageCommand}"/>
 
                 <Button
-                    Text="Blank"
+                    Text="Apps"
                     Grid.Column="1"
                     Style="{StaticResource ButtonStyle}"
-                    Command="{Binding NavigateToFundingPageCommand}"/>
+                    Command="{Binding NavigateToAppsMainPageCommand}"/>
 
             </Grid>
 

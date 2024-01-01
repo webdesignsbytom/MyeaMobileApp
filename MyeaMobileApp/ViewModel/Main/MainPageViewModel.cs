@@ -43,6 +43,12 @@ namespace MyeaMobileApp.ViewModel.Main
         public async Task NavigateToServicesPage()
         {
             await Shell.Current.GoToAsync("///ServicesPage");
+        }           
+        
+        [RelayCommand]
+        public async Task NavigateToAppsMainPage()
+        {
+            await Shell.Current.GoToAsync("///AppsMainPage");
         }        
         
         [RelayCommand]

@@ -5,6 +5,14 @@ namespace MyeaMobileApp.ViewModel.About
 {
     public partial class AboutUsPageViewModel : ObservableObject
     {
+        // Open shop externally
+        [RelayCommand]
+        public async Task NavigateAwayToShop()
+        {
+            string url = "https://google.com";
+            await Browser.OpenAsync(url, BrowserLaunchMode.SystemPreferred);
+        }
+
         // Navigate To Goals Page
         [RelayCommand]
         public async Task NavigateToGoalsPage()

@@ -13,16 +13,49 @@
                 <Setter Property="HeightRequest" Value="50"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
+            <Style x:Key="EntryStyle" TargetType="Entry">
+                <Setter Property="Margin" Value="0,10,0,0"/>
+                <Setter Property="HeightRequest" Value="50"/>
+            </Style>
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="TextColor" Value="Black"/>
+                <Setter Property="Margin" Value="0,10,0,0"/>
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
-    <VerticalStackLayout>
-        <Label 
-            Text="NewsletterSignUpPage"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
 
-        <!-- Home Button -->
-        <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout Padding="30" Spacing="10">
+            <Label 
+                Text="Sign Up for Our Newsletter"
+                FontSize="Large"
+                FontAttributes="Bold"
+                HorizontalOptions="Center" />
+
+            <Label 
+                Text="Join our mailing list to stay updated with the latest news, and support us. Check out our sponsors to help us earn."
+                Style="{StaticResource LabelStyle}"
+                HorizontalOptions="Center"
+                HorizontalTextAlignment="Center" />
+
+            <Entry 
+                Placeholder="Enter your email address"
+                Style="{StaticResource EntryStyle}" 
+                Text="{Binding Email}"
+                Keyboard="Email" />
+
+            <Button 
+                Text="Join!" 
+                Style="{StaticResource ButtonStyle}" 
+                Command="{Binding SendNewsletterSignupCommand}" />
+
+            <!-- Home Button -->
+            <Button 
+                Text="Home" 
+                Style="{StaticResource ButtonStyle}" 
+                Command="{Binding NavigateToMainPageCommand}" />
+        </VerticalStackLayout>
+    </ScrollView>
+
 </ContentPage>

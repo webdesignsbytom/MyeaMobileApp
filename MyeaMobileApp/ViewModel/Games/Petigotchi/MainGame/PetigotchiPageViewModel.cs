@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using MyeaMobileApp.Model;
+using MyeaMobileApp.Model.Games;
 using Newtonsoft.Json.Bson;
 using SkiaSharp;
 using System.Diagnostics;

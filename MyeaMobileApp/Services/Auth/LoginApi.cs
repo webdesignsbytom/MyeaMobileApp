@@ -52,6 +52,7 @@ namespace MyeaMobileApp.Services.Auth
                     if (apiResponse.Data.ExistingUser.Profile != null)
                     {
                         string firstName = apiResponse.Data.ExistingUser.Profile.FirstName;
+
                         UserProfile.FirstName = firstName;
                         await SecureStorage.Default.SetAsync("user_firstName", firstName);
                     }
@@ -88,16 +89,27 @@ namespace MyeaMobileApp.Services.Auth
         {
             public string Id { get; set; }
             public string Email { get; set; }
-
+            public string Role { get; set; }
+            public DateTime DOB { get; set; }
+            public Boolean IsEmailVerified { get; set; }
+            public Boolean UserAgreedToTermsAndConditions { get; set; }
+            public Boolean UserRegisteredForNewsletter { get; set; }
+            public Boolean IsActive { get; set; }
             public Profile Profile { get; set; }
-
-            // Add other fields as necessary
         }
 
         public class Profile
         {
+            public string Username { get; set; }
             public string FirstName { get; set; }
-            // Add other profile-specific fields
+            public string LastName { get; set; }
+            public string City { get; set; }
+            public string Country { get; set; }
+            public string Gender { get; set; }
+            public int Score { get; set; }
+            public string Bio { get; set; }
+            public string ProfileImageUrl { get; set; }
+            public Boolean IsPrivateProfile { get; set; }
         }
     }
 }
