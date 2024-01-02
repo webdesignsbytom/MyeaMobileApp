@@ -17,10 +17,9 @@
     </ContentView.Resources>
     
     <Frame BackgroundColor="White" CornerRadius="20" Padding="20" Margin="20">
-        <!-- Add your popup content here -->
+        
         <VerticalStackLayout>
             <Label Text="Level Up!" FontSize="Large" HorizontalOptions="Center"/>
-            <!-- Other UI elements like images, buttons, etc. -->
 
             <!-- Home Button -->
             <Button Text="Close" Style="{StaticResource ButtonStyle}" Command="{Binding CloseLevelUpPopUpCommand}" />
