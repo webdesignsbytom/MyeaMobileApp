@@ -14,6 +14,13 @@ namespace MyeaMobileApp.ViewModel.Funding
             await Browser.OpenAsync(url, BrowserLaunchMode.SystemPreferred);
         }   
         
+        // Navigate to games main page
+        [RelayCommand]
+        public async Task NavigateGamesMainPage()
+        {
+            await Shell.Current.GoToAsync("///GamesMainPage");
+        }           
+        
         // Back to main lottery page
         [RelayCommand]
         public async Task NavigateToLotteryMain()

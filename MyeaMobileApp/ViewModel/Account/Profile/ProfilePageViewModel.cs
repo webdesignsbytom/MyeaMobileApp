@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MyeaMobileApp.Model;
+using MyeaMobileApp.Model.User;
 using System.Diagnostics;
 
 namespace MyeaMobileApp.ViewModel.Account.Profile

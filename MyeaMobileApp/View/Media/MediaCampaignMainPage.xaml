@@ -5,24 +5,68 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
+            <Style x:Key="PageTitle" TargetType="Label">
+                <Setter Property="FontSize" Value="38"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="BackgroundColor" Value="#4CAF50"/>
+                <Setter Property="Margin" Value="0,0,0,0"/>
+                <Setter Property="Padding" Value="0,25,0,25"/>
+            </Style>
+            <Style x:Key="HeaderStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="32"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="DarkBlue"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="Margin" Value="0,20,0,10"/>
+            </Style>
             <Style x:Key="ButtonStyle" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="#4CAF50"/>
                 <Setter Property="TextColor" Value="White"/>
                 <Setter Property="CornerRadius" Value="5"/>
-                <Setter Property="Margin" Value="0,20,0,0"/>
+                <Setter Property="Margin" Value="0,5,0,0"/>
                 <Setter Property="HeightRequest" Value="50"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Margin" Value="0,10,0,0"/>
+            </Style>
+            <Style x:Key="GeneralText" TargetType="Span">
+                <Setter Property="TextColor" Value="#555555"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontFamily" Value="OpenSansRegular"/>
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
-    <VerticalStackLayout Padding="5">
-        <Label 
-            Text="MediaCampaignMainPage"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
 
-        <!-- Home Button -->
-        <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout>
+
+            <!-- Title -->
+            <VerticalStackLayout Padding="10">
+                <Label Text="Media Content" Style="{StaticResource PageTitle}" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout  Padding="20" Spacing="0">
+
+                <!-- Introduction Section -->
+                <Label Margin="0,0,0,10">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Harnessing Media for Eco Goals -" FontAttributes="Bold" TextColor="#17aa1f" FontSize="18"/>
+                            <Span Text=" At MyEcoApp, we leverage media as a powerful tool to support our environmental objectives. Through engaging and informative content, we not only raise awareness but also generate funding for our eco-friendly initiatives. Every interaction with our media content, be it a view, a share, or a like, contributes to our cause, turning every bit of digital engagement into tangible support for our planet. Join us in this innovative approach to ecological activism, where every piece of content has the potential to make a difference." Style="{StaticResource GeneralText}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                <!-- Image Banner -->
+                <Image Source="eco_media1.png" Aspect="AspectFill" Margin="20,20,20,10" />
+                
+                <!-- Home Button -->
+                <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

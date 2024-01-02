@@ -1,6 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using MyeaMobileApp.Model;
+using MyeaMobileApp.Model.User;
 using MyeaMobileApp.Services.Auth;
 
 namespace MyeaMobileApp.ViewModel.Users.Login

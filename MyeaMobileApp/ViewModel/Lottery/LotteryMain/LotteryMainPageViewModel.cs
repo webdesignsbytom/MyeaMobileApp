@@ -1,6 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
-using MyeaMobileApp.Model;
+using MyeaMobileApp.Model.User;
+using MyeaMobileApp.Services;
 using System.Timers;
 
 namespace MyeaMobileApp.ViewModel.Lottery.LotteryMain
@@ -8,17 +9,41 @@ namespace MyeaMobileApp.ViewModel.Lottery.LotteryMain
     public partial class LotteryMainPageViewModel : ObservableObject
     {
         public UserModel User { get; set; }
+
+        public LotteryApiService LotteryApi { get; set; }
+
         private System.Timers.Timer _timer;
         private string _countdownText;
 
         [ObservableProperty]
-        private string countdownTimerText;
+        private string countdownTimerText;        
+        
+        [ObservableProperty]
+        private string lotteryPrize;
 
-        public LotteryMainPageViewModel(UserModel user)
+        [ObservableProperty]
+        private DateTime nextDrawDate;
+
+        public LotteryMainPageViewModel(UserModel user, LotteryApiService lotteryApiService)
         {
             User = user;
+            LotteryApi = lotteryApiService;
+
+            LoadLotteryDrawData();
             CountdownTimerText = "00 : 00 : 00 : 00"; // Placeholder text
+            LotteryPrize = "£000"; // Placeholder text
             SetupCountdownTimer();
+        }
+
+        private async void LoadLotteryDrawData()
+        {
+            var lotteryDraw = await LotteryApi.GetNextLotteryDraw();
+
+            if (lotteryDraw != null)
+            {
+                LotteryPrize = $"£{lotteryDraw.Prize}";
+                NextDrawDate = lotteryDraw.DrawDate;
+            }
         }
 
         private void SetupCountdownTimer()
@@ -30,24 +55,17 @@ namespace MyeaMobileApp.ViewModel.Lottery.LotteryMain
 
         private void UpdateCountdownTimer(object sender, ElapsedEventArgs e)
         {
-            var nextDraw = GetNextDrawTime();
-            var timeRemaining = nextDraw - DateTime.Now;
+            var timeRemaining = NextDrawDate - DateTime.Now;
 
             if (timeRemaining.Ticks < 0)
             {
                 CountdownTimerText = "Draw is happening!";
+                _timer.Stop(); // Optionally stop the timer if the draw is over
             }
             else
             {
                 CountdownTimerText = $"{timeRemaining.Days}d {timeRemaining.Hours}h {timeRemaining.Minutes}m {timeRemaining.Seconds}s";
             }
-        }
-
-        private DateTime GetNextDrawTime()
-        {
-            var now = DateTime.Now;
-            var nextFriday = now.AddDays((int)DayOfWeek.Friday - (int)now.DayOfWeek + (now.DayOfWeek > DayOfWeek.Friday ? 7 : 0));
-            return new DateTime(nextFriday.Year, nextFriday.Month, nextFriday.Day, 19, 0, 0); // Next Friday at 7 PM
         }
 
         [RelayCommand]

@@ -53,7 +53,7 @@
             </VerticalStackLayout>
 
 
-            <VerticalStackLayout Padding="20" Spacing="0">
+            <VerticalStackLayout Padding="20" Spacing="10">
 
                 <!-- Introduction Section -->
                 <Label Margin="0,0,0,10">
@@ -65,14 +65,17 @@
                     </Label.FormattedText>
                 </Label>
 
-
+                <!-- Image Banner -->
+                <Image Source="eco_banner1.png" Aspect="AspectFill" Margin="10,10" />
+                
                 <!-- Our Journey Section -->
                 <Label Text="Our Journey" Style="{StaticResource SectionLabelStyle}"/>
                 <Label Text="Our story began with a realization — the traditional approaches to environmental activism were no longer enough. In a world dominated by digital interaction, we saw an untapped potential: what if the vast online traffic could be directed towards making a real, tangible impact on the environment? This question marked the birth of MyEcoApp." Style="{StaticResource GeneralText}"/>
                 <Label Text="We set out to create a platform that combines the allure of the digital world with the pressing need for ecological action. Our website, MyEcoApp.org, and our various apps aren't just tools; they are gateways to making a difference. They are where fun meets philanthropy, where every click, every game played, and every product purchased becomes a step towards a healthier planet." Style="{StaticResource GeneralText}"/>
+
+
+
                 
-
-
                 <!-- Our Philosophy Section -->
                 <Label Text="Our Philosophy" Style="{StaticResource SectionLabelStyle}"/>
                 <Label Text="At MyEcoApp, we believe that responsibility for the planet is shared. Gone are the days when the blame was shifted onto individuals while larger entities remained unaccountable. We stand for collective action, free from the shackles of blame and shame. Our aim is to empower, not to accuse; to unite, not to divide." Style="{StaticResource GeneralText}"/>
@@ -91,10 +94,11 @@
                        HorizontalOptions="Center" 
                        VerticalOptions="Center" 
                        TextColor="#333333">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding NavigateToGoalsPageCommand}"/>
-                        </Label.GestureRecognizers>
                     </Label>
+
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToGoalsPageCommand}"/>
+                    </Frame.GestureRecognizers>
                 </Frame>
 
                 <!-- MyEcoApp.shop Section -->
@@ -109,10 +113,10 @@
                        HorizontalOptions="Center" 
                        VerticalOptions="Center" 
                        TextColor="#333333">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding NavigateAwayToShopCommand}"/>
-                        </Label.GestureRecognizers>
                     </Label>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateAwayToShopCommand}"/>
+                    </Frame.GestureRecognizers>
                 </Frame>
                 
                 
@@ -123,14 +127,14 @@
 
                 <Frame Style="{StaticResource LinkButtonStyle}" >
 
-                    <Label Text="Shop Now"
+                    <Label Text="Sign up to newsletter"
                            HorizontalOptions="Center" 
                            VerticalOptions="Center" 
                            TextColor="#333333">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding SignUpToNewsLetterCommand}"/>
-                        </Label.GestureRecognizers>
                     </Label>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding SignUpToNewsLetterCommand}"/>
+                    </Frame.GestureRecognizers>
                 </Frame>
 
 

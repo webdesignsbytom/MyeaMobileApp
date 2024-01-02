@@ -1,5 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Input;
-using MyeaMobileApp.Model;
+using MyeaMobileApp.Model.User;
 
 namespace MyeaMobileApp.ViewModel.Lottery.OwnedTickets
 {

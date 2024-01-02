@@ -16,12 +16,35 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     
-    <VerticalStackLayout>
+    <VerticalStackLayout Padding="5">
         <Label 
             Text="Badges"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
+        <Label VerticalOptions="Center" HorizontalOptions="Center">
+            <Label.Text>
+                <MultiBinding StringFormat="Badges owned {0}/{1}">
+                    <Binding Path="BadgesOwned" />
+                    <Binding Path="TotalBadges" />
+                </MultiBinding>
+            </Label.Text>
+        </Label>
+
+        <CollectionView ItemsSource="{Binding BadgeImages}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Span="3" Orientation="Vertical" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Image Source="{Binding .}" Aspect="AspectFit" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <!-- Profile Button -->
+        <Button Text="View Badges and Achievements" Style="{StaticResource ButtonStyle}" Command="{Binding OpenBadgeListContainerCommand}" />        
+        
         <!-- Profile Button -->
         <Button Text="Back" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToProfilePageCommand}" />
     </VerticalStackLayout>

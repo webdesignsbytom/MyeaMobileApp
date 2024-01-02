@@ -40,6 +40,9 @@
 
 	<ItemGroup>
 		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</MauiIcon>
 		<MauiIcon Include="Resources\AppIcon\icon_svg.svg" BaseSize="58,58" />
 
 		<!-- Splash Screen -->
@@ -56,8 +59,23 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\AppIcon\appicon.svg" />
 	  <None Remove="Resources\Fonts\SegoeIcons.ttf" />
 	  <None Remove="Resources\Fonts\Seven-Segment.ttf" />
+	  <None Remove="Resources\Images\Badges\badge1.png" />
+	  <None Remove="Resources\Images\Badges\badge10.png" />
+	  <None Remove="Resources\Images\Badges\badge11.png" />
+	  <None Remove="Resources\Images\Badges\badge2.png" />
+	  <None Remove="Resources\Images\Badges\badge3.png" />
+	  <None Remove="Resources\Images\Badges\badge4.png" />
+	  <None Remove="Resources\Images\Badges\badge5.png" />
+	  <None Remove="Resources\Images\Badges\badge6.png" />
+	  <None Remove="Resources\Images\Badges\badge7.png" />
+	  <None Remove="Resources\Images\Badges\badge8.png" />
+	  <None Remove="Resources\Images\Badges\badge9.png" />
+	  <None Remove="Resources\Images\Eco\eco_banner1.png" />
+	  <None Remove="Resources\Images\Eco\eco_games1.png" />
+	  <None Remove="Resources\Images\Eco\eco_media1.png" />
 	  <None Remove="Resources\Images\Games\cat1.png" />
 	  <None Remove="Resources\Images\Games\highscore_icon.png" />
 	  <None Remove="Resources\Images\Games\settings_icon.png" />
@@ -84,12 +102,55 @@
 	  <Folder Include="ViewModel\Lottery\LotteryTerms\" />
 	  <Folder Include="View\Lottery\LiveDraw\" />
 	  <Folder Include="View\Lottery\LotteryTerms\" />
+	  <Folder Include="View\NewFolder\" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <EmbeddedResource Include="Resources\Images\Games\cat1.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </EmbeddedResource>
+	  <MauiImage Include="Resources\Images\Badges\badge1.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Badges\badge10.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Badges\badge11.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Badges\badge2.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Badges\badge3.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Badges\badge4.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Badges\badge5.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Badges\badge6.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Badges\badge7.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Badges\badge8.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Badges\badge9.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Eco\eco_banner1.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Eco\eco_games1.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Eco\eco_media1.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
 	  <MauiImage Include="Resources\Images\Games\highscore_icon.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </MauiImage>
@@ -145,6 +206,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\Funding\FundingPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Games\Main\GamesMainPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\Games\O2tapper\MainGame\O2tapperMainPage.xaml">

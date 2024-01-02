@@ -17,15 +17,26 @@
                 <Setter Property="BackgroundColor" Value="#4CAF50"/>
                 <Setter Property="TextColor" Value="White"/>
                 <Setter Property="CornerRadius" Value="5"/>
-                <Setter Property="Margin" Value="0,20,0,0"/>
+                <Setter Property="Margin" Value="0,5,0,0"/>
                 <Setter Property="HeightRequest" Value="50"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
+            <Style x:Key="PrizeLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#17aa1f"/>
+                <Setter Property="FontFamily" Value="Seven Segment"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="44"/>
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="VerticalTextAlignment" Value="Center"/>
+                <Setter Property="Padding" Value="10"/>
+                <Setter Property="Margin" Value="10"/>
+             </Style>            
             <Style x:Key="CountdownLabelStyle" TargetType="Label">
                 <Setter Property="TextColor" Value="#17aa1f"/>
                 <Setter Property="FontFamily" Value="Seven Segment"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
-                <Setter Property="FontSize" Value="32"/>
+                <Setter Property="FontSize" Value="22"/>
                 <Setter Property="BackgroundColor" Value="White"/>
                 <Setter Property="HorizontalTextAlignment" Value="Center"/>
                 <Setter Property="VerticalTextAlignment" Value="Center"/>
@@ -35,24 +46,20 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     
-    <VerticalStackLayout Padding="5">
-        <Label 
-            Text="Current Prize"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />        
-        
-        <Label 
-            Text="£100"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-         
-        <Label 
-            Text="Next draw"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+    <Grid Padding="5">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
 
-        <!-- Daily Event Frame -->
-        <Frame 
+        <VerticalStackLayout Grid.Row="0">
+            <Label 
+                Text="Current Prize"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+
+            <!-- Prize Frame -->
+            <Frame 
                 Margin="0,0"
                 Padding="10"
                 CornerRadius="10"
@@ -60,43 +67,71 @@
                 BackgroundColor="#B1E8A1"
                 HorizontalOptions="FillAndExpand">
 
-            <VerticalStackLayout>
-                <Label 
-                Text="{Binding CountdownTimerText}"
-                Style="{StaticResource CountdownLabelStyle}"
+                <VerticalStackLayout>
+                    <Label 
+                        Text="{Binding LotteryPrize}"
+                        Style="{StaticResource PrizeLabelStyle}"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <Label 
+                Text="Next draw"
                 VerticalOptions="Center" 
                 HorizontalOptions="Center" />
 
-                <Label 
-                Text="Days    Hours    Minutes    Seconds"
-                Style="{StaticResource CountdownLabelStyle}"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
-            </VerticalStackLayout>
-        </Frame>
+            <!-- Daily Event Frame -->
+            <Frame 
+                Margin="0,0"
+                Padding="10"
+                CornerRadius="10"
+                BorderColor="#fff"
+                BackgroundColor="#B1E8A1"
+                HorizontalOptions="FillAndExpand">
 
-        <Button
+                <VerticalStackLayout>
+                    <Label 
+                        Text="{Binding CountdownTimerText}"
+                        Style="{StaticResource CountdownLabelStyle}"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+
+                    <Label 
+                        Text="Days    Hours    Minutes    Seconds"
+                        Style="{StaticResource CountdownLabelStyle}"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" />
+                </VerticalStackLayout>
+            </Frame>
+        </VerticalStackLayout>
+
+        
+        <VerticalStackLayout Grid.Row="1">
+            <Button
             Text="Buy tickets"
             Style="{StaticResource ButtonStyle}"
-            Command="{Binding NavigateToPuchaseTicketsPageCommand}"/>         
-        
-        <Button
+            Command="{Binding NavigateToPuchaseTicketsPageCommand}"/>
+
+            <Button
             Text="Your tickets"
             Style="{StaticResource ButtonStyle}"
-            Command="{Binding NavigateToOwnedTicketsPageCommand}"/>        
-        
-        <Button
+            Command="{Binding NavigateToOwnedTicketsPageCommand}"/>
+
+            <Button
             Text="Rules"
             Style="{StaticResource ButtonStyle}"
-            Command="{Binding NavigateToLotteryRulesPageCommand}"/>        
-        
-        <Button
+            Command="{Binding NavigateToLotteryRulesPageCommand}"/>
+
+            <Button
             Text="Win History"
             Style="{StaticResource ButtonStyle}"
             Command="{Binding NavigateToWinningNumbersHistoryPageCommand}"/>
 
-        <!-- Home Button -->
-        <Button Text="Back" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
+            <!-- Home Button -->
+            <Button Text="Back" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
+        </VerticalStackLayout>
         
-    </VerticalStackLayout>
+    </Grid>
 </ContentPage>

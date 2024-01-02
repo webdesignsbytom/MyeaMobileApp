@@ -1,4 +1,5 @@
 ﻿using MyeaMobileApp.Model;
+using MyeaMobileApp.Model.User;
 using Newtonsoft.Json;
 using System.Text;
 

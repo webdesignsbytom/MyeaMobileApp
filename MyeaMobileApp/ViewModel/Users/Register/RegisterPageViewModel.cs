@@ -26,8 +26,11 @@ namespace MyeaMobileApp.ViewModel.Users.Register
         public string? lastName;
         
         [ObservableProperty]
-        public string? country; 
-        
+        public string? country;
+
+        [ObservableProperty]
+        private DateTime dateOfBirth;
+
         [ObservableProperty]
         public bool? agreeToTerms;        
         
@@ -43,6 +46,7 @@ namespace MyeaMobileApp.ViewModel.Users.Register
         public RegisterPageViewModel(UserApiService userApiService)
         {
             UserApiService = userApiService;
+            DateOfBirth = DateTime.Now;
         }
 
         // Register API
@@ -63,7 +67,7 @@ namespace MyeaMobileApp.ViewModel.Users.Register
             bool agreedNews = AgreeToNewsletter ?? false;
 
             // Register to server
-            await UserApiService.RegisterNewUserApi(Email, Password, FirstName, LastName, Country, agreedTC, agreedNews);
+            await UserApiService.RegisterNewUserApi(Email, Password, FirstName, LastName, Country, DateOfBirth, agreedTC, agreedNews);
             SubmitBtn = "Success!";
             Email = "";
             Password = "";

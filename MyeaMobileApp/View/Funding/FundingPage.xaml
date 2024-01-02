@@ -75,6 +75,22 @@
                 <Label Text="Media content" Style="{StaticResource SectionLabelStyle}"/>
                 <Label Text="We are actively creating media content for viewing across large platforms of social media and video streaming services. This initiative isn't just about creating awareness; it's also a strategic approach to generate income that can be used directly for our environmental goals." Style="{StaticResource GeneralText}" />
 
+                <!-- Games Section -->
+                <Label Text="Games" Style="{StaticResource SectionLabelStyle}"/>
+                <Label Text="Incorporating gaming into our platform serves multiple purposes. It's a way to engage our audience, provide entertainment, and generate revenue. Our games range from simple puzzles to more complex simulations, all aligned with our mission of promoting environmental awareness." Style="{StaticResource GeneralText}" />
+
+                <Frame Style="{StaticResource LinkButtonStyle}" >
+
+                    <Label Text="Play our games now!"
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" 
+                       TextColor="#333333">
+                    </Label>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateGamesMainPageCommand}"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+
                 <!-- Shop Section -->
                 <Label Text="Shop" Style="{StaticResource SectionLabelStyle}" />
                 <Label Text="Our online store represents an innovative way to generate funds without direct donations. Here, we offer a range of eco-friendly products, ensuring that each purchase supports our cause. This venture allows us to sustain our projects and grow our impact." Style="{StaticResource GeneralText}" />
@@ -85,19 +101,16 @@
                        HorizontalOptions="Center" 
                        VerticalOptions="Center" 
                        TextColor="#333333">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding NavigateAwayToShopCommand}"/>
-                        </Label.GestureRecognizers>
                     </Label>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateAwayToShopCommand}"/>
+                    </Frame.GestureRecognizers>
                 </Frame>
 
                 <!-- Fund Raising Section -->
                 <Label Text="Fund raising" Style="{StaticResource SectionLabelStyle}"/>
                 <Label Text="We employ a variety of fundraising methods, from classic raffles and auctions to innovative online campaigns. Our fundraising initiatives are designed to be engaging, offering value and entertainment while supporting our cause. Each event helps us to fund our ongoing and future projects." Style="{StaticResource GeneralText}" />
 
-                <!-- Games Section -->
-                <Label Text="Games" Style="{StaticResource SectionLabelStyle}"/>
-                <Label Text="Incorporating gaming into our platform serves multiple purposes. It's a way to engage our audience, provide entertainment, and generate revenue. Our games range from simple puzzles to more complex simulations, all aligned with our mission of promoting environmental awareness." Style="{StaticResource GeneralText}" />
 
                 <!-- Lottery Section -->
                 <Label Text="Lottery" Style="{StaticResource SectionLabelStyle}"/>
@@ -110,10 +123,10 @@
                        HorizontalOptions="Center" 
                        VerticalOptions="Center" 
                        TextColor="#333333">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding NavigateToLotteryMainCommand}"/>
-                        </Label.GestureRecognizers>
                     </Label>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToLotteryMainCommand}"/>
+                    </Frame.GestureRecognizers>
                 </Frame>
 
                 <!-- Donations Section -->
@@ -127,10 +140,10 @@
                        HorizontalOptions="Center" 
                        VerticalOptions="Center" 
                        TextColor="#333333">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding NavigateToDonationsPageCommand}"/>
-                        </Label.GestureRecognizers>
                     </Label>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToDonationsPageCommand}"/>
+                    </Frame.GestureRecognizers>
                 </Frame>
 
                 <!-- Conclusion -->

@@ -1,8 +1,9 @@
-﻿using CommunityToolkit.Mvvm.Input;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 
 namespace MyeaMobileApp.ViewModel.Services
 {
-    public partial class ServicesPageViewModel
+    public partial class ServicesPageViewModel : ObservableObject
     {
         // Navigate to media
         [RelayCommand]

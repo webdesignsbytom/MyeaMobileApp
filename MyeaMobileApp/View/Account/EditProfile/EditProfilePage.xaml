@@ -49,8 +49,6 @@
             <Label Text="Bio" Style="{StaticResource LabelStyle}"/>
             <Editor Text="{Binding UserProfile.Bio}" HeightRequest="100"/>
 
-            <Label Text="{Binding UserProfile.Bio}" Style="{StaticResource LabelStyle}"/>
-
             <!-- Profile Image URL -->
             <Label Text="Profile Image URL" Style="{StaticResource LabelStyle}"/>
             <Entry Text="{Binding UserProfile.ProfileImageUrl}" Style="{StaticResource EntryStyle}"/>

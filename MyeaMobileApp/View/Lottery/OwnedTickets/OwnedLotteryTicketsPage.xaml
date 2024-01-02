@@ -32,7 +32,7 @@
             HorizontalOptions="Center" />
 
         <!-- Purchase ticket -->
-        <Button Text="Buy" Style="{StaticResource ButtonStyle}" Command="{Binding PurchaseLotteryTicketCommand}"/>
+        <Button Text="Buy Tickets" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToPuchaseTicketsPageCommand}"/>
 
         <!-- Back to lottery main page -->
         <Button Text="Back" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToLotteryMainCommand}"/>

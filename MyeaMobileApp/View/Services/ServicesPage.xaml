@@ -66,11 +66,11 @@
 
                 <!-- Apps -->
                 <Label Text="App Making" Style="{StaticResource SectionLabelStyle}" />
-                <Label Text="Our team specializes in creating user-friendly and functional apps. We focus on simplicity and efficiency, offering free access while generating revenue through advertising and innovative online earning methods." Style="{StaticResource TextStyle}" />
+                <Label Text="Our team specializes in creating user-friendly and functional apps. We focus on simplicity and efficiency, offering free access while generating revenue through advertising and innovative online earning methods." Style="{StaticResource GeneralText}" />
 
                 <!-- Web -->
                 <Label Text="Web Services" Style="{StaticResource SectionLabelStyle}" />
-                <Label Text="We provide a variety of web services, from website design to hosting solutions. Our websites are designed to be engaging and interactive, featuring content that drives traffic and profits through online advertising." Style="{StaticResource TextStyle}" />
+                <Label Text="We provide a variety of web services, from website design to hosting solutions. Our websites are designed to be engaging and interactive, featuring content that drives traffic and profits through online advertising." Style="{StaticResource GeneralText}" />
 
                 <!-- Media Button -->
                 <Frame Style="{StaticResource LinkButtonStyle}" >
@@ -86,7 +86,7 @@
                 </Frame>
 
                 <Label Text="Content Creation" Style="{StaticResource SectionLabelStyle}" />
-                <Label Text="Our content creation services range from blog posts to video production. We create high-quality, engaging content that not only serves our users but also supports our revenue generation strategies through ads and sponsorships." Style="{StaticResource TextStyle}" />
+                <Label Text="Our content creation services range from blog posts to video production. We create high-quality, engaging content that not only serves our users but also supports our revenue generation strategies through ads and sponsorships." Style="{StaticResource GeneralText}" />
 
                 <!-- Media Button -->
                 <Frame Style="{StaticResource LinkButtonStyle}" >
@@ -103,8 +103,11 @@
 
                 <!-- Games -->
                 <Label Text="Games" Style="{StaticResource SectionLabelStyle}" />
-                <Label Text="We develop fun and engaging games accessible to everyone. Our games are free to play, with revenue being generated through in-game advertising and optional purchases, ensuring a steady stream of passive income." Style="{StaticResource TextStyle}" />
+                <Label Text="We develop fun and engaging games accessible to everyone. Our games are free to play, with revenue being generated through in-game advertising and optional purchases, ensuring a steady stream of passive income." Style="{StaticResource GeneralText}" />
 
+                <!-- Image Banner -->
+                <Image Source="eco_games1.png" Aspect="AspectFill" Margin="20,20,20,10" />
+                
                 <!-- Games Button -->
                 <Frame Style="{StaticResource LinkButtonStyle}" >
 

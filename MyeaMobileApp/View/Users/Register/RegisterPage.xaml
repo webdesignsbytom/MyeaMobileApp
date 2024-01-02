@@ -79,6 +79,14 @@
                 <Entry Style="{StaticResource EntryStyle}" Text="{Binding Country}" />
             </Frame>
 
+            <!-- Date of Birth Field -->
+            <Label Text="Date of Birth" Style="{StaticResource LabelStyle}" />
+            <Frame CornerRadius="10" Padding="0" HasShadow="False" Margin="0,0,0,10">
+                <DatePicker Style="{StaticResource EntryStyle}"
+                Date="{Binding DateOfBirth}"
+                Format="D" />
+            </Frame>
+
             <!-- Terms and Conditions Checkbox -->
             <HorizontalStackLayout VerticalOptions="Center" Margin="0,0,0,10">
                 <CheckBox IsChecked="{Binding AgreeToTerms}" Style="{StaticResource CheckBoxStyle}" />

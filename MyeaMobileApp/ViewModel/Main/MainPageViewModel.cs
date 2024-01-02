@@ -1,7 +1,7 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MyeaMobileApp.Model;
-using System.Diagnostics;
+using MyeaMobileApp.Model.User;
 
 namespace MyeaMobileApp.ViewModel.Main
 {
@@ -90,7 +90,7 @@ namespace MyeaMobileApp.ViewModel.Main
         [RelayCommand]
         public async Task NavigateToGamesPage()
         {
-            await Shell.Current.GoToAsync("///PetigotchiPage");
+            await Shell.Current.GoToAsync("///GamesMainPage");
         }           
         
         [RelayCommand]

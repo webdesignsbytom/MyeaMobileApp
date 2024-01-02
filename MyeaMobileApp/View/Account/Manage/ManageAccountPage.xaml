@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyeaMobileApp.View.Account.Manage.ManageAccountPage">
-    <!-- Resources and styles -->
+    
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="HeaderStyle" TargetType="Label">
@@ -14,6 +14,14 @@
             </Style>
             <Style x:Key="ButtonStyle" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="#4CAF50"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="Margin" Value="0,5,0,0"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>            
+            <Style x:Key="DeleteButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Red"/>
                 <Setter Property="TextColor" Value="White"/>
                 <Setter Property="CornerRadius" Value="5"/>
                 <Setter Property="Margin" Value="0,5,0,0"/>
@@ -34,9 +42,17 @@
     <ScrollView Padding="5">
         <VerticalStackLayout Padding="20" Spacing="10">
 
-        
+            <Label Text="Dark Mode" Style="{StaticResource LabelStyle}"/>
+            <Switch IsToggled="{Binding IsDarkModeEnabled}" />            
+            
+            <Label Text="Newsletter Mailing list" Style="{StaticResource LabelStyle}"/>
+            <Switch IsToggled="{Binding UserRegisteredForNewsletter}" />
+
             <!-- Back to profile -->
-            <Button Text="Back" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToProfilePageCommand}"/>
+            <Button Text="Back" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToProfilePageCommand}"/>            
+            
+            <!-- Delete Account -->
+            <Button Text="Delete Account" Style="{StaticResource DeleteButtonStyle}" Command="{Binding DeleteUserAccountCommand}"/>
         </VerticalStackLayout>
     </ScrollView>
 

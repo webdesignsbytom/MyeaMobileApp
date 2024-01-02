@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:MyeaMobileApp.ViewModel.Apps;assembly=MyeaMobileApp"
              x:Class="MyeaMobileApp.View.Apps.AppsMainPage">
 
     <ContentPage.Resources>
@@ -34,7 +35,7 @@
                 <Setter Property="FontFamily" Value="OpenSansRegular"/>
             </Style>
             <Style x:Key="LinkButtonStyle" TargetType="Frame">
-                <Setter Property="Margin" Value="10,20,10,20"/>
+                <Setter Property="Margin" Value="5,10"/>
                 <Setter Property="Padding" Value="10"/>
                 <Setter Property="CornerRadius" Value="10"/>
                 <Setter Property="BorderColor" Value="#fff"/>
@@ -66,7 +67,49 @@
 
                 <!-- Apps -->
                 <Label Text="Apps" Style="{StaticResource SectionLabelStyle}" />
-                <Label Text="Our team specializes in creating user-friendly and functional apps. We focus on simplicity and efficiency, offering free access while generating revenue through advertising and innovative online earning methods." Style="{StaticResource TextStyle}" />
+                <Label Text="Our team specializes in creating user-friendly and functional apps. We focus on simplicity and efficiency, offering free access while generating revenue through advertising and innovative online earning methods." Style="{StaticResource GeneralText}" />
+
+                <!-- Web Products CollectionView -->
+                <CollectionView ItemsSource="{Binding AppProducts}" Margin="0,20">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Style="{StaticResource LinkButtonStyle}">
+                                <StackLayout Orientation="Vertical">
+                                    <Image Source="{Binding ImageUrl}" Aspect="AspectFill" />
+                                    <Label Text="{Binding Name}" FontAttributes="Bold" TextColor="White" FontSize="18"/>
+                                    <Label Text="{Binding Description}"/>
+                                    <Button Text="Download App" 
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type vm:AppsMainPageViewModel}}, Path=VisitWebsiteCommand}" 
+                                        Style="{StaticResource ButtonStyle}"
+                                        CommandParameter="{Binding Url}" />
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                
+                <!-- Web -->
+                <Label Text="Web" Style="{StaticResource SectionLabelStyle}" />
+                <Label Text="By creating web products you can use for free we can generate an income - so check all of these out" Style="{StaticResource GeneralText}" />
+
+                <!-- Web Products CollectionView -->
+                <CollectionView ItemsSource="{Binding WebProducts}" Margin="0,20">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Frame Style="{StaticResource LinkButtonStyle}">
+                                <StackLayout Orientation="Vertical">
+                                    <Image Source="{Binding ImageUrl}" Aspect="AspectFill" />
+                                    <Label Text="{Binding Name}" FontAttributes="Bold" TextColor="White" FontSize="18"/>
+                                    <Label Text="{Binding Description}"/>
+                                    <Button Text="Visit Website" 
+                                        Command="{Binding Source={RelativeSource AncestorType={x:Type vm:AppsMainPageViewModel}}, Path=VisitWebsiteCommand}" 
+                                        Style="{StaticResource ButtonStyle}"
+                                        CommandParameter="{Binding Url}" />
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
 
                 <!-- Home Button -->
                 <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
