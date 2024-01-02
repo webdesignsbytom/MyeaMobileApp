@@ -132,9 +132,9 @@ namespace MyeaMobileApp
             builder.Services.AddSingleton<MediaCampaignMainPage>();
             builder.Services.AddSingleton<MediaCampaignMainPageViewModel>();
             /* Games */
-            /* Petigotchi */
             builder.Services.AddSingleton<GamesMainPage>();
             builder.Services.AddSingleton<GamesMainPageViewModel>();
+            /* Petigotchi */
             builder.Services.AddSingleton<PetigotchiPage>();
             builder.Services.AddSingleton<PetigotchiPageViewModel>();
             builder.Services.AddSingleton<PetigotchiHighscoresPage>();

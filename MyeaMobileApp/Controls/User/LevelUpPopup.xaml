@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyeaMobileApp.Controls.User.LevelUpPopup">
+
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#4CAF50"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="Margin" Value="0,5,0,0"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    
+    <Frame BackgroundColor="White" CornerRadius="20" Padding="20" Margin="20">
+        <!-- Add your popup content here -->
+        <VerticalStackLayout>
+            <Label Text="Level Up!" FontSize="Large" HorizontalOptions="Center"/>
+            <!-- Other UI elements like images, buttons, etc. -->
+
+            <!-- Home Button -->
+            <Button Text="Close" Style="{StaticResource ButtonStyle}" Command="{Binding CloseLevelUpPopUpCommand}" />
+        </VerticalStackLayout>
+    </Frame>
+</ContentView>

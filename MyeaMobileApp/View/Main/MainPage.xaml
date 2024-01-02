@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:sponsor="clr-namespace:MyeaMobileApp.Controls.Sponsor"
              xmlns:controls="clr-namespace:MyeaMobileApp.Controls.Daily"
+             xmlns:levelUp="clr-namespace:MyeaMobileApp.Controls.User"
              x:Class="MyeaMobileApp.View.Main.MainPage">
 
     <ContentPage.Resources>
@@ -40,143 +41,157 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <Grid Background="{StaticResource WhiteToGreenGradient}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
+    <AbsoluteLayout>
+        <!-- Main Grid -->
+        <Grid AbsoluteLayout.LayoutFlags="All"
+              AbsoluteLayout.LayoutBounds="0,0,1,1"
+              Background="{StaticResource WhiteToGreenGradient}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
 
-        <!-- Main content in the first row -->
-        <VerticalStackLayout Grid.Row="0" Padding="5">
-            <!-- Add your main content elements here -->
-            <HorizontalStackLayout HorizontalOptions="End">
-                <ImageButton 
-                    Source="user_icon.png" 
-                    HeightRequest="50"
-                    WidthRequest="50"
-                    Command="{Binding NavigateToUsersAccountCommand}"/>
-            </HorizontalStackLayout>
+            <!-- Main content in the first row -->
+            <VerticalStackLayout Grid.Row="0" Padding="5">
+                <!-- Add your main content elements here -->
+                <HorizontalStackLayout HorizontalOptions="End">
+                    <ImageButton 
+                        Source="user_icon.png" 
+                        HeightRequest="50"
+                        WidthRequest="50"
+                        Command="{Binding NavigateToUsersAccountCommand}"/>
+                </HorizontalStackLayout>
 
-            <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
+                <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
 
-                <Label
-                    Margin="5,5"
-                    HorizontalOptions="Center"
-                    Text="{Binding FirstName, StringFormat='Welcome {0}'}"
-                    />
+                    <Label
+                        Margin="5,5"
+                        HorizontalOptions="Center"
+                        Text="{Binding FirstName, StringFormat='Welcome {0}'}"
+                        />
 
-                <Image
-                    Source="logo_png.png"
-                    HeightRequest="128"
-                    WidthRequest="128"/>
+                    <Image
+                        Source="logo_png.png"
+                        HeightRequest="128"
+                        WidthRequest="128"/>
 
-                <Label
-                    Margin="20,10"
-                    Text="Modernising environmentalism and creating a donation free non-profit organization that works on repairing climate change"
-                    />
+                    <Label
+                        Margin="20,10"
+                        Text="Modernising environmentalism and creating a donation free non-profit organization that works on repairing climate change"
+                        />
 
+                </VerticalStackLayout>
+
+                <!-- Sponsor Advert Frame -->
+                <sponsor:SponsorAdvertFrame SponsorName="Cat App" />
+
+                <!-- Daily Event Frame -->
+                <controls:DailyEventFrame />
             </VerticalStackLayout>
-
-            <!-- Sponsor Advert Frame -->
-            <sponsor:SponsorAdvertFrame SponsorName="Cat App" />
-
-            <!-- Daily Event Frame -->
-            <controls:DailyEventFrame />
-
-        </VerticalStackLayout>
-        <!-- Buttons in the second row -->
-        <VerticalStackLayout Grid.Row="1" Margin="5,0,5,5">
-            <Grid ColumnSpacing="6">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-
-                <Button Text="About" Grid.Column="0" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToAboutUsPageCommand}"/>
-                <Button Text="Games" Grid.Column="1" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToGamesPageCommand}"/>
-            </Grid>
-
-            <Grid ColumnSpacing="6">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
-
-                <Button
-                    Text="Goals"
-                    Grid.Column="0"
-                    Style="{StaticResource ButtonStyle}"
-                    Command="{Binding NavigateToGoalsPageCommand}"/>
-
-                <Button
-                    Text="Funding"
-                    Grid.Column="1"
-                    Style="{StaticResource ButtonStyle}"
-                    Command="{Binding NavigateToFundingPageCommand}"/>
-
-            </Grid>            
             
 
-            <Grid ColumnSpacing="6">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+            <!-- Buttons in the second row -->
+            <VerticalStackLayout Grid.Row="1" Margin="5,0,5,5">
+                <Grid ColumnSpacing="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
 
-                <Button
-                    Text="Services"
-                    Grid.Column="0"
-                    Style="{StaticResource ButtonStyle}"
-                    Command="{Binding NavigateToServicesPageCommand}"/>
+                    <Button Text="About" Grid.Column="0" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToAboutUsPageCommand}"/>
+                    <Button Text="Games" Grid.Column="1" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToGamesPageCommand}"/>
+                </Grid>
 
-                <Button
-                    Text="Apps"
-                    Grid.Column="1"
-                    Style="{StaticResource ButtonStyle}"
-                    Command="{Binding NavigateToAppsMainPageCommand}"/>
+                <Grid ColumnSpacing="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
 
-            </Grid>
+                    <Button
+                        Text="Goals"
+                        Grid.Column="0"
+                        Style="{StaticResource ButtonStyle}"
+                        Command="{Binding NavigateToGoalsPageCommand}"/>
 
-            <Grid ColumnSpacing="6">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+                    <Button
+                        Text="Funding"
+                        Grid.Column="1"
+                        Style="{StaticResource ButtonStyle}"
+                        Command="{Binding NavigateToFundingPageCommand}"/>
 
-                <Button
-                    Text="News"
-                    Grid.Column="0"
-                    Style="{StaticResource ButtonStyle}"
-                    Command="{Binding NavigateToNewReelPageCommand}"/>
+                </Grid>
 
-                <Button
-                    Text="Media"
-                    Grid.Column="1"
-                    Style="{StaticResource ButtonStyle}"
-                    Command="{Binding NavigateToMediaMainPageCommand}"/>
 
-            </Grid>
+                <Grid ColumnSpacing="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
 
-            <Grid ColumnSpacing="6">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="*" />
-                    <ColumnDefinition Width="*" />
-                </Grid.ColumnDefinitions>
+                    <Button
+                        Text="Services"
+                        Grid.Column="0"
+                        Style="{StaticResource ButtonStyle}"
+                        Command="{Binding NavigateToServicesPageCommand}"/>
 
-                <Button
-                    Text="Lottery"
-                    Grid.Column="0"
-                    Style="{StaticResource ButtonStyle}"
-                    Command="{Binding NavigateToLotteryPageCommand}"/>
+                    <Button
+                        Text="Apps"
+                        Grid.Column="1"
+                        Style="{StaticResource ButtonStyle}"
+                        Command="{Binding NavigateToAppsMainPageCommand}"/>
 
-                <Button
-                    Text="Timeline"
-                    Grid.Column="1"
-                    Style="{StaticResource ButtonStyle}"
-                    Command="{Binding NavigateToTimelinePageCommand}"/>
+                </Grid>
 
-            </Grid>
-        </VerticalStackLayout>
-    </Grid>
+                <Grid ColumnSpacing="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button
+                        Text="News"
+                        Grid.Column="0"
+                        Style="{StaticResource ButtonStyle}"
+                        Command="{Binding NavigateToNewReelPageCommand}"/>
+
+                    <Button
+                        Text="Media"
+                        Grid.Column="1"
+                        Style="{StaticResource ButtonStyle}"
+                        Command="{Binding NavigateToMediaMainPageCommand}"/>
+
+                </Grid>
+
+                <Grid ColumnSpacing="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button
+                        Text="Lottery"
+                        Grid.Column="0"
+                        Style="{StaticResource ButtonStyle}"
+                        Command="{Binding NavigateToLotteryPageCommand}"/>
+
+                    <Button
+                        Text="Level Up"
+                        Grid.Column="1"
+                        Style="{StaticResource ButtonStyle}"
+                        Command="{Binding ToggleLevelUpPopupCommand}"/>
+
+                </Grid>
+            </VerticalStackLayout>
+        </Grid>
+
+        <!-- Level Up Popup -->
+        <levelUp:LevelUpPopup x:Name="levelUpPopup"
+                              IsVisible="{Binding IsLevelUpPopupVisible}"
+                              AbsoluteLayout.LayoutFlags="All"
+                              AbsoluteLayout.LayoutBounds="0,0,1,1"/>
+    </AbsoluteLayout>
+    
+
 
 </ContentPage>

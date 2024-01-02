@@ -10,6 +10,9 @@ namespace MyeaMobileApp.ViewModel.Main
         public UserModel User { get; set; }
         public ProfileModel UserProfile { get; set; }
 
+        [ObservableProperty]
+        private bool isLevelUpPopupVisible;
+
         // Users name
         [ObservableProperty]
         public string? firstName;
@@ -25,6 +28,18 @@ namespace MyeaMobileApp.ViewModel.Main
         {
             string userFirstName = await SecureStorage.Default.GetAsync("user_firstName") ?? string.Empty;
             FirstName = userFirstName;
+        }
+
+        [RelayCommand]
+        public void ToggleLevelUpPopup()
+        {
+            IsLevelUpPopupVisible = !IsLevelUpPopupVisible;
+        }        
+        
+        [RelayCommand]
+        public void CloseLevelUpPopUp()
+        {
+            IsLevelUpPopupVisible = !IsLevelUpPopupVisible;
         }
 
         [RelayCommand]
