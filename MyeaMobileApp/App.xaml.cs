@@ -9,7 +9,18 @@ namespace MyeaMobileApp
         public ProfileModel UserProfile { get; set; }
         public App(UserModel user, ProfileModel userProfile)
         {
+
+            // Check if the 'first_time' preference is set
+            bool isFirstTime = Preferences.Get("first_time", true);
             User = user;
+
+            if (isFirstTime)
+            {
+                // Set the preference to false for subsequent launches
+                Preferences.Set("first_time", false);
+                User.IsFirstTimeOpeningApp = true;
+            }
+ 
             UserProfile = userProfile;
             CheckUserLogin();
             InitializeComponent();
@@ -28,7 +39,7 @@ namespace MyeaMobileApp
             }
             else
             {
-               // User is not logged in, show login page
+                // User is not logged in, show login page
                 Console.WriteLine("NNNNNNNNNNNNNNNNNNNNNN");
             }
         }

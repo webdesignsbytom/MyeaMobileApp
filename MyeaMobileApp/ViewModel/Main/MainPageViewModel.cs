@@ -17,17 +17,37 @@ namespace MyeaMobileApp.ViewModel.Main
         [ObservableProperty]
         public string? firstName;
 
+        [ObservableProperty]
+        private bool isFirstTimePopupVisible;
+
         public MainPageViewModel(UserModel userModel, ProfileModel userProfile)
         {
             User = userModel;
             UserProfile = userProfile;
+            CheckForFirstUse();
             LoadData();
         }
 
+        // Check to display welcome message
+        public async Task CheckForFirstUse()
+        {
+            if (User.IsFirstTimeOpeningApp)
+            {
+                IsFirstTimePopupVisible = true;
+                User.IsFirstTimeOpeningApp = false; // update the user model to reflect that the first launch has been acknowledged
+                                                    // You might want to save this change to your data store or preferences
+            }
+        }
         public async Task LoadData()
         {
             string userFirstName = await SecureStorage.Default.GetAsync("user_firstName") ?? string.Empty;
             FirstName = userFirstName;
+        }
+
+        [RelayCommand]
+        private void CloseFirstTimePopup()
+        {
+            IsFirstTimePopupVisible = false;
         }
 
         [RelayCommand]

@@ -16,6 +16,7 @@
         public DateTime UpdatedAt { get; set; }
         public bool UserIsLoggedIn { get; set; } = false;
         public bool IsDarkModeEnabled { get; set; } = false;
+        public bool IsFirstTimeOpeningApp { get; set; } = false;
 
         public UserToken UserToken { get; set; }
 

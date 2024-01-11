@@ -190,6 +190,31 @@
                               IsVisible="{Binding IsLevelUpPopupVisible}"
                               AbsoluteLayout.LayoutFlags="All"
                               AbsoluteLayout.LayoutBounds="0,0,1,1"/>
+
+
+        <!-- First use after app install welcome message -->
+        <Frame 
+            x:Name="firstTimePopup"
+            IsVisible="{Binding IsFirstTimePopupVisible}"
+            AbsoluteLayout.LayoutFlags="All"
+            AbsoluteLayout.LayoutBounds="0,0,1,1"
+            BackgroundColor="#C0808080"
+            Padding="20">
+
+            <StackLayout 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center">
+
+                <Label Text="Welcome to the App!" 
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       FontSize="Large"/>
+
+                <Button Text="Close" Command="{Binding CloseFirstTimePopupCommand}"/>
+            </StackLayout>
+
+        </Frame>
+        
     </AbsoluteLayout>
     
 
