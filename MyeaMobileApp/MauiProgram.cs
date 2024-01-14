@@ -22,7 +22,6 @@ using MyeaMobileApp.View.Funding;
 using MyeaMobileApp.View.Games.Main;
 using MyeaMobileApp.View.Games.O2tapper.MainGame;
 using MyeaMobileApp.View.Games.Petigotchi.MainGame;
-using MyeaMobileApp.View.Games.Petigotchi.Highscores;
 using MyeaMobileApp.View.Goals;
 using MyeaMobileApp.View.Lottery.History;
 using MyeaMobileApp.View.Lottery.LotteryMain;
@@ -51,7 +50,6 @@ using MyeaMobileApp.ViewModel.Funding;
 using MyeaMobileApp.ViewModel.Games.Main;
 using MyeaMobileApp.ViewModel.Games.O2tapper.MainGame;
 using MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame;
-using MyeaMobileApp.ViewModel.Games.Petigotchi.Highscores;
 using MyeaMobileApp.ViewModel.Goals;
 using MyeaMobileApp.ViewModel.Lottery.History;
 using MyeaMobileApp.ViewModel.Lottery.LotteryMain;
@@ -72,6 +70,9 @@ using MyeaMobileApp.ViewModel.Events.CreateEvent;
 using MyeaMobileApp.View.Events.Main;
 using MyeaMobileApp.ViewModel.Events.Main;
 using MyeaMobileApp.Model.Events;
+using MyeaMobileApp.Model.Achievements;
+using MyeaMobileApp.View.Account.Achievements;
+using MyeaMobileApp.ViewModel.Account.Achievements;
 
 namespace MyeaMobileApp
 {
@@ -108,6 +109,8 @@ namespace MyeaMobileApp
             builder.Services.AddSingleton<ManageAccountPageViewModel>();
             builder.Services.AddSingleton<ForgotLoginPage>();
             builder.Services.AddSingleton<ForgotLoginPageViewModel>();
+            builder.Services.AddSingleton<AchievementsPage>();
+            builder.Services.AddSingleton<AchievementsPageViewModel>();
             /* Admin */
             builder.Services.AddSingleton<AdminMainPage>();
             builder.Services.AddSingleton<AdminMainPageViewModel>();
@@ -156,8 +159,6 @@ namespace MyeaMobileApp
             /* Petigotchi */
             builder.Services.AddSingleton<PetigotchiPage>();
             builder.Services.AddSingleton<PetigotchiPageViewModel>();
-            builder.Services.AddSingleton<PetigotchiHighscoresPage>();
-            builder.Services.AddSingleton<PetigotchiHighscoresPageViewModel>();
             /* O2 Tapper */
             builder.Services.AddSingleton<O2tapperMainPage>();
             builder.Services.AddSingleton<O2tapperMainPageViewModel>();
@@ -173,6 +174,7 @@ namespace MyeaMobileApp
             builder.Services.AddSingleton<O2tapperModel>();
             builder.Services.AddSingleton<WebProductModel>();
             builder.Services.AddSingleton<AppProductModel>();
+            builder.Services.AddSingleton<AchievementModel>();
             builder.Services.AddSingleton<PlannedEventModel>();
             builder.Services.AddSingleton<AdvertModel>();
             /* Api services */

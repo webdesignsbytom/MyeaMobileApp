@@ -42,18 +42,40 @@
     <ScrollView Padding="5">
         <VerticalStackLayout Padding="20" Spacing="10">
 
-            <Label Text="Dark Mode" Style="{StaticResource LabelStyle}"/>
-            <Switch IsToggled="{Binding IsDarkModeEnabled}" />            
-            
-            <Label Text="Newsletter Mailing list" Style="{StaticResource LabelStyle}"/>
-            <Switch IsToggled="{Binding UserRegisteredForNewsletter}" />            
-            
-            <Label Text="Display pet icon on main page" Style="{StaticResource LabelStyle}"/>
-            <Switch IsToggled="{Binding UserWantsToDisplayPetIcon}" />
+            <!-- Grid for labels and switches -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <!-- Row for Dark Mode -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- Row for Newsletter Mailing List -->
+                    <RowDefinition Height="Auto"/>
+                    <!-- Row for Display Pet Icon -->
+                </Grid.RowDefinitions>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <!-- Column for Labels -->
+                    <ColumnDefinition Width="*"/>
+                    <!-- Column for Switches -->
+                </Grid.ColumnDefinitions>
+
+                <!-- Row 0: Dark Mode -->
+                <Label Grid.Row="0" Grid.Column="0" Text="Dark Mode" Style="{StaticResource LabelStyle}"/>
+                <Switch Grid.Row="0" Grid.Column="1" IsToggled="{Binding IsDarkModeEnabled}" />
+
+                <!-- Row 1: Newsletter Mailing List -->
+                <Label Grid.Row="1" Grid.Column="0" Text="Newsletter Mailing list" Style="{StaticResource LabelStyle}"/>
+                <Switch Grid.Row="1" Grid.Column="1" IsToggled="{Binding UserRegisteredForNewsletter}" />
+
+                <!-- Row 2: Display pet icon -->
+                <Label Grid.Row="2" Grid.Column="0" Text="Display pet icon on main page" Style="{StaticResource LabelStyle}"/>
+                <Switch Grid.Row="2" Grid.Column="1" IsToggled="{Binding UserWantsToDisplayPetIcon}" />
+            </Grid>
 
             <!-- Back to profile -->
-            <Button Text="Back" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToProfilePageCommand}"/>            
-            
+            <Button Text="Back" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToProfilePageCommand}"/>
+
             <!-- Delete Account -->
             <Button Text="Delete Account" Style="{StaticResource DeleteButtonStyle}" Command="{Binding DeleteUserAccountCommand}"/>
         </VerticalStackLayout>

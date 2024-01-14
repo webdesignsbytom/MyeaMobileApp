@@ -15,6 +15,7 @@
     xmlns:inviteFriends="clr-namespace:MyeaMobileApp.View.Account.InviteFriends"
     xmlns:manageAccount="clr-namespace:MyeaMobileApp.View.Account.Manage"
     xmlns:editProfile="clr-namespace:MyeaMobileApp.View.Account.EditProfile"
+    xmlns:achievements="clr-namespace:MyeaMobileApp.View.Account.Achievements"
     xmlns:services="clr-namespace:MyeaMobileApp.View.Services"
     xmlns:appsMain="clr-namespace:MyeaMobileApp.View.Apps"
     xmlns:lottery="clr-namespace:MyeaMobileApp.View.Lottery.LotteryMain"
@@ -32,7 +33,6 @@
     xmlns:timeline="clr-namespace:MyeaMobileApp.View.Timeline"
     xmlns:petigotchi="clr-namespace:MyeaMobileApp.View.Games.Petigotchi.MainGame"
     xmlns:gamesMain="clr-namespace:MyeaMobileApp.View.Games.Main"
-    xmlns:petigotchiHighscores="clr-namespace:MyeaMobileApp.View.Games.Petigotchi.Highscores"
     xmlns:tapperGame="clr-namespace:MyeaMobileApp.View.Games.O2tapper.MainGame"
     xmlns:newsletterSignup="clr-namespace:MyeaMobileApp.View.Newsletter"
     Shell.FlyoutBehavior="Disabled"
@@ -85,6 +85,11 @@
         Title="Edit Profile"
         ContentTemplate="{DataTemplate editProfile:EditProfilePage}"
         Route="EditProfilePage" />
+    
+    <ShellContent
+        Title="Achievements"
+        ContentTemplate="{DataTemplate achievements:AchievementsPage}"
+        Route="AchievementsPage" />
 
 
     <!-- Admin -->
@@ -163,11 +168,6 @@
         Title="Petigotchi"
         ContentTemplate="{DataTemplate petigotchi:PetigotchiPage}"
         Route="PetigotchiPage" />
-
-    <ShellContent
-        Title="Petigotchi Highscores"
-        ContentTemplate="{DataTemplate petigotchiHighscores:PetigotchiHighscoresPage}"
-        Route="PetigotchiHighscoresPage" />
 
     <ShellContent
         Title="O2 Tapper"

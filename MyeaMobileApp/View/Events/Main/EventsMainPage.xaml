@@ -49,8 +49,10 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                
-                
+
+                <!-- Image Banner -->
+                <Image Source="events1.png" Aspect="AspectFill" Margin="20,20,20,10" />
+
                 <!-- Create Button -->
                 <Button Text="Add Event" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToCreateEventPageCommand}" />                
                     

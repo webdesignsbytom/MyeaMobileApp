@@ -24,7 +24,7 @@ public partial class PetigotchiPage : ContentPage
         var canvas = surface.Canvas; // Assign the canvas to the property
         canvasView.IgnorePixelScaling = true;
 
-        canvas.Clear(SKColors.Black);
+        canvas.Clear(SKColors.White);
         ViewModel.SetCanvas(canvas);
 
         ViewModel.UpdatePetPosition();

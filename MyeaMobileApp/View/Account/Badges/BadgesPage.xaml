@@ -5,6 +5,13 @@
 
     <ContentPage.Resources>
         <ResourceDictionary>
+            <Style x:Key="TitleLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="TextColor" Value="DarkBlue"/>
+                <Setter Property="Margin" Value="0,20,0,0"/>
+            </Style>
             <Style x:Key="ButtonStyle" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="#4CAF50"/>
                 <Setter Property="TextColor" Value="White"/>
@@ -15,37 +22,43 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
-    <VerticalStackLayout Padding="5">
-        <Label 
-            Text="Badges"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
 
-        <Label VerticalOptions="Center" HorizontalOptions="Center">
-            <Label.Text>
-                <MultiBinding StringFormat="Badges owned {0}/{1}">
-                    <Binding Path="BadgesOwned" />
-                    <Binding Path="TotalBadges" />
-                </MultiBinding>
-            </Label.Text>
-        </Label>
+    <Grid RowDefinitions="*, Auto">
+        <ScrollView Grid.Row="0">
+            <VerticalStackLayout>
+                <!-- Title and Badges List here -->
+                <VerticalStackLayout Padding="10">
+                    <Label Text="Badges + Achievements" Style="{StaticResource TitleLabelStyle}" />
+                </VerticalStackLayout>
 
-        <CollectionView ItemsSource="{Binding BadgeImages}">
-            <CollectionView.ItemsLayout>
-                <GridItemsLayout Span="3" Orientation="Vertical" />
-            </CollectionView.ItemsLayout>
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Image Source="{Binding .}" Aspect="AspectFit" />
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
+                <VerticalStackLayout Padding="20,0" Spacing="10">
+                    <Label FontSize="22" VerticalOptions="Center" HorizontalOptions="Center">
+                        <Label.Text>
+                            <MultiBinding StringFormat="Badges owned {0}/{1}">
+                                <Binding Path="BadgesOwned" />
+                                <Binding Path="TotalBadges" />
+                            </MultiBinding>
+                        </Label.Text>
+                    </Label>
 
-        <!-- Profile Button -->
-        <Button Text="View Badges and Achievements" Style="{StaticResource ButtonStyle}" Command="{Binding OpenBadgeListContainerCommand}" />        
-        
-        <!-- Profile Button -->
-        <Button Text="Back" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToProfilePageCommand}" />
-    </VerticalStackLayout>
+                    <CollectionView ItemsSource="{Binding BadgeImages}">
+                        <CollectionView.ItemsLayout>
+                            <GridItemsLayout Span="3" Orientation="Vertical" />
+                        </CollectionView.ItemsLayout>
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding .}" Aspect="AspectFit" />
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <VerticalStackLayout Grid.Row="1" HorizontalOptions="FillAndExpand" Padding="10">
+            <!-- Buttons here, aligned horizontally at the bottom -->
+            <Button Text="Full List of Badges and Achievements" Style="{StaticResource ButtonStyle}" Command="{Binding OpenBadgeAndAchievementListContainerCommand}" />
+            <Button Text="Back" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToProfilePageCommand}" />
+        </VerticalStackLayout>
+    </Grid>
 </ContentPage>

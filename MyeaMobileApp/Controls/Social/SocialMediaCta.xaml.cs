@@ -33,7 +33,7 @@ public partial class SocialMediaCta : ContentView
     private void YoutubeButton_Clicked(object sender, EventArgs e)
     {
         // Logic to open youtube page
-        string url = "https://youtube.com/myea";
+        string url = "https://www.youtube.com/channel/UCXK4lqnNYCWpqyaho_pVPNQ";
         Browser.OpenAsync(url, BrowserLaunchMode.SystemPreferred);
     }
 }

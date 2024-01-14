@@ -1,79 +1,119 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:foodMenu="clr-namespace:MyeaMobileApp.Controls.Games.Petigotchi"
+             xmlns:settingMenu="clr-namespace:MyeaMobileApp.Controls.Games.Petigotchi"
+             xmlns:playMenu="clr-namespace:MyeaMobileApp.Controls.Games.Petigotchi"
              x:Class="MyeaMobileApp.View.Games.Petigotchi.MainGame.PetigotchiPage"
              xmlns:skia="clr-namespace:SkiaSharp.Views.Maui.Controls;assembly=SkiaSharp.Views.Maui.Controls">
-    
-    <Grid RowDefinitions="*">
-        <skia:SKCanvasView 
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="PageTitle" TargetType="Label">
+                <Setter Property="FontSize" Value="58"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="BackgroundColor" Value="#4CAF50"/>
+                <Setter Property="Margin" Value="0,0,0,0"/>
+                <Setter Property="Padding" Value="0,15,0,15"/>
+            </Style>
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#4CAF50"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="Margin" Value="0,20,0,0"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Style x:Key="GeneralText" TargetType="Span">
+                <Setter Property="TextColor" Value="#555555"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontFamily" Value="OpenSansRegular"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <AbsoluteLayout>
+        <Grid AbsoluteLayout.LayoutFlags="All"
+              AbsoluteLayout.LayoutBounds="0,0,1,1">
+            
+            <skia:SKCanvasView 
                 x:Name="canvasView" 
                 PaintSurface="OnPaintSurface"
                 EnableTouchEvents="True"
                 >
-        </skia:SKCanvasView>
-        
-        <!-- Top level player stats -->
-        <Grid VerticalOptions="Start" ColumnDefinitions="*,*,*,*" ColumnSpacing="5" Margin="10" BackgroundColor="AntiqueWhite">
+            </skia:SKCanvasView>
 
-            <ImageButton Source="home_icon.png"
+            <!-- Top level player stats -->
+            <Grid VerticalOptions="Start" ColumnDefinitions="*,*,*" ColumnSpacing="5" Padding="0,10" Margin="10" BackgroundColor="#4CAF50">
+
+                <ImageButton Source="home_icon.png"
                  WidthRequest="35"
                  HeightRequest="35"
                  Grid.Column="0"
                  Command="{Binding NavigateToHomePageCommand}"
-                 IsVisible="True"/>            
-            
-            <ImageButton Source="highscore_icon.png"
-                 WidthRequest="35"
-                 HeightRequest="35"
-                 Grid.Column="0"
-                 Command="{Binding NavigateToHighscoresPageCommand}"
                  IsVisible="True"/>
-            
-            <ImageButton Source="wdbt_white.png"
+
+                <ImageButton Source="wdbt_white.png"
                  WidthRequest="35"
                  Grid.Column="1"        
                  HeightRequest="35"
                  IsVisible="True"/>
 
-            <ImageButton Source="settings_icon.png"
+                <ImageButton Source="settings_icon.png"
                  WidthRequest="35"
                  HeightRequest="35" 
                  Grid.Column="2"       
-                 Command="{Binding OpenGameSettingsContainerCommand}"
+                 Command="{Binding OpenSettingsMenuCommand}"
                  IsVisible="True"/>
 
-        </Grid>
+            </Grid>
 
-        <!-- Bottom level player buttons -->
-        <Grid VerticalOptions="End" ColumnDefinitions="*,*,*" ColumnSpacing="10" Margin="10">
+            <!-- Bottom level player buttons -->
+            <Grid VerticalOptions="End" ColumnSpacing="5" Margin="2,5" ColumnDefinitions="*,*,*,*" >
 
-            <Button
-                Text="Left"
-                TextColor="White"
+                <Button
+                Text="Feed"
                 Grid.Column="0"
-                FontSize="22"
-                BackgroundColor="BlueViolet"
-                SemanticProperties.Hint="Go Left"
-                HeightRequest="75"/>
+                Command="{Binding OpenFoodMenuCommand}"
+                Style="{StaticResource ButtonStyle}"/>
 
-            <Button
-                Text="Fire"
-                TextColor="White"
-                FontSize="22"
+                <Button
+                Text="Play"
                 Grid.Column="1"
-                BackgroundColor="BlueViolet"
-                SemanticProperties.Hint="Fire Weapons"
-                HeightRequest="75" />
+                Command="{Binding OpenPlayMenuCommand}"
+                Style="{StaticResource ButtonStyle}" />
 
-            <Button
-                Text="Right"
-                TextColor="White"
-                FontSize="22"
+                <Button
+                Text="Sleep"
                 Grid.Column="2"
-                BackgroundColor="BlueViolet"
-                SemanticProperties.Hint="Go Right"
-                HeightRequest="75" />
+                Style="{StaticResource ButtonStyle}" />
 
+                <Button
+                Text="Treat"
+                Grid.Column="3"
+                Style="{StaticResource ButtonStyle}" />
+
+            </Grid>
         </Grid>
-    </Grid>
+
+        <!-- Food menu -->
+        <foodMenu:FoodMenuPopup 
+                    AbsoluteLayout.LayoutFlags="All"
+                    IsVisible="{Binding IsFoodMenuVisible}"
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"/>        
+        
+        <!-- Play menu -->
+        <playMenu:PlayMenuPopup
+                    AbsoluteLayout.LayoutFlags="All"
+                    IsVisible="{Binding IsPlayMenuVisible}"
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"/>
+
+        <!-- Settings menu -->
+        <settingMenu:PetigotchiSettingsMenu 
+                    AbsoluteLayout.LayoutFlags="All"
+                    IsVisible="{Binding IsSettingsMenuVisible}"
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"/>
+        
+    </AbsoluteLayout>
 </ContentPage>

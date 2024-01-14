@@ -99,7 +99,7 @@
                 </Grid.ColumnDefinitions>
 
                 <VerticalStackLayout Grid.Column="0">
-                    <Button Text="Badges" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToBadgesPageCommand}" />
+                    <Button Text="Badges + Achievements" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToBadgesPageCommand}" />
                 </VerticalStackLayout>
                 <VerticalStackLayout Grid.Column="1">
                     <Button Text="Invite Friends" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToInviteFriendsPageCommand}" />

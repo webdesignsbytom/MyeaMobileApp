@@ -74,9 +74,12 @@
 	  <None Remove="Resources\Images\Badges\badge8.png" />
 	  <None Remove="Resources\Images\Badges\badge9.png" />
 	  <None Remove="Resources\Images\Eco\create_apps.png" />
+	  <None Remove="Resources\Images\Eco\donate_skills.png" />
+	  <None Remove="Resources\Images\Eco\donations1.png" />
 	  <None Remove="Resources\Images\Eco\eco_banner1.png" />
 	  <None Remove="Resources\Images\Eco\eco_games1.png" />
 	  <None Remove="Resources\Images\Eco\eco_media1.png" />
+	  <None Remove="Resources\Images\Eco\events1.png" />
 	  <None Remove="Resources\Images\Eco\shop_collection.png" />
 	  <None Remove="Resources\Images\Eco\shop_tshirts.png" />
 	  <None Remove="Resources\Images\Games\cat1.png" />
@@ -163,6 +166,12 @@
 	  <MauiImage Include="Resources\Images\Eco\create_apps.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Eco\donate_skills.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Eco\donations1.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
 	  <MauiImage Include="Resources\Images\Eco\eco_banner1.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </MauiImage>
@@ -170,6 +179,9 @@
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </MauiImage>
 	  <MauiImage Include="Resources\Images\Eco\eco_media1.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Eco\events1.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </MauiImage>
 	  <MauiImage Include="Resources\Images\Eco\shop_collection.png">
@@ -250,6 +262,15 @@
 	  <MauiXaml Update="Controls\Daily\DailyEventFrame.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Controls\Games\Petigotchi\FoodMenuPopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Controls\Games\Petigotchi\PetigotchiSettingsMenu.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Controls\Games\Petigotchi\PlayMenuPopup.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Controls\Social\SocialMediaCta.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -263,6 +284,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\About\AboutUsPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Account\Achievements\AchievementsPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\Account\Badges\BadgesPage.xaml">
@@ -305,9 +329,6 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\Games\O2tapper\MainGame\O2tapperMainPage.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="View\Games\Petigotchi\Highscores\PetigotchiHighscoresPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\Games\Petigotchi\MainGame\PetigotchiPage.xaml">

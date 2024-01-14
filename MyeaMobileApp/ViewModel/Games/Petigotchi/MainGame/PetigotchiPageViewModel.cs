@@ -7,17 +7,40 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Timers;
 
+
 namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
 {
     public partial class PetigotchiPageViewModel : ObservableObject
     {
         public SKCanvas? gameCanvas;
+
+        // Menu options
+        [ObservableProperty]
+        private bool isFoodMenuVisible = false;        
         
+        [ObservableProperty]
+        private bool isSettingsMenuVisible = false;        
+        
+        [ObservableProperty]
+        private bool isPlayMenuVisible = false;
+
         public PetigotchiPageViewModel()
         {
             Console.WriteLine("VM1111111111111111111111111111");
             CreateGameBitmapAnimations();
             SetupMovementTimer();
+        }
+
+        [RelayCommand]
+        public async Task OpenFoodMenu()
+        {
+            IsFoodMenuVisible = true;
+        }        
+        
+        [RelayCommand]
+        public async Task CloseFoodMenu()
+        {
+            IsFoodMenuVisible = false;
         }
 
         private void SetupMovementTimer()
@@ -151,9 +174,30 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
 
         // Open Settings
         [RelayCommand]
-        public async Task OpenGameSettingsContainer()
+        public async Task OpenSettingsMenu()
         {
-            return;
+            IsSettingsMenuVisible = true;
+        }           
+        
+        // Close Settings
+        [RelayCommand]
+        public async Task CloseSettingsMenu()
+        {
+            IsSettingsMenuVisible = false;
+        }              
+        
+        // Open play
+        [RelayCommand]
+        public async Task OpenPlayMenu()
+        {
+            IsPlayMenuVisible = true;
+        }           
+        
+        // Close play
+        [RelayCommand]
+        public async Task ClosePlayMenu()
+        {
+            IsPlayMenuVisible = false;
         }           
         
         // Home

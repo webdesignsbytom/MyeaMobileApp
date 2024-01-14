@@ -48,9 +48,9 @@ namespace MyeaMobileApp.ViewModel.Account.Badges
 
         // Open list of badges and achievements
         [RelayCommand]
-        public async Task OpenBadgeListContainer()
+        public async Task OpenBadgeAndAchievementListContainer()
         {
-            await Shell.Current.GoToAsync("///ProfilePage");
+            await Shell.Current.GoToAsync("///AchievementsPage");
         }        
         
         // Navigate back to profile

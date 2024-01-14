@@ -9,7 +9,7 @@ namespace MyeaMobileApp.ViewModel.Media
         public async Task OpenYoutubePage()
         {
             // Logic to open youtuibe page
-            string url = "https://www.youtube.com/myea";
+            string url = "https://www.youtube.com/channel/UCXK4lqnNYCWpqyaho_pVPNQ";
             await Browser.OpenAsync(url, BrowserLaunchMode.SystemPreferred);
         }        
         

@@ -57,6 +57,9 @@
                     </Label.FormattedText>
                 </Label>
 
+                <!-- Image Banner -->
+                <Image Source="donations1.png" Aspect="AspectFill" Margin="20,20,20,10" />
+
                 <!-- Skills Section -->
                 <Label Text="So what are you good at?" Style="{StaticResource SectionLabelStyle}"/>
 
@@ -67,6 +70,9 @@
                 <!-- Game Making Section -->
                 <Label Text="Game Design" Style="{StaticResource SectionLabelStyle}"/>
                 <Label Text="Game developers, let's turn play into purpose! Your talent in creating engaging games can inspire and educate others about environmental conservation. Be part of a fun, impactful gaming project for the planet!" Style="{StaticResource GeneralText}"/>
+                
+                <!-- Image Banner -->
+                <Image Source="donate_skills.png" Aspect="AspectFill" Margin="20,20,20,10" />
 
                 <!-- Art and design Section -->
                 <Label Text="Art and Design" Style="{StaticResource SectionLabelStyle}"/>

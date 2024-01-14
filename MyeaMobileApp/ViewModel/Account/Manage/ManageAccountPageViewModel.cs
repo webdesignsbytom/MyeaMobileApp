@@ -2,6 +2,7 @@
 using CommunityToolkit.Mvvm.Input;
 using MyeaMobileApp.Model.User;
 using MyeaMobileApp.Services.User;
+using System.Diagnostics;
 
 namespace MyeaMobileApp.ViewModel.Account.Manage
 {
@@ -31,11 +32,17 @@ namespace MyeaMobileApp.ViewModel.Account.Manage
         [RelayCommand]
         async Task DeleteUserAccount()
         {
-            string id = User.UserId;
-            await UserApi.DeleteUserAccountApi(id);
+            bool answer = await App.Current.MainPage.DisplayAlert("Warning!", "Are you sure you wish to delete your account? This will delete you across all myecoapp products", "Yes", "No");
+            Debug.WriteLine("Answer: " + answer);
 
-            User.UserIsLoggedIn = false;
-            await Shell.Current.GoToAsync("///MainPage");
+            if (answer)
+            {
+                string id = User.UserId;
+                await UserApi.DeleteUserAccountApi(id);
+
+                User.UserIsLoggedIn = false;
+                await Shell.Current.GoToAsync("///MainPage");
+            }
         }
 
 

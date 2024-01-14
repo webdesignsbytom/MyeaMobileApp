@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyeaMobileApp.Controls.Games.Petigotchi.PetigotchiSettingsMenu">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#4CAF50"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="Margin" Value="0,5,0,0"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <Frame 
+            BackgroundColor="#C0808080"
+            Padding="20">
+
+        <VerticalStackLayout 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center">
+
+
+            <Label Text="Settings" 
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       FontSize="44"/>
+
+            <Button Text="CLOSE" Style="{StaticResource ButtonStyle}" Command="{Binding CloseSettingsMenuCommand}"/>
+        </VerticalStackLayout>
+
+    </Frame>
+</ContentView>

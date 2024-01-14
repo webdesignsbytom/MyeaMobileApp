@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyeaMobileApp.Controls.Games.Petigotchi.PlayMenuPopup">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#4CAF50"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="Margin" Value="0,15,0,10"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Style x:Key="MenuLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="44"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Margin" Value="0,15,0,10"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+            <Style x:Key="FoodLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="34"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Margin" Value="0,5,0,5"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <Frame 
+        BackgroundColor="#C0808080"
+        Padding="20">
+
+        <VerticalStackLayout 
+            VerticalOptions="Center" 
+            BackgroundColor="AliceBlue"
+            HorizontalOptions="Center">
+
+            <Label Text="PLAY" 
+                   HorizontalOptions="Center"
+                   Style="{StaticResource MenuLabelStyle}"
+                    />
+
+            <Label Text="🌮" Style="{StaticResource FoodLabelStyle}" />
+            <Label Text="🧀" Style="{StaticResource FoodLabelStyle}" />
+
+            <Button Text="CLOSE" Style="{StaticResource ButtonStyle}" Command="{Binding ClosePlayMenuCommand}"/>
+        </VerticalStackLayout>
+
+    </Frame>
+</ContentView>
