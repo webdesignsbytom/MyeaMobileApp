@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyeaMobileApp.View.Games.Petigotchi.PetigotchiPage"
+             x:Class="MyeaMobileApp.View.Games.Petigotchi.MainGame.PetigotchiPage"
              xmlns:skia="clr-namespace:SkiaSharp.Views.Maui.Controls;assembly=SkiaSharp.Views.Maui.Controls">
     
     <Grid RowDefinitions="*">
@@ -13,8 +13,15 @@
         </skia:SKCanvasView>
         
         <!-- Top level player stats -->
-        <Grid VerticalOptions="Start" ColumnDefinitions="*,*,*" ColumnSpacing="10" Margin="10" BackgroundColor="AntiqueWhite">
+        <Grid VerticalOptions="Start" ColumnDefinitions="*,*,*,*" ColumnSpacing="5" Margin="10" BackgroundColor="AntiqueWhite">
 
+            <ImageButton Source="home_icon.png"
+                 WidthRequest="35"
+                 HeightRequest="35"
+                 Grid.Column="0"
+                 Command="{Binding NavigateToHomePageCommand}"
+                 IsVisible="True"/>            
+            
             <ImageButton Source="highscore_icon.png"
                  WidthRequest="35"
                  HeightRequest="35"

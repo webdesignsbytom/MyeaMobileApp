@@ -14,7 +14,10 @@ namespace MyeaMobileApp.ViewModel.Account.Manage
         private bool isDarkModeEnabled;        
         
         [ObservableProperty]
-        private bool userRegisteredForNewsletter;
+        private bool userRegisteredForNewsletter;        
+        
+        [ObservableProperty]
+        private bool userWantsToDisplayPetIcon;
 
         public ManageAccountPageViewModel(UserModel user, UserApiService userApiService) 
         {
@@ -35,30 +38,17 @@ namespace MyeaMobileApp.ViewModel.Account.Manage
             await Shell.Current.GoToAsync("///MainPage");
         }
 
+
         partial void OnIsDarkModeEnabledChanged(bool value)
         {
-            // Handle the dark mode change
-            // For example, update user preferences and apply the theme
-            Console.WriteLine($"SSSSSSSSSSSSSSSSSSSSS {value}");
             User.IsDarkModeEnabled = value;
-        }        
-/*        public async void OnUserRegisteredForNewsletterChanged(bool value)
+        }           
+        
+        partial void OnUserWantsToDisplayPetIconChanged(bool value)
         {
-            // Handle the dark mode change
-            // For example, update user preferences and apply the theme
-            Console.WriteLine($"SSSSSSSSSSSSSSSSSSSSS {value}");
-            Console.WriteLine($"XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX {value}");
-            if (UserRegisteredForNewsletter) 
-            {
-                bool answer = await App.Current.MainPage.DisplayAlert("Warning!", "Are you sure you wish to unsubscribe to the newsletter? Being part of the newsletter helps us earn through advertising!", "Yes", "No");
-                Debug.WriteLine("Answer: " + answer);
+            User.UserWantsToDisplayPetIcon = value;
+        }
 
-                if (answer)
-                {
-                    // UN sub api
-                }
-            }
-        }*/
 
         // Navigate back to profile
         [RelayCommand]

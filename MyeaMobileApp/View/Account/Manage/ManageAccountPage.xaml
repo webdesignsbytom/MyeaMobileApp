@@ -46,7 +46,10 @@
             <Switch IsToggled="{Binding IsDarkModeEnabled}" />            
             
             <Label Text="Newsletter Mailing list" Style="{StaticResource LabelStyle}"/>
-            <Switch IsToggled="{Binding UserRegisteredForNewsletter}" />
+            <Switch IsToggled="{Binding UserRegisteredForNewsletter}" />            
+            
+            <Label Text="Display pet icon on main page" Style="{StaticResource LabelStyle}"/>
+            <Switch IsToggled="{Binding UserWantsToDisplayPetIcon}" />
 
             <!-- Back to profile -->
             <Button Text="Back" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToProfilePageCommand}"/>            

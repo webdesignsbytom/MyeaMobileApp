@@ -30,6 +30,7 @@
                 <Setter Property="HorizontalTextAlignment" Value="Center"/>
                 <Setter Property="VerticalTextAlignment" Value="Center"/>
                 <Setter Property="Padding" Value="10"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
                 <Setter Property="Margin" Value="10"/>
              </Style>            
             <Style x:Key="CountdownLabelStyle" TargetType="Label">
@@ -83,31 +84,43 @@
                 HorizontalOptions="Center" />
 
             <!-- Daily Event Frame -->
-            <Frame 
-                Margin="0,0"
-                Padding="10"
-                CornerRadius="10"
-                BorderColor="#fff"
-                BackgroundColor="#B1E8A1"
-                HorizontalOptions="FillAndExpand">
+            <!-- Grid to hold the Image and Frame -->
+            <Grid Margin="0,0,0,0">
+                <!-- Image Banner -->
+                <Image Source="lottery_balls_1.png" Aspect="AspectFill" />
 
-                <VerticalStackLayout>
-                    <Label 
-                        Text="{Binding CountdownTimerText}"
-                        Style="{StaticResource CountdownLabelStyle}"
-                        VerticalOptions="Center" 
-                        HorizontalOptions="Center" />
+                <!-- Daily Event Frame -->
+                <Frame 
+                    Padding="10"
+                    CornerRadius="10"
+                    BorderColor="#fff"
+                    BackgroundColor="Transparent" 
+                    HorizontalOptions="FillAndExpand" >
 
-                    <Label 
-                        Text="Days    Hours    Minutes    Seconds"
-                        Style="{StaticResource CountdownLabelStyle}"
-                        VerticalOptions="Center" 
-                        HorizontalOptions="Center" />
-                </VerticalStackLayout>
-            </Frame>
+                    <VerticalStackLayout>
+                        <Label 
+                            Text="{Binding CountdownTimerText}"
+                            Style="{StaticResource CountdownLabelStyle}"
+                            VerticalOptions="Center" 
+                            HorizontalOptions="Center" />
+
+                        <Label 
+                            Text="Days    Hours    Minutes    Seconds"
+                            Style="{StaticResource CountdownLabelStyle}"
+                            VerticalOptions="Center" 
+                            HorizontalOptions="Center" />                       
+                        
+                        <Label 
+                            Text="Get your tickets now!"
+                            Style="{StaticResource CountdownLabelStyle}"
+                            VerticalOptions="Center" 
+                            HorizontalOptions="Center" />
+                        
+                    </VerticalStackLayout>
+                </Frame>
+            </Grid>
         </VerticalStackLayout>
 
-        
         <VerticalStackLayout Grid.Row="1">
             <Button
             Text="Buy tickets"
@@ -119,15 +132,25 @@
             Style="{StaticResource ButtonStyle}"
             Command="{Binding NavigateToOwnedTicketsPageCommand}"/>
 
-            <Button
-            Text="Rules"
-            Style="{StaticResource ButtonStyle}"
-            Command="{Binding NavigateToLotteryRulesPageCommand}"/>
+            <Grid ColumnSpacing="6">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
 
-            <Button
-            Text="Win History"
-            Style="{StaticResource ButtonStyle}"
-            Command="{Binding NavigateToWinningNumbersHistoryPageCommand}"/>
+                <Button
+                        Text="Rules"
+                        Grid.Column="0"
+                        Style="{StaticResource ButtonStyle}"
+                        Command="{Binding NavigateToLotteryRulesPageCommand}"/>
+
+                <Button
+                        Text="Win History"
+                        Grid.Column="1"
+                        Style="{StaticResource ButtonStyle}"
+                        Command="{Binding NavigateToWinningNumbersHistoryPageCommand}"/>
+
+            </Grid>
 
             <!-- Home Button -->
             <Button Text="Back" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />

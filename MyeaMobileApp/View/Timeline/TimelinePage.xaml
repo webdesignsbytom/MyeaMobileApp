@@ -13,23 +13,200 @@
                 <Setter Property="HeightRequest" Value="50"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
+            <Style x:Key="PageTitle" TargetType="Label">
+                <Setter Property="FontSize" Value="58"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="HorizontalTextAlignment" Value="Center"/>
+                <Setter Property="BackgroundColor" Value="#4CAF50"/>
+                <Setter Property="Margin" Value="0,0,0,0"/>
+                <Setter Property="Padding" Value="0,15,0,15"/>
+            </Style>
+            <Style x:Key="SectionLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="#17aa1f"/>
+                <Setter Property="Margin" Value="0,20,0,10"/>
+            </Style>
+            <Style x:Key="GeneralText" TargetType="Label">
+                <Setter Property="TextColor" Value="#555555"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontFamily" Value="OpenSansRegular"/>
+            </Style>
+            <Style x:Key="TimelineGoalText" TargetType="Label">
+                <Setter Property="TextColor" Value="#555555"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontFamily" Value="OpenSansRegular"/>
+                <Setter Property="Margin" Value="0,10,0,0"/>
+            </Style>
+            <Style x:Key="LinkButtonStyle" TargetType="Frame">
+                <Setter Property="Margin" Value="10,20,10,20"/>
+                <Setter Property="Padding" Value="10"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="BorderColor" Value="#fff"/>
+                <Setter Property="BackgroundColor" Value="#B1E8A1"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
-    <VerticalStackLayout>
-        <Label 
-            Text="Timeline"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
 
-        <Button
-                Text="&#xe72b;    Go Back"
-                Margin="0,25,0,0"
-                FontFamily="Segoe Fluent Icons"
-                SemanticProperties.Hint="Navigate back"
-                HorizontalOptions="Center" />
+    <ScrollView>
+        <VerticalStackLayout>
+            
+            <!-- Title -->
+            <VerticalStackLayout Padding="10">
+                <Label Text="Timeline" Style="{StaticResource PageTitle}" />
+            </VerticalStackLayout>
 
-        <!-- Home Button -->
-        <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
-    </VerticalStackLayout>
+            <VerticalStackLayout Padding="20" Spacing="0">
+
+                <!-- Introduction Section -->
+                <Label Margin="0,0,0,10">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="The Timeline" FontAttributes="Bold" TextColor="#17aa1f" FontSize="18"/>
+                            <Span Text=" youre probably wondering how and when we plan to do anything. Dont worry you will know because we will have media coverage on everything we do." Style="{StaticResource GeneralText}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+
+                <Grid ColumnSpacing="6" Margin="0,20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image
+                        Source="checkmark_icon.png" 
+                        Aspect="AspectFit" 
+                        WidthRequest="50"
+                        Margin="20,20,20,10"
+                        Grid.Column="0" />
+
+                    <Label
+                        Text="Earn £5000 and install 50 Solar panels"
+                        Grid.Column="1"
+                        Style="{StaticResource TimelineGoalText}" />
+                </Grid>                
+                
+                <Grid ColumnSpacing="6" Margin="0,20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image
+                        Source="checkmark_icon.png" 
+                        Aspect="AspectFit" 
+                        WidthRequest="50"
+                        Margin="20,20,20,10"
+                        Grid.Column="0" />
+
+                    <Label
+                        Text="Earn £25,000 and full kit an animal rescue center in need"
+                        Grid.Column="1"
+                        Style="{StaticResource TimelineGoalText}" />
+                </Grid>                
+                
+                <Grid ColumnSpacing="6" Margin="0,20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image
+                        Source="checkmark_icon.png" 
+                        Aspect="AspectFit" 
+                        WidthRequest="50"
+                        Margin="20,20,20,10"
+                        Grid.Column="0" />
+
+                    <Label
+                        Text="Earn £50,000 for solar across a whole terrace of houses"
+                        Grid.Column="1"
+                        Style="{StaticResource TimelineGoalText}" />
+                </Grid>                
+                
+                <Grid ColumnSpacing="6" Margin="0,20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image
+                        Source="checkmark_icon.png" 
+                        Aspect="AspectFit" 
+                        WidthRequest="50"
+                        Margin="20,20,20,10"
+                        Grid.Column="0" />
+
+                    <Label
+                        Text="Earn £250,000 for a green area and wildlife sancturary"
+                        Grid.Column="1"
+                        Style="{StaticResource TimelineGoalText}" />
+                </Grid>                
+                
+                <Grid ColumnSpacing="6" Margin="0,20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image
+                        Source="checkmark_icon.png" 
+                        Aspect="AspectFit" 
+                        WidthRequest="50"
+                        Margin="20,20,20,10"
+                        Grid.Column="0" />
+
+                    <Label
+                        Text="Earn £1,000,000 for building a cheaper and better Solar AC converter we sell at no cost to ourselves."
+                        Grid.Column="1"
+                        Style="{StaticResource TimelineGoalText}" />
+                </Grid>                
+                
+                <Grid ColumnSpacing="6" Margin="0,20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image
+                        Source="checkmark_icon.png" 
+                        Aspect="AspectFit" 
+                        WidthRequest="50"
+                        Margin="20,20,20,10"
+                        Grid.Column="0" />
+
+                    <Label
+                        Text="Earn £1,000,000 heat the most vulnurable people in the country"
+                        Grid.Column="1"
+                        Style="{StaticResource TimelineGoalText}" />
+                </Grid>                
+                
+                <Grid ColumnSpacing="6" Margin="0,20">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="2*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Image
+                        Source="checkmark_icon.png" 
+                        Aspect="AspectFit" 
+                        WidthRequest="50"
+                        Margin="20,20,20,10"
+                        Grid.Column="0" />
+
+                    <Label
+                        Text="Earn £2,000,000 help the most people for the cheapest price, find a country where the goal amount will buy a substqantially larger amount of gear and labour"
+                        Grid.Column="1"
+                        Style="{StaticResource TimelineGoalText}" />
+                </Grid>
+               
+
+                <!-- Home Button -->
+                <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

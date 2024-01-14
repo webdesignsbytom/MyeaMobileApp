@@ -4,6 +4,7 @@
              xmlns:sponsor="clr-namespace:MyeaMobileApp.Controls.Sponsor"
              xmlns:controls="clr-namespace:MyeaMobileApp.Controls.Daily"
              xmlns:levelUp="clr-namespace:MyeaMobileApp.Controls.User"
+             xmlns:firstTime="clr-namespace:MyeaMobileApp.Controls.User"
              x:Class="MyeaMobileApp.View.Main.MainPage">
 
     <ContentPage.Resources>
@@ -46,6 +47,7 @@
         <Grid AbsoluteLayout.LayoutFlags="All"
               AbsoluteLayout.LayoutBounds="0,0,1,1"
               Background="{StaticResource WhiteToGreenGradient}">
+            
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
@@ -53,14 +55,44 @@
 
             <!-- Main content in the first row -->
             <VerticalStackLayout Grid.Row="0" Padding="5">
+                
                 <!-- Add your main content elements here -->
-                <HorizontalStackLayout HorizontalOptions="End">
-                    <ImageButton 
-                        Source="user_icon.png" 
-                        HeightRequest="50"
-                        WidthRequest="50"
-                        Command="{Binding NavigateToUsersAccountCommand}"/>
-                </HorizontalStackLayout>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <!-- First column -->
+                        <ColumnDefinition Width="Auto"/>
+                        <!-- Second column -->
+                        <ColumnDefinition Width="*"/>
+                        <!-- Third column -->
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Pet Icon Button in the first column -->
+                    <ImageButton Grid.Column="0"
+                                    Source="pet_icon.png" 
+                                    HeightRequest="50"
+                                    WidthRequest="50"
+                                    HorizontalOptions="Start"
+                                    IsVisible="{Binding UserWantsToDisplayPetIcon}"
+                                    Command="{Binding NavigateToPetigotchiPageCommand}"/>
+
+                    <!-- Admin Icon Button in the second column -->
+                    <ImageButton Grid.Column="1"
+                                    Source="admin_icon.png" 
+                                    HeightRequest="50"
+                                    WidthRequest="50"
+                                    HorizontalOptions="Center"
+                                    IsVisible="{Binding IsAdmin}"
+                                    Command="{Binding NavigateToAdminPageCommand}"/>
+
+                    <!-- User Icon Button in the third column -->
+                    <ImageButton Grid.Column="2"
+                                    Source="user_icon.png" 
+                                    HeightRequest="50"
+                                    WidthRequest="50"
+                                    HorizontalOptions="End"
+                                    Command="{Binding NavigateToUsersAccountCommand}"/>
+                </Grid>
 
                 <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
 
@@ -88,7 +120,7 @@
                 <!-- Daily Event Frame -->
                 <controls:DailyEventFrame />
             </VerticalStackLayout>
-            
+
 
             <!-- Buttons in the second row -->
             <VerticalStackLayout Grid.Row="1" Margin="5,0,5,5">
@@ -176,10 +208,30 @@
                         Command="{Binding NavigateToLotteryPageCommand}"/>
 
                     <Button
-                        Text="Level Up"
+                        Text="Timeline"
                         Grid.Column="1"
                         Style="{StaticResource ButtonStyle}"
-                        Command="{Binding ToggleLevelUpPopupCommand}"/>
+                        Command="{Binding NavigateToTimelinePageCommand}"/>
+
+                </Grid>                
+                
+                <Grid ColumnSpacing="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Button
+                        Text="Events"
+                        Grid.Column="0"
+                        Style="{StaticResource ButtonStyle}"
+                        Command="{Binding NavigateToEventsPageCommand}"/>
+
+                    <Button
+                        Text="Donations"
+                        Grid.Column="1"
+                        Style="{StaticResource ButtonStyle}"
+                        Command="{Binding NavigateToDonationPageCommand}"/>
 
                 </Grid>
             </VerticalStackLayout>
@@ -193,30 +245,13 @@
 
 
         <!-- First use after app install welcome message -->
-        <Frame 
-            x:Name="firstTimePopup"
-            IsVisible="{Binding IsFirstTimePopupVisible}"
-            AbsoluteLayout.LayoutFlags="All"
-            AbsoluteLayout.LayoutBounds="0,0,1,1"
-            BackgroundColor="#C0808080"
-            Padding="20">
+        <firstTime:FirstInstallPopup 
+                    x:Name="firstTimePopup"
+                    IsVisible="{Binding IsFirstTimePopupVisible}"
+                    AbsoluteLayout.LayoutFlags="All"
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"/>
 
-            <StackLayout 
-                VerticalOptions="Center" 
-                HorizontalOptions="Center">
 
-                <Label Text="Welcome to the App!" 
-                       HorizontalOptions="Center"
-                       FontAttributes="Bold"
-                       FontSize="Large"/>
-
-                <Button Text="Close" Command="{Binding CloseFirstTimePopupCommand}"/>
-            </StackLayout>
-
-        </Frame>
-        
     </AbsoluteLayout>
-    
-
 
 </ContentPage>

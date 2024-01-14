@@ -15,8 +15,8 @@
             </Style>
         </ResourceDictionary>
     </ContentView.Resources>
-    
-    <Frame BackgroundColor="White" CornerRadius="20" Padding="20" Margin="20">
+
+    <Frame BackgroundColor="#C0808080" CornerRadius="20" Padding="20" Margin="20">
         
         <VerticalStackLayout>
             <Label Text="Level Up!" FontSize="Large" HorizontalOptions="Center"/>

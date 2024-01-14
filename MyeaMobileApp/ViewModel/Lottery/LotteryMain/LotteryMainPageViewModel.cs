@@ -98,6 +98,13 @@ namespace MyeaMobileApp.ViewModel.Lottery.LotteryMain
         public async Task NavigateToLotteryRulesPage()
         {
             await Shell.Current.GoToAsync("///LotteryRulesPage");
+        }                
+        
+        // Win history
+        [RelayCommand]
+        public async Task NavigateToWinningNumbersHistoryPage()
+        {
+            await Shell.Current.GoToAsync("///WinningNumbersHistoryPage");
         }        
 
         // Navigate home

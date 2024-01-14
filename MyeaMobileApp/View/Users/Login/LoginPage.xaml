@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyeaMobileApp.View.Users.Login.LoginPage"
              Title="LoginPage">
-    
+
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="EntryStyle" TargetType="Entry">
@@ -22,24 +22,56 @@
                 <Setter Property="HeightRequest" Value="50"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
+            <Style x:Key="LoginLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="TextColor" Value="DarkBlue"/>
+                <Setter Property="Margin" Value="0,20,0,0"/>
+            </Style>
+            <Style x:Key="CtaStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="TextColor" Value="DarkBlue"/>
+                <Setter Property="Margin" Value="0,20,0,0"/>
+            </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <StackLayout Padding="30" VerticalOptions="Center">
-        <Label Text="Email:" />
-        <Entry Style="{StaticResource EntryStyle}" Text="{Binding Email}" />
-
-        <Label Text="Password" />
-        <Entry Style="{StaticResource EntryStyle}" Text="{Binding Password}" IsPassword="True" />
-
-        <Button Text="{Binding SubmitBtn}" Style="{StaticResource ButtonStyle}" Command="{Binding LoginToAccountCommand}"  />
-
-        <Label Text="Not A member? Register now!" />
-        <Button Text="Register" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToRegisterPageCommand}" />
+    <Grid RowSpacing="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
 
 
+        <VerticalStackLayout Grid.Row="0" Padding="30" VerticalOptions="Center">
+            <Label Text="Login" Style="{StaticResource LoginLabelStyle}"/>
+
+            <Label Text="Email:" />
+            <Entry Style="{StaticResource EntryStyle}" Text="{Binding Email}" />
+
+            <Label Text="Password" />
+            <Entry Style="{StaticResource EntryStyle}" Text="{Binding Password}" IsPassword="True" />
+
+            <Button Text="{Binding SubmitBtn}" Style="{StaticResource ButtonStyle}" Command="{Binding LoginToAccountCommand}"  />
+
+            <Label Text="Not A member? Register now!" Style="{StaticResource CtaStyle}" />
+            <Button Text="Register" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToRegisterPageCommand}" />
+
+            <Label Text="Forgot Login?" TextColor="Blue" Style="{StaticResource CtaStyle}">
+                <Label.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding NavigateToForgotLoginCommand}" />
+                </Label.GestureRecognizers>
+            </Label>
+
+        </VerticalStackLayout>
+        
         <!-- Home Button -->
-        <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
-    </StackLayout>
-    
+        <VerticalStackLayout Padding="30" Grid.Row="1">
+            <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
+        </VerticalStackLayout>
+    </Grid>
+
 </ContentPage>

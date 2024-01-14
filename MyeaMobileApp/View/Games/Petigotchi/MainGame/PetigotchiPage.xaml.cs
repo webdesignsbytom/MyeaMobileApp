@@ -1,23 +1,23 @@
-using MyeaMobileApp.ViewModel.Games.Petigotchi;
+using MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame;
 using SkiaSharp;
 using SkiaSharp.Views.Maui;
 using System.Diagnostics;
 
-namespace MyeaMobileApp.View.Games.Petigotchi;
+namespace MyeaMobileApp.View.Games.Petigotchi.MainGame;
 
 public partial class PetigotchiPage : ContentPage
 {
 	public PetigotchiPageViewModel ViewModel { get; set; }
     public PetigotchiPage(PetigotchiPageViewModel viewModel)
 	{
+        Console.WriteLine("CB1111111111111111111111111111");
 		InitializeComponent();
 		BindingContext = ViewModel = viewModel;
 	}
 
     private void OnPaintSurface(object sender, SKPaintSurfaceEventArgs e)
     {
-        Debug.WriteLine("OOOOOOOOOOOOOOOOOOOOOOO");
-        Console.WriteLine("OOOOOOOOOOOOOOOOOOOOOOOO");
+        Console.WriteLine("CB222222222222222222222222");
 
         SKImageInfo info = e.Info;
         SKSurface surface = e.Surface;
@@ -27,13 +27,12 @@ public partial class PetigotchiPage : ContentPage
         canvas.Clear(SKColors.Black);
         ViewModel.SetCanvas(canvas);
 
-        Debug.WriteLine("KKKKKKKKKKKKKKKKKKKKKKKKK");
-        Console.WriteLine("KKKKKKKKKKKKKKKKKKKKKKKKK");
-
+        ViewModel.UpdatePetPosition();
         ViewModel.DrawStartingAnimation();
 
-        // Get the centre of the canvas
-        float centreX = info.Rect.MidX;
-        float centreY = info.Rect.MidY;
+        // Invalidate the canvas to cause a redraw
+        // canvasView.InvalidateSurface();
+        Console.WriteLine("CB333333333333333333333333");
+
     }
 }

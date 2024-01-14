@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:socialCta="clr-namespace:MyeaMobileApp.Controls.Social"
              x:Class="MyeaMobileApp.View.Media.MediaCampaignMainPage">
 
     <ContentPage.Resources>
@@ -26,6 +27,14 @@
                 <Setter Property="TextColor" Value="White"/>
                 <Setter Property="CornerRadius" Value="5"/>
                 <Setter Property="Margin" Value="0,5,0,0"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Style x:Key="YoutubeButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#ff0000"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="Margin" Value="0,25,0,25"/>
                 <Setter Property="HeightRequest" Value="50"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
@@ -61,8 +70,19 @@
                     </Label.FormattedText>
                 </Label>
                 
+                <socialCta:SocialMediaCta Margin="15,10" />
+
+                
                 <!-- Image Banner -->
                 <Image Source="eco_media1.png" Aspect="AspectFill" Margin="20,20,20,10" />
+
+                <VerticalStackLayout Margin="0,20">
+                    
+                    <Label Text="Please visit and view our content for a great easy way for you to earn us money to spend on the planet. Be sure to turn off any ad blockers just for us. Thanks." Style="{StaticResource GeneralText}" />
+
+                    <!-- Youtube Button -->
+                    <Button Text="Subscribe Now" Style="{StaticResource YoutubeButtonStyle}" Command="{Binding OpenYoutubePageCommand}" />                
+                </VerticalStackLayout>
                 
                 <!-- Home Button -->
                 <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />

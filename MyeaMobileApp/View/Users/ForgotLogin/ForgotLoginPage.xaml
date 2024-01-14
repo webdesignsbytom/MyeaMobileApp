@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyeaMobileApp.View.Users.ForgotLogin.ForgotLoginPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="MainLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Large"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="TextColor" Value="DarkBlue"/>
+                <Setter Property="Margin" Value="0,20,0,20"/>
+            </Style>
+            <Style x:Key="EntryStyle" TargetType="Entry">
+                <Setter Property="Margin" Value="0,10,0,20"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontSize" Value="Medium"/>
+                <Setter Property="BackgroundColor" Value="#EEEEEE"/>
+                <Setter Property="TextColor" Value="DarkBlue"/>
+                <Setter Property="HeightRequest" Value="50"/>
+            </Style>
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#4CAF50"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="Margin" Value="0,20,0,0"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Style x:Key="GeneralText" TargetType="Span">
+                <Setter Property="TextColor" Value="#555555"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontFamily" Value="OpenSansRegular"/>
+            </Style>
+            <Style x:Key="LinkButtonStyle" TargetType="Frame">
+                <Setter Property="Margin" Value="10,20,10,20"/>
+                <Setter Property="Padding" Value="10"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="BorderColor" Value="#fff"/>
+                <Setter Property="BackgroundColor" Value="#B1E8A1"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+        </ResourceDictionary>
+
+    </ContentPage.Resources>
+
+    <Grid RowSpacing="0">
+        <!-- Define rows: First for content, second for the Home button -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <!-- Takes the remaining space -->
+            <RowDefinition Height="Auto"/>
+            <!-- Size to fit the content -->
+        </Grid.RowDefinitions>
+
+        <VerticalStackLayout Grid.Row="0" Padding="20" Spacing="0">
+
+            <Label 
+                Text="Forgot Login"
+                Style="{StaticResource MainLabelStyle}"/>
+
+
+            <Label Text="Enter your email address and we will send you a password reset" Style="{StaticResource GeneralText}"/>
+
+            <Label Text="Email:" Margin="0,30,0,0" />
+            <Entry Style="{StaticResource EntryStyle}" Text="{Binding Email}" />
+
+            <!-- Back Button -->
+            <Button Text="Send" Style="{StaticResource ButtonStyle}" Command="{Binding ResetEmailCommand}" />
+
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Grid.Row="1" Padding="20">
+            <!-- Back Button -->
+            <Button Text="Back" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToLoginPageCommand}" />
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

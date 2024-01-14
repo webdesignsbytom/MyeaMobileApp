@@ -3,7 +3,7 @@
     public class UserModel
     {
         public string UserId { get; set; } = "tempId";
-        public string Role { get; set; } = "USER";
+        public string Role { get; set; } = "ADMIN";
         public string Email { get; set; } = "user@mail.com";
         public DateTime DateOfBirth { get; set; }
         public bool UserRegisteredForNewsletter { get; set; } = false;
@@ -16,7 +16,25 @@
         public DateTime UpdatedAt { get; set; }
         public bool UserIsLoggedIn { get; set; } = false;
         public bool IsDarkModeEnabled { get; set; } = false;
+        public bool UserWantsToDisplayPetIcon { get; set; } = true;
         public bool IsFirstTimeOpeningApp { get; set; } = false;
+
+        // First page visit reward bools
+        public bool FirstTimeOnAboutUsPage { get; set; } = false;
+        public bool FirstTimeOnGamesMainPage { get; set; } = false;
+        public bool FirstTimeOnGoalsPage { get; set; } = false;
+        public bool FirstTimeOnFundingPage { get; set; } = false;
+        public bool FirstTimeOnServicesPage { get; set; } = false;
+        public bool FirstTimeOnAppsPage { get; set; } = false;
+        public bool FirstTimeOnNewsPage { get; set; } = false;
+        public bool FirstTimeOnMediaMainPage { get; set; } = false;
+        public bool FirstTimeOnLotteryMainPage { get; set; } = false;
+        public bool FirstTimeOnTimelinePage { get; set; } = false;
+        public bool FirstTimeOnEventsPage { get; set; } = false;
+        public bool FirstTimeOnDonationsPage { get; set; } = false;
+        public bool FirstTimeOnProfileMainPage { get; set; } = false;
+        public bool FirstTimeOnBadgesPage { get; set; } = false;
+        public bool FirstTimeOnAchievementsPage { get; set; } = false;
 
         public UserToken UserToken { get; set; }
 

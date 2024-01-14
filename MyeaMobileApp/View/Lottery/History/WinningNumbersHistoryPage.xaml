@@ -2,10 +2,76 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MyeaMobileApp.View.Lottery.History.WinningNumbersHistoryPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="WinningNumbersHistoryPage"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="NavButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#4CAF50"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Scrollable content for results -->
+        <ScrollView Grid.Row="0">
+            <CollectionView ItemsSource="{Binding LotteryResultHistory}"
+                    ItemsLayout="VerticalList">
+                <!-- Set layout to horizontal -->
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Frame CornerRadius="10"
+                           BorderColor="Gray"
+                           Padding="10"
+                           Margin="5"
+                           BackgroundColor="AliceBlue"
+                           HasShadow="True">
+                            <StackLayout Orientation="Horizontal">
+                                <!-- Nested CollectionView for individual numbers -->
+                                <CollectionView ItemsSource="{Binding SelectedNumbers}"
+                                        ItemsLayout="HorizontalList">
+                                    <CollectionView.ItemTemplate>
+                                        <DataTemplate>
+                                            <Frame CornerRadius="10"
+                                                BorderColor="Gray"
+                                                Padding="10"
+                                                Margin="5"
+                                                HasShadow="True">
+
+                                                    <Label Text="{Binding .}" Margin="2"/>
+                                            </Frame>
+                                        </DataTemplate>
+                                    </CollectionView.ItemTemplate>
+                                </CollectionView>
+
+                                <!-- Label for Bonus Ball -->
+                                <Frame CornerRadius="10"
+                                        BorderColor="Gray"
+                                        Padding="10"
+                                        Margin="5"
+                                        HasShadow="True">
+
+                                    <Label Text="{Binding BonusBall, StringFormat='{0}'}" Margin="2" />
+                                </Frame>
+                            </StackLayout>
+                        </Frame>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </ScrollView>
+
+        <!-- Back to main lottery page -->
+        <StackLayout BackgroundColor="#00000080" Padding="10" Grid.Row="1">
+            <Button Text="Back to Home" 
+                    Style="{StaticResource NavButtonStyle}" 
+                    Command="{Binding NavigateToLotteryPageCommand}"/>
+        </StackLayout>
+    </Grid>
 </ContentPage>

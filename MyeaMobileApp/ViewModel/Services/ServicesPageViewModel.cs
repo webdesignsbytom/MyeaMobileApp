@@ -23,7 +23,7 @@ namespace MyeaMobileApp.ViewModel.Services
         [RelayCommand]
         public async Task NavigateToGamesPage()
         {
-            await Shell.Current.GoToAsync("///PetigotchiPage");
+            await Shell.Current.GoToAsync("///GamesMainPage");
         }        
         
         // Navigate home

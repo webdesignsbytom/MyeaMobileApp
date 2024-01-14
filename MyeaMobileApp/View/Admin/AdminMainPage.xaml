@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:levelUp="clr-namespace:MyeaMobileApp.Controls.User"
+             xmlns:firstTime="clr-namespace:MyeaMobileApp.Controls.User"
+             x:Class="MyeaMobileApp.View.Admin.AdminMainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#4CAF50"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="Margin" Value="0,10,0,0"/>
+                <Setter Property="HeightRequest" Value="40"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>            
+            <Style x:Key="NavButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#4CAF50"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="Margin" Value="0,20,0,0"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <AbsoluteLayout>
+        
+        <!-- Main Grid -->
+        <Grid AbsoluteLayout.LayoutFlags="All"
+              AbsoluteLayout.LayoutBounds="0,0,1,1"
+              Background="White">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <VerticalStackLayout Grid.Row="0" Padding="5">
+                
+                <Label 
+                    Text="Admin Main"
+                    VerticalOptions="Center" 
+                    HorizontalOptions="Center" />
+
+
+                <Grid ColumnSpacing="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Add 1 Point Button -->
+                    <Button
+                        Text="Level Up"
+                        Grid.Column="0"
+                        Style="{StaticResource ButtonStyle}"
+                        Command="{Binding ToggleLevelUpPopupCommand}"/>
+
+                    <Button
+                        Text="First Open"
+                        Grid.Column="1"
+                        Style="{StaticResource ButtonStyle}"
+                        Command="{Binding OpenFirstTimePopupCommand}"/>
+
+                </Grid>                
+                
+                <Grid ColumnSpacing="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Add 1 Point Button -->
+                    <Button
+                        Text="+1"
+                        Grid.Column="0"
+                        Style="{StaticResource ButtonStyle}"
+                        Command="{Binding AddOnePointCommand}"/>
+
+                    <Button
+                        Text="+10"
+                        Grid.Column="1"
+                        Style="{StaticResource ButtonStyle}"
+                        Command="{Binding AddTenPointsCommand}"/>
+
+                </Grid>
+
+                <Grid ColumnSpacing="6">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <!-- Add 100 Point Button -->
+                    <Button
+                        Text="+100"
+                        Grid.Column="0"
+                        Style="{StaticResource ButtonStyle}"
+                        Command="{Binding AddOneHundredPointsCommand}"/>
+
+                    <Button
+                        Text="+1000"
+                        Grid.Column="1"
+                        Style="{StaticResource ButtonStyle}"
+                        Command="{Binding AddOneThousandPointsCommand}"/>
+
+                </Grid>
+            </VerticalStackLayout>
+
+            <VerticalStackLayout Grid.Row="1" Padding="5">
+                
+                <!-- Home Button -->
+                <Button Text="Home" Style="{StaticResource NavButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
+            </VerticalStackLayout>
+            
+        </Grid>
+
+        <!-- Level Up Popup -->
+        <levelUp:LevelUpPopup x:Name="levelUpPopup"
+                              IsVisible="{Binding IsLevelUpPopupVisible}"
+                              AbsoluteLayout.LayoutFlags="All"
+                              AbsoluteLayout.LayoutBounds="0,0,1,1"/>
+
+
+        <!-- First use after app install welcome message -->
+        <firstTime:FirstInstallPopup 
+                    x:Name="firstTimePopup"
+                    IsVisible="{Binding IsFirstTimePopupVisible}"
+                    AbsoluteLayout.LayoutFlags="All"
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"/>
+        
+        
+    </AbsoluteLayout>
+</ContentPage>

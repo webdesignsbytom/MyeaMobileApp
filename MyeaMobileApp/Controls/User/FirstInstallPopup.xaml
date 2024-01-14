@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyeaMobileApp.Controls.User.FirstInstallPopup">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#4CAF50"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="Margin" Value="0,5,0,0"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+    
+    <!-- First use after app install welcome message -->
+    <Frame 
+            BackgroundColor="#C0808080"
+            Padding="20">
+
+        <VerticalStackLayout 
+                VerticalOptions="Center" 
+                HorizontalOptions="Center">
+
+            <Label Text="Welcome to" 
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       FontSize="Large"/>            
+            
+            <Label Text="MYECOAPP" 
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       FontSize="44"/>
+
+            <Button Text="Take The Tour" Style="{StaticResource ButtonStyle}" Command="{Binding CloseFirstTimePopupCommand}"/>
+        </VerticalStackLayout>
+
+    </Frame>
+</ContentView>

@@ -73,15 +73,33 @@
 	  <None Remove="Resources\Images\Badges\badge7.png" />
 	  <None Remove="Resources\Images\Badges\badge8.png" />
 	  <None Remove="Resources\Images\Badges\badge9.png" />
+	  <None Remove="Resources\Images\Eco\create_apps.png" />
 	  <None Remove="Resources\Images\Eco\eco_banner1.png" />
 	  <None Remove="Resources\Images\Eco\eco_games1.png" />
 	  <None Remove="Resources\Images\Eco\eco_media1.png" />
+	  <None Remove="Resources\Images\Eco\shop_collection.png" />
+	  <None Remove="Resources\Images\Eco\shop_tshirts.png" />
 	  <None Remove="Resources\Images\Games\cat1.png" />
 	  <None Remove="Resources\Images\Games\highscore_icon.png" />
 	  <None Remove="Resources\Images\Games\settings_icon.png" />
+	  <None Remove="Resources\Images\Goals\family_goal.png" />
+	  <None Remove="Resources\Images\Goals\green_goal.png" />
+	  <None Remove="Resources\Images\Goals\reduce_goal.png" />
+	  <None Remove="Resources\Images\Goals\research_goal.png" />
+	  <None Remove="Resources\Images\Goals\unite_goal.png" />
+	  <None Remove="Resources\Images\Icons\admin_icon.png" />
+	  <None Remove="Resources\Images\Icons\checkmark_icon.png" />
+	  <None Remove="Resources\Images\Icons\facebook_icon.png" />
+	  <None Remove="Resources\Images\Icons\home_icon.png" />
+	  <None Remove="Resources\Images\Icons\instagram_icon.png" />
+	  <None Remove="Resources\Images\Icons\pet_icon.png" />
+	  <None Remove="Resources\Images\Icons\threads_icon.png" />
 	  <None Remove="Resources\Images\Icons\User_Icon.png" />
+	  <None Remove="Resources\Images\Icons\youtube_icon.png" />
 	  <None Remove="Resources\Images\Logos\logo_png.png" />
 	  <None Remove="Resources\Images\Logos\wdbt_white.png" />
+	  <None Remove="Resources\Images\Lottery\lottery_balls_1.png" />
+	  <None Remove="Resources\Images\Lottery\lottery_balls_2.png" />
 	  <None Remove="Resources\Splash\splash_logo.svg" />
 	</ItemGroup>
 
@@ -142,6 +160,9 @@
 	  <MauiImage Include="Resources\Images\Badges\badge9.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Eco\create_apps.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
 	  <MauiImage Include="Resources\Images\Eco\eco_banner1.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </MauiImage>
@@ -151,10 +172,52 @@
 	  <MauiImage Include="Resources\Images\Eco\eco_media1.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Eco\shop_collection.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Eco\shop_tshirts.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
 	  <MauiImage Include="Resources\Images\Games\highscore_icon.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </MauiImage>
 	  <MauiImage Include="Resources\Images\Games\settings_icon.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Goals\family_goal.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Goals\green_goal.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Goals\reduce_goal.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Goals\research_goal.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Goals\unite_goal.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Icons\admin_icon.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Icons\checkmark_icon.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Icons\facebook_icon.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Icons\home_icon.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Icons\instagram_icon.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Icons\pet_icon.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Icons\threads_icon.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </MauiImage>
 	</ItemGroup>
@@ -163,10 +226,19 @@
 	  <MauiImage Include="Resources\Images\Icons\user_icon.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Icons\youtube_icon.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
 	  <MauiImage Include="Resources\Images\Logos\logo_png.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </MauiImage>
 	  <MauiImage Include="Resources\Images\Logos\wdbt_white.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Lottery\lottery_balls_1.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Lottery\lottery_balls_2.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </MauiImage>
 	</ItemGroup>
@@ -178,7 +250,13 @@
 	  <MauiXaml Update="Controls\Daily\DailyEventFrame.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Controls\Social\SocialMediaCta.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Controls\Sponsor\SponsorAdvertFrame.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Controls\User\FirstInstallPopup.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Controls\User\LevelUpPopup.xaml">
@@ -199,6 +277,9 @@
 	  <MauiXaml Update="View\Account\Profile\ProfilePage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="View\Admin\AdminMainPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="View\Apps\AppsMainPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -206,6 +287,15 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\Account\EditProfile\EditProfilePage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Events\CreateEvent\CreateEventPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Events\Main\EventsMainPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="View\Users\ForgotLogin\ForgotLoginPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="View\Funding\FundingPage.xaml">

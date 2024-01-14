@@ -56,6 +56,13 @@ namespace MyeaMobileApp.ViewModel.Users.Login
         {
             await Shell.Current.GoToAsync("///RegisterPage");
         }
+        
+        // Forgot Login
+        [RelayCommand]
+        public async Task NavigateToForgotLogin()
+        {
+            await Shell.Current.GoToAsync("///ForgotLoginPage");
+        }
 
         // Navigate home
         [RelayCommand]

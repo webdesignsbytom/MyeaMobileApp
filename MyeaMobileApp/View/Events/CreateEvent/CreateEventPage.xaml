@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyeaMobileApp.View.Events.CreateEvent.CreateEventPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="HeaderStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="32"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="TextColor" Value="DarkBlue"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="Margin" Value="0,20,0,10"/>
+            </Style>
+            <Style x:Key="ButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#4CAF50"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="Margin" Value="0,5,0,0"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Style x:Key="LabelStyle" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="Margin" Value="0,10,0,0"/>
+            </Style>
+            <Style x:Key="EntryStyle" TargetType="Entry">
+                <Setter Property="Margin" Value="0,0,0,10"/>
+                <Setter Property="HeightRequest" Value="40"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
+
+            <Label 
+                Text="CreateEventPage"
+                VerticalOptions="Center" 
+                HorizontalOptions="Center" />
+
+            <!-- Event title -->
+            <Label Text="Event Title" Style="{StaticResource LabelStyle}"/>
+            <Entry Text="{Binding Title}" Style="{StaticResource EntryStyle}"/>            
+            
+            <!-- Event date -->
+            <Label Text="Event Date" Style="{StaticResource LabelStyle}"/>
+            <Entry Text="{Binding EventDate}" Style="{StaticResource EntryStyle}"/>            
+            
+            <!-- Event info -->
+            <Label Text="Event Info" Style="{StaticResource LabelStyle}"/>
+            <Entry Text="{Binding Description}" Style="{StaticResource EntryStyle}"/>            
+            
+            <!-- Event location -->
+            <Label Text="Location" Style="{StaticResource LabelStyle}"/>
+            <Entry Text="{Binding Location}" Style="{StaticResource EntryStyle}"/>
+
+            <!-- Back Button -->
+            <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToEventsMainPageCommand}" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

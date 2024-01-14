@@ -6,6 +6,15 @@ namespace MyeaMobileApp.ViewModel.Media
     {
         // Navigate home
         [RelayCommand]
+        public async Task OpenYoutubePage()
+        {
+            // Logic to open youtuibe page
+            string url = "https://www.youtube.com/myea";
+            await Browser.OpenAsync(url, BrowserLaunchMode.SystemPreferred);
+        }        
+        
+        // Navigate home
+        [RelayCommand]
         public async Task NavigateToMainPage()
         {
             await Shell.Current.GoToAsync("///MainPage");

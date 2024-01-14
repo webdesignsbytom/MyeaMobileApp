@@ -74,7 +74,6 @@
                 <Label Text="We set out to create a platform that combines the allure of the digital world with the pressing need for ecological action. Our website, MyEcoApp.org, and our various apps aren't just tools; they are gateways to making a difference. They are where fun meets philanthropy, where every click, every game played, and every product purchased becomes a step towards a healthier planet." Style="{StaticResource GeneralText}"/>
 
 
-
                 
                 <!-- Our Philosophy Section -->
                 <Label Text="Our Philosophy" Style="{StaticResource SectionLabelStyle}"/>
@@ -118,8 +117,10 @@
                         <TapGestureRecognizer Command="{Binding NavigateAwayToShopCommand}"/>
                     </Frame.GestureRecognizers>
                 </Frame>
-                
-                
+
+                <!-- Image Banner -->
+                <Image Source="shop_collection.png" Aspect="AspectFill" Margin="20,20,20,10" />
+
                 <!-- Join Our Movement Section -->
                 <Label Text="Join The Team" Style="{StaticResource SectionLabelStyle}"/>
                 <Label Text="MyEcoApp is more than just an organization; it's a testament to what can be achieved when technology and ecological consciousness come together. We invite you to join us in this groundbreaking journey. Visit MyEcoApp.org, engage with our content, and be a part of the change. Together, we can turn the tide towards a sustainable future, one click at a time." Style="{StaticResource GeneralText}"/>

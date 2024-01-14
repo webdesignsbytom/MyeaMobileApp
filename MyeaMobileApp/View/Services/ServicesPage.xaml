@@ -79,12 +79,15 @@
                        HorizontalOptions="Center" 
                        VerticalOptions="Center" 
                        TextColor="#333333">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding NavigateToAppsPageCommand}"/>
-                        </Label.GestureRecognizers>
                     </Label>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToAppsPageCommand}"/>
+                    </Frame.GestureRecognizers>
                 </Frame>
 
+                <!-- Image Banner -->
+                <Image Source="create_apps.png" Aspect="AspectFill" Margin="20,20,20,10" />
+                
                 <Label Text="Content Creation" Style="{StaticResource SectionLabelStyle}" />
                 <Label Text="Our content creation services range from blog posts to video production. We create high-quality, engaging content that not only serves our users but also supports our revenue generation strategies through ads and sponsorships." Style="{StaticResource GeneralText}" />
 
@@ -95,10 +98,10 @@
                        HorizontalOptions="Center" 
                        VerticalOptions="Center" 
                        TextColor="#333333">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding NavigateToMediaPageCommand}"/>
-                        </Label.GestureRecognizers>
                     </Label>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToMediaPageCommand}"/>
+                    </Frame.GestureRecognizers>
                 </Frame>
 
                 <!-- Games -->
@@ -107,7 +110,7 @@
 
                 <!-- Image Banner -->
                 <Image Source="eco_games1.png" Aspect="AspectFill" Margin="20,20,20,10" />
-                
+
                 <!-- Games Button -->
                 <Frame Style="{StaticResource LinkButtonStyle}" >
 
@@ -115,15 +118,17 @@
                        HorizontalOptions="Center" 
                        VerticalOptions="Center" 
                        TextColor="#333333">
-                        <Label.GestureRecognizers>
-                            <TapGestureRecognizer Command="{Binding NavigateToGamesPageCommand}"/>
-                        </Label.GestureRecognizers>
                     </Label>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding NavigateToGamesPageCommand}"/>
+                    </Frame.GestureRecognizers>
                 </Frame>
+
+                <Label Text="These services are a great way for us to earn from your participation and without relying on donations. We hope to role out more and more as we progress with your support" Style="{StaticResource GeneralText}" />
 
                 <!-- Home Button -->
                 <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
-                
+
             </VerticalStackLayout>
         </VerticalStackLayout>
     </ScrollView>

@@ -10,8 +10,18 @@ namespace MyeaMobileApp.ViewModel.Main
         public UserModel User { get; set; }
         public ProfileModel UserProfile { get; set; }
 
+        // User type
         [ObservableProperty]
-        private bool isLevelUpPopupVisible;
+        private bool isAdmin;        
+        
+        [ObservableProperty]
+        private bool isDev;
+
+        [ObservableProperty]
+        private bool isLevelUpPopupVisible;        
+        
+        [ObservableProperty]
+        private bool userWantsToDisplayPetIcon;
 
         // Users name
         [ObservableProperty]
@@ -38,10 +48,19 @@ namespace MyeaMobileApp.ViewModel.Main
                                                     // You might want to save this change to your data store or preferences
             }
         }
+
         public async Task LoadData()
         {
             string userFirstName = await SecureStorage.Default.GetAsync("user_firstName") ?? string.Empty;
             FirstName = userFirstName;
+            // Set IsAdmin based on user's role
+            IsAdmin = User.Role.ToUpper() == "ADMIN";
+            IsDev = User.Role.ToUpper() == "DEVELOPER";
+
+            if (User.UserWantsToDisplayPetIcon) 
+            {
+                UserWantsToDisplayPetIcon = true;
+            }
         }
 
         [RelayCommand]
@@ -66,6 +85,12 @@ namespace MyeaMobileApp.ViewModel.Main
         public async Task NavigateToAboutUsPage()
         {
             await Shell.Current.GoToAsync("///AboutUsPage");
+        }                  
+        
+        [RelayCommand]
+        public async Task NavigateToDonationPage()
+        {
+            await Shell.Current.GoToAsync("///DonationsPage");
         }            
         
         [RelayCommand]
@@ -102,6 +127,12 @@ namespace MyeaMobileApp.ViewModel.Main
         public async Task NavigateToLotteryPage()
         {
             await Shell.Current.GoToAsync("///LotteryMainPage");
+        }  
+        
+        [RelayCommand]
+        public async Task NavigateToEventsPage()
+        {
+            await Shell.Current.GoToAsync("///EventsMainPage");
         }             
         
         [RelayCommand]
@@ -126,14 +157,29 @@ namespace MyeaMobileApp.ViewModel.Main
         public async Task NavigateToGamesPage()
         {
             await Shell.Current.GoToAsync("///GamesMainPage");
+        }             
+        
+        [RelayCommand]
+        public async Task NavigateToPetigotchiPage()
+        {
+            await Shell.Current.GoToAsync("///PetigotchiPage");
         }           
         
         [RelayCommand]
         public async Task NavigateToMediaMainPage()
         {
             await Shell.Current.GoToAsync("///MediaCampaignMainPage");
-        }        
-        
+        }
+
+        // Navigating to the admin page
+        [RelayCommand]
+        public async Task NavigateToAdminPage()
+        {
+            // Navigate to Admin Page if user is an admin
+             await Shell.Current.GoToAsync("///AdminMainPage");
+            
+        }
+
         [RelayCommand]
         public async Task NavigateToUsersAccount()
         {

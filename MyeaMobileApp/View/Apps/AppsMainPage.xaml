@@ -65,6 +65,9 @@
                     </Label.FormattedText>
                 </Label>
 
+                <!-- Image Banner -->
+                <Image Source="create_apps.png" Aspect="AspectFill" Margin="20,20,20,10" />
+
                 <!-- Apps -->
                 <Label Text="Apps" Style="{StaticResource SectionLabelStyle}" />
                 <Label Text="Our team specializes in creating user-friendly and functional apps. We focus on simplicity and efficiency, offering free access while generating revenue through advertising and innovative online earning methods." Style="{StaticResource GeneralText}" />

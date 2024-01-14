@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="MyeaMobileApp.View.News.NewsReelPage"
-             Title="NewsReelPage">
+             x:Class="MyeaMobileApp.View.News.NewsReelPage">
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style x:Key="ButtonStyle" TargetType="Button">
+            <Style x:Key="NavButtonStyle" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="#4CAF50"/>
                 <Setter Property="TextColor" Value="White"/>
                 <Setter Property="CornerRadius" Value="5"/>
@@ -24,7 +23,7 @@
         <!-- Semi-transparent green bar -->
         <StackLayout BackgroundColor="#00000080" Padding="10" Grid.Row="0">
             <Button Text="Back to Home" 
-                    Style="{StaticResource ButtonStyle}" 
+                    Style="{StaticResource NavButtonStyle}" 
                     Command="{Binding NavigateToMainPageCommand}"/>
         </StackLayout>
 

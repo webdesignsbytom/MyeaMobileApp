@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyeaMobileApp.Controls.Social.SocialMediaCta">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="MediaLinkCtaStyle" TargetType="Frame">
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="BorderColor" Value="#fff"/>
+                <Setter Property="BackgroundColor" Value="#B1E8A1"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <Frame Style="{StaticResource MediaLinkCtaStyle}" >
+
+        <HorizontalStackLayout HorizontalOptions="Center">
+            <ImageButton 
+                Source="instagram_icon.png" 
+                HeightRequest="40"
+                WidthRequest="40"
+                Clicked="InstagramButton_Clicked"/>
+
+            <ImageButton 
+                Source="facebook_icon.png" 
+                HeightRequest="40"
+                WidthRequest="40"
+                Clicked="FacebookButton_Clicked"/>
+
+            <ImageButton 
+                Source="threads_icon.png" 
+                HeightRequest="40"
+                WidthRequest="40"
+                Clicked="ThreadsButton_Clicked"
+                />
+
+            <ImageButton 
+                Source="youtube_icon.png" 
+                HeightRequest="40"
+                WidthRequest="40"
+                Clicked="YoutubeButton_Clicked"
+                />
+
+        </HorizontalStackLayout>
+    </Frame>
+
+
+</ContentView>
