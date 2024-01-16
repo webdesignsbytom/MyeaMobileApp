@@ -73,6 +73,9 @@ using MyeaMobileApp.Model.Events;
 using MyeaMobileApp.Model.Achievements;
 using MyeaMobileApp.View.Account.Achievements;
 using MyeaMobileApp.ViewModel.Account.Achievements;
+using MyeaMobileApp.View.Games.Snake;
+using MyeaMobileApp.ViewModel.Games.Snake;
+using MyeaMobileApp.Services.Events;
 
 namespace MyeaMobileApp
 {
@@ -161,7 +164,10 @@ namespace MyeaMobileApp
             builder.Services.AddSingleton<PetigotchiPageViewModel>();
             /* O2 Tapper */
             builder.Services.AddSingleton<O2tapperMainPage>();
-            builder.Services.AddSingleton<O2tapperMainPageViewModel>();
+            builder.Services.AddSingleton<O2tapperMainPageViewModel>();            
+            /* Snake */
+            builder.Services.AddSingleton<SnakeGamePage>();
+            builder.Services.AddSingleton<SnakeGamePageViewModel>();
             /* Models */
             builder.Services.AddSingleton<UserModel>();
             builder.Services.AddSingleton<ProfileModel>();
@@ -184,6 +190,7 @@ namespace MyeaMobileApp
             builder.Services.AddSingleton<LotteryApiService>();
             builder.Services.AddSingleton<AchievementsAndBadgesApiService>();
             builder.Services.AddSingleton<ScoreAndLevelApiService>();
+            builder.Services.AddSingleton<EcoEventsApiService>();
 
 
 #if DEBUG

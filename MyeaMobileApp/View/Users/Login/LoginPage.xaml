@@ -55,10 +55,20 @@
             <Label Text="Password" />
             <Entry Style="{StaticResource EntryStyle}" Text="{Binding Password}" IsPassword="True" />
 
-            <Button Text="{Binding SubmitBtn}" Style="{StaticResource ButtonStyle}" Command="{Binding LoginToAccountCommand}"  />
+            <Button Text="{Binding SubmitBtn}"
+                    Style="{StaticResource ButtonStyle}"
+                    Command="{Binding LoginToAccountCommand}"
+                    IsVisible="{Binding IsVisible}" />
+
+            <!-- Loading Indicator -->
+            <ActivityIndicator IsRunning="{Binding IsLoading}"
+                               Margin="20,20"
+                               IsVisible="{Binding IsLoading}" />
+            
 
             <Label Text="Not A member? Register now!" Style="{StaticResource CtaStyle}" />
             <Button Text="Register" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToRegisterPageCommand}" />
+
 
             <Label Text="Forgot Login?" TextColor="Blue" Style="{StaticResource CtaStyle}">
                 <Label.GestureRecognizers>

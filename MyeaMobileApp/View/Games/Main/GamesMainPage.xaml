@@ -71,6 +71,13 @@
                     VerticalOptions="FillAndExpand"
                     Style="{StaticResource ButtonStyle}"
                     Command="{Binding NavigateToPetigotchiPageCommand}"
+                    />            
+            
+            <!-- Button 3 -->
+            <Button Text="Snake"
+                    VerticalOptions="FillAndExpand"
+                    Style="{StaticResource ButtonStyle}"
+                    Command="{Binding NavigateToSnakePageCommand}"
                     />
 
         </VerticalStackLayout>

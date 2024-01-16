@@ -20,6 +20,7 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
 
+        
         <!-- Scrollable content for results -->
         <ScrollView Grid.Row="0">
             <CollectionView ItemsSource="{Binding LotteryResultHistory}"

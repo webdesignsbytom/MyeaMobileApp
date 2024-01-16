@@ -4,9 +4,9 @@
 
     public class PetigotchiModel
     {
-        public string PetName { get; set; } = "Fluffy";
-        public float Xpos { get; set; }
-        public float Ypos { get; set; }
+        public string PetName { get; set; } = "Bentley";
+        public double Xpos { get; set; }
+        public double Ypos { get; set; }
 
         // Pet stats
         public bool PetIsAlive { get; set; } = true;
@@ -21,16 +21,19 @@
         public bool PetIsDirty { get; set; } = false;
 
         // Basic attributes
-        public int Hunger { get; private set; }
-        public int Happiness { get; private set; }
-        public int Health { get; private set; }
-        public int Cleanliness { get; private set; }
+        public int Hunger { get; set; } = 100;
+        public int Happiness { get; set; } = 100;
+        public int Health { get; set; } = 100;
+        public int Cleanliness { get; set; } = 100;
 
         // 
         public DateTime LastFedTime { get; set; }
 
+        public PetigotchiModel()
+        {
+        }
 
-        public PetigotchiModel(int xpos, int ypos)
+        public void UpdatePetigotchiPosition(double xpos, double ypos)
         {
             Xpos = xpos;
             Ypos = ypos;

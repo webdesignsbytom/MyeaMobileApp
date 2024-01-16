@@ -17,7 +17,13 @@ namespace MyeaMobileApp.ViewModel.Users.Login
         public string? email;
 
         [ObservableProperty]
-        public string? password;
+        public string? password;        
+        
+        [ObservableProperty]
+        public bool? isLoading = false;        
+        
+        [ObservableProperty]
+        public bool? isVisible = true;
 
         [ObservableProperty]
         public string submitBtn = "Login";
@@ -35,6 +41,9 @@ namespace MyeaMobileApp.ViewModel.Users.Login
         [RelayCommand]
         async Task LoginToAccount()
         {
+            IsVisible = false;
+            IsLoading = true;
+
             if (string.IsNullOrEmpty(Email) || string.IsNullOrEmpty(Password))
             {
                 return;
@@ -46,6 +55,9 @@ namespace MyeaMobileApp.ViewModel.Users.Login
             Email = "";
             Password = "";
             User.UserIsLoggedIn = true;
+
+            IsVisible = true;
+            IsLoading = false;
             await Shell.Current.GoToAsync("///ProfilePage");
         }
 

@@ -17,17 +17,48 @@
                 <Setter Property="Margin" Value="0,0,0,0"/>
                 <Setter Property="Padding" Value="0,15,0,15"/>
             </Style>
-            <Style x:Key="ButtonStyle" TargetType="Button">
+            <Style x:Key="ActionButtonStyle" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="#4CAF50"/>
                 <Setter Property="TextColor" Value="White"/>
                 <Setter Property="CornerRadius" Value="5"/>
-                <Setter Property="Margin" Value="0,20,0,0"/>
                 <Setter Property="HeightRequest" Value="50"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
-            <Style x:Key="GeneralText" TargetType="Span">
+            <Style x:Key="GeneralText" TargetType="Label">
                 <Setter Property="TextColor" Value="#555555"/>
                 <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontFamily" Value="OpenSansRegular"/>
+            </Style>            
+            <Style x:Key="StatFrame" TargetType="Frame">
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="BorderColor" Value="Black"/>
+                <Setter Property="BackgroundColor" Value="Black"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="Margin" Value="0"/>
+            </Style>
+            <Style x:Key="NameFrame" TargetType="Frame">
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="BorderColor" Value="Black"/>
+                <Setter Property="BackgroundColor" Value="Black"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="Margin" Value="20,0,20,10"/>
+            </Style>
+            <Style x:Key="StatLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#4CAF50"/>
+                <Setter Property="FontSize" Value="22"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+                <Setter Property="FontFamily" Value="OpenSansRegular"/>
+            </Style>
+            <Style x:Key="NameLabelStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#4CAF50"/>
+                <Setter Property="FontSize" Value="28"/>
+                <Setter Property="HorizontalOptions" Value="Center"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
                 <Setter Property="FontFamily" Value="OpenSansRegular"/>
             </Style>
         </ResourceDictionary>
@@ -41,59 +72,113 @@
                 x:Name="canvasView" 
                 PaintSurface="OnPaintSurface"
                 EnableTouchEvents="True"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
                 >
             </skia:SKCanvasView>
 
             <!-- Top level player stats -->
-            <Grid VerticalOptions="Start" ColumnDefinitions="*,*,*" ColumnSpacing="5" Padding="0,10" Margin="10" BackgroundColor="#4CAF50">
+            <Grid VerticalOptions="Start" RowDefinitions="*,*" RowSpacing="0" Margin="2,5">
 
-                <ImageButton Source="home_icon.png"
-                 WidthRequest="35"
-                 HeightRequest="35"
-                 Grid.Column="0"
-                 Command="{Binding NavigateToHomePageCommand}"
-                 IsVisible="True"/>
+                <Grid Grid.Row="0" ColumnDefinitions="*,*,*" ColumnSpacing="5" Padding="0,10" Margin="10" BackgroundColor="#4CAF50">
 
-                <ImageButton Source="wdbt_white.png"
-                 WidthRequest="35"
-                 Grid.Column="1"        
-                 HeightRequest="35"
-                 IsVisible="True"/>
+                    <ImageButton Source="home_icon.png"
+                                 WidthRequest="35"
+                                 HeightRequest="35"
+                                 Grid.Column="0"
+                                 Command="{Binding NavigateToHomePageCommand}"
+                                 IsVisible="True"/>
 
-                <ImageButton Source="settings_icon.png"
-                 WidthRequest="35"
-                 HeightRequest="35" 
-                 Grid.Column="2"       
-                 Command="{Binding OpenSettingsMenuCommand}"
-                 IsVisible="True"/>
+                    <VerticalStackLayout Grid.Column="1">
 
+                        <Label Text="Sponsored by" HorizontalOptions="Center" TextColor="White" />
+                        <Label Text="CAT APP" HorizontalOptions="Center" TextColor="White" FontAttributes="Bold" />
+                    </VerticalStackLayout>
+
+                    <ImageButton Source="settings_icon.png"
+                                 WidthRequest="35"
+                                 HeightRequest="35" 
+                                 Grid.Column="2"       
+                                 Command="{Binding OpenSettingsMenuCommand}"
+                                 IsVisible="True"/>
+
+                </Grid>
+
+                <Grid Grid.Row="1" ColumnSpacing="5" ColumnDefinitions="*,*" Margin="5,0" >
+
+                    <Frame Style="{StaticResource StatFrame}" 
+                           Grid.Column="0" >
+
+                        <Label Text="{Binding Health, StringFormat='HEALTH {0}'}"
+                               Style="{StaticResource StatLabelStyle}" />
+                    </Frame>
+
+
+                    <Frame Style="{StaticResource StatFrame}" 
+                           Grid.Column="1">
+
+                        <Label Text="{Binding Hunger, StringFormat='HUNGER {0}'}"
+                               Style="{StaticResource StatLabelStyle}" />
+                    </Frame>
+                    
+                </Grid>
             </Grid>
+            
+            
 
-            <!-- Bottom level player buttons -->
-            <Grid VerticalOptions="End" ColumnSpacing="5" Margin="2,5" ColumnDefinitions="*,*,*,*" >
+            <Grid VerticalOptions="End" RowDefinitions="*,*,*" RowSpacing="0" Margin="2,5">
 
-                <Button
-                Text="Feed"
-                Grid.Column="0"
-                Command="{Binding OpenFoodMenuCommand}"
-                Style="{StaticResource ButtonStyle}"/>
+                <VerticalStackLayout Grid.Row="0">
+                    <Frame Style="{StaticResource NameFrame}" Grid.Column="0" >
 
-                <Button
-                Text="Play"
-                Grid.Column="1"
-                Command="{Binding OpenPlayMenuCommand}"
-                Style="{StaticResource ButtonStyle}" />
+                        <Label Text="{Binding PetName, StringFormat='{0}'}"
+                               Style="{StaticResource NameLabelStyle}" />
+                    </Frame>
+                </VerticalStackLayout>
+                
+                <Grid Grid.Row="1" ColumnSpacing="5" ColumnDefinitions="*,*" Margin="5,0,5,10">
 
-                <Button
-                Text="Sleep"
-                Grid.Column="2"
-                Style="{StaticResource ButtonStyle}" />
+                    <Frame Style="{StaticResource StatFrame}" Grid.Column="0" >
 
-                <Button
-                Text="Treat"
-                Grid.Column="3"
-                Style="{StaticResource ButtonStyle}" />
+                        <Label Text="{Binding Cleanliness, StringFormat='CLEAN {0}'}"
+                               Style="{StaticResource StatLabelStyle}" />
+                    </Frame>
 
+
+                    <Frame Style="{StaticResource StatFrame}" 
+                           Grid.Column="1">
+
+                        <Label Text="{Binding Happiness, StringFormat='HAPPY {0}'}"
+                               Style="{StaticResource StatLabelStyle}" />
+                    </Frame>
+                </Grid>
+                
+                <!-- Bottom level player buttons -->
+                <Grid Grid.Row="2" ColumnSpacing="5" ColumnDefinitions="*,*,*,*" >
+
+                    <Button
+                        Text="Feed"
+                        Grid.Column="0"
+                        Command="{Binding OpenFoodMenuCommand}"
+                        Style="{StaticResource ActionButtonStyle}"/>
+
+                    <Button
+                        Text="Play"
+                        Grid.Column="1"
+                        Command="{Binding OpenPlayMenuCommand}"
+                        Style="{StaticResource ActionButtonStyle}" />
+
+                    <Button
+                        Text="Sleep"
+                        Grid.Column="2"
+                        Style="{StaticResource ActionButtonStyle}" />
+
+                    <Button
+                        Text="Treat"
+                        Grid.Column="3"
+                        Style="{StaticResource ActionButtonStyle}" />
+
+                </Grid>
             </Grid>
         </Grid>
 

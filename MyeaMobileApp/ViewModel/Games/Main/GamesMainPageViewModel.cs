@@ -10,6 +10,13 @@ namespace MyeaMobileApp.ViewModel.Games.Main
         public async Task NavigateToPetigotchiPage()
         {
             await Shell.Current.GoToAsync("///PetigotchiPage");
+        }            
+        
+        // Navigate home
+        [RelayCommand]
+        public async Task NavigateToSnakePage()
+        {
+            await Shell.Current.GoToAsync("///SnakeGamePage");
         }        
         
         // Navigate home

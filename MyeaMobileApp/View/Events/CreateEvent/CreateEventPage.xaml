@@ -40,7 +40,7 @@
 
             <!-- Event title -->
             <Label Text="Event Title" Style="{StaticResource LabelStyle}"/>
-            <Entry Text="{Binding Title}" Style="{StaticResource EntryStyle}"/>            
+            <Entry Text="{Binding EventTitle}" Style="{StaticResource EntryStyle}"/>            
             
             <!-- Event date -->
             <Label Text="Event Date" Style="{StaticResource LabelStyle}"/>
@@ -48,12 +48,20 @@
             
             <!-- Event info -->
             <Label Text="Event Info" Style="{StaticResource LabelStyle}"/>
-            <Entry Text="{Binding Description}" Style="{StaticResource EntryStyle}"/>            
+            <Entry Text="{Binding EventInfo}" Style="{StaticResource EntryStyle}"/>                
             
+            <!-- Event image -->
+            <Label Text="Image" Style="{StaticResource LabelStyle}"/>
+            <Image Source="{Binding SelectedImage}" Aspect="AspectFill" HeightRequest="200"/>
+            <Button Text="Select Image" Command="{Binding SelectImageCommand}" Style="{StaticResource ButtonStyle}"/>
+
             <!-- Event location -->
             <Label Text="Location" Style="{StaticResource LabelStyle}"/>
-            <Entry Text="{Binding Location}" Style="{StaticResource EntryStyle}"/>
+            <Entry Text="{Binding EventLocation}" Style="{StaticResource EntryStyle}"/>
 
+            <!-- Submit Button -->
+            <Button Text="POST!" Style="{StaticResource ButtonStyle}" Command="{Binding PostNewEventCommand}" />            
+            
             <!-- Back Button -->
             <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToEventsMainPageCommand}" />
         </VerticalStackLayout>

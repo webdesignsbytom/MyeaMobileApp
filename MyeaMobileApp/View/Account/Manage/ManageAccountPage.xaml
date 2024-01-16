@@ -5,12 +5,12 @@
     
     <ContentPage.Resources>
         <ResourceDictionary>
-            <Style x:Key="HeaderStyle" TargetType="Label">
-                <Setter Property="FontSize" Value="32"/>
-                <Setter Property="FontAttributes" Value="Bold"/>
-                <Setter Property="TextColor" Value="DarkBlue"/>
+            <Style x:Key="TitleLabelStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="Large"/>
                 <Setter Property="HorizontalOptions" Value="Center"/>
-                <Setter Property="Margin" Value="0,20,0,10"/>
+                <Setter Property="VerticalOptions" Value="Center"/>
+                <Setter Property="TextColor" Value="DarkBlue"/>
+                <Setter Property="Margin" Value="0,20,0,0"/>
             </Style>
             <Style x:Key="ButtonStyle" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="#4CAF50"/>
@@ -39,46 +39,68 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-    <ScrollView Padding="5">
-        <VerticalStackLayout Padding="20" Spacing="10">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
 
-            <!-- Grid for labels and switches -->
-            <Grid>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <!-- Row for Dark Mode -->
-                    <RowDefinition Height="Auto"/>
-                    <!-- Row for Newsletter Mailing List -->
-                    <RowDefinition Height="Auto"/>
-                    <!-- Row for Display Pet Icon -->
-                </Grid.RowDefinitions>
-                
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <!-- Column for Labels -->
-                    <ColumnDefinition Width="*"/>
-                    <!-- Column for Switches -->
-                </Grid.ColumnDefinitions>
+        <ScrollView Grid.Row="0" Padding="5">
+            <VerticalStackLayout>
+                <!-- Title and Badges List here -->
+                <VerticalStackLayout Padding="10">
+                    <Label Text="Manage Settings" Style="{StaticResource TitleLabelStyle}" />
+                </VerticalStackLayout>
 
-                <!-- Row 0: Dark Mode -->
-                <Label Grid.Row="0" Grid.Column="0" Text="Dark Mode" Style="{StaticResource LabelStyle}"/>
-                <Switch Grid.Row="0" Grid.Column="1" IsToggled="{Binding IsDarkModeEnabled}" />
+                <VerticalStackLayout Padding="20" Spacing="10">
 
-                <!-- Row 1: Newsletter Mailing List -->
-                <Label Grid.Row="1" Grid.Column="0" Text="Newsletter Mailing list" Style="{StaticResource LabelStyle}"/>
-                <Switch Grid.Row="1" Grid.Column="1" IsToggled="{Binding UserRegisteredForNewsletter}" />
+                    <!-- Grid for labels and switches -->
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <!-- Row for Dark Mode -->
+                            <RowDefinition Height="Auto"/>
+                            <!-- Row for Newsletter Mailing List -->
+                            <RowDefinition Height="Auto"/>
+                            <!-- Row for Display Pet Icon -->
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
 
-                <!-- Row 2: Display pet icon -->
-                <Label Grid.Row="2" Grid.Column="0" Text="Display pet icon on main page" Style="{StaticResource LabelStyle}"/>
-                <Switch Grid.Row="2" Grid.Column="1" IsToggled="{Binding UserWantsToDisplayPetIcon}" />
-            </Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <!-- Column for Labels -->
+                            <ColumnDefinition Width="*"/>
+                            <!-- Column for Switches -->
+                        </Grid.ColumnDefinitions>
 
+                        <!-- Row 0: Dark Mode -->
+                        <Label Grid.Row="0" Grid.Column="0" Text="Dark Mode" Style="{StaticResource LabelStyle}"/>
+                        <Switch Grid.Row="0" Grid.Column="1" IsToggled="{Binding IsDarkModeEnabled}" />
+
+                        <!-- Row 1: Newsletter Mailing List -->
+                        <Label Grid.Row="1" Grid.Column="0" Text="Newsletter Mailing list" Style="{StaticResource LabelStyle}"/>
+                        <Switch Grid.Row="1" Grid.Column="1" IsToggled="{Binding UserRegisteredForNewsletter}" />
+
+                        <!-- Row 2: Display pet icon -->
+                        <Label Grid.Row="2" Grid.Column="0" Text="Display pet icon on main page" Style="{StaticResource LabelStyle}"/>
+                        <Switch Grid.Row="2" Grid.Column="1" IsToggled="{Binding UserWantsToDisplayPetIcon}" />
+
+                        <!-- Row 2: Display pet icon -->
+                        <Label Grid.Row="3" Grid.Column="0" Text="Show welcome screen again" Style="{StaticResource LabelStyle}"/>
+                        <!-- Back to profile -->
+                        <Button Grid.Row="3" Grid.ColumnSpan="2" Text="Replay welcome messages" Style="{StaticResource ButtonStyle}" Command="{Binding ReplayUserWelcomeScreensCommand}"/>
+                    </Grid>
+
+                    <!-- Delete Account -->
+                    <Button Text="Delete Account" Style="{StaticResource DeleteButtonStyle}" Command="{Binding DeleteUserAccountCommand}"/>
+                </VerticalStackLayout>
+                </VerticalStackLayout>
+            
+        </ScrollView>
+
+        <VerticalStackLayout Grid.Row="1" Padding="5">
             <!-- Back to profile -->
             <Button Text="Back" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToProfilePageCommand}"/>
-
-            <!-- Delete Account -->
-            <Button Text="Delete Account" Style="{StaticResource DeleteButtonStyle}" Command="{Binding DeleteUserAccountCommand}"/>
         </VerticalStackLayout>
-    </ScrollView>
-
+    </Grid>
 </ContentPage>

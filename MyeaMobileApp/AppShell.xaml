@@ -34,6 +34,7 @@
     xmlns:petigotchi="clr-namespace:MyeaMobileApp.View.Games.Petigotchi.MainGame"
     xmlns:gamesMain="clr-namespace:MyeaMobileApp.View.Games.Main"
     xmlns:tapperGame="clr-namespace:MyeaMobileApp.View.Games.O2tapper.MainGame"
+    xmlns:snakeGame="clr-namespace:MyeaMobileApp.View.Games.Snake"
     xmlns:newsletterSignup="clr-namespace:MyeaMobileApp.View.Newsletter"
     Shell.FlyoutBehavior="Disabled"
     Shell.NavBarIsVisible="False"
@@ -172,7 +173,12 @@
     <ShellContent
         Title="O2 Tapper"
         ContentTemplate="{DataTemplate tapperGame:O2tapperMainPage}"
-        Route="O2tapperMainPage" />
+        Route="O2tapperMainPage" />    
+    
+    <ShellContent
+        Title="Snake"
+        ContentTemplate="{DataTemplate snakeGame:SnakeGamePage}"
+        Route="SnakeGamePage" />
 
 
     <!-- Lottery section -->

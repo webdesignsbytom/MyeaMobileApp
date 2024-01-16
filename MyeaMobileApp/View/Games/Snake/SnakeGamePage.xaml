@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:skia="clr-namespace:SkiaSharp.Views.Maui.Controls;assembly=SkiaSharp.Views.Maui.Controls"
+             x:Class="MyeaMobileApp.View.Games.Snake.SnakeGamePage">
+    <Grid>
+        <!-- Define rows and columns if needed -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Game Title or Score -->
+        <Label Grid.Row="0"
+               Text="Snake Game"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"/>
+
+        <!-- Game Canvas -->
+        <skia:SKCanvasView 
+                x:Name="canvasView" 
+                PaintSurface="OnPaintSurface"
+                EnableTouchEvents="True"
+                >
+        </skia:SKCanvasView>
+
+        <!-- Game Controls -->
+        <StackLayout Grid.Row="2"
+                     Orientation="Horizontal"
+                     HorizontalOptions="Center">
+            <Button Text="Start" />
+            <Button Text="Pause"  />
+        </StackLayout>
+    </Grid>
+</ContentPage>

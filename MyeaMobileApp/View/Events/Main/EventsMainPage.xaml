@@ -52,11 +52,44 @@
 
                 <!-- Image Banner -->
                 <Image Source="events1.png" Aspect="AspectFill" Margin="20,20,20,10" />
+                
+
 
                 <!-- Create Button -->
-                <Button Text="Add Event" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToCreateEventPageCommand}" />                
-                    
-                 <!-- Home Button -->
+                <Button Text="Add Event" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToCreateEventPageCommand}" />
+
+                <!-- Scrollable content for news stories -->
+                <ScrollView Grid.Row="1">
+                    <CollectionView ItemsSource="{Binding EventsList}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Frame CornerRadius="10"
+                                       BorderColor="Gray"
+                                       Padding="10"
+                                       Margin="5"
+                                       HasShadow="True">
+                                    <StackLayout>
+                                        <!-- Bind to the new properties in your model -->
+                                        <Label Text="{Binding EventTitle}" 
+                                               FontSize="Medium" 
+                                               FontAttributes="Bold"/>
+                                        <Label Text="{Binding EventInfo}" 
+                                                FontSize="Small"/>
+                                        <Label Text="{Binding EventLocation}"
+                                               FontSize="Small"
+                                               FontAttributes="Italic"/>
+                                        <!-- Add other bindings as needed -->
+                                        <StackLayout.GestureRecognizers>
+                                            <TapGestureRecognizer Command="{Binding NavigateToCreateEventPageCommand}" />
+                                        </StackLayout.GestureRecognizers>
+                                    </StackLayout>
+                                </Frame>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </ScrollView>
+
+                <!-- Home Button -->
                 <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
             </VerticalStackLayout>
         </VerticalStackLayout>
