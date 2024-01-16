@@ -65,7 +65,11 @@
 
                 <!-- Programming Section -->
                 <Label Text="Programming" Style="{StaticResource SectionLabelStyle}"/>
-                <Label Text="Join our green mission! If you're a programmer with a passion for the environment, we need your skills to develop innovative solutions. Help us code a better future for our planet!" Style="{StaticResource GeneralText}"/>
+                <Label Text="Join our green mission! If you're a programmer with a passion for the environment, we need your skills to develop innovative solutions. Help us code a better future for our planet!" Style="{StaticResource GeneralText}"/>                
+                
+                <!-- Languages Section -->
+                <Label Text="Languages" Style="{StaticResource SectionLabelStyle}"/>
+                <Label Text="If youre skilled at linguistics and want to help us translate our apps and websites into every language possible. It will help us grow internationally and bring our message to more people." Style="{StaticResource GeneralText}"/>
 
                 <!-- Game Making Section -->
                 <Label Text="Game Design" Style="{StaticResource SectionLabelStyle}"/>
@@ -86,7 +90,9 @@
                 <Label Text="Digital Design" Style="{StaticResource SectionLabelStyle}"/>
                 <Label Text="Legal experts, guide us on the path of green justice! Your knowledge in legal matters can greatly aid our environmental initiatives. Join us in navigating the legal landscapes to protect and preserve our natural world." Style="{StaticResource GeneralText}"/>
 
-
+                <!-- Contact us Button -->
+                <Button Text="Contact Us" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToContactMainPageCommand}" />                
+                
                 <!-- Home Button -->
                 <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
             </VerticalStackLayout>

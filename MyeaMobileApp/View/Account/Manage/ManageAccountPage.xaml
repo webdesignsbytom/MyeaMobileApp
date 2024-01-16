@@ -79,7 +79,7 @@
 
                         <!-- Row 1: Newsletter Mailing List -->
                         <Label Grid.Row="1" Grid.Column="0" Text="Newsletter Mailing list" Style="{StaticResource LabelStyle}"/>
-                        <Switch Grid.Row="1" Grid.Column="1" IsToggled="{Binding UserRegisteredForNewsletter}" />
+                        <Switch Grid.Row="1" Grid.Column="1" />
 
                         <!-- Row 2: Display pet icon -->
                         <Label Grid.Row="2" Grid.Column="0" Text="Display pet icon on main page" Style="{StaticResource LabelStyle}"/>
@@ -94,7 +94,7 @@
                     <!-- Delete Account -->
                     <Button Text="Delete Account" Style="{StaticResource DeleteButtonStyle}" Command="{Binding DeleteUserAccountCommand}"/>
                 </VerticalStackLayout>
-                </VerticalStackLayout>
+            </VerticalStackLayout>
             
         </ScrollView>
 

@@ -46,6 +46,7 @@ namespace MyeaMobileApp.Services.Auth
                 {
 
                     User.Email = apiResponse.Data.ExistingUser.Email;
+
                     // Store token and other data in SecureStorage
                     await SecureStorage.Default.SetAsync("user_token", apiResponse.Data.Token);
                     await SecureStorage.Default.SetAsync("user_email", apiResponse.Data.ExistingUser.Email);
@@ -72,6 +73,11 @@ namespace MyeaMobileApp.Services.Auth
                 Console.WriteLine($"Error: {ex.Message}");
                 return false;
             }
+        }
+
+        public void SetUserAttributes()
+        {
+
         }
         // Define classes to parse the API response
         public class ApiResponse

@@ -50,14 +50,19 @@
                     </Label.FormattedText>
                 </Label>
 
+                <!-- Create Button -->
+                <Button Text="Add Event" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToCreateEventPageCommand}" />
+                
+                
                 <!-- Image Banner -->
                 <Image Source="events1.png" Aspect="AspectFill" Margin="20,20,20,10" />
                 
 
-
-                <!-- Create Button -->
-                <Button Text="Add Event" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToCreateEventPageCommand}" />
-
+                <!-- Loading Indicator -->
+                <ActivityIndicator IsRunning="{Binding IsLoading}"
+                                   Margin="20,20"
+                                   IsVisible="{Binding IsLoading}" />
+                
                 <!-- Scrollable content for news stories -->
                 <ScrollView Grid.Row="1">
                     <CollectionView ItemsSource="{Binding EventsList}">

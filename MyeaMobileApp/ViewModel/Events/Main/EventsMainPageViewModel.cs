@@ -11,6 +11,12 @@ namespace MyeaMobileApp.ViewModel.Events.Main
         public EcoEventsApiService EcoEventsApi { get; set; }
         public ObservableCollection<PlannedEventModel> EventsList { get; set; }
 
+        [ObservableProperty]
+        public bool? isLoading = false;
+
+        [ObservableProperty]
+        public bool? isVisible = true;
+
         public EventsMainPageViewModel(EcoEventsApiService ecoEventsApi) 
         {
             EventsList = new ObservableCollection<PlannedEventModel>();
@@ -20,6 +26,9 @@ namespace MyeaMobileApp.ViewModel.Events.Main
 
         public async Task LoadEvents()
         {
+            IsVisible = false;
+            IsLoading = true;
+
             var events = await EcoEventsApi.GetAllEcoEvents();
             EventsList.Clear();
 
@@ -28,6 +37,9 @@ namespace MyeaMobileApp.ViewModel.Events.Main
                 Console.WriteLine(eventItem.ToString());
                 EventsList.Add(eventItem);
             }
+
+            IsVisible = true;
+            IsLoading = false;
         }
 
         // Create event 

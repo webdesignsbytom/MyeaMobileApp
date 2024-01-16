@@ -5,8 +5,7 @@
     public class PetigotchiModel
     {
         public string PetName { get; set; } = "Bentley";
-        public double Xpos { get; set; }
-        public double Ypos { get; set; }
+        public string PetId { get; set; } = "Bentley1";
 
         // Pet stats
         public bool PetIsAlive { get; set; } = true;
@@ -28,15 +27,5 @@
 
         // 
         public DateTime LastFedTime { get; set; }
-
-        public PetigotchiModel()
-        {
-        }
-
-        public void UpdatePetigotchiPosition(double xpos, double ypos)
-        {
-            Xpos = xpos;
-            Ypos = ypos;
-        }
     }
 }

@@ -4,6 +4,7 @@
              xmlns:foodMenu="clr-namespace:MyeaMobileApp.Controls.Games.Petigotchi"
              xmlns:settingMenu="clr-namespace:MyeaMobileApp.Controls.Games.Petigotchi"
              xmlns:playMenu="clr-namespace:MyeaMobileApp.Controls.Games.Petigotchi"
+             xmlns:renamePet="clr-namespace:MyeaMobileApp.Controls.Games.Petigotchi"
              x:Class="MyeaMobileApp.View.Games.Petigotchi.MainGame.PetigotchiPage"
              xmlns:skia="clr-namespace:SkiaSharp.Views.Maui.Controls;assembly=SkiaSharp.Views.Maui.Controls">
     <ContentPage.Resources>
@@ -123,8 +124,8 @@
                     
                 </Grid>
             </Grid>
-            
-            
+
+
 
             <Grid VerticalOptions="End" RowDefinitions="*,*,*" RowSpacing="0" Margin="2,5">
 
@@ -133,6 +134,10 @@
 
                         <Label Text="{Binding PetName, StringFormat='{0}'}"
                                Style="{StaticResource NameLabelStyle}" />
+                        
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding OpenNamingMenuCommand}"/>
+                        </Frame.GestureRecognizers>
                     </Frame>
                 </VerticalStackLayout>
                 
@@ -198,7 +203,14 @@
         <settingMenu:PetigotchiSettingsMenu 
                     AbsoluteLayout.LayoutFlags="All"
                     IsVisible="{Binding IsSettingsMenuVisible}"
+                    AbsoluteLayout.LayoutBounds="0,0,1,1"/>        
+        
+        <!-- Settings menu -->
+        <renamePet:RenamePetigotchiPopup 
+                    AbsoluteLayout.LayoutFlags="All"
+                    IsVisible="{Binding IsRenamePetVisible}"
                     AbsoluteLayout.LayoutBounds="0,0,1,1"/>
+              
         
     </AbsoluteLayout>
 </ContentPage>

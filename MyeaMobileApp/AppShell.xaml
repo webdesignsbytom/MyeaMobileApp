@@ -27,6 +27,7 @@
     xmlns:donate="clr-namespace:MyeaMobileApp.View.Donations"
     xmlns:media="clr-namespace:MyeaMobileApp.View.Media"
     xmlns:about="clr-namespace:MyeaMobileApp.View.About"
+    xmlns:contactMain="clr-namespace:MyeaMobileApp.View.Contact"
     xmlns:eventsMain="clr-namespace:MyeaMobileApp.View.Events.Main"
     xmlns:createEvent="clr-namespace:MyeaMobileApp.View.Events.CreateEvent"
     xmlns:goals="clr-namespace:MyeaMobileApp.View.Goals"
@@ -130,7 +131,12 @@
     <ShellContent
         Title="Goals"
         ContentTemplate="{DataTemplate goals:GoalsPage}"
-        Route="GoalsPage" />
+        Route="GoalsPage" />    
+    
+    <ShellContent
+        Title="Contact"
+        ContentTemplate="{DataTemplate contactMain:ContactMainPage}"
+        Route="ContactMainPage" />
 
     <ShellContent
         Title="Services"

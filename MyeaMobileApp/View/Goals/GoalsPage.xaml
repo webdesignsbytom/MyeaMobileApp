@@ -99,6 +99,9 @@
                 <!-- Image Banner -->
                 <Image Source="family_goal.png" Aspect="AspectFill" Margin="20,20,20,10" />
 
+                <!-- Contact us Button -->
+                <Button Text="Contact Us" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToContactMainPageCommand}" />
+                
                 <Label Margin="0,15" Text="Thanks for taking the time to read this from all of us at the Myecoapp team and our sponsor Cat App. Just by reading this page you have earned us money for our cause" Style="{StaticResource GeneralText}"/>
 
                 <!-- Home Button -->

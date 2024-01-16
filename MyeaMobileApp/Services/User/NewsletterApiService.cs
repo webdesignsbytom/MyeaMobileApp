@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Maui.ApplicationModel.Communication;
+using Newtonsoft.Json;
 using System.Diagnostics;
 using System.Text;
 
@@ -7,36 +8,30 @@ namespace MyeaMobileApp.Services.User
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public class NewsletterApiService
     {
-        public async Task SignUpUserToNewsletterApi(string Email)
+        private static readonly HttpClient httpClient = new HttpClient();
+        private const string ApiUrl = "https://localhost:4000";
+        public async Task SignUpUserToNewsletterApi(string UserId, string Email)
         {
-            string email = Email;
+            var requestBody = new { email = Email, userId = UserId };
 
-            string ApiUrlPost = "https://myea-server.vercel.app/newsletter/newsletter-signup";
-            using var httpClient = new HttpClient();
+            string ApiUrlEndPoint = "/newsletter/newsletter-signup";
 
-            var requestBody = new
-            {
-                email,
-            };
+            var json = JsonConvert.SerializeObject(requestBody);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             try
             {
-                var json = JsonConvert.SerializeObject(requestBody);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-                HttpResponseMessage response = await httpClient.PostAsync(ApiUrlPost, content);
-
+                HttpResponseMessage response = await httpClient.PostAsync(ApiUrl, content);
                 response.EnsureSuccessStatusCode();
-
                 string responseBody = await response.Content.ReadAsStringAsync();
 
-                Debug.WriteLine($"BBB responseBody {responseBody}");
-                Console.WriteLine($"BBB responseBody {responseBody}");
+                Console.WriteLine($"Response: {responseBody}");
 
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"Error: {ex.Message}");
+                Debug.WriteLine($"Error in SignUpUserToNewsletterApi: {ex.Message}");
+                throw;
             }
         }
     }

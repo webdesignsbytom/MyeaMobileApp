@@ -2,9 +2,9 @@
 {
     public class UserModel
     {
-        public string UserId { get; set; } = "tempId";
+        public string UserId { get; set; } = "dev";
         public string Role { get; set; } = "ADMIN";
-        public string Email { get; set; } = "user@mail.com";
+        public string Email { get; set; } = "dev@dev.com";
         public DateTime DateOfBirth { get; set; }
         public bool UserRegisteredForNewsletter { get; set; } = false;
         public bool UserAgreedToTermsAndConditions { get; set; } = true;
@@ -18,6 +18,7 @@
         public bool IsDarkModeEnabled { get; set; } = false;
         public bool UserWantsToDisplayPetIcon { get; set; } = true;
         public bool IsFirstTimeOpeningApp { get; set; } = false;
+        public bool IsFirstTimeNaming { get; set; } = true;
 
         // First page visit reward bools
         public bool FirstTimeOnAboutUsPage { get; set; } = false;

@@ -1,7 +1,9 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using MyeaMobileApp.Model;
 using MyeaMobileApp.Model.Games;
-using Newtonsoft.Json.Bson;
+using MyeaMobileApp.Model.User;
+using MyeaMobileApp.Services.Games;
 using SkiaSharp;
 using System.Diagnostics;
 using System.Reflection;
@@ -12,40 +14,69 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
 {
     public partial class PetigotchiPageViewModel : ObservableObject
     {
+        public PetigotchiApiService PetigotchiApi { get; set; }
+        public PetigotchiModel PetigotchiModel { get; set; }
+        public UserModel User { get; set; }
+        public ProfileModel Profile { get; set; }
+
         public SKCanvas? gameCanvas;
 
         // Menu options
         [ObservableProperty]
-        private bool isFoodMenuVisible = false;        
-        
+        private bool isRenamePetVisible = false;
+
         [ObservableProperty]
-        private bool isSettingsMenuVisible = false;        
-        
+        private bool isFoodMenuVisible = false;
+
         [ObservableProperty]
-        private bool isPlayMenuVisible = false;        
-        
+        private bool isSettingsMenuVisible = false;
+
         [ObservableProperty]
-        private int health;        
-        
+        private bool isPlayMenuVisible = false;
+
         [ObservableProperty]
-        private int hunger;        
-        
+        private bool isFirstTimeNamingVisible = true;
+
+        private bool IsFirstTimeNaming = true;
+
+
         [ObservableProperty]
-        private int happiness;        
-        
+        private int health;
+
         [ObservableProperty]
-        private int cleanliness;        
-        
+        private int hunger;
+
+        [ObservableProperty]
+        private int happiness;
+
+        [ObservableProperty]
+        private int cleanliness;
+
         [ObservableProperty]
         private string petName;
 
-        public PetigotchiPageViewModel()
+        private string PetId;
+
+        [ObservableProperty]
+        private string newPetName;
+
+        public PetigotchiPageViewModel(PetigotchiApiService petigotchiApi, UserModel user, PetigotchiModel petigotchiModel, ProfileModel profileModel)
         {
+            PetigotchiApi = petigotchiApi;
+            PetigotchiModel = petigotchiModel;
+            User = user;
+            Profile = profileModel;
+
             Console.WriteLine("VM1111111111111111111111111111");
             CreateGameBitmapAnimations();
             // Start game loop
             SetupMovementTimer();
             SetPetStats();
+        }
+
+        private void SetUserStats()
+        {
+            IsFirstTimeNaming = User.IsFirstTimeNaming;
         }
 
         private void SetPetStats()
@@ -55,25 +86,38 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
             Happiness = Petigotchi.Happiness;
             Cleanliness = Petigotchi.Cleanliness;
             PetName = Petigotchi.PetName;
+            PetId = Petigotchi.PetId;
         }
 
         [RelayCommand]
         public async Task OpenFoodMenu()
         {
             IsFoodMenuVisible = true;
-        }        
-        
+        }
+
         [RelayCommand]
         public async Task CloseFoodMenu()
         {
             IsFoodMenuVisible = false;
         }
 
+        [RelayCommand]
+        public async Task OpenNamingMenu()
+        {
+            IsRenamePetVisible = true;
+        }
+
+        [RelayCommand]
+        public async Task CloseNamingMenu()
+        {
+            IsRenamePetVisible = false;
+        }
+
         private void SetupMovementTimer()
         {
             Console.WriteLine("VM333333333333333333333333333");
 
-            movementTimer = new System.Timers.Timer(1000); 
+            movementTimer = new System.Timers.Timer(1000);
             movementTimer.Elapsed += OnMovementTimerElapsed;
             movementTimer.AutoReset = true;
             movementTimer.Enabled = true;
@@ -153,8 +197,6 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
 
             Console.WriteLine($"XXXXXXXXXXX {centerX}:{centerY}");
 
-            Petigotchi.UpdatePetigotchiPosition(centerX, centerY);
-
             // Set animations
             var petPos = mat.Invert().MapPoint(100, 220);
 
@@ -168,6 +210,23 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
             Console.WriteLine("VM55555555555555555555555555555555");
 
             MovingToLeftCorner = true;
+        }
+
+        public int bonusAmount = 50;
+        // Name pet            
+        [RelayCommand]
+        public async Task ChangeNameApi()
+        {
+
+            if (IsFirstTimeNaming)
+            {
+                await PetigotchiApi.UpdatePetigotchiName(NewPetName, User.UserId, PetId);
+                Profile.UpdateScoreByAmount(bonusAmount);
+            }
+            else
+            {
+                await PetigotchiApi.UpdatePetigotchiName(NewPetName, User.UserId, PetId);
+            }
         }
 
         // Navigate to highscores
@@ -190,30 +249,6 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
 
                 // Define the speed of movement
                 double speed = 2.0f;
-
-                // Calculate the direction vector
-                double directionX = targetX - Petigotchi.Xpos;
-                double directionY = targetY - Petigotchi.Ypos;
-
-                // Normalize the direction
-                double magnitude = (double)Math.Sqrt(directionX * directionX + directionY * directionY);
-                if (magnitude > 0)
-                {
-                    directionX /= magnitude;
-                    directionY /= magnitude;
-                }
-
-                // Move the pet towards the target
-                Petigotchi.Xpos += directionX * speed;
-                Petigotchi.Ypos += directionY * speed;
-
-                // Check if the pet has reached the target position
-                if (Math.Abs(Petigotchi.Xpos - targetX) < speed && Math.Abs(Petigotchi.Ypos - targetY) < speed)
-                {
-                    Petigotchi.Xpos = targetX;
-                    Petigotchi.Ypos = targetY;
-                    MovingToLeftCorner = false; // Stop moving
-                }
             }
         }
 
@@ -222,29 +257,29 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
         public async Task OpenSettingsMenu()
         {
             IsSettingsMenuVisible = true;
-        }           
-        
+        }
+
         // Close Settings
         [RelayCommand]
         public async Task CloseSettingsMenu()
         {
             IsSettingsMenuVisible = false;
-        }              
-        
+        }
+
         // Open play
         [RelayCommand]
         public async Task OpenPlayMenu()
         {
             IsPlayMenuVisible = true;
-        }           
-        
+        }
+
         // Close play
         [RelayCommand]
         public async Task ClosePlayMenu()
         {
             IsPlayMenuVisible = false;
-        }           
-        
+        }
+
         // Home
         [RelayCommand]
         public async Task NavigateToHomePage()

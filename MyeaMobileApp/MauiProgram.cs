@@ -76,6 +76,9 @@ using MyeaMobileApp.ViewModel.Account.Achievements;
 using MyeaMobileApp.View.Games.Snake;
 using MyeaMobileApp.ViewModel.Games.Snake;
 using MyeaMobileApp.Services.Events;
+using MyeaMobileApp.Services.Games;
+using MyeaMobileApp.View.Contact;
+using MyeaMobileApp.ViewModel.Contact;
 
 namespace MyeaMobileApp
 {
@@ -120,6 +123,8 @@ namespace MyeaMobileApp
             /* General */
             builder.Services.AddSingleton<NewsReelPage>();
             builder.Services.AddSingleton<NewsReelPageViewModel>();
+            builder.Services.AddSingleton<ContactMainPage>();
+            builder.Services.AddSingleton<ContactMainPageViewModel>();
             /* Lottery */
             builder.Services.AddSingleton<LotteryMainPage>();
             builder.Services.AddSingleton<LotteryMainPageViewModel>();
@@ -191,6 +196,7 @@ namespace MyeaMobileApp
             builder.Services.AddSingleton<AchievementsAndBadgesApiService>();
             builder.Services.AddSingleton<ScoreAndLevelApiService>();
             builder.Services.AddSingleton<EcoEventsApiService>();
+            builder.Services.AddSingleton<PetigotchiApiService>();
 
 
 #if DEBUG

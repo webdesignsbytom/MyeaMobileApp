@@ -32,9 +32,21 @@
             <Label Text="MYECOAPP" 
                        HorizontalOptions="Center"
                        FontAttributes="Bold"
+                       TextColor="#4CAF50"
                        FontSize="44"/>
 
+            <VerticalStackLayout>
+                <Label Text="Myecoapp is a online community to raise fundings to imporove peoples lives with renewable energy." 
+                       HorizontalOptions="Center"
+                       FontAttributes="Bold"
+                       Margin="0,30"
+                       HorizontalTextAlignment="Center"
+                       FontSize="16"/>
+            </VerticalStackLayout>
+
             <Button Text="Take The Tour" Style="{StaticResource ButtonStyle}" Command="{Binding CloseFirstTimePopupCommand}"/>
+            
+            <Button Text="Close" Margin="0,20,0,0" Style="{StaticResource ButtonStyle}" Command="{Binding CloseFirstTimePopupCommand}"/>
         </VerticalStackLayout>
 
     </Frame>
