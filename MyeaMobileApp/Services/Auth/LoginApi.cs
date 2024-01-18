@@ -8,8 +8,12 @@ namespace MyeaMobileApp.Services.Auth
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public class LoginApi
     {
+        private static readonly HttpClient httpClient = new HttpClient();
+        private const string ApiUrl = "https://myea-server.vercel.app";
         public UserModel User { get; set; }
         public ProfileModel UserProfile { get; set; }
+
+        public LoginApi() { }
         public LoginApi(UserModel userModel, ProfileModel profileModel)
         {
             User = userModel;
@@ -18,24 +22,16 @@ namespace MyeaMobileApp.Services.Auth
 
         public async Task<bool> LogUserInApi(string Email, string Password)
         {
-            var email = Email;
-            var password = Password;
+            var requestBody = new { email = Email, password = Password };
 
-            var ApiUrlPost = "https://myea-server.vercel.app/login";
-            using var httpClient = new HttpClient();
+            string ApiUrlEndPoint = "/login";
 
-            var requestBody = new
-            {
-                email,
-                password
-            };
+            var json = JsonConvert.SerializeObject(requestBody);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             try
             {
-                var json = JsonConvert.SerializeObject(requestBody);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
-
-                HttpResponseMessage response = await httpClient.PostAsync(ApiUrlPost, content);
+                HttpResponseMessage response = await httpClient.PostAsync($"{ApiUrl}{ApiUrlEndPoint}", content);
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
 

@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MyeaMobileApp.Model.Games;
+using Newtonsoft.Json;
 using System.Diagnostics;
 using System.Text;
 
@@ -7,52 +8,62 @@ namespace MyeaMobileApp.Services.Games
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public class PetigotchiApiService
     {
-        public async Task<ApiResponse> UpdatePetigotchiName(string NewPetName, string UserId, string PetId)
+        private static readonly HttpClient httpClient = new HttpClient();
+        private const string ApiUrl = "https://myea-server.vercel.app";
+
+        public PetigotchiModel PetigotchiModel { get; set; }
+
+        public PetigotchiApiService(PetigotchiModel petigotchiModel)
         {
-            string petName = NewPetName;
-            string userId = UserId;
-            string petId = PetId;
+            PetigotchiModel = petigotchiModel;
+        }
+        public async Task<string> UpdatePetigotchiName(string NewPetName, string UserId, string PetId)
+        {
+            Console.WriteLine($"ZZZZZZZZZZZZZZZZZZZZZZZZ");
+            Console.WriteLine($"XXX {NewPetName} YYY {UserId}  MMM {PetId}");
 
-            string ApiUrl = "https://myea-server.vercel.app/petigotchi/name-petigotchi"; // Corrected variable name
-            using var httpClient = new HttpClient();
+            var requestBody = new { petName = NewPetName, userId = UserId, petId = PetId };
+            Console.WriteLine($"ZZZZZZZZZZZZZZZZZZZZZZZZ");
 
+            string ApiUrlEndPoint = "/petigotchi/name-petigotchi";
+            Console.WriteLine($"ZZZZZZZZZZZZZZZZZZZZZZZZ");
 
-            var requestBody = new
-            {
-                petName,
-                userId,
-                petId,
-            };
+            var json = JsonConvert.SerializeObject(requestBody);
+            var content = new StringContent(json, Encoding.UTF8, "application/json");
 
             try
             {
-                var json = JsonConvert.SerializeObject(requestBody);
-                var content = new StringContent(json, Encoding.UTF8, "application/json");
 
-                HttpResponseMessage response = await httpClient.PutAsync(ApiUrl, content);
+                HttpResponseMessage response = await httpClient.PutAsync($"{ApiUrl}{ApiUrlEndPoint}", content);
                 response.EnsureSuccessStatusCode();
-
                 string responseBody = await response.Content.ReadAsStringAsync();
-                Console.WriteLine($"1111111111111111111111111111111 {responseBody}");
 
+                // Parse the response
                 var apiResponse = JsonConvert.DeserializeObject<ApiResponse>(responseBody);
+                Console.WriteLine($"1111111111111111111111 {apiResponse}");
                 Console.WriteLine($"AAAAAAAAAAAAAAAAAAAAAA {apiResponse.Data}");
 
-                if (apiResponse.Data != null)
+                if (apiResponse != null && apiResponse.Status == "success" && apiResponse.Data != null)
                 {
                     Console.WriteLine($"22222222222222222222222222");
-
-/*                    foreach (var ecoEvent in apiResponse)
+                    if (apiResponse != null && apiResponse.Status == "success" && apiResponse.Data != null)
                     {
-                        Console.WriteLine(ecoEvent.ToString());
-                    }*/
+                        // Update the PetigotchiModel's name with the name returned from the API
+                        PetigotchiModel.PetName = apiResponse.Data.PetigotchiName;
+                        Debug.WriteLine($"Petigotchi name updated to: {PetigotchiModel.PetName}");
+                    }
                 }
 
-                return apiResponse;
+                return PetigotchiModel.PetName;
+            }
+            catch (HttpRequestException ex)
+            {
+                Debug.WriteLine($"HTTP Request Error: {ex.Message} : {ex}");
+                return null;
             }
             catch (Exception ex)
             {
-                Debug.WriteLine($"Error: {ex.Message}");
+                Debug.WriteLine($"General Error: {ex.Message}\n{ex.StackTrace}");
                 return null;
             }
 
@@ -61,14 +72,13 @@ namespace MyeaMobileApp.Services.Games
         public class ApiResponse
         {
             public string Status { get; set; }
-            public Petigotchi Data { get; set; }
+            public PetigotchiData Data { get; set; }
         }
 
-        public class Petigotchi
+        public class PetigotchiData
         {
-            public string PetName { get; set; }
-            public Object namedPetigotchi { get; set; }
+            [JsonProperty("petigotchi")]
+            public string PetigotchiName { get; set; }
         }
-
     }
 }

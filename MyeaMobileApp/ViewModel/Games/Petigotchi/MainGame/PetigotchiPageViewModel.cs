@@ -220,8 +220,10 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
 
             if (IsFirstTimeNaming)
             {
-                await PetigotchiApi.UpdatePetigotchiName(NewPetName, User.UserId, PetId);
+                string result = await PetigotchiApi.UpdatePetigotchiName(NewPetName, User.UserId, PetId);
+                PetName = result;
                 Profile.UpdateScoreByAmount(bonusAmount);
+                CloseNamingMenu();
             }
             else
             {

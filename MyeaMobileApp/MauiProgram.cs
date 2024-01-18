@@ -191,6 +191,7 @@ namespace MyeaMobileApp
             /* Api services */
             builder.Services.AddSingleton<UserApiService>();
             builder.Services.AddSingleton<LoginApi>();
+            builder.Services.AddSingleton<ProfileApiService>();
             builder.Services.AddSingleton<NewsletterApiService>();
             builder.Services.AddSingleton<LotteryApiService>();
             builder.Services.AddSingleton<AchievementsAndBadgesApiService>();

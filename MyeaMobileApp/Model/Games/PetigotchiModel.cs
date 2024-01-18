@@ -5,7 +5,7 @@
     public class PetigotchiModel
     {
         public string PetName { get; set; } = "Bentley";
-        public string PetId { get; set; } = "Bentley1";
+        public string PetId { get; set; } = "f27a1a27-a266-4793-b5d2-6ae794356f9e";
 
         // Pet stats
         public bool PetIsAlive { get; set; } = true;
