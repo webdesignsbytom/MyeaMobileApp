@@ -9,18 +9,19 @@
         public bool UserRegisteredForNewsletter { get; set; } = false;
         public bool UserAgreedToTermsAndConditions { get; set; } = true;
         public bool HasLivePetigotchi { get; set; }
-        public DateTime LastLoggedIn { get; set; }
         public bool IsEmailVerified { get; set; }
         public bool IsActive { get; set; }
+        public DateTime LastLoggedIn { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
         public bool UserIsLoggedIn { get; set; } = false;
+        public bool IsFirstTimeNaming { get; set; } = true;
+
+        // Saved to local machine not database
+        // First page visit reward bools
         public bool IsDarkModeEnabled { get; set; } = false;
         public bool UserWantsToDisplayPetIcon { get; set; } = true;
         public bool IsFirstTimeOpeningApp { get; set; } = false;
-        public bool IsFirstTimeNaming { get; set; } = true;
-
-        // First page visit reward bools
         public bool FirstTimeOnAboutUsPage { get; set; } = false;
         public bool FirstTimeOnGamesMainPage { get; set; } = false;
         public bool FirstTimeOnGoalsPage { get; set; } = false;
