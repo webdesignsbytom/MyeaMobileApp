@@ -21,7 +21,7 @@ namespace MyeaMobileApp.Localization
             {
 #if DEBUG
                 var ex = new ArgumentException(
-                    string.Format("Key '{0}' was not found in resources '{1}' for culture '{2}'.", text, "SilhouetteGo.Res.Localization.Lang", culture.Name),
+                    string.Format("Key '{0}' was not found in resources '{1}' for culture '{2}'.", text, "MyeaMobileApp.Resources.Localization.Lang", culture.Name),
                     "Text");
                 Debug.WriteLine(ex.Message);
                 Debug.WriteLine(ex.Message);

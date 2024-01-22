@@ -22,7 +22,7 @@ namespace MyeaMobileApp.Resources.Localization {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Lang {
+    public class Lang {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace MyeaMobileApp.Resources.Localization {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("MyeaMobileApp.Resources.Localization.Lang", typeof(Lang).Assembly);
@@ -51,7 +51,7 @@ namespace MyeaMobileApp.Resources.Localization {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,9 +61,18 @@ namespace MyeaMobileApp.Resources.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Modernising environmentalism and creating a donation free non-profit organization that works on repairing climate change.
+        /// </summary>
+        public static string MainPageMessage {
+            get {
+                return ResourceManager.GetString("MainPageMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Thanks for visiting.
         /// </summary>
-        internal static string WelcomeMessage {
+        public static string WelcomeMessage {
             get {
                 return ResourceManager.GetString("WelcomeMessage", resourceCulture);
             }
@@ -72,7 +81,7 @@ namespace MyeaMobileApp.Resources.Localization {
         /// <summary>
         ///   Looks up a localized string similar to Welcome to Myecoapp.
         /// </summary>
-        internal static string WelcomeTitle {
+        public static string WelcomeTitle {
             get {
                 return ResourceManager.GetString("WelcomeTitle", resourceCulture);
             }

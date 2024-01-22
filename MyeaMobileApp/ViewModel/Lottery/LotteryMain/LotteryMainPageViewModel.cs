@@ -31,7 +31,7 @@ namespace MyeaMobileApp.ViewModel.Lottery.LotteryMain
 
             LoadLotteryDrawData();
             CountdownTimerText = "00 : 00 : 00 : 00"; // Placeholder text
-            LotteryPrize = "£000"; // Placeholder text
+            LotteryPrize = "£ UPDATING"; // Placeholder text
             SetupCountdownTimer();
         }
 

@@ -20,12 +20,28 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <!-- Semi-transparent green bar -->
-        <StackLayout BackgroundColor="#00000080" Padding="10" Grid.Row="0">
-            <Button Text="Back to Home" 
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <!-- Semi-transparent green bar -->
+            <StackLayout BackgroundColor="#00000080" Padding="10" Grid.Column="0">
+                <Button Text="Home" 
                     Style="{StaticResource NavButtonStyle}" 
                     Command="{Binding NavigateToMainPageCommand}"/>
-        </StackLayout>
+            </StackLayout>
+
+            <HorizontalStackLayout Grid.Column="0">
+                <Button Text="All" 
+                    Style="{StaticResource NavButtonStyle}" 
+                    Command="{Binding NavigateToMainPageCommand}"/>
+                <Button Text="Good" 
+                    Style="{StaticResource NavButtonStyle}" 
+                    Command="{Binding NavigateToMainPageCommand}"/>
+            </HorizontalStackLayout>
+        </Grid>
 
         <!-- Scrollable content for news stories -->
         <ScrollView Grid.Row="1">

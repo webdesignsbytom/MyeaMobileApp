@@ -61,6 +61,12 @@
                     </Label.FormattedText>
                 </Label>
 
+                <VerticalStackLayout HorizontalOptions="Center">
+                    <Label Text="hello@myecoapp.org" Style="{StaticResource GeneralSpanStyle}"/>
+                    <Label Text="info@myecoapp.org" Style="{StaticResource GeneralSpanStyle}"/>
+                    <Label Text="admin@myecoapp.org" Style="{StaticResource GeneralSpanStyle}"/>
+                </VerticalStackLayout>
+
                 <!-- Home Button -->
                 <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />
             </VerticalStackLayout>
