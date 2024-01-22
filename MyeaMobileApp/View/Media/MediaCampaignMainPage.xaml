@@ -30,19 +30,16 @@
                 <Setter Property="HeightRequest" Value="50"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
-            <Style x:Key="YoutubeButtonStyle" TargetType="Button">
-                <Setter Property="BackgroundColor" Value="#ff0000"/>
-                <Setter Property="TextColor" Value="White"/>
-                <Setter Property="CornerRadius" Value="5"/>
-                <Setter Property="Margin" Value="0,25,0,25"/>
-                <Setter Property="HeightRequest" Value="50"/>
-                <Setter Property="FontAttributes" Value="Bold"/>
-            </Style>
             <Style x:Key="LabelStyle" TargetType="Label">
                 <Setter Property="FontAttributes" Value="Bold"/>
                 <Setter Property="Margin" Value="0,10,0,0"/>
             </Style>
-            <Style x:Key="GeneralText" TargetType="Span">
+            <Style x:Key="GeneralTextStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#555555"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontFamily" Value="OpenSansRegular"/>
+            </Style>
+            <Style x:Key="GeneralSpanStyle" TargetType="Span">
                 <Setter Property="TextColor" Value="#555555"/>
                 <Setter Property="FontSize" Value="16"/>
                 <Setter Property="FontFamily" Value="OpenSansRegular"/>
@@ -65,7 +62,7 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="Harnessing Media for Eco Goals -" FontAttributes="Bold" TextColor="#17aa1f" FontSize="18"/>
-                            <Span Text=" At MyEcoApp, we leverage media as a powerful tool to support our environmental objectives. Through engaging and informative content, we not only raise awareness but also generate funding for our eco-friendly initiatives. Every interaction with our media content, be it a view, a share, or a like, contributes to our cause, turning every bit of digital engagement into tangible support for our planet. Join us in this innovative approach to ecological activism, where every piece of content has the potential to make a difference." Style="{StaticResource GeneralText}"/>
+                            <Span Text=" At MyEcoApp, we leverage media as a powerful tool to support our environmental objectives. Through engaging and informative content, we not only raise awareness but also generate funding for our eco-friendly initiatives. Every interaction with our media content, be it a view, a share, or a like, contributes to our cause, turning every bit of digital engagement into tangible support for our planet. Join us in this innovative approach to ecological activism, where every piece of content has the potential to make a difference." Style="{StaticResource GeneralSpanStyle}"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
@@ -78,10 +75,10 @@
 
                 <VerticalStackLayout Margin="0,20">
                     
-                    <Label Text="Please visit and view our content for a great easy way for you to earn us money to spend on the planet. Be sure to turn off any ad blockers just for us. Thanks." Style="{StaticResource GeneralText}" />
+                    <Label Margin="0,0,0,25" Text="Please visit and view our content for a great easy way for you to earn us money to spend on the planet. Be sure to turn off any ad blockers just for us. Thanks." Style="{StaticResource GeneralTextStyle}" />
 
-                    <!-- Youtube Button -->
-                    <Button Text="Subscribe Now" Style="{StaticResource YoutubeButtonStyle}" Command="{Binding OpenYoutubePageCommand}" />                
+                    <socialCta:SocialMediaButtonsCta />
+
                 </VerticalStackLayout>
                 
                 <!-- Home Button -->

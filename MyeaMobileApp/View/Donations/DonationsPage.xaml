@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:donate="clr-namespace:MyeaMobileApp.Controls.Social"
              x:Class="MyeaMobileApp.View.Donations.DonationsPage">
 
     <ContentPage.Resources>
@@ -28,7 +29,12 @@
                 <Setter Property="TextColor" Value="#17aa1f"/>
                 <Setter Property="Margin" Value="0,20,0,10"/>
             </Style>
-            <Style x:Key="GeneralText" TargetType="Span">
+            <Style x:Key="GeneralTextStyle" TargetType="Span">
+                <Setter Property="TextColor" Value="#555555"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontFamily" Value="OpenSansRegular"/>
+            </Style>
+            <Style x:Key="GeneralSpanStyle" TargetType="Span">
                 <Setter Property="TextColor" Value="#555555"/>
                 <Setter Property="FontSize" Value="16"/>
                 <Setter Property="FontFamily" Value="OpenSansRegular"/>
@@ -52,7 +58,7 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="What can you offer to help?" FontAttributes="Bold" TextColor="#17aa1f" FontSize="18"/>
-                            <Span Text=" We dont just want money, we are looking for people with skills and time to help us create a larger income for our environmental group. Maybe you have a old game you can donate to our apps, maybe you think you can draw better than our AI art, or can help us code and program new features, send us some content we can use. Even if all you can do is watch our youtube videos we can earn." Style="{StaticResource GeneralText}"/>
+                            <Span Text=" We dont just want money, we are looking for people with skills and time to help us create a larger income for our environmental group. Maybe you have a old game you can donate to our apps, maybe you think you can draw better than our AI art, or can help us code and program new features, send us some content we can use. Even if all you can do is watch our youtube videos we can earn." Style="{StaticResource GeneralSpanStyle}"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
@@ -65,31 +71,36 @@
 
                 <!-- Programming Section -->
                 <Label Text="Programming" Style="{StaticResource SectionLabelStyle}"/>
-                <Label Text="Join our green mission! If you're a programmer with a passion for the environment, we need your skills to develop innovative solutions. Help us code a better future for our planet!" Style="{StaticResource GeneralText}"/>                
+                <Label Text="Join our green mission! If you're a programmer with a passion for the environment, we need your skills to develop innovative solutions. Help us code a better future for our planet!" Style="{StaticResource GeneralTextStyle}"/>                
                 
                 <!-- Languages Section -->
                 <Label Text="Languages" Style="{StaticResource SectionLabelStyle}"/>
-                <Label Text="If youre skilled at linguistics and want to help us translate our apps and websites into every language possible. It will help us grow internationally and bring our message to more people." Style="{StaticResource GeneralText}"/>
+                <Label Text="If youre skilled at linguistics and want to help us translate our apps and websites into every language possible. It will help us grow internationally and bring our message to more people." Style="{StaticResource GeneralTextStyle}"/>
 
                 <!-- Game Making Section -->
                 <Label Text="Game Design" Style="{StaticResource SectionLabelStyle}"/>
-                <Label Text="Game developers, let's turn play into purpose! Your talent in creating engaging games can inspire and educate others about environmental conservation. Be part of a fun, impactful gaming project for the planet!" Style="{StaticResource GeneralText}"/>
+                <Label Text="Game developers, let's turn play into purpose! Your talent in creating engaging games can inspire and educate others about environmental conservation. Be part of a fun, impactful gaming project for the planet!" Style="{StaticResource GeneralTextStyle}"/>
                 
                 <!-- Image Banner -->
                 <Image Source="donate_skills.png" Aspect="AspectFill" Margin="20,20,20,10" />
 
                 <!-- Art and design Section -->
                 <Label Text="Art and Design" Style="{StaticResource SectionLabelStyle}"/>
-                <Label Text="Artists, your creativity can color our world green! We're seeking artistic minds to help visualize the beauty and urgency of environmental preservation. Lend your brush to paint a brighter, sustainable future." Style="{StaticResource GeneralText}"/>
+                <Label Text="Artists, your creativity can color our world green! We're seeking artistic minds to help visualize the beauty and urgency of environmental preservation. Lend your brush to paint a brighter, sustainable future." Style="{StaticResource GeneralTextStyle}"/>
 
                 <!-- Digital Design Section -->
                 <Label Text="Digital Design" Style="{StaticResource SectionLabelStyle}"/>
-                <Label Text="Digital designers, help us design a difference! Your expertise in crafting compelling digital experiences is key to spreading awareness about environmental issues. Collaborate with us to create impactful designs that resonate with hearts and minds." Style="{StaticResource GeneralText}"/>
+                <Label Text="Digital designers, help us design a difference! Your expertise in crafting compelling digital experiences is key to spreading awareness about environmental issues. Collaborate with us to create impactful designs that resonate with hearts and minds." Style="{StaticResource GeneralTextStyle}"/>
 
                 <!-- Legal Advice Section -->
                 <Label Text="Digital Design" Style="{StaticResource SectionLabelStyle}"/>
-                <Label Text="Legal experts, guide us on the path of green justice! Your knowledge in legal matters can greatly aid our environmental initiatives. Join us in navigating the legal landscapes to protect and preserve our natural world." Style="{StaticResource GeneralText}"/>
+                <Label Text="Legal experts, guide us on the path of green justice! Your knowledge in legal matters can greatly aid our environmental initiatives. Join us in navigating the legal landscapes to protect and preserve our natural world." Style="{StaticResource GeneralTextStyle}"/>
+                
+                
 
+                <!-- Donate Button -->
+                <donate:DonateViaPayPalButton />
+                
                 <!-- Contact us Button -->
                 <Button Text="Contact Us" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToContactMainPageCommand}" />                
                 

@@ -25,13 +25,12 @@ public partial class PetigotchiPage : ContentPage
         canvasView.IgnorePixelScaling = true;
 
         canvas.Clear(SKColors.White);
-        ViewModel.SetCanvas(canvas);
+        ViewModel.GameLoop(canvas);
 
-        ViewModel.UpdatePetPosition();
-        ViewModel.DrawStartingAnimation();
+        ViewModel.DrawGameAnimations();
 
         // Invalidate the canvas to cause a redraw
-        // canvasView.InvalidateSurface();
+        canvasView.InvalidateSurface();
         Console.WriteLine("CB333333333333333333333333");
 
     }

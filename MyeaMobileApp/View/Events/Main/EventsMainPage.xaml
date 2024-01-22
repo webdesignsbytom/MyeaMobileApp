@@ -21,7 +21,7 @@
                 <Setter Property="HeightRequest" Value="50"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
-            <Style x:Key="GeneralText" TargetType="Span">
+            <Style x:Key="GeneralTextStyle" TargetType="Span">
                 <Setter Property="TextColor" Value="#555555"/>
                 <Setter Property="FontSize" Value="16"/>
                 <Setter Property="FontFamily" Value="OpenSansRegular"/>
@@ -45,7 +45,7 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="Host and Share Your Events!" FontAttributes="Bold" TextColor="#17aa1f" FontSize="18"/>
-                            <Span Text=" Anything you want to share with the community then feel free. We would love to see you either having a well earned break in a beautiful area, or out helping whatever your cause may be. Put it here and raise some interest." Style="{StaticResource GeneralText}"/>
+                            <Span Text=" Anything you want to share with the community then feel free. We would love to see you either having a well earned break in a beautiful area, or out helping whatever your cause may be. Put it here and raise some interest." Style="{StaticResource GeneralTextStyle}"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>

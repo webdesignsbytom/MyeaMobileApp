@@ -28,7 +28,12 @@
                 <Setter Property="TextColor" Value="#17aa1f"/>
                 <Setter Property="Margin" Value="0,20,0,10"/>
             </Style>
-            <Style x:Key="GeneralText" TargetType="Span">
+            <Style x:Key="GeneralTextStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#555555"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontFamily" Value="OpenSansRegular"/>
+            </Style>
+            <Style x:Key="GeneralSpanStyle" TargetType="Span">
                 <Setter Property="TextColor" Value="#555555"/>
                 <Setter Property="FontSize" Value="16"/>
                 <Setter Property="FontFamily" Value="OpenSansRegular"/>
@@ -59,42 +64,42 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="Myecoapp" FontAttributes="Bold" TextColor="#17aa1f" FontSize="18"/>
-                            <Span Text=" has a bunch of great goals! We are dedicated to making a significant impact on the environment and society through our targeted and actionable goals. Each goal reflects our commitment to a sustainable future." Style="{StaticResource GeneralText}"/>
+                            <Span Text=" has a bunch of great goals! We are dedicated to making a significant impact on the environment and society through our targeted and actionable goals. Each goal reflects our commitment to a sustainable future." Style="{StaticResource GeneralSpanStyle}"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
 
                 <!-- Goal 1 -->
                 <Label Text="Uniting for Change" Style="{StaticResource SectionLabelStyle}"/>
-                <Label Text="Our first goal is to create a unified, global community that collaborates for environmental change and makes those changes happen. By bringing together individuals, organizations, and experts from various fields, we aim to foster a collaborative online environment where we are united in more than just protest and are actively fighting back." Style="{StaticResource GeneralText}"/>
+                <Label Text="Our first goal is to create a unified, global community that collaborates for environmental change and makes those changes happen. By bringing together individuals, organizations, and experts from various fields, we aim to foster a collaborative online environment where we are united in more than just protest and are actively fighting back." Style="{StaticResource GeneralTextStyle}"/>
                 
                 <!-- Image Banner -->
                 <Image Source="unite_goal.png" Aspect="AspectFill" Margin="20,20,20,10" />
                 
                 <!-- Goal 2 -->
                 <Label Text="Reducing CO2 Emissions" Style="{StaticResource SectionLabelStyle}"/>
-                <Label Text="A significant focus of MyEcoApp is to reduce the world's carbon emissions. We are committed to funding and implementing projects that actively reduce CO2 emissions, such as renewable energy initiatives and promoting greener transportation options. Our aim is to not only offset carbon emissions but to also create a roadmap for sustainable living that can be adopted globally." Style="{StaticResource GeneralText}"/>
+                <Label Text="A significant focus of MyEcoApp is to reduce the world's carbon emissions. We are committed to funding and implementing projects that actively reduce CO2 emissions, such as renewable energy initiatives and promoting greener transportation options. Our aim is to not only offset carbon emissions but to also create a roadmap for sustainable living that can be adopted globally." Style="{StaticResource GeneralTextStyle}"/>
 
                 <!-- Image Banner -->
                 <Image Source="reduce_goal.png" Aspect="AspectFill" Margin="20,20,20,10" />
                 
                 <!-- Goal 3 -->
                 <Label Text="Advancing Environmental Research" Style="{StaticResource SectionLabelStyle}"/>
-                <Label Text="Our third goal encompasses funding and conducting research to mitigate environmental damage. We are dedicated to exploring innovative solutions to ecological problems, such as developing new methods for waste management, researching sustainable agricultural practices, and protecting biodiversity." Style="{StaticResource GeneralText}"/>
+                <Label Text="Our third goal encompasses funding and conducting research to mitigate environmental damage. We are dedicated to exploring innovative solutions to ecological problems, such as developing new methods for waste management, researching sustainable agricultural practices, and protecting biodiversity." Style="{StaticResource GeneralTextStyle}"/>
 
                 <!-- Image Banner -->
                 <Image Source="research_goal.png" Aspect="AspectFill" Margin="20,20,20,10" />
                 
                 <!-- Goal 4 -->
                 <Label Text="Promoting Biodiversity and Green Spaces" Style="{StaticResource SectionLabelStyle}"/>
-                <Label Text="This goal is centered on creating and safeguarding natural habitats, such as grasslands and insect-friendly environments. Our initiatives include urban greening projects, reforestation, and creating sanctuaries for wildlife onland and at sea. We believe that protecting and enhancing biodiversity is not only crucial for the environment but also for human well-being, as it contributes to cleaner air and a healthier ecosystem. " Style="{StaticResource GeneralText}"/>
+                <Label Text="This goal is centered on creating and safeguarding natural habitats, such as grasslands and insect-friendly environments. Our initiatives include urban greening projects, reforestation, and creating sanctuaries for wildlife onland and at sea. We believe that protecting and enhancing biodiversity is not only crucial for the environment but also for human well-being, as it contributes to cleaner air and a healthier ecosystem. " Style="{StaticResource GeneralTextStyle}"/>
 
                 <!-- Image Banner -->
                 <Image Source="green_goal.png" Aspect="AspectFill" Margin="20,20,20,10" />
                 
                 <!-- Goal 5 -->
                 <Label Text="Helping People" Style="{StaticResource SectionLabelStyle}"/>
-                <Label Text="Our final goal is to influence hearts and minds towards environmental consciousness. We want to offer help to the people struggling in this country by providing them with free renewable energy they can use and profit from. While helping the environment by doing it. With help, education, awareness campaigns, and community engagement, we aim to foster a culture of sustainability and responsible living. We believe that lasting change begins with individual awareness and action. By inspiring and empowering people to make eco-friendly choices in their daily lives, we hope to catalyze a broader shift towards environmental concern in all people and change the public perception of people who care about the environment." Style="{StaticResource GeneralText}"/>
+                <Label Text="Our final goal is to influence hearts and minds towards environmental consciousness. We want to offer help to the people struggling in this country by providing them with free renewable energy they can use and profit from. While helping the environment by doing it. With help, education, awareness campaigns, and community engagement, we aim to foster a culture of sustainability and responsible living. We believe that lasting change begins with individual awareness and action. By inspiring and empowering people to make eco-friendly choices in their daily lives, we hope to catalyze a broader shift towards environmental concern in all people and change the public perception of people who care about the environment." Style="{StaticResource GeneralTextStyle}"/>
 
                 <!-- Image Banner -->
                 <Image Source="family_goal.png" Aspect="AspectFill" Margin="20,20,20,10" />
@@ -102,7 +107,7 @@
                 <!-- Contact us Button -->
                 <Button Text="Contact Us" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToContactMainPageCommand}" />
                 
-                <Label Margin="0,15" Text="Thanks for taking the time to read this from all of us at the Myecoapp team and our sponsor Cat App. Just by reading this page you have earned us money for our cause" Style="{StaticResource GeneralText}"/>
+                <Label Margin="0,15" Text="Thanks for taking the time to read this from all of us at the Myecoapp team and our sponsor Cat App. Just by reading this page you have earned us money for our cause" Style="{StaticResource GeneralTextStyle}"/>
 
                 <!-- Home Button -->
                 <Button Text="Home" Style="{StaticResource ButtonStyle}" Command="{Binding NavigateToMainPageCommand}" />

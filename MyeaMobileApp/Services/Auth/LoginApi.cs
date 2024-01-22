@@ -37,22 +37,33 @@ namespace MyeaMobileApp.Services.Auth
 
                 // Parse the response
                 var apiResponse = JsonConvert.DeserializeObject<ApiResponse>(responseBody);
+                Console.WriteLine($"AAAAAAAAAAAAAAAAAAAAAA api");
 
                 if (apiResponse != null && apiResponse.Status == "success" && apiResponse.Data != null)
                 {
 
                     User.Email = apiResponse.Data.ExistingUser.Email;
+                    User.UserId = apiResponse.Data.ExistingUser.Id;
+                    User.IsEmailVerified = apiResponse.Data.ExistingUser.IsEmailVerified;
+                    User.UserIsLoggedIn = true;
 
+                    Console.WriteLine($"###### apiResponse.Data.Token {apiResponse.Data.Token}");
                     // Store token and other data in SecureStorage
                     await SecureStorage.Default.SetAsync("user_token", apiResponse.Data.Token);
                     await SecureStorage.Default.SetAsync("user_email", apiResponse.Data.ExistingUser.Email);
-
+ 
                     if (apiResponse.Data.ExistingUser.Profile != null)
                     {
                         string firstName = apiResponse.Data.ExistingUser.Profile.FirstName;
+                        string lastName = apiResponse.Data.ExistingUser.Profile.LastName;
+                        int score = apiResponse.Data.ExistingUser.Profile.Score;
 
                         UserProfile.FirstName = firstName;
+                        UserProfile.LastName = lastName;
+                        UserProfile.Score = score;
+
                         await SecureStorage.Default.SetAsync("user_firstName", firstName);
+                        await SecureStorage.Default.SetAsync("user_lastName", lastName);
                     }
 
                     Console.WriteLine("User logged in successfully.");

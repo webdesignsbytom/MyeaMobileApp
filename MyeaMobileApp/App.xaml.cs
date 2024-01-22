@@ -31,6 +31,7 @@ namespace MyeaMobileApp
         {
             var userToken = await SecureStorage.Default.GetAsync("user_token");
             string userFirstName = await SecureStorage.Default.GetAsync("user_firstName") ?? string.Empty;
+            Console.WriteLine($"###### userToken {userToken}");
 
             if (!string.IsNullOrEmpty(userToken))
             {
@@ -40,7 +41,7 @@ namespace MyeaMobileApp
             else
             {
                 // User is not logged in, show login page
-                Console.WriteLine("NNNNNNNNNNNNNNNNNNNNNN");
+                Console.WriteLine("NNNNNNNNN NOT LOGGED IN");
             }
         }
     }

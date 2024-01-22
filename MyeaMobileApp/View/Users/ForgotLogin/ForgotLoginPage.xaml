@@ -27,7 +27,7 @@
                 <Setter Property="HeightRequest" Value="50"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
-            <Style x:Key="GeneralText" TargetType="Span">
+            <Style x:Key="GeneralTextStyle" TargetType="Span">
                 <Setter Property="TextColor" Value="#555555"/>
                 <Setter Property="FontSize" Value="16"/>
                 <Setter Property="FontFamily" Value="OpenSansRegular"/>
@@ -60,7 +60,7 @@
                 Style="{StaticResource MainLabelStyle}"/>
 
 
-            <Label Text="Enter your email address and we will send you a password reset" Style="{StaticResource GeneralText}"/>
+            <Label Text="Enter your email address and we will send you a password reset" Style="{StaticResource GeneralTextStyle}"/>
 
             <Label Text="Email:" Margin="0,30,0,0" />
             <Entry Style="{StaticResource EntryStyle}" Text="{Binding Email}" />

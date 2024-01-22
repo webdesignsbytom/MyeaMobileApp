@@ -75,14 +75,9 @@
 
         </Frame>
 
-        <Frame 
-           CornerRadius="10"
-           BorderColor="Black"
-           Padding="5"
-           Margin="5"
-            BackgroundColor="#17aa1f"
-           HasShadow="True">
-                <Grid Padding="10" ColumnSpacing="3" RowSpacing="3" HorizontalOptions="Center">
+        <!-- Grid with 7 columns -->
+        <Frame CornerRadius="10" BorderColor="Black" Padding="5" Margin="5" BackgroundColor="#17aa1f" HasShadow="True">
+            <Grid Padding="10" ColumnSpacing="3" RowSpacing="3" HorizontalOptions="Center">
                 <!-- Column definitions -->
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -90,12 +85,13 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
                 </Grid.ColumnDefinitions>
 
-                <!-- Row definitions -->
+                <!-- Adjust the Row definitions based on the total number of buttons -->
+                <!-- Assuming there are 35 buttons, we need 5 rows -->
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
-                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -103,53 +99,53 @@
                     <RowDefinition Height="Auto"/>
                 </Grid.RowDefinitions>
 
-                <!-- Buttons from 1 to 7 -->
-                <!-- The pattern is repeated for each button, changing the Text and CommandParameter accordingly -->
+                <!-- Buttons 1 to 7 -->
                 <Button Text="1" Grid.Row="0" Grid.Column="0" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="1"/>
                 <Button Text="2" Grid.Row="0" Grid.Column="1" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="2"/>
                 <Button Text="3" Grid.Row="0" Grid.Column="2" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="3"/>
                 <Button Text="4" Grid.Row="0" Grid.Column="3" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="4"/>
                 <Button Text="5" Grid.Row="0" Grid.Column="4" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="5"/>
-                <Button Text="6" Grid.Row="1" Grid.Column="0" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="6"/>
-                <Button Text="7" Grid.Row="1" Grid.Column="1" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="7"/>
+                <Button Text="6" Grid.Row="0" Grid.Column="5" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="6"/>
+                <Button Text="7" Grid.Row="0" Grid.Column="6" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="7"/>
 
-                <!-- Button 8 to 17 -->
-                <Button Text="8" Grid.Row="1" Grid.Column="2" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="8"/>
-                <Button Text="9" Grid.Row="1" Grid.Column="3" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="9"/>
-                <Button Text="10" Grid.Row="1" Grid.Column="4" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="10"/>
-                <Button Text="11" Grid.Row="2" Grid.Column="0" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="11"/>
-                <Button Text="12" Grid.Row="2" Grid.Column="1" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="12"/>
-                <Button Text="13" Grid.Row="2" Grid.Column="2" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="13"/>
-                <Button Text="14" Grid.Row="2" Grid.Column="3" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="14"/>
+                <!-- Buttons 8 to 14 -->
+                <Button Text="8" Grid.Row="1" Grid.Column="0" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="8"/>
+                <Button Text="9" Grid.Row="1" Grid.Column="1" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="9"/>
+                <Button Text="10" Grid.Row="1" Grid.Column="2" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="10"/>
+                <Button Text="11" Grid.Row="1" Grid.Column="3" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="11"/>
+                <Button Text="12" Grid.Row="1" Grid.Column="4" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="12"/>
+                <Button Text="13" Grid.Row="1" Grid.Column="5" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="13"/>
+                <Button Text="14" Grid.Row="1" Grid.Column="6" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="14"/>
 
-                <!-- Button 15 to 21 -->
-                <Button Text="15" Grid.Row="2" Grid.Column="4" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="15"/>
-                <Button Text="16" Grid.Row="3" Grid.Column="0" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="16"/>
-                <Button Text="17" Grid.Row="3" Grid.Column="1" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="17"/>
-                <Button Text="18" Grid.Row="3" Grid.Column="2" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="18"/>
-                <Button Text="19" Grid.Row="3" Grid.Column="3" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="19"/>
-                <Button Text="20" Grid.Row="3" Grid.Column="4" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="20"/>
-                <Button Text="21" Grid.Row="4" Grid.Column="0" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="21"/>
+                <!-- Buttons 15 to 21 -->
+                <Button Text="15" Grid.Row="2" Grid.Column="0" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="15"/>
+                <Button Text="16" Grid.Row="2" Grid.Column="1" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="16"/>
+                <Button Text="17" Grid.Row="2" Grid.Column="2" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="17"/>
+                <Button Text="18" Grid.Row="2" Grid.Column="3" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="18"/>
+                <Button Text="19" Grid.Row="2" Grid.Column="4" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="19"/>
+                <Button Text="20" Grid.Row="2" Grid.Column="5" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="20"/>
+                <Button Text="21" Grid.Row="2" Grid.Column="6" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="21"/>
 
-                <!-- Button 22 to 28 -->
-                <Button Text="22" Grid.Row="4" Grid.Column="1" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="22"/>
-                <Button Text="23" Grid.Row="4" Grid.Column="2" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="23"/>
-                <Button Text="24" Grid.Row="4" Grid.Column="3" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="24"/>
-                <Button Text="25" Grid.Row="4" Grid.Column="4" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="25"/>
-                <Button Text="26" Grid.Row="5" Grid.Column="0" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="26"/>
-                <Button Text="27" Grid.Row="5" Grid.Column="1" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="27"/>
-                <Button Text="28" Grid.Row="5" Grid.Column="2" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="28"/>
+                <!-- Buttons 22 to 28 -->
+                <Button Text="22" Grid.Row="3" Grid.Column="0" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="22"/>
+                <Button Text="23" Grid.Row="3" Grid.Column="1" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="23"/>
+                <Button Text="24" Grid.Row="3" Grid.Column="2" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="24"/>
+                <Button Text="25" Grid.Row="3" Grid.Column="3" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="25"/>
+                <Button Text="26" Grid.Row="3" Grid.Column="4" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="26"/>
+                <Button Text="27" Grid.Row="3" Grid.Column="5" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="27"/>
+                <Button Text="28" Grid.Row="3" Grid.Column="6" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="28"/>
 
-                <!-- Button 29 to 35 -->
-                <Button Text="29" Grid.Row="5" Grid.Column="3" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="29"/>
-                <Button Text="30" Grid.Row="5" Grid.Column="4" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="30"/>
-                <Button Text="31" Grid.Row="6" Grid.Column="0" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="31"/>
-                <Button Text="32" Grid.Row="6" Grid.Column="1" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="32"/>
-                <Button Text="33" Grid.Row="6" Grid.Column="2" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="33"/>
-                <Button Text="34" Grid.Row="6" Grid.Column="3" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="34"/>
-                <Button Text="35" Grid.Row="6" Grid.Column="4" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="35"/>
+                <!-- Buttons 29 to 35 -->
+                <Button Text="29" Grid.Row="4" Grid.Column="0" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="29"/>
+                <Button Text="30" Grid.Row="4" Grid.Column="1" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="30"/>
+                <Button Text="31" Grid.Row="4" Grid.Column="2" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="31"/>
+                <Button Text="32" Grid.Row="4" Grid.Column="3" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="32"/>
+                <Button Text="33" Grid.Row="4" Grid.Column="4" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="33"/>
+                <Button Text="34" Grid.Row="4" Grid.Column="5" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="34"/>
+                <Button Text="35" Grid.Row="4" Grid.Column="6" Style="{StaticResource NumberButtonStyle}" Command="{Binding SelectNumberCommand}" CommandParameter="35"/>
             </Grid>
         </Frame>
+
 
         <Frame 
            CornerRadius="10"

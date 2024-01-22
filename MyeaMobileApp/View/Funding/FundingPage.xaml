@@ -29,7 +29,12 @@
                 <Setter Property="TextColor" Value="#17aa1f"/>
                 <Setter Property="Margin" Value="0,20,0,10"/>
             </Style>
-            <Style x:Key="GeneralText" TargetType="Span">
+            <Style x:Key="GeneralTextStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#555555"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontFamily" Value="OpenSansRegular"/>
+            </Style>
+            <Style x:Key="GeneralSpanStyle" TargetType="Span">
                 <Setter Property="TextColor" Value="#555555"/>
                 <Setter Property="FontSize" Value="16"/>
                 <Setter Property="FontFamily" Value="OpenSansRegular"/>
@@ -60,16 +65,16 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="Myecoapp" FontAttributes="Bold" TextColor="#17aa1f" FontSize="18"/>
-                            <Span Text=" is the start of a dream project our group had. That funding could one day alone be achieved just through traffic to our website. We are building many services and programmes that anyone can use for free, aiming to support environmental and social causes through every interaction on our platform." Style="{StaticResource GeneralText}"/>
+                            <Span Text=" is the start of a dream project our group had. That funding could one day alone be achieved just through traffic to our website. We are building many services and programmes that anyone can use for free, aiming to support environmental and social causes through every interaction on our platform." Style="{StaticResource GeneralSpanStyle}"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
 
-                <Label Margin="0,10" Text="Just by reading this you have provided us with some funding and thank you!" Style="{StaticResource GeneralText}"/>
+                <Label Margin="0,10" Text="Just by reading this you have provided us with some funding and thank you!" Style="{StaticResource GeneralTextStyle}"/>
 
                 <!-- Adverts Section -->
                 <Label Text="Adverts + Sponsors" Style="{StaticResource SectionLabelStyle}"/>
-                <Label Text="Our main funding objective is revenue from adverts. We will somewhat shamelessly put adverts wherever we can, ensuring they are non-intrusive yet effective. Our approach balances the necessity of funding with the user experience, making sure that our mission is supported sustainably. Thanks to our current sponsors at Cat App!" Style="{StaticResource GeneralText}"/>
+                <Label Text="Our main funding objective is revenue from adverts. We will somewhat shamelessly put adverts wherever we can, ensuring they are non-intrusive yet effective. Our approach balances the necessity of funding with the user experience, making sure that our mission is supported sustainably. Thanks to our current sponsors at Cat App!" Style="{StaticResource GeneralTextStyle}"/>
 
                 <controls:SponsorAdvertFrame SponsorName="Cat App" Margin="15,10" />
 
@@ -78,11 +83,11 @@
 
                 <!-- Media Content Section -->
                 <Label Text="Media content" Style="{StaticResource SectionLabelStyle}"/>
-                <Label Text="We are actively creating media content for viewing across large platforms of social media and video streaming services. This initiative isn't just about creating awareness; it's also a strategic approach to generate income that can be used directly for our environmental goals." Style="{StaticResource GeneralText}" />
+                <Label Text="We are actively creating media content for viewing across large platforms of social media and video streaming services. This initiative isn't just about creating awareness; it's also a strategic approach to generate income that can be used directly for our environmental goals." Style="{StaticResource GeneralTextStyle}" />
 
                 <!-- Games Section -->
                 <Label Text="Games" Style="{StaticResource SectionLabelStyle}"/>
-                <Label Text="Incorporating gaming into our platform serves multiple purposes. It's a way to engage our audience, provide entertainment, and generate revenue. Our games range from simple puzzles to more complex simulations, all aligned with our mission of promoting environmental awareness." Style="{StaticResource GeneralText}" />
+                <Label Text="Incorporating gaming into our platform serves multiple purposes. It's a way to engage our audience, provide entertainment, and generate revenue. Our games range from simple puzzles to more complex simulations, all aligned with our mission of promoting environmental awareness." Style="{StaticResource GeneralTextStyle}" />
 
                 <Frame Style="{StaticResource LinkButtonStyle}" >
 
@@ -98,7 +103,7 @@
 
                 <!-- Shop Section -->
                 <Label Text="Shop" Style="{StaticResource SectionLabelStyle}" />
-                <Label Text="Our online store represents an innovative way to generate funds without direct donations. Here, we offer a range of eco-friendly products, ensuring that each purchase supports our cause. This venture allows us to sustain our projects and grow our impact." Style="{StaticResource GeneralText}" />
+                <Label Text="Our online store represents an innovative way to generate funds without direct donations. Here, we offer a range of eco-friendly products, ensuring that each purchase supports our cause. This venture allows us to sustain our projects and grow our impact." Style="{StaticResource GeneralTextStyle}" />
 
                 <!-- Image Banner -->
                 <Image Source="shop_tshirts.png" Aspect="AspectFill" Margin="20,20,20,10" />
@@ -117,12 +122,12 @@
 
                 <!-- Fund Raising Section -->
                 <Label Text="Fund raising" Style="{StaticResource SectionLabelStyle}"/>
-                <Label Text="We employ a variety of fundraising methods, from classic raffles and auctions to innovative online campaigns. Our fundraising initiatives are designed to be engaging, offering value and entertainment while supporting our cause. Each event helps us to fund our ongoing and future projects." Style="{StaticResource GeneralText}" />
+                <Label Text="We employ a variety of fundraising methods, from classic raffles and auctions to innovative online campaigns. Our fundraising initiatives are designed to be engaging, offering value and entertainment while supporting our cause. Each event helps us to fund our ongoing and future projects." Style="{StaticResource GeneralTextStyle}" />
 
 
                 <!-- Lottery Section -->
                 <Label Text="Lottery" Style="{StaticResource SectionLabelStyle}"/>
-                <Label Text="Our lottery system is designed to be both affordable and fair, ensuring an equal chance for all participants. We prioritize transparency in our lottery mechanics, using a random drawing process that is auditable and compliant with best practices. By keeping the entry cost low, we make it accessible for a wider audience, thereby not only increasing participation but also reinforcing our commitment to community engagement. The proceeds from the lottery are reinvested into our platform, supporting our initiatives and enabling us to continuously offer value to our users." Style="{StaticResource GeneralText}" />
+                <Label Text="Our lottery system is designed to be both affordable and fair, ensuring an equal chance for all participants. We prioritize transparency in our lottery mechanics, using a random drawing process that is auditable and compliant with best practices. By keeping the entry cost low, we make it accessible for a wider audience, thereby not only increasing participation but also reinforcing our commitment to community engagement. The proceeds from the lottery are reinvested into our platform, supporting our initiatives and enabling us to continuously offer value to our users." Style="{StaticResource GeneralTextStyle}" />
 
                 <!-- Lottery Button -->
                 <Frame Style="{StaticResource LinkButtonStyle}" >
@@ -139,7 +144,7 @@
 
                 <!-- Donations Section -->
                 <Label Text="Donations" Style="{StaticResource SectionLabelStyle}" />
-                <Label Text="The generosity of our donors is the backbone of our efforts. We dont just ask for money we want you to donate your time and energy into helping us. Watch our videos and spread the word. Each contribution brings us closer to our goals, allowing us to scale our projects and make a greater impact. We value every donation, as it accelerates our mission and extends our reach. See how you can offer your time or maybe you already have something completed we can use. Click below to learn more." Style="{StaticResource GeneralText}" />
+                <Label Text="The generosity of our donors is the backbone of our efforts. We dont just ask for money we want you to donate your time and energy into helping us. Watch our videos and spread the word. Each contribution brings us closer to our goals, allowing us to scale our projects and make a greater impact. We value every donation, as it accelerates our mission and extends our reach. See how you can offer your time or maybe you already have something completed we can use. Click below to learn more." Style="{StaticResource GeneralTextStyle}" />
 
                 <!-- Donations Button -->
                 <Frame Style="{StaticResource LinkButtonStyle}" >
@@ -156,7 +161,7 @@
 
                 <!-- Conclusion -->
                 <Label Text="Thanks for reading.." Style="{StaticResource SectionLabelStyle}"/>
-                <Label Text="Our charity is ambitious, seeking to create significant positive change in the world. We are committed to our goals, which extend beyond environmental action to include the wellbeing of our team and community. We strive to be a respected and effective organization, making a real difference." Style="{StaticResource GeneralText}" />
+                <Label Text="Our charity is ambitious, seeking to create significant positive change in the world. We are committed to our goals, which extend beyond environmental action to include the wellbeing of our team and community. We strive to be a respected and effective organization, making a real difference." Style="{StaticResource GeneralTextStyle}" />
 
 
                 <!-- Home Button -->

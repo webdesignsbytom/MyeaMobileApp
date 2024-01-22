@@ -4,22 +4,22 @@
              x:Class="MyeaMobileApp.Controls.Games.Petigotchi.FoodMenuPopup">
     <ContentView.Resources>
         <ResourceDictionary>
-            <Style x:Key="ButtonStyle" TargetType="Button">
+            <Style x:Key="CloseButtonStyle" TargetType="Button">
                 <Setter Property="BackgroundColor" Value="#4CAF50"/>
                 <Setter Property="TextColor" Value="White"/>
                 <Setter Property="CornerRadius" Value="5"/>
                 <Setter Property="Margin" Value="0,15,0,10"/>
-                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="HeightRequest" Value="40"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
-            </Style>            
+            </Style>
             <Style x:Key="MenuLabelStyle" TargetType="Label">
-                <Setter Property="FontSize" Value="44"/>
+                <Setter Property="FontSize" Value="38"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
                 <Setter Property="Margin" Value="0,15,0,10"/>
                 <Setter Property="HorizontalOptions" Value="Center"/>
-            </Style>            
+            </Style>
             <Style x:Key="FoodLabelStyle" TargetType="Label">
-                <Setter Property="FontSize" Value="34"/>
+                <Setter Property="FontSize" Value="16"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
                 <Setter Property="Margin" Value="0,5,0,5"/>
                 <Setter Property="HorizontalOptions" Value="Center"/>
@@ -34,7 +34,7 @@
             VerticalOptions="Center" 
             BackgroundColor="AliceBlue"
             CornerRadius="10"
-            Padding="10,10"
+            Padding="30,10"
             HorizontalOptions="Center">
 
             <VerticalStackLayout 
@@ -47,10 +47,32 @@
                    Style="{StaticResource MenuLabelStyle}"
                     />
 
-                <Label Text="🌮" Style="{StaticResource FoodLabelStyle}" />
-                <Label Text="🧀" Style="{StaticResource FoodLabelStyle}" />
+                <VerticalStackLayout Padding="10,0" Spacing="10">
 
-                <Button Text="CLOSE" Style="{StaticResource ButtonStyle}" Command="{Binding CloseFoodMenuCommand}"/>
+                    <Frame>
+
+                        <HorizontalStackLayout Spacing="10">
+                            <Label Text="🌮" Style="{StaticResource FoodLabelStyle}" />
+                            <Label Text="Taco +10" Style="{StaticResource FoodLabelStyle}" />
+                        </HorizontalStackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding EatTacoCommand}"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+
+                    <Frame>
+
+                        <HorizontalStackLayout Spacing="10">
+                            <Label Text="🧀" Style="{StaticResource FoodLabelStyle}" />
+                            <Label Text=" Cheese +50" Style="{StaticResource FoodLabelStyle}" />
+                        </HorizontalStackLayout>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding EatCheeseCommand}"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </VerticalStackLayout>
+
+                <Button Text="CLOSE" Style="{StaticResource CloseButtonStyle}" Command="{Binding CloseFoodMenuCommand}"/>
             </VerticalStackLayout>
 
         </Frame>

@@ -5,10 +5,9 @@ using MyeaMobileApp.Model.Games;
 using MyeaMobileApp.Model.User;
 using MyeaMobileApp.Services.Games;
 using SkiaSharp;
-using System.Diagnostics;
 using System.Reflection;
 using System.Timers;
-
+using Timer = System.Timers.Timer;
 
 namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
 {
@@ -37,9 +36,10 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
         [ObservableProperty]
         private bool isFirstTimeNamingVisible = true;
 
+        // Player bools
         private bool IsFirstTimeNaming = true;
 
-
+        // Pet Stats
         [ObservableProperty]
         private int health;
 
@@ -60,6 +60,20 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
         [ObservableProperty]
         private string newPetName;
 
+        // Max Stats
+        private int MaxHunger = 100;
+
+        // Timers
+        // Game play
+        public Timer gamePlayTimer;
+        // Hunger
+        public Timer petHungerTimer;
+
+        // Movement
+        private float moveStep = 1.0f;
+        private float totalMovement = 0;
+        private const float MaxMovement = 50.0f;
+
         public PetigotchiPageViewModel(PetigotchiApiService petigotchiApi, UserModel user, PetigotchiModel petigotchiModel, ProfileModel profileModel)
         {
             PetigotchiApi = petigotchiApi;
@@ -68,12 +82,83 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
             Profile = profileModel;
 
             Console.WriteLine("VM1111111111111111111111111111");
-            CreateGameBitmapAnimations();
+
+
             // Start game loop
-            SetupMovementTimer();
-            SetPetStats();
+            SetUpGame();
         }
 
+        public void SetUpGame() 
+        {
+            Console.WriteLine("VM222222222222222222222222222222222");
+            // Create animations to use in game
+            CreateGameBitmapAnimations();
+            Console.WriteLine("VM2222222222222223333333333333333333");
+            // Set stats from model
+            SetUserStats();
+            SetPetStats();
+            SetTimers();
+            Console.WriteLine("VM2222222222222224444444444444444");
+        }        
+       
+
+
+        private void SetTimers()
+        {
+            SetHungerTimer();
+            SetGameTimer();
+        }
+        public void CreateGameBitmapAnimations()
+        {
+            Console.WriteLine("VMCreateGameBitmapAnimations");
+            // Image source
+            string imageSource = "MyeaMobileApp.Resources.Images.Games.";
+
+            using var petCatBitmapStream = Assembly.GetExecutingAssembly().GetManifestResourceStream($"{imageSource}cat1.png");
+            petBitmap = SKBitmap.Decode(petCatBitmapStream).Resize(new SKImageInfo(200, 300), SKFilterQuality.Low);
+        }
+
+        private void SetHungerTimer()
+        {
+            petHungerTimer = new Timer(TimeSpan.FromSeconds(2).TotalMilliseconds);
+            petHungerTimer.Elapsed += OnHungerTimerElapsed; // Separate handler
+            petHungerTimer.AutoReset = true;
+            petHungerTimer.Enabled = true;
+        }
+
+        private void SetGameTimer()
+        {
+            gamePlayTimer = new Timer(TimeSpan.FromMilliseconds(32.0f).TotalMilliseconds);
+            gamePlayTimer.Elapsed += OnGameTimerElapsed; // Separate handler
+            gamePlayTimer.AutoReset = true;
+            gamePlayTimer.Enabled = true;
+        }
+
+        private void OnHungerTimerElapsed(object source, ElapsedEventArgs e)
+        {
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                Console.WriteLine("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+                Hunger++;
+                PetigotchiModel.Hunger = Hunger;
+                if (PetigotchiModel.Hunger >= MaxHunger)
+                {
+                    PetigotchiModel.PetIsAlive = false;
+                    // Additional logic for hunger timer
+                }
+            });
+        }
+
+        private void OnGameTimerElapsed(object source, ElapsedEventArgs e)
+        {
+            Console.WriteLine("##############################");
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                PetigotchiModel.UpdatePetPosition((float)moveStep, (float)0);
+            });
+        }
+
+        
         private void SetUserStats()
         {
             IsFirstTimeNaming = User.IsFirstTimeNaming;
@@ -81,63 +166,23 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
 
         private void SetPetStats()
         {
-            Health = Petigotchi.Health;
-            Hunger = Petigotchi.Hunger;
-            Happiness = Petigotchi.Happiness;
-            Cleanliness = Petigotchi.Cleanliness;
-            PetName = Petigotchi.PetName;
-            PetId = Petigotchi.PetId;
+            Health = PetigotchiModel.Health;
+            Hunger = PetigotchiModel.Hunger;
+            Happiness = PetigotchiModel.Happiness;
+            Cleanliness = PetigotchiModel.Cleanliness;
+            PetName = PetigotchiModel.PetName;
+            PetId = PetigotchiModel.PetId;
         }
 
-        [RelayCommand]
-        public async Task OpenFoodMenu()
-        {
-            IsFoodMenuVisible = true;
-        }
-
-        [RelayCommand]
-        public async Task CloseFoodMenu()
-        {
-            IsFoodMenuVisible = false;
-        }
-
-        [RelayCommand]
-        public async Task OpenNamingMenu()
-        {
-            IsRenamePetVisible = true;
-        }
-
-        [RelayCommand]
-        public async Task CloseNamingMenu()
-        {
-            IsRenamePetVisible = false;
-        }
-
-        private void SetupMovementTimer()
-        {
-            Console.WriteLine("VM333333333333333333333333333");
-
-            movementTimer = new System.Timers.Timer(1000);
-            movementTimer.Elapsed += OnMovementTimerElapsed;
-            movementTimer.AutoReset = true;
-            movementTimer.Enabled = true;
-        }
-
-        private void OnMovementTimerElapsed(object sender, ElapsedEventArgs e)
-        {
-        }
 
         // Camvas
         public double deviceCanvasWidth;
         public double deviceCanvasHeight;
 
-        private System.Timers.Timer movementTimer;
-
         // Game Images
-        private SKBitmap PetBitmap;
+        private SKBitmap petBitmap;
 
 
-        public PetigotchiModel Petigotchi = new();
 
 
         // Add properties for animation
@@ -146,7 +191,7 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
         private bool isStartingAnimationDrawn = false;
 
         // Set canvas from codebehind
-        public void SetCanvas(SKCanvas canvas)
+        public void GameLoop(SKCanvas canvas)
         {
             gameCanvas = canvas;
 
@@ -155,31 +200,12 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
             // Set the canvas size to match the screen size
             deviceCanvasWidth = (double)screenMetrics.Width / screenMetrics.Density;
             deviceCanvasHeight = (double)screenMetrics.Height / screenMetrics.Density;
-
-            if (!isStartingAnimationDrawn)
-            {
-                // Draw starting animation
-                isStartingAnimationDrawn = true;
-                DrawStartingAnimation();
-            }
         }
 
 
-        public void CreateGameBitmapAnimations()
+        public void DrawGameAnimations()
         {
-            Console.WriteLine("VM22222222222222222222222222222");
-
-            string imageSource = "MyeaMobileApp.Resources.Images.Games.";
-
-
-            using var petCatBitmapStream = Assembly.GetExecutingAssembly().GetManifestResourceStream($"{imageSource}cat1.png");
-            PetBitmap = SKBitmap.Decode(petCatBitmapStream).Resize(new SKImageInfo(200, 300), SKFilterQuality.Low);
-        }
-
-
-        public void DrawStartingAnimation()
-        {
-            Console.WriteLine("VM44444444444444444444444444444444");
+            Console.WriteLine("VMDrawStartingAnimation");
 
             if (gameCanvas == null)
             {
@@ -188,39 +214,35 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
 
             var mat = SKMatrix.CreateScale(1.0f, 1.0f);
 
-            deviceCanvasWidth = gameCanvas.DeviceClipBounds.Width;
-            deviceCanvasHeight = gameCanvas.DeviceClipBounds.Height;
+            var catPos = mat.Invert().MapPoint((float)PetigotchiModel.Xpos, (float)PetigotchiModel.Ypos);
+            gameCanvas.DrawBitmap(petBitmap, new SKPoint(catPos.X, catPos.Y), new SKPaint());
 
             // Calculate the center position
-            double centerX = (deviceCanvasWidth - PetBitmap.Width) / 2;
-            double centerY = (deviceCanvasHeight - PetBitmap.Height) / 2;
-
+            double centerX = (deviceCanvasWidth - petBitmap.Width) / 2;
+            double centerY = (deviceCanvasHeight - petBitmap.Height) / 2;
             Console.WriteLine($"XXXXXXXXXXX {centerX}:{centerY}");
-
-            // Set animations
-            var petPos = mat.Invert().MapPoint(100, 220);
-
-            Console.WriteLine($"YYYYYYYYYYYYY {petPos.X}:{petPos.Y}");
-
-            gameCanvas.DrawBitmap(PetBitmap, new SKPoint(petPos.X, petPos.Y), new SKPaint());
         }
 
-        public void MoveToLeftCorner()
-        {
-            Console.WriteLine("VM55555555555555555555555555555555");
 
-            MovingToLeftCorner = true;
-        }
-
-        public int bonusAmount = 50;
         // Name pet            
+        public int bonusAmount = 50;
+        [ObservableProperty]
+        public bool isUpdatingName = false;        
+        [ObservableProperty]
+        public bool isNameButtonVisible = true;
+
         [RelayCommand]
         public async Task ChangeNameApi()
         {
+            IsNameButtonVisible = false;
+            IsUpdatingName = true;
+            Console.WriteLine($"ABCBDBDBCBSB");
 
             if (IsFirstTimeNaming)
             {
                 string result = await PetigotchiApi.UpdatePetigotchiName(NewPetName, User.UserId, PetId);
+                Console.WriteLine($"XXXXXXXXXXXX {result}");
+                IsUpdatingName = false;
                 PetName = result;
                 Profile.UpdateScoreByAmount(bonusAmount);
                 CloseNamingMenu();
@@ -228,8 +250,10 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
             else
             {
                 await PetigotchiApi.UpdatePetigotchiName(NewPetName, User.UserId, PetId);
+                IsUpdatingName = false;
             }
         }
+
 
         // Navigate to highscores
         [RelayCommand]
@@ -238,22 +262,15 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
             await Shell.Current.GoToAsync("///PetigotchiHighscoresPage");
         }
 
-        // Update pet's position
-        public void UpdatePetPosition()
+        // Open website
+        [RelayCommand]
+        public async Task OpenWebGamesPage()
         {
-            Console.WriteLine("VM66666666666666666666666666");
-
-            if (MovingToLeftCorner)
-            {
-                // Define the target position (bottom left corner)
-                double targetX = 0; // Assuming 0 is the leftmost position
-                double targetY = deviceCanvasHeight - PetBitmap.Height; // Bottom of the canvas
-
-                // Define the speed of movement
-                double speed = 2.0f;
-            }
-        }
-
+            // Logic to open myecoapp.org page
+            string url = "https://www.mecoapp.org/games2";
+            Browser.OpenAsync(url, BrowserLaunchMode.SystemPreferred);
+        }        
+        
         // Open Settings
         [RelayCommand]
         public async Task OpenSettingsMenu()
@@ -287,6 +304,60 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
         public async Task NavigateToHomePage()
         {
             await Shell.Current.GoToAsync("///MainPage");
+        }
+
+        [RelayCommand]
+        public async Task OpenFoodMenu()
+        {
+            IsFoodMenuVisible = true;
+        }
+
+        [RelayCommand]
+        public async Task CloseFoodMenu()
+        {
+            IsFoodMenuVisible = false;
+        }
+
+        [RelayCommand]
+        public async Task OpenNamingMenu()
+        {
+            IsRenamePetVisible = true;
+        }
+
+        [RelayCommand]
+        public async Task CloseNamingMenu()
+        {
+            IsRenamePetVisible = false;
+        }
+
+        [RelayCommand]
+        public async Task EatCheese()
+        {
+            Hunger = Math.Max(0, Hunger - 50);
+        }
+
+        [RelayCommand]
+        public async Task EatTaco()
+        {
+            Hunger = Math.Max(0, Hunger - 10);
+        }        
+        
+        [RelayCommand]
+        public async Task PlayBallGames()
+        {
+            Happiness += 10;
+        }
+
+        [RelayCommand]
+        public async Task PlayVideoGames()
+        {
+            Happiness += 50;
+        }
+
+        [RelayCommand]
+        public async Task PlayCardGames()
+        {
+            Happiness += 75;
         }
     }
 }

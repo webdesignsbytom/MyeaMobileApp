@@ -29,7 +29,12 @@
                 <Setter Property="TextColor" Value="#17aa1f"/>
                 <Setter Property="Margin" Value="0,20,0,10"/>
             </Style>
-            <Style x:Key="GeneralText" TargetType="Label">
+            <Style x:Key="GeneralTextStyle" TargetType="Label">
+                <Setter Property="TextColor" Value="#555555"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontFamily" Value="OpenSansRegular"/>
+            </Style>            
+            <Style x:Key="GeneralSpanStyle" TargetType="Span">
                 <Setter Property="TextColor" Value="#555555"/>
                 <Setter Property="FontSize" Value="16"/>
                 <Setter Property="FontFamily" Value="OpenSansRegular"/>
@@ -60,7 +65,7 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="Apps and Web" FontAttributes="Bold" TextColor="#17aa1f" FontSize="18"/>
-                            <Span Text=" To provide you with entertainment, practicality and a way to make money to save the environment by using free products. We have created and are creating many more simple to useful to fascinating apps that we can generate money through. So please download, play and give a 5 star review to all our products and be sure to pass it on!" Style="{StaticResource GeneralText}"/>
+                            <Span Text=" To provide you with entertainment, practicality and a way to make money to save the environment by using free products. We have created and are creating many more simple to useful to fascinating apps that we can generate money through. So please download, play and give a 5 star review to all our products and be sure to pass it on!" Style="{StaticResource GeneralSpanStyle}"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
@@ -70,7 +75,7 @@
 
                 <!-- Apps -->
                 <Label Text="Apps" Style="{StaticResource SectionLabelStyle}" />
-                <Label Text="Our team specializes in creating user-friendly and functional apps. We focus on simplicity and efficiency, offering free access while generating revenue through advertising and innovative online earning methods." Style="{StaticResource GeneralText}" />
+                <Label Text="Our team specializes in creating user-friendly and functional apps. We focus on simplicity and efficiency, offering free access while generating revenue through advertising and innovative online earning methods." Style="{StaticResource GeneralTextStyle}" />
 
                 <!-- Web Products CollectionView -->
                 <CollectionView ItemsSource="{Binding AppProducts}" Margin="0,20">
@@ -93,7 +98,7 @@
                 
                 <!-- Web -->
                 <Label Text="Web" Style="{StaticResource SectionLabelStyle}" />
-                <Label Text="By creating web products you can use for free we can generate an income - so check all of these out" Style="{StaticResource GeneralText}" />
+                <Label Text="By creating web products you can use for free we can generate an income - so check all of these out" Style="{StaticResource GeneralTextStyle}" />
 
                 <!-- Web Products CollectionView -->
                 <CollectionView ItemsSource="{Binding WebProducts}" Margin="0,20">

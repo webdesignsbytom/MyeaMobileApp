@@ -20,12 +20,30 @@
         public bool PetIsDirty { get; set; } = false;
 
         // Basic attributes
-        public int Hunger { get; set; } = 100;
+        public int Hunger { get; set; } = 0;
         public int Happiness { get; set; } = 100;
         public int Health { get; set; } = 100;
         public int Cleanliness { get; set; } = 100;
 
         // 
         public DateTime LastFedTime { get; set; }
+
+        // Postion on canvas
+        public float Xpos { get; set; } = 100.0f;
+        public float Ypos { get; set; } = 220.0f;
+
+        public PetigotchiModel()
+        {
+            Xpos = 100.0f;
+            Ypos = 220.0f;
+        }
+
+        public void UpdatePetPosition(float xPos, float yPos)
+        {
+            Console.WriteLine("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM");
+
+            Xpos += xPos;
+            Ypos += yPos;
+        }
     }
 }

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MyeaMobileApp.Controls.Social.SocialMediaButtonsCta">
+    <ContentView.Resources>
+        <ResourceDictionary>
+            <Style x:Key="MediaLinkCtaStyle" TargetType="Frame">
+                <Setter Property="Margin" Value="10"/>
+                <Setter Property="Padding" Value="0"/>
+                <Setter Property="CornerRadius" Value="10"/>
+                <Setter Property="BorderColor" Value="#fff"/>
+                <Setter Property="BackgroundColor" Value="#B1E8A1"/>
+                <Setter Property="HorizontalOptions" Value="FillAndExpand"/>
+            </Style>
+            <Style x:Key="YoutubeButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#ff0000"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Style x:Key="InstagramButtonStyle" TargetType="Button">
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+            <Style x:Key="FacebookButtonStyle" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="#1877F2"/>
+                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="CornerRadius" Value="5"/>
+                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="FontAttributes" Value="Bold"/>
+            </Style>
+        </ResourceDictionary>
+    </ContentView.Resources>
+
+    <Grid Padding="5" 
+          RowSpacing="2" 
+          ColumnSpacing="2">
+        <!-- Define rows and columns -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Instagram Button -->
+        <Button Grid.Row="0" Grid.Column="0" Text="Follow On Instagram" Clicked="InstagramButton_Clicked" Style="{StaticResource InstagramButtonStyle}">
+            <!-- Background gradient for Instagram Button -->
+            <Button.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0">
+                    <GradientStop Color="#405DE6" Offset="0.0" />
+                    <!-- Blue -->
+                    <GradientStop Color="#5B51D8" Offset="0.1" />
+                    <!-- Blue -->
+                    <GradientStop Color="#833AB4" Offset="0.2" />
+                    <!-- Purple -->
+                    <GradientStop Color="#C13584" Offset="0.3" />
+                    <!-- Dark Pink -->
+                    <GradientStop Color="#E1306C" Offset="0.4" />
+                    <!-- Purple-Red -->
+                    <GradientStop Color="#FD1D1D" Offset="0.5" />
+                    <!-- Red -->
+                    <GradientStop Color="#F56040" Offset="0.6" />
+                    <!-- Dark Orange -->
+                    <GradientStop Color="#F77737" Offset="0.7" />
+                    <!-- Orange -->
+                    <GradientStop Color="#FCAF45" Offset="0.8" />
+                    <!-- Yellow -->
+                    <GradientStop Color="#FFDC80" Offset="0.9" />
+                    <!-- Light Yellow -->
+                    <GradientStop Color="#FFDC80" Offset="1.0" />
+                    <!-- Light Yellow -->
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+
+        <!-- Threads Button -->
+        <Button Grid.Row="0" Grid.Column="1" Text="Subscribe Threads" Style="{StaticResource YoutubeButtonStyle}" Clicked="ThreadsButton_Clicked" />
+
+        <!-- Facebook Button -->
+        <Button Grid.Row="1" Grid.Column="0" Text="Follow Facebook" Style="{StaticResource FacebookButtonStyle}" Clicked="FacebookButton_Clicked" />
+
+        <!-- Youtube Button -->
+        <Button Grid.Row="1" Grid.Column="1" Text="Subscribe YouTube" Style="{StaticResource YoutubeButtonStyle}" Clicked="YoutubeButton_Clicked" />
+    </Grid>
+</ContentView>
