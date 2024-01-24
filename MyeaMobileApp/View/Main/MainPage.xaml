@@ -47,7 +47,7 @@
         <Grid AbsoluteLayout.LayoutFlags="All"
               AbsoluteLayout.LayoutBounds="0,0,1,1"
               Background="{StaticResource WhiteToGreenGradient}">
-            
+
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="Auto" />
@@ -55,43 +55,60 @@
 
             <!-- Main content in the first row -->
             <VerticalStackLayout Grid.Row="0" Padding="5">
-                
+
                 <!-- Add your main content elements here -->
-                <Grid>
+                <Grid Grid.Row="0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
-                        <!-- First column -->
-                        <ColumnDefinition Width="Auto"/>
-                        <!-- Second column -->
                         <ColumnDefinition Width="*"/>
-                        <!-- Third column -->
                     </Grid.ColumnDefinitions>
 
-                    <!-- Pet Icon Button in the first column -->
-                    <ImageButton Grid.Column="0"
+
+                    <HorizontalStackLayout Grid.Column="0" HorizontalOptions="Start" Spacing="10">
+
+                        <!-- Pet Icon Button in the first column -->
+                        <ImageButton Grid.Column="0"
                                     Source="pet_icon.png" 
                                     HeightRequest="50"
+                                    Padding="5"
                                     WidthRequest="50"
                                     HorizontalOptions="Start"
                                     IsVisible="{Binding UserWantsToDisplayPetIcon}"
                                     Command="{Binding NavigateToPetigotchiPageCommand}"/>
+                    </HorizontalStackLayout>
 
-                    <!-- Admin Icon Button in the second column -->
-                    <ImageButton Grid.Column="1"
+                    <HorizontalStackLayout Grid.Column="1" HorizontalOptions="End" Spacing="15">
+
+                        <!-- Developer Icon Button in the second column -->
+                        <ImageButton 
+                                    Source="developer_icon.png" 
+                                    HeightRequest="50"
+                                    Padding="5"
+                                    WidthRequest="50"
+                                    HorizontalOptions="Center"
+                                    IsVisible="{Binding IsDeveloper}"
+                                    Command="{Binding NavigateToDeveloperPageCommand}"/>
+                        
+                        <!-- Admin Icon Button in the second column -->
+                        <ImageButton 
                                     Source="admin_icon.png" 
                                     HeightRequest="50"
+                                    Padding="5"
                                     WidthRequest="50"
                                     HorizontalOptions="Center"
                                     IsVisible="{Binding IsAdmin}"
                                     Command="{Binding NavigateToAdminPageCommand}"/>
 
-                    <!-- User Icon Button in the third column -->
-                    <ImageButton Grid.Column="2"
-                                    Source="user_icon.png" 
+                        <!-- User Icon Button in the third column -->
+                        <ImageButton 
+                                    Source="account_icon.png" 
                                     HeightRequest="50"
+                                    Padding="5"
                                     WidthRequest="50"
                                     HorizontalOptions="End"
                                     Command="{Binding NavigateToUsersAccountCommand}"/>
+
+                    </HorizontalStackLayout>
                 </Grid>
 
                 <VerticalStackLayout HorizontalOptions="Center" Spacing="10">
@@ -213,8 +230,8 @@
                         Style="{StaticResource ButtonStyle}"
                         Command="{Binding NavigateToTimelinePageCommand}"/>
 
-                </Grid>                
-                
+                </Grid>
+
                 <Grid ColumnSpacing="6">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />

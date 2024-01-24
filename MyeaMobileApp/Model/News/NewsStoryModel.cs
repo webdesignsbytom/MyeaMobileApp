@@ -11,6 +11,8 @@
 
         public string Keywords { get; set; }
 
+        public bool IsGoodNews { get; set; }
+
         public Command OpenStoryCommand { get; }
 
         public NewsStoryModel()

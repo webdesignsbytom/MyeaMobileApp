@@ -90,12 +90,15 @@
 	  <None Remove="Resources\Images\Goals\reduce_goal.png" />
 	  <None Remove="Resources\Images\Goals\research_goal.png" />
 	  <None Remove="Resources\Images\Goals\unite_goal.png" />
+	  <None Remove="Resources\Images\Icons\account_icon.svg" />
 	  <None Remove="Resources\Images\Icons\admin_icon.png" />
 	  <None Remove="Resources\Images\Icons\checkmark_icon.png" />
+	  <None Remove="Resources\Images\Icons\developer_icon.svg" />
 	  <None Remove="Resources\Images\Icons\facebook_icon.png" />
 	  <None Remove="Resources\Images\Icons\home_icon.png" />
 	  <None Remove="Resources\Images\Icons\instagram_icon.png" />
 	  <None Remove="Resources\Images\Icons\pet_icon.png" />
+	  <None Remove="Resources\Images\Icons\pet_icon.svg" />
 	  <None Remove="Resources\Images\Icons\threads_icon.png" />
 	  <None Remove="Resources\Images\Icons\User_Icon.png" />
 	  <None Remove="Resources\Images\Icons\youtube_icon.png" />
@@ -210,10 +213,16 @@
 	  <MauiImage Include="Resources\Images\Goals\unite_goal.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Icons\account_icon.svg">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
 	  <MauiImage Include="Resources\Images\Icons\admin_icon.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </MauiImage>
 	  <MauiImage Include="Resources\Images\Icons\checkmark_icon.png">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Icons\developer_icon.svg">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </MauiImage>
 	  <MauiImage Include="Resources\Images\Icons\facebook_icon.png">
@@ -225,9 +234,7 @@
 	  <MauiImage Include="Resources\Images\Icons\instagram_icon.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </MauiImage>
-	  <MauiImage Include="Resources\Images\Icons\pet_icon.png">
-	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	  </MauiImage>
+	  <MauiImage Include="Resources\Images\Icons\pet_icon.svg" />
 	  <MauiImage Include="Resources\Images\Icons\threads_icon.png">
 	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	  </MauiImage>

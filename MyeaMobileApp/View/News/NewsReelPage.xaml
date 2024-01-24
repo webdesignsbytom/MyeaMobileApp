@@ -5,10 +5,11 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="NavButtonStyle" TargetType="Button">
-                <Setter Property="BackgroundColor" Value="#4CAF50"/>
-                <Setter Property="TextColor" Value="White"/>
+                <Setter Property="BackgroundColor" Value="White"/>
+                <Setter Property="TextColor" Value="#17aa1f"/>
                 <Setter Property="CornerRadius" Value="5"/>
-                <Setter Property="HeightRequest" Value="50"/>
+                <Setter Property="FontSize" Value="12"/>
+                <Setter Property="Padding" Value="10,0"/>
                 <Setter Property="FontAttributes" Value="Bold"/>
             </Style>
         </ResourceDictionary>
@@ -20,28 +21,24 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <Grid>
+        <Grid Grid.Row="0" Padding="10" Background="#17aa1f">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <!-- Semi-transparent green bar -->
-            <StackLayout BackgroundColor="#00000080" Padding="10" Grid.Column="0">
-                <Button Text="Home" 
-                    Style="{StaticResource NavButtonStyle}" 
-                    Command="{Binding NavigateToMainPageCommand}"/>
+            <!-- Left Button -->
+            <StackLayout BackgroundColor="#00000080" Grid.Column="0" HorizontalOptions="Start">
+                <Button Text="Home" Command="{Binding NavigateToMainPageCommand}" Style="{StaticResource NavButtonStyle}" HorizontalOptions="Start"/>
             </StackLayout>
 
-            <HorizontalStackLayout Grid.Column="0">
-                <Button Text="All" 
-                    Style="{StaticResource NavButtonStyle}" 
-                    Command="{Binding NavigateToMainPageCommand}"/>
-                <Button Text="Good" 
-                    Style="{StaticResource NavButtonStyle}" 
-                    Command="{Binding NavigateToMainPageCommand}"/>
+            <!-- Right Buttons -->
+            <HorizontalStackLayout Grid.Column="1" HorizontalOptions="End" Spacing="10">
+                <Button Text="All News" Command="{Binding SelectAllNewsCommand}" Style="{StaticResource NavButtonStyle}"/>
+                <Button Text="Good News" Command="{Binding SelectGoodNewsCommand}" Style="{StaticResource NavButtonStyle}"/>
             </HorizontalStackLayout>
         </Grid>
+
 
         <!-- Scrollable content for news stories -->
         <ScrollView Grid.Row="1">

@@ -15,8 +15,30 @@ namespace MyeaMobileApp.ViewModel.News
             LoadNewsStories();
         }
 
+        // Select all news
+        [RelayCommand]
+        private void SelectAllNews()
+        {
+            LoadNewsStories();
+        }
+
+        // Select good news
+        [RelayCommand]
+        private void SelectGoodNews()
+        {
+            var goodNews = NewsStories.Where(story => story.IsGoodNews).ToList();
+            NewsStories.Clear();
+            foreach (var story in goodNews)
+            {
+                NewsStories.Add(story);
+            }
+        }        
+
         private void LoadNewsStories()
         {
+            // Clear existing stories
+            NewsStories.Clear();
+
             // Call your API to get news stories and add them to the NewsStories collection
             NewsStories.Add(new NewsStoryModel
             {
@@ -25,7 +47,8 @@ namespace MyeaMobileApp.ViewModel.News
                 StoryId = "001",
                 ImageUrl = "https://example.com/image1.jpg",
                 DatePublished = "2023-12-01",
-                Keywords = "Keyword1, Keyword2"
+                Keywords = "Keyword1, Keyword2",
+                IsGoodNews = false
             });
 
             // Additional fake stories
@@ -36,7 +59,8 @@ namespace MyeaMobileApp.ViewModel.News
                 StoryId = "002",
                 ImageUrl = "https://example.com/image2.jpg",
                 DatePublished = "2023-12-05",
-                Keywords = "Technology, Innovation"
+                Keywords = "Technology, Innovation",
+                IsGoodNews = false
             });
 
             NewsStories.Add(new NewsStoryModel
@@ -46,7 +70,8 @@ namespace MyeaMobileApp.ViewModel.News
                 StoryId = "003",
                 ImageUrl = "https://example.com/image3.jpg",
                 DatePublished = "2023-12-10",
-                Keywords = "Economy, Global"
+                Keywords = "Economy, Global",
+                IsGoodNews = false
             });
 
             NewsStories.Add(new NewsStoryModel
@@ -56,7 +81,8 @@ namespace MyeaMobileApp.ViewModel.News
                 StoryId = "004",
                 ImageUrl = "https://example.com/image4.jpg",
                 DatePublished = "2023-12-15",
-                Keywords = "Environment, Climate Change"
+                Keywords = "Environment, Climate Change",
+                IsGoodNews = false
             });
 
             NewsStories.Add(new NewsStoryModel
@@ -66,7 +92,8 @@ namespace MyeaMobileApp.ViewModel.News
                 StoryId = "005",
                 ImageUrl = "https://example.com/image5.jpg",
                 DatePublished = "2023-12-20",
-                Keywords = "Green Energy, Sustainability"
+                Keywords = "Green Energy, Sustainability",
+                IsGoodNews = true
             });
 
             NewsStories.Add(new NewsStoryModel
@@ -76,7 +103,8 @@ namespace MyeaMobileApp.ViewModel.News
                 StoryId = "006",
                 ImageUrl = "https://example.com/image6.jpg",
                 DatePublished = "2023-12-25",
-                Keywords = "AI, Technology"
+                Keywords = "AI, Technology",
+                IsGoodNews = true
             });
 
             NewsStories.Add(new NewsStoryModel
@@ -86,7 +114,8 @@ namespace MyeaMobileApp.ViewModel.News
                 StoryId = "007",
                 ImageUrl = "https://example.com/image7.jpg",
                 DatePublished = "2023-12-30",
-                Keywords = "Conservation, Environment"
+                Keywords = "Conservation, Environment",
+                IsGoodNews = true
             });
 
             NewsStories.Add(new NewsStoryModel
@@ -96,7 +125,8 @@ namespace MyeaMobileApp.ViewModel.News
                 StoryId = "008",
                 ImageUrl = "https://example.com/image8.jpg",
                 DatePublished = "2024-01-04",
-                Keywords = "Healthcare, Medical Innovation"
+                Keywords = "Healthcare, Medical Innovation",
+                IsGoodNews = true
             });
 
             NewsStories.Add(new NewsStoryModel
@@ -106,10 +136,12 @@ namespace MyeaMobileApp.ViewModel.News
                 StoryId = "009",
                 ImageUrl = "https://example.com/image9.jpg",
                 DatePublished = "2024-01-09",
-                Keywords = "Oceanography, Exploration"
+                Keywords = "Oceanography, Exploration",
+                IsGoodNews = true
             });
         }
 
+        
         // Navigate home
         [RelayCommand]
         public async Task NavigateToMainPage()

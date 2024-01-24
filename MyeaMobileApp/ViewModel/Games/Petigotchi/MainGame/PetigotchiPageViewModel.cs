@@ -71,8 +71,6 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
 
         // Movement
         private float moveStep = 1.0f;
-        private float totalMovement = 0;
-        private const float MaxMovement = 50.0f;
 
         public PetigotchiPageViewModel(PetigotchiApiService petigotchiApi, UserModel user, PetigotchiModel petigotchiModel, ProfileModel profileModel)
         {
@@ -81,7 +79,7 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
             User = user;
             Profile = profileModel;
 
-            Console.WriteLine("VM1111111111111111111111111111");
+            Console.WriteLine("VM1111111111111111111111111111111111111111111111111111");
 
 
             // Start game loop
@@ -90,27 +88,26 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
 
         public void SetUpGame() 
         {
-            Console.WriteLine("VM222222222222222222222222222222222");
+            Console.WriteLine("VM22222222222222222222222222222222222222222222222222");
             // Create animations to use in game
             CreateGameBitmapAnimations();
-            Console.WriteLine("VM2222222222222223333333333333333333");
+            Console.WriteLine("VM222222222233333333333332222233333333333333333333333333333");
             // Set stats from model
             SetUserStats();
             SetPetStats();
             SetTimers();
-            Console.WriteLine("VM2222222222222224444444444444444");
+            Console.WriteLine("VM2222222222222222222222222224444444444444444444444444444444");
         }        
        
-
-
         private void SetTimers()
         {
             SetHungerTimer();
             SetGameTimer();
         }
+
         public void CreateGameBitmapAnimations()
         {
-            Console.WriteLine("VMCreateGameBitmapAnimations");
+            Console.WriteLine("VMCreateGameBitmapAnimations333333333333333333333333333333333");
             // Image source
             string imageSource = "MyeaMobileApp.Resources.Images.Games.";
 
@@ -151,10 +148,30 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
 
         private void OnGameTimerElapsed(object source, ElapsedEventArgs e)
         {
-            Console.WriteLine("##############################");
+            bool direction = false;
+
             MainThread.BeginInvokeOnMainThread(() =>
             {
-                PetigotchiModel.UpdatePetPosition((float)moveStep, (float)0);
+                if (PetigotchiModel.Xpos < (deviceCanvasWidth / 2) && !direction)
+                {
+                    PetigotchiModel.UpdatePetPosition((float)1, (float)0);
+                    if (PetigotchiModel.Xpos == (deviceCanvasWidth / 2))
+                    {
+                        direction = true;
+                    }
+                }
+                else if (PetigotchiModel.Xpos > 0)
+                {
+                    PetigotchiModel.UpdatePetPosition((float)-1, (float)0);
+/*                    if (PetigotchiModel.Xpos < (deviceCanvasWidth / 2))
+                    {
+                        direction = true;
+                    }*/
+                }
+                /*     else if (PetigotchiModel.Xpos == 0 || PetigotchiModel.Xpos == (deviceCanvasWidth / 10))
+                     {
+                         direction = !direction;
+                     }*/
             });
         }
 
@@ -162,6 +179,18 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
         private void SetUserStats()
         {
             IsFirstTimeNaming = User.IsFirstTimeNaming;
+
+            var screenMetrics = DeviceDisplay.MainDisplayInfo; // Get the screen metrics
+
+            // Set the canvas size to match the screen size
+            deviceCanvasWidth = (double)screenMetrics.Width / screenMetrics.Density;
+            deviceCanvasHeight = (double)screenMetrics.Height / screenMetrics.Density;
+
+            // Calculate the center position
+            double centerX = (deviceCanvasWidth / 2) - (petBitmap.Width / 2);
+            double centerY = (deviceCanvasHeight / 2) - (petBitmap.Height / 2);
+
+            PetigotchiModel.UpdatePetPosition((float)centerX / 10, (float)centerY / 10);
         }
 
         private void SetPetStats()
@@ -182,30 +211,17 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
         // Game Images
         private SKBitmap petBitmap;
 
-
-
-
-        // Add properties for animation
-        public bool MovingToLeftCorner { get; private set; } = false;
-
-        private bool isStartingAnimationDrawn = false;
-
-        // Set canvas from codebehind
+        // Set canvas from codebehind and runs draw animations
         public void GameLoop(SKCanvas canvas)
         {
             gameCanvas = canvas;
-
-            var screenMetrics = DeviceDisplay.MainDisplayInfo; // Get the screen metrics
-
-            // Set the canvas size to match the screen size
-            deviceCanvasWidth = (double)screenMetrics.Width / screenMetrics.Density;
-            deviceCanvasHeight = (double)screenMetrics.Height / screenMetrics.Density;
+            DrawGameAnimations();
         }
 
-
+        // Draw pet animations on canvas
         public void DrawGameAnimations()
         {
-            Console.WriteLine("VMDrawStartingAnimation");
+            Console.WriteLine("VMDrawStartingAnimation444444444444444444444444444444444444");
 
             if (gameCanvas == null)
             {
@@ -216,11 +232,6 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
 
             var catPos = mat.Invert().MapPoint((float)PetigotchiModel.Xpos, (float)PetigotchiModel.Ypos);
             gameCanvas.DrawBitmap(petBitmap, new SKPoint(catPos.X, catPos.Y), new SKPaint());
-
-            // Calculate the center position
-            double centerX = (deviceCanvasWidth - petBitmap.Width) / 2;
-            double centerY = (deviceCanvasHeight - petBitmap.Height) / 2;
-            Console.WriteLine($"XXXXXXXXXXX {centerX}:{centerY}");
         }
 
 
