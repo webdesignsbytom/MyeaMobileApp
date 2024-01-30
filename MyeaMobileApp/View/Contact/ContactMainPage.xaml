@@ -62,9 +62,30 @@
                 </Label>
 
                 <VerticalStackLayout HorizontalOptions="Center">
-                    <Label Text="hello@myecoapp.org" Style="{StaticResource GeneralSpanStyle}"/>
-                    <Label Text="info@myecoapp.org" Style="{StaticResource GeneralSpanStyle}"/>
-                    <Label Text="admin@myecoapp.org" Style="{StaticResource GeneralSpanStyle}"/>
+                    <Label Margin="0,5">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="hello" FontAttributes="Bold" TextColor="#17aa1f" FontSize="18"/>
+                                <Span Text="@myecoapp.org" Style="{StaticResource GeneralSpanStyle}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>                    
+                    <Label Margin="0,5">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="info" FontAttributes="Bold" TextColor="#17aa1f" FontSize="18"/>
+                                <Span Text="@myecoapp.org" Style="{StaticResource GeneralSpanStyle}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label Margin="0,5">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="admin" FontAttributes="Bold" TextColor="#17aa1f" FontSize="18"/>
+                                <Span Text="@myecoapp.org" Style="{StaticResource GeneralSpanStyle}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
                 </VerticalStackLayout>
 
                 <!-- Home Button -->

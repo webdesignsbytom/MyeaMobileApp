@@ -40,9 +40,17 @@
 
         public void UpdatePetPosition(float xPos, float yPos)
         {
-            Console.WriteLine("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM");
-
             Xpos += xPos;
+            Ypos += yPos;
+        }        
+        
+        public void UpdatePetXPosition(float xPos)
+        {
+            Xpos += xPos;
+        }   
+        
+        public void UpdatePetYPosition(float yPos)
+        {
             Ypos += yPos;
         }
     }

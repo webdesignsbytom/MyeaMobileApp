@@ -93,10 +93,9 @@
                 <Label Text="Digital designers, help us design a difference! Your expertise in crafting compelling digital experiences is key to spreading awareness about environmental issues. Collaborate with us to create impactful designs that resonate with hearts and minds." Style="{StaticResource GeneralTextStyle}"/>
 
                 <!-- Legal Advice Section -->
-                <Label Text="Digital Design" Style="{StaticResource SectionLabelStyle}"/>
+                <Label Text="Legal Advice" Style="{StaticResource SectionLabelStyle}"/>
                 <Label Text="Legal experts, guide us on the path of green justice! Your knowledge in legal matters can greatly aid our environmental initiatives. Join us in navigating the legal landscapes to protect and preserve our natural world." Style="{StaticResource GeneralTextStyle}"/>
-                
-                
+                              
 
                 <!-- Donate Button -->
                 <donate:DonateViaPayPalButton />

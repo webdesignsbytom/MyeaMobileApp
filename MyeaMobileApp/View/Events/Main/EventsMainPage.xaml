@@ -45,7 +45,7 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="Host and Share Your Events!" FontAttributes="Bold" TextColor="#17aa1f" FontSize="18"/>
-                            <Span Text=" Anything you want to share with the community then feel free. We would love to see you either having a well earned break in a beautiful area, or out helping whatever your cause may be. Put it here and raise some interest." Style="{StaticResource GeneralTextStyle}"/>
+                            <Span Text=" Anything you want to share with the community then feel free. We would love to see you either having a good time at a good cause. These can be anything within the spirit of myecoapp." Style="{StaticResource GeneralTextStyle}"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>

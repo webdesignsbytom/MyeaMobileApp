@@ -10,6 +10,13 @@ namespace MyeaMobileApp.ViewModel.Goals
         {
             await Shell.Current.GoToAsync("///ContactMainPage");
         }
+                     
+        // Navigate funding
+        [RelayCommand]
+        public async Task NavigateToFundingPage()
+        {
+            await Shell.Current.GoToAsync("///FundingPage");
+        }
 
         // Navigate home
         [RelayCommand]

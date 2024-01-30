@@ -1,5 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using Microsoft.Maui.Controls.Shapes;
 using MyeaMobileApp.Model;
 using MyeaMobileApp.Model.Games;
 using MyeaMobileApp.Model.User;
@@ -69,9 +70,6 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
         // Hunger
         public Timer petHungerTimer;
 
-        // Movement
-        private float moveStep = 1.0f;
-
         public PetigotchiPageViewModel(PetigotchiApiService petigotchiApi, UserModel user, PetigotchiModel petigotchiModel, ProfileModel profileModel)
         {
             PetigotchiApi = petigotchiApi;
@@ -86,7 +84,7 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
             SetUpGame();
         }
 
-        public void SetUpGame() 
+        public void SetUpGame()
         {
             Console.WriteLine("VM22222222222222222222222222222222222222222222222222");
             // Create animations to use in game
@@ -97,8 +95,8 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
             SetPetStats();
             SetTimers();
             Console.WriteLine("VM2222222222222222222222222224444444444444444444444444444444");
-        }        
-       
+        }
+
         private void SetTimers()
         {
             SetHungerTimer();
@@ -111,8 +109,15 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
             // Image source
             string imageSource = "MyeaMobileApp.Resources.Images.Games.";
 
-            using var petCatBitmapStream = Assembly.GetExecutingAssembly().GetManifestResourceStream($"{imageSource}cat1.png");
-            petBitmap = SKBitmap.Decode(petCatBitmapStream).Resize(new SKImageInfo(200, 300), SKFilterQuality.Low);
+            // Create varisou image sizes
+            using var petCatRegularBitmapStream = Assembly.GetExecutingAssembly().GetManifestResourceStream($"{imageSource}cat1.png");
+            petBitmapRegular = SKBitmap.Decode(petCatRegularBitmapStream).Resize(new SKImageInfo(200, 300), SKFilterQuality.Low);
+
+            using var petCatLargeBitmapStream = Assembly.GetExecutingAssembly().GetManifestResourceStream($"{imageSource}cat1.png");
+            petBitmapLarge = SKBitmap.Decode(petCatLargeBitmapStream).Resize(new SKImageInfo(230, 350), SKFilterQuality.Low);
+
+            using var petCatSmallBitmapStream = Assembly.GetExecutingAssembly().GetManifestResourceStream($"{imageSource}cat1.png");
+            petBitmapSmall = SKBitmap.Decode(petCatSmallBitmapStream).Resize(new SKImageInfo(160, 250), SKFilterQuality.Low);
         }
 
         private void SetHungerTimer()
@@ -152,30 +157,30 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
 
             MainThread.BeginInvokeOnMainThread(() =>
             {
-                if (PetigotchiModel.Xpos < (deviceCanvasWidth / 2) && !direction)
-                {
-                    PetigotchiModel.UpdatePetPosition((float)1, (float)0);
-                    if (PetigotchiModel.Xpos == (deviceCanvasWidth / 2))
-                    {
-                        direction = true;
-                    }
-                }
-                else if (PetigotchiModel.Xpos > 0)
-                {
-                    PetigotchiModel.UpdatePetPosition((float)-1, (float)0);
-/*                    if (PetigotchiModel.Xpos < (deviceCanvasWidth / 2))
-                    {
-                        direction = true;
-                    }*/
-                }
-                /*     else if (PetigotchiModel.Xpos == 0 || PetigotchiModel.Xpos == (deviceCanvasWidth / 10))
-                     {
-                         direction = !direction;
-                     }*/
+                /*  if (PetigotchiModel.Xpos < (deviceCanvasWidth / 2) && !direction)
+                  {
+                      PetigotchiModel.UpdatePetPosition((float)1, (float)0);
+                      if (PetigotchiModel.Xpos == (deviceCanvasWidth / 2))
+                      {
+                          direction = true;
+                      }
+                  }
+                  else if (PetigotchiModel.Xpos > 0)
+                  {
+                      PetigotchiModel.UpdatePetPosition((float)-1, (float)0);
+                      *//*                    if (PetigotchiModel.Xpos < (deviceCanvasWidth / 2))
+                                          {
+                                              direction = true;
+                                          }*//*
+                  }
+                  *//*     else if (PetigotchiModel.Xpos == 0 || PetigotchiModel.Xpos == (deviceCanvasWidth / 10))
+                       {
+                           direction = !direction;
+                       }*/
             });
         }
 
-        
+
         private void SetUserStats()
         {
             IsFirstTimeNaming = User.IsFirstTimeNaming;
@@ -187,8 +192,8 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
             deviceCanvasHeight = (double)screenMetrics.Height / screenMetrics.Density;
 
             // Calculate the center position
-            double centerX = (deviceCanvasWidth / 2) - (petBitmap.Width / 2);
-            double centerY = (deviceCanvasHeight / 2) - (petBitmap.Height / 2);
+            double centerX = (deviceCanvasWidth / 2) - (petBitmapRegular.Width / 2);
+            double centerY = (deviceCanvasHeight / 2) - (petBitmapRegular.Height / 2);
 
             PetigotchiModel.UpdatePetPosition((float)centerX / 10, (float)centerY / 10);
         }
@@ -209,7 +214,10 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
         public double deviceCanvasHeight;
 
         // Game Images
-        private SKBitmap petBitmap;
+        private SKBitmap petBitmapRegular;
+        private SKBitmap petBitmapLarge;
+        private SKBitmap petBitmapSmall;
+        public bool DirectionLeft { get; set; } = true;
 
         // Set canvas from codebehind and runs draw animations
         public void GameLoop(SKCanvas canvas)
@@ -230,15 +238,44 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
 
             var mat = SKMatrix.CreateScale(1.0f, 1.0f);
 
+            var imageSizeSelected = petBitmapRegular;
+
             var catPos = mat.Invert().MapPoint((float)PetigotchiModel.Xpos, (float)PetigotchiModel.Ypos);
-            gameCanvas.DrawBitmap(petBitmap, new SKPoint(catPos.X, catPos.Y), new SKPaint());
+            gameCanvas.DrawBitmap(imageSizeSelected, new SKPoint(catPos.X, catPos.Y), new SKPaint());
+
+            var playerRect = mat.Invert().MapRect(new SKRect(PetigotchiModel.Xpos - 15, PetigotchiModel.Ypos, PetigotchiModel.Xpos + imageSizeSelected.Width, PetigotchiModel.Ypos + imageSizeSelected.Height));
+
+            gameCanvas.DrawRect(playerRect, new SKPaint()
+            {
+                IsStroke = true,
+                Color = SKColors.Red
+            });
+
+            if (DirectionLeft)
+            {
+                if (PetigotchiModel.Xpos >= deviceCanvasWidth - 150)
+                {
+                    DirectionLeft = false;
+                }
+                PetigotchiModel.UpdatePetXPosition(1.0f);
+            }
+            else
+            {
+
+                PetigotchiModel.UpdatePetXPosition(-1.0f);
+
+                if (PetigotchiModel.Xpos <= 0)
+                {
+                    DirectionLeft = true;
+                }
+            }
         }
 
 
         // Name pet            
         public int bonusAmount = 50;
         [ObservableProperty]
-        public bool isUpdatingName = false;        
+        public bool isUpdatingName = false;
         [ObservableProperty]
         public bool isNameButtonVisible = true;
 
@@ -266,6 +303,18 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
         }
 
 
+        // Screen tap listeners
+        [ObservableProperty]
+        public int totalScreenTaps = 0;
+
+        [RelayCommand]
+        public void ScreenTappedListener()
+        {
+            TotalScreenTaps++;
+        }
+
+
+
         // Navigate to highscores
         [RelayCommand]
         public async Task NavigateToHighscoresPage()
@@ -280,8 +329,8 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
             // Logic to open myecoapp.org page
             string url = "https://www.mecoapp.org/games2";
             Browser.OpenAsync(url, BrowserLaunchMode.SystemPreferred);
-        }        
-        
+        }
+
         // Open Settings
         [RelayCommand]
         public async Task OpenSettingsMenu()
@@ -351,8 +400,8 @@ namespace MyeaMobileApp.ViewModel.Games.Petigotchi.MainGame
         public async Task EatTaco()
         {
             Hunger = Math.Max(0, Hunger - 10);
-        }        
-        
+        }
+
         [RelayCommand]
         public async Task PlayBallGames()
         {

@@ -89,6 +89,7 @@ namespace MyeaMobileApp
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseAptabase("A-EU-3792516858")
                 .UseSkiaSharp()
                 .ConfigureFonts(fonts =>
                 {
@@ -188,6 +189,7 @@ namespace MyeaMobileApp
             builder.Services.AddSingleton<AchievementModel>();
             builder.Services.AddSingleton<PlannedEventModel>();
             builder.Services.AddSingleton<AdvertModel>();
+            builder.Services.AddSingleton<LevelsModelList>();
             /* Api services */
             builder.Services.AddSingleton<UserApiService>();
             builder.Services.AddSingleton<LoginApi>();

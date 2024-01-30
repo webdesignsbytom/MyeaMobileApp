@@ -46,7 +46,14 @@ namespace MyeaMobileApp.ViewModel.Main
                 IsFirstTimePopupVisible = true;
                 User.IsFirstTimeOpeningApp = false; // update the user model to reflect that the first launch has been acknowledged
                                                     // You might want to save this change to your data store or preferences
+                await LoadStarterDataFromServer();
+
             }
+        }
+
+        private async Task LoadStarterDataFromServer()
+        {
+
         }
 
         public async Task LoadData()

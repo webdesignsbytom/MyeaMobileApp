@@ -68,7 +68,7 @@
     <AbsoluteLayout>
         <Grid AbsoluteLayout.LayoutFlags="All"
               AbsoluteLayout.LayoutBounds="0,0,1,1">
-            
+
             <skia:SKCanvasView 
                 x:Name="canvasView" 
                 PaintSurface="OnPaintSurface"

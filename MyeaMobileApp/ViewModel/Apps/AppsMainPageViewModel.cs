@@ -21,10 +21,16 @@ namespace MyeaMobileApp.ViewModel.Apps
                     Description = "Our website where we sell using dropshipping so we have no outgoing costs, and all profits go towards the environment and our projects"
                     },
                 new WebProductModel {
-                    Name = "MyEco Home",
-                    Url = "https://myecoapp.org/myecohome",
+                    Name = "MyEcoHome",
+                    Url = "https://myecoapp.org/",
                     ImageUrl = "https://greeninnovate.com/image.jpg",
                     Description = "We created a series of homepages you can set your browser to, all with interesting features you will enjoy and that makes us a small amount of money per use."
+                    },                
+                new WebProductModel {
+                    Name = "The Bored User",
+                    Url = "https://the_bored_user.com/",
+                    ImageUrl = "https://greeninnovate.com/image.jpg",
+                    Description = "If you need entertainment we have memes, pop culture, jokes and daily life articles. Check out the bored user and have a laugh or learn something new."
                     },
             };            
             

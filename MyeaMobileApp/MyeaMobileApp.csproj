@@ -44,6 +44,8 @@
 		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</MauiIcon>
 		<MauiIcon Include="Resources\AppIcon\icon_svg.svg" BaseSize="58,58" />
+		<MauiIcon Include="Resources\AppIcon\myea_nb_160.svg" />
+		<MauiIcon Include="Resources\AppIcon\myea_nb_80.svg" />
 
 		<!-- Splash Screen -->
 		<MauiSplashScreen Include="Resources\Splash\splash_logo.svg" Color="#17aa1f" BaseSize="128,128" />
@@ -60,6 +62,8 @@
 
 	<ItemGroup>
 	  <None Remove="Resources\AppIcon\appicon.svg" />
+	  <None Remove="Resources\AppIcon\myea_nb_160.svg" />
+	  <None Remove="Resources\AppIcon\myea_nb_80.svg" />
 	  <None Remove="Resources\Fonts\SegoeIcons.ttf" />
 	  <None Remove="Resources\Fonts\Seven-Segment.ttf" />
 	  <None Remove="Resources\Images\Badges\badge1.png" />
@@ -110,6 +114,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
+		<PackageReference Include="Aptabase.Maui" Version="0.0.8" />
 		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.2" />
 		<PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
 		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
